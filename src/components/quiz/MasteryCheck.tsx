@@ -90,7 +90,7 @@ export default function MasteryCheck({ moduleId, items, nextHref, nextTitle }: P
         {confidentMisses > 0 && ` ${confidentMisses} confident miss${confidentMisses > 1 ? 'es' : ''}: worth a second look.`}
       </p>
       <div className="row">
-        {nextHref && <a href={nextHref} className="btn btn-primary">Next: {nextTitle}</a>}
+        {nextHref && <a href={nextHref} className="btn btn-primary btn-wrap">Next: {nextTitle}</a>}
         <button type="button" className="btn btn-secondary" onClick={() => setPhase('intro')}>Retake</button>
       </div>
     </div>

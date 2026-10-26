@@ -215,7 +215,7 @@ export default function Placement({ tracks, modules, bank, base }: Props) {
           <div style={{ fontSize: '1.1rem' }}>{n === total ? 'You place past the entire track.' : n === 0 ? 'This track starts at the beginning for you.' : `You place past ${n} module${n > 1 ? 's' : ''}.`}</div>
           <TrackStrip mods={byTrack[lastTrack]} lo={n} hi={n} mid={-1} />
         </div>
-        <button type="button" className="btn btn-primary btn-lg" style={{ marginTop: 28 }} onClick={nextTrack} autoFocus>
+        <button type="button" className="btn btn-primary btn-lg btn-wrap" style={{ marginTop: 28 }} onClick={nextTrack} autoFocus>
           Next: Track {nextT.numeral} · {nextT.title}
         </button>
       </div>
@@ -299,7 +299,7 @@ export default function Placement({ tracks, modules, bank, base }: Props) {
         </div>
       </div>
       <div className="row" style={{ marginTop: 28 }}>
-        {firstOpen && <a className="btn btn-primary btn-lg" href={`${base}/learn/${firstOpen.id}/`}>Start with {firstOpen.title}</a>}
+        {firstOpen && <a className="btn btn-primary btn-lg btn-wrap" href={`${base}/learn/${firstOpen.id}/`}>Start with {firstOpen.title}</a>}
         <a className="btn btn-ghost btn-lg" href={`${base}/path/`}>See my path</a>
         <button type="button" className="btn btn-ghost btn-lg" onClick={() => window.location.reload()}>Retake</button>
       </div>

@@ -22,7 +22,7 @@ export default function CalibrationChart({ points, size = 320 }: { points: Calib
     <div>
       <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ maxWidth: size }} role="img" aria-label="Your calibration">
         <Axis scale={y} orient="left" at={m.l} length={[H - m.b, m.t]} grid={W - m.r} ticks={[0, 0.25, 0.5, 0.75, 1]} format={(v) => `${v * 100}%`} label="actually correct" />
-        <Axis scale={x} orient="bottom" at={H - m.b} length={[m.l, W - m.r]} ticks={LEVELS} format={(v) => `${Math.round(v * 100)}%`} label="your stated confidence" />
+        <Axis scale={x} orient="bottom" at={H - m.b} length={[m.l, W - m.r]} ticks={LEVELS} format={(v) => String(Math.round(v * 100))} label="your stated confidence (%)" />
         <line x1={x(0.45)} y1={y(0.45)} x2={x(1)} y2={y(1)} style={{ stroke: 'var(--fg-3)', strokeDasharray: '4 4' }} />
         {bins.length > 1 && <path d={path(bins.map((bb) => [x(bb.c), y(bb.acc!)]))} style={{ fill: 'none', stroke: palette[0], strokeWidth: 2.5 }} />}
         {bins.map((bb) => (
@@ -35,7 +35,7 @@ export default function CalibrationChart({ points, size = 320 }: { points: Calib
       <div className="small muted" style={{ marginTop: 6 }}>
         {points.length ? (
           <>Brier score <strong style={{ color: 'var(--fg)' }}>{b.toFixed(3)}</strong> across {points.length} answers (0 is perfect; always saying 50% scores 0.25). Points above the dashed line mean you were underconfident; below it, overconfident.</>
-        ) : 'Answer questions with confidence wagers to build your calibration record.'}
+        ) : 'Wager on your answers to build this chart.'}
       </div>
     </div>
   );
