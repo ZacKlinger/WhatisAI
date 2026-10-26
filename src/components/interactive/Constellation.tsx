@@ -17,6 +17,17 @@ interface Props {
 
 const TRACK_COLORS = ['#f2a65a', '#5b8cff', '#2fbf8f', '#9b7bff', '#ff7a59', '#3fb8d0', '#ff6fa3', '#d9a521', '#6f8fff', '#e86fd1'];
 
+/** Break a track title into lines short enough to fit its column. */
+function wrapTitle(title: string, max = 12): string[] {
+  const lines: string[] = [];
+  for (const word of title.split(' ')) {
+    const last = lines[lines.length - 1];
+    if (last && (last + ' ' + word).length <= max) lines[lines.length - 1] = `${last} ${word}`;
+    else lines.push(word);
+  }
+  return lines;
+}
+
 export default function Constellation({ modules, tracks, base, statusOverride, highlight = [], compact }: Props) {
   const progress = useProgress();
   const hydrated = useHydrated();
@@ -32,7 +43,7 @@ export default function Constellation({ modules, tracks, base, statusOverride, h
       const offset = Math.sin(ti * 1.3) * 26;
       mods.forEach((m, i) => {
         const jitter = Math.sin((ti + 1) * (i + 2) * 2.17) * (colW * 0.22);
-        pos[m.id] = { x: cx + jitter, y: 70 + offset + i * (compact ? 40 : 50), t: ti };
+        pos[m.id] = { x: cx + jitter, y: 108 + offset + i * (compact ? 40 : 50), t: ti };
       });
     });
     return pos;
@@ -50,7 +61,7 @@ export default function Constellation({ modules, tracks, base, statusOverride, h
 
   return (
     <div style={{ position: 'relative' }} className="scroll-x">
-      <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ minWidth: 760, display: 'block' }} role="img" aria-label="Constellation map of every module">
+      <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ minWidth: 960, display: 'block' }} role="img" aria-label="Constellation map of every module">
         <defs>
           <radialGradient id="cst-glow">
             <stop offset="0" stopColor="white" stopOpacity="0.9" />
@@ -59,8 +70,10 @@ export default function Constellation({ modules, tracks, base, statusOverride, h
         </defs>
         {tracks.map((t, ti) => (
           <g key={t.id}>
-            <text x={colW * ti + colW / 2} y={24} textAnchor="middle" style={{ fontSize: 11, fill: 'var(--fg-3)', letterSpacing: '0.04em' }}>{t.numeral}</text>
-            <text x={colW * ti + colW / 2} y={40} textAnchor="middle" style={{ fontSize: 11.5, fill: 'var(--fg-2)', fontWeight: 550 }}>{t.title}</text>
+            <text x={colW * ti + colW / 2} y={20} textAnchor="middle" style={{ fontSize: 11, fill: 'var(--fg-3)', letterSpacing: '0.04em' }}>{t.numeral}</text>
+            <text x={colW * ti + colW / 2} y={37} textAnchor="middle" style={{ fontSize: 12, fill: 'var(--fg-2)', fontWeight: 550 }}>
+              {wrapTitle(t.title).map((line, li) => <tspan key={li} x={colW * ti + colW / 2} dy={li ? 14 : 0}>{line}</tspan>)}
+            </text>
           </g>
         ))}
         {/* prerequisite edges */}
