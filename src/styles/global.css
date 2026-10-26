@@ -321,8 +321,9 @@ a.card:hover, .card.hoverable:hover { border-color: var(--line-2); transform: tr
 
 /* ---------- prose (lessons) ---------- */
 .prose { font-size: 1.075rem; line-height: 1.75; color: var(--fg); }
+.prose :where(p, ul, ol, blockquote, table, pre) { margin: 0; }
 .prose > * + * { margin-top: 1.15em; }
-.prose p { margin: 0; text-wrap: pretty; }
+.prose p { text-wrap: pretty; }
 .prose > p:first-of-type { font-family: var(--font-serif); font-size: 1.28rem; line-height: 1.6; letter-spacing: -0.005em; color: var(--fg); }
 .prose h2 { margin-top: 2.6em; margin-bottom: 0.2em; font-size: clamp(1.5rem, 2.6vw, 1.95rem); scroll-margin-top: calc(var(--nav-h) + 24px); }
 .prose h3 { margin-top: 2em; scroll-margin-top: calc(var(--nav-h) + 24px); }
@@ -330,10 +331,10 @@ a.card:hover, .card.hoverable:hover { border-color: var(--line-2); transform: tr
 .prose a { text-decoration: underline; text-decoration-color: var(--line-3); text-underline-offset: 3px; }
 .prose a:hover { text-decoration-color: currentColor; }
 .prose strong { font-weight: 620; }
-.prose ul, .prose ol { padding-left: 1.3em; margin: 0; }
+.prose ul, .prose ol { padding-left: 1.3em; margin-bottom: 0; }
 .prose li + li { margin-top: 0.4em; }
 .prose li::marker { color: var(--fg-3); }
-.prose blockquote { margin: 0; padding: 4px 0 4px 22px; border-left: 2px solid var(--line-3); font-family: var(--font-serif); font-size: 1.15rem; color: var(--fg-2); }
+.prose blockquote { margin-inline: 0; margin-bottom: 0; padding: 4px 0 4px 22px; border-left: 2px solid var(--line-3); font-family: var(--font-serif); font-size: 1.15rem; color: var(--fg-2); }
 .prose code { font-family: var(--font-mono); font-size: 0.86em; background: var(--bg-muted); padding: 0.15em 0.4em; border-radius: 6px; }
 .prose pre { background: var(--bg-soft) !important; border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 20px; overflow-x: auto; font-size: 0.88rem; line-height: 1.6; }
 .prose pre code { background: none; padding: 0; font-size: inherit; }
