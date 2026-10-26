@@ -146,6 +146,9 @@ export function Slider({ label, value, min, max, step = 0.01, onChange, display 
 
 export const palette = ['var(--c1)', 'var(--c2)', 'var(--c3)', 'var(--c4)', 'var(--c5)', 'var(--c6)'];
 
+/** A background-colored outline that keeps an SVG label readable where it crosses lines. */
+export const HALO = { paintOrder: 'stroke', stroke: 'var(--bg-soft)', strokeWidth: 4, strokeLinejoin: 'round' } as const;
+
 export function path(points: [number, number][]): string {
   return points.map((p, i) => `${i ? 'L' : 'M'}${p[0].toFixed(2)},${p[1].toFixed(2)}`).join('');
 }

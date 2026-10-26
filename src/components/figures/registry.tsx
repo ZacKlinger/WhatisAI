@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import type { FigureSpec } from '@/lib/items';
-import { Axis, fmtPow10, linear, log, palette, path } from '@/components/interactive/chart';
+import { Axis, HALO, fmtPow10, linear, log, palette, path } from '@/components/interactive/chart';
 
 export interface FigureProps {
   selected?: string | null;
@@ -63,9 +63,10 @@ function Ring({ fp, id, x, y, w, h, r = 10 }: { fp: FigureProps; id: string; x: 
   return <rect x={x} y={y} width={w} height={h} rx={r} style={{ fill: 'none', stroke: s.stroke, strokeWidth: 2, pointerEvents: 'none' }} />;
 }
 
+/* Figures keep a minimum width so their text stays legible on phones; the frame scrolls sideways instead of shrinking. */
 function Frame({ children, w = 640, h = 300, label }: { children: ReactNode; w?: number; h?: number; label: string }) {
   return (
-    <svg viewBox={`0 0 ${w} ${h}`} width="100%" role="img" aria-label={label} style={{ maxHeight: 420, overflow: 'visible' }}>
+    <svg viewBox={`0 0 ${w} ${h}`} width="100%" role="img" aria-label={label} style={{ maxHeight: 420, minWidth: Math.min(w, 520), overflow: 'visible' }}>
       {children}
     </svg>
   );
@@ -222,7 +223,7 @@ function Calibration(fp: FigureProps) {
 
 /* ---------------- benchmark saturation ---------------- */
 function Saturation(_: FigureProps) {
-  const W = 640, H = 280, m = { l: 52, r: 110, t: 16, b: 44 };
+  const W = 640, H = 290, m = { l: 56, r: 110, t: 28, b: 44 };
   const x = linear(0, 6, m.l, W - m.r);
   const y = linear(0, 100, H - m.b, m.t);
   const s = (k: number, t0: number) => (t: number) => 100 / (1 + Math.exp(-k * (t - t0)));
@@ -274,18 +275,18 @@ function ErrorBars(fp: FigureProps) {
 }
 
 /* ---------------- compute trend (sourced data) ---------------- */
-export const COMPUTE_POINTS: { name: string; year: number; flop: number; est: boolean }[] = [
+export const COMPUTE_POINTS: { name: string; year: number; flop: number; est: boolean; labelLeft?: boolean }[] = [
   { name: 'AlexNet', year: 2012.7, flop: 4.7e17, est: true },
   { name: 'GPT-2', year: 2019.1, flop: 1.5e21, est: true },
   { name: 'GPT-3', year: 2020.4, flop: 3.14e23, est: false },
   { name: 'Chinchilla', year: 2022.2, flop: 5.76e23, est: false },
   { name: 'PaLM', year: 2022.3, flop: 2.5e24, est: false },
-  { name: 'GPT-4', year: 2023.2, flop: 2.1e25, est: true },
+  { name: 'GPT-4', year: 2023.2, flop: 2.1e25, est: true, labelLeft: true },
   { name: 'Llama 3.1 405B', year: 2024.5, flop: 3.8e25, est: false },
 ];
 
 function ComputeTrend(fp: FigureProps) {
-  const W = 640, H = 320, m = { l: 60, r: 24, t: 18, b: 46 };
+  const W = 640, H = 320, m = { l: 64, r: 92, t: 18, b: 46 };
   const x = linear(2012, 2026, m.l, W - m.r);
   const y = log(1e17, 1e27, H - m.b, m.t);
   const showThresholds = fp.thresholds !== false;
@@ -304,10 +305,10 @@ function ComputeTrend(fp: FigureProps) {
       {COMPUTE_POINTS.map((p) => (
         <g key={p.name}>
           <circle cx={x(p.year)} cy={y(p.flop)} r={5.5} style={{ fill: p.est ? 'var(--bg)' : palette[0], stroke: palette[0], strokeWidth: 2 }} />
-          <text x={x(p.year) + 9} y={y(p.flop) + 4} style={{ ...T, fontSize: 11 }}>{p.name}</text>
+          <text x={x(p.year) + (p.labelLeft ? -9 : 9)} y={y(p.flop) + 4} textAnchor={p.labelLeft ? 'end' : 'start'} style={{ ...T, ...HALO, fontSize: 11 }}>{p.name}</text>
         </g>
       ))}
-      <text x={W - m.r} y={H - 4} textAnchor="end" style={{ ...T, fontSize: 10 }}>● disclosed in paper · ○ third-party estimate (Epoch AI)</text>
+      <text x={W - 8} y={H - 4} textAnchor="end" style={{ ...T, fontSize: 10 }}>● disclosed in paper · ○ third-party estimate (Epoch AI)</text>
     </Frame>
   );
 }
@@ -456,7 +457,7 @@ export const PRODUCTIVITY_STUDIES: { study: string; setting: string; effect: num
 ];
 
 function Forest(_: FigureProps) {
-  const W = 680, rowH = 46, m = { l: 300, r: 30, t: 20, b: 40 };
+  const W = 680, rowH = 46, m = { l: 300, r: 84, t: 20, b: 40 };
   const H = m.t + m.b + rowH * PRODUCTIVITY_STUDIES.length;
   const x = linear(-30, 60, m.l, W - m.r);
   return (
@@ -505,7 +506,7 @@ function AEIBars(_: FigureProps) {
           </g>
         );
       })}
-      <text x={m.l} y={H - 6} style={{ ...T, fontSize: 10 }}>Source: Anthropic Economic Index, February 2025 (share of conversations mapped to O*NET tasks)</text>
+      <text x={m.l} y={H - 6} style={{ ...T, fontSize: 10 }}>Source: Anthropic Economic Index, Feb 2025</text>
     </Frame>
   );
 }
@@ -549,30 +550,33 @@ function NetDiagram(fp: FigureProps) {
 
 /* ---------------- jagged frontier ---------------- */
 function JaggedFrontier(fp: FigureProps) {
-  const W = 560, H = 300, c = { x: 280, y: 150 };
+  const W = 600, H = 300, c = { x: 280, y: 150 };
   const pts = Array.from({ length: 24 }, (_, i) => {
     const a = (i / 24) * Math.PI * 2;
     const r = 100 + ((i * 53) % 7) * 11 - (i % 3 === 0 ? 30 : 0);
     return [c.x + r * Math.cos(a), c.y + r * 0.8 * Math.sin(a)] as [number, number];
   });
   const d = path([...pts, pts[0]]) + 'Z';
-  const tasks: [string, number, number, string][] = [
-    ['in1', c.x - 30, c.y - 20, 'Draft a market memo'],
-    ['in2', c.x + 40, c.y + 30, 'Summarize interviews'],
-    ['out1', c.x + 128, c.y - 92, 'Diagnose a subtle data error'],
-    ['in3', c.x - 70, c.y + 50, 'Brainstorm product names'],
+  // Each label sits on the side that keeps it clear of the other dots and, for tasks inside, within the boundary.
+  const tasks: [string, number, number, string, 'right' | 'left' | 'below'][] = [
+    ['in1', c.x - 30, c.y - 20, 'Draft a market memo', 'right'],
+    ['in2', c.x + 40, c.y + 30, 'Summarize interviews', 'left'],
+    ['out1', c.x + 128, c.y - 92, 'Diagnose a subtle data error', 'right'],
+    ['in3', c.x - 70, c.y + 50, 'Brainstorm product names', 'below'],
   ];
   return (
     <Frame label="The jagged frontier of AI capability" w={W} h={H}>
       <path d={d} style={{ fill: 'color-mix(in srgb, var(--c3) 16%, transparent)', stroke: 'var(--c3)', strokeWidth: 2 }} />
-      <text x={c.x} y={c.y + 4} textAnchor="middle" style={{ ...T, fontSize: 11 }}>inside the frontier</text>
-      {tasks.map(([id, x0, y0, label]) => {
+      <text x={c.x} y={c.y + 4} textAnchor="middle" style={{ ...T, ...HALO, stroke: 'color-mix(in srgb, var(--c3) 16%, var(--bg-soft))', fontSize: 11 }}>inside the frontier</text>
+      {tasks.map(([id, x0, y0, label, place]) => {
         const s = hl(fp, id);
+        const lx = place === 'left' ? x0 - 12 : place === 'below' ? x0 - 8 : x0 + 12;
+        const ly = place === 'below' ? y0 + 22 : y0 - 10;
         return (
           <Region key={id} id={id} fp={fp} label={label}>
             <circle cx={x0} cy={y0} r={16} style={{ fill: 'transparent' }} />
             <circle cx={x0} cy={y0} r={7} style={{ fill: s.stroke !== 'none' ? s.stroke : 'var(--fg)' }} />
-            <text x={x0 + 12} y={y0 - 10} style={{ ...T, fontSize: 11, fill: 'var(--fg)' }}>{label}</text>
+            <text x={lx} y={ly} textAnchor={place === 'left' ? 'end' : 'start'} style={{ ...T, ...HALO, ...(id.startsWith('in') && { stroke: 'color-mix(in srgb, var(--c3) 16%, var(--bg-soft))' }), fontSize: 11, fill: 'var(--fg)' }}>{label}</text>
           </Region>
         );
       })}
@@ -657,7 +661,7 @@ export function Figure({ spec, selected, onSelect, reveal }: { spec: FigureSpec;
   const F = figures[spec.id];
   if (!F) return <div className="empty small">Missing figure: {spec.id}</div>;
   return (
-    <div className="figure-frame" style={{ background: 'var(--bg-soft)', borderRadius: 'var(--radius)', padding: '14px 12px' }}>
+    <div className="figure-frame" style={{ background: 'var(--bg-soft)', borderRadius: 'var(--radius)', padding: '14px 12px', overflowX: 'auto' }}>
       {F({ ...(spec.props ?? {}), selected, onSelect, reveal })}
     </div>
   );

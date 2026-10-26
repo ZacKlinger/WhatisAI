@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { Widget, palette, useWidth } from './chart';
+import { HALO, Widget, palette, useWidth } from './chart';
 
 /* A hand-built 2D "embedding" whose axes loosely mean royalty and gender,
    plus a cluster of foods, so similarity and analogy are visible. Real
@@ -7,8 +7,10 @@ import { Widget, palette, useWidth } from './chart';
 const WORDS: Record<string, [number, number, number]> = {
   king: [0.75, 0.8, 0], queen: [-0.7, 0.8, 0], prince: [0.62, 0.48, 0], princess: [-0.58, 0.5, 0],
   man: [0.7, -0.15, 0], woman: [-0.68, -0.15, 0], boy: [0.55, -0.42, 0], girl: [-0.52, -0.42, 0],
-  apple: [0.15, -0.85, 1], banana: [0.28, -0.95, 1], bread: [0.02, -1.0, 1], cheese: [-0.12, -0.9, 1],
+  apple: [0.22, -0.82, 1], banana: [0.4, -1.0, 1], bread: [-0.02, -1.02, 1], cheese: [-0.3, -0.88, 1],
 };
+/** Where each label sits relative to its point, so the food cluster stays legible on narrow screens. */
+const LABEL_SIDE: Record<string, 'left' | 'below'> = { cheese: 'left', bread: 'below' };
 const COLORS = ['var(--c1)', 'var(--c3)'];
 
 function cos(a: number[], b: number[]) {
@@ -71,7 +73,9 @@ export default function VectorSpace({ analogy = true }: { analogy?: boolean }) {
               <g key={w} onClick={() => { setQuery(w); setMode('similar'); }} style={{ cursor: 'pointer' }} role="button" tabIndex={0} aria-label={w}
                 onKeyDown={(e) => { if (e.key === 'Enter') { setQuery(w); setMode('similar'); } }}>
                 <circle cx={sx(v[0])} cy={sy(v[1])} r={active ? 7 : 5} style={{ fill: COLORS[v[2]], opacity: sim === null || sim > 0.6 ? 1 : 0.45 }} />
-                <text x={sx(v[0]) + 10} y={sy(v[1]) + 4} style={{ fontSize: 13, fill: 'var(--fg)', fontWeight: active ? 650 : 450 }}>{w}</text>
+                <text x={sx(v[0]) + (LABEL_SIDE[w] === 'left' ? -10 : LABEL_SIDE[w] === 'below' ? 0 : 10)} y={sy(v[1]) + (LABEL_SIDE[w] === 'below' ? 20 : 4)}
+                  textAnchor={LABEL_SIDE[w] === 'left' ? 'end' : LABEL_SIDE[w] === 'below' ? 'middle' : 'start'}
+                  style={{ fontSize: 13, fill: 'var(--fg)', fontWeight: active ? 650 : 450, ...HALO }}>{w}</text>
               </g>
             );
           })}

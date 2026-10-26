@@ -28,7 +28,7 @@ export default function SelfConsistency() {
   const [p, setP] = useState(0.45);
   const [k, setK] = useState(9);
   const [ref, width] = useWidth<HTMLDivElement>(600);
-  const W = width, H = 240, m = { l: 50, r: 16, t: 14, b: 40 };
+  const W = width, H = 240, m = { l: 62, r: 16, t: 14, b: 40 };
   const x = linear(1, 41, m.l, W - m.r);
   const y = linear(0, 1, H - m.b, m.t);
   const series = useMemo(() => [0.25, p, 0.7].map((pp) => Array.from({ length: 41 }, (_, i) => [i + 1, majorityAccuracy(pp, i + 1)] as [number, number])), [p]);

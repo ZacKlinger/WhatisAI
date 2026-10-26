@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { Axis, Slider, Widget, linear, palette, path, rng, useWidth } from './chart';
+import { Axis, HALO, Slider, Widget, linear, palette, path, rng, useWidth } from './chart';
 
 const truth = (x: number) => Math.sin(2.2 * x) * 0.9 + 0.3 * x;
 
@@ -68,12 +68,12 @@ export default function Overfit() {
           {train.map(([a, b], i) => <circle key={i} cx={x(a)} cy={y(b)} r={4.5} style={{ fill: 'var(--fg)' }} />)}
         </svg>
         <svg viewBox={`0 0 ${W2} ${H2}`} width={W2} style={{ background: 'var(--bg-soft)', borderRadius: 'var(--radius)', maxWidth: '100%' }} role="img" aria-label="Error versus model complexity">
-          <Axis scale={ex} orient="bottom" at={H2 - 30} length={[46, W2 - 10]} ticks={[1, 3, 5, 7, 9, 11]} label="polynomial degree" />
+          <Axis scale={ex} orient="bottom" at={H2 - 44} length={[46, W2 - 10]} ticks={[1, 3, 5, 7, 9, 11]} label="polynomial degree" />
           <path d={path(errs.slice(1).map(([tr], d) => [ex(d + 1), ey(tr)]))} style={{ fill: 'none', stroke: 'var(--fg)', strokeWidth: 2 }} />
           <path d={path(errs.slice(1).map(([, te], d) => [ex(d + 1), ey(te)]))} style={{ fill: 'none', stroke: palette[1], strokeWidth: 2.5 }} />
-          <line x1={ex(deg)} x2={ex(deg)} y1={10} y2={H2 - 30} style={{ stroke: palette[0], strokeDasharray: '4 3' }} />
-          <text x={52} y={22} style={{ fontSize: 11, fill: palette[1] }}>error on new data</text>
-          <text x={52} y={38} style={{ fontSize: 11, fill: 'var(--fg)' }}>error on training data</text>
+          <line x1={ex(deg)} x2={ex(deg)} y1={10} y2={H2 - 44} style={{ stroke: palette[0], strokeDasharray: '4 3' }} />
+          <text x={52} y={22} style={{ fontSize: 11, fill: palette[1], ...HALO }}>error on new data</text>
+          <text x={52} y={38} style={{ fontSize: 11, fill: 'var(--fg)', ...HALO }}>error on training data</text>
           <text x={10} y={H2 / 2} style={{ fontSize: 10.5, fill: 'var(--fg-3)' }} transform={`rotate(-90 14 ${H2 / 2})`}>error (log)</text>
         </svg>
       </div>
@@ -93,6 +93,6 @@ function log10Scale(H: number) {
   const lo = Math.log10(0.01), hi = Math.log10(10);
   return (v: number) => {
     const lv = Math.log10(Math.max(0.01, Math.min(10, v)));
-    return H - 30 - ((lv - lo) / (hi - lo)) * (H - 40);
+    return H - 44 - ((lv - lo) / (hi - lo)) * (H - 54);
   };
 }

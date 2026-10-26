@@ -13,7 +13,7 @@ export default function ScalingLaws() {
   const [ref, width] = useWidth<HTMLDivElement>(640);
   const C = 10 ** logC;
   const W = width, H = Math.max(260, Math.round(width * 0.5));
-  const m = { l: 54, r: 18, t: 14, b: 44 };
+  const m = { l: 60, r: 64, t: 14, b: 44 };
   const x = log(1e8, 1e13, m.l, W - m.r);
   const y = linear(1.9, 3.6, H - m.b, m.t);
 
@@ -24,6 +24,13 @@ export default function ScalingLaws() {
 
   const budgets = [logC - 1, logC, logC + 1];
   const opt = (c: number) => curve(c).reduce((b, p) => (p[1] < b[1] ? p : b), [0, 99]);
+  // Budget labels sit in the right margin at each curve's last point, nudged apart so they never touch.
+  const labelY = budgets.map((lc, i) => {
+    const pts = curve(10 ** lc);
+    return { i, y: pts.length ? Math.max(m.t + 14, y(pts[pts.length - 1][1])) : m.t + 14 };
+  }).sort((a, b) => a.y - b.y);
+  labelY.forEach((l, k) => { if (k > 0) l.y = Math.max(l.y, labelY[k - 1].y + 14); });
+  const labelAt = (i: number) => labelY.find((l) => l.i === i)!.y;
   const [Nopt, Lopt] = opt(C);
   const N = 10 ** logN;
   const D = C / (6 * N);
@@ -37,6 +44,7 @@ export default function ScalingLaws() {
         <svg viewBox={`0 0 ${W} ${H}`} width="100%" role="img" aria-label="Loss versus model size at fixed compute">
           <Axis scale={y} orient="left" at={m.l} length={[H - m.b, m.t]} label="predicted loss" grid={W - m.r} ticks={[2, 2.4, 2.8, 3.2, 3.6]} />
           <Axis scale={x} orient="bottom" at={H - m.b} length={[m.l, W - m.r]} label="parameters N (log scale)" format={fmtPow10} grid={m.t} />
+          <text x={W - m.r + 8} y={m.t - 2} style={{ fontSize: 10, fill: 'var(--fg-3)' }}>FLOP</text>
           {budgets.map((lc, i) => {
             const pts = curve(10 ** lc);
             const o = opt(10 ** lc);
@@ -45,8 +53,8 @@ export default function ScalingLaws() {
                 <path d={path(pts.map(([n, l]) => [x(n), y(l)]))} style={{ fill: 'none', stroke: i === 1 ? palette[0] : 'var(--line-3)', strokeWidth: i === 1 ? 3 : 1.5 }} />
                 <circle cx={x(o[0])} cy={y(o[1])} r={i === 1 ? 6 : 4} style={{ fill: i === 1 ? palette[2] : 'var(--fg-3)' }} />
                 {pts.length > 0 && (
-                  <text x={x(pts[pts.length - 1][0]) - 6} y={y(pts[pts.length - 1][1]) - 8} textAnchor="end" style={{ fontSize: 10.5, fill: i === 1 ? palette[0] : 'var(--fg-3)', fontWeight: i === 1 ? 600 : 400 }}>
-                    {fmtNum(10 ** lc)} FLOP
+                  <text x={W - m.r + 8} y={labelAt(i)} dy="0.32em" style={{ fontSize: 10.5, fill: i === 1 ? palette[0] : 'var(--fg-3)', fontWeight: i === 1 ? 600 : 400 }}>
+                    {fmtNum(10 ** lc)}
                   </text>
                 )}
               </g>
