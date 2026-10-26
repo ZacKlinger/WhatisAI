@@ -1,0 +1,122 @@
+---
+title: Neural networks from the neuron up
+track: t2
+order: 1
+summary: Weighted sums, nonlinearities, and layers. How a stack of simple units becomes a function flexible enough to recognize faces, translate languages, and write code.
+minutes: 26
+level: 2
+prerequisites: [matrices, optimization]
+objectives:
+  - Describe what a single artificial neuron computes.
+  - Explain why nonlinear activation functions are essential and what layers add.
+  - State the universal approximation idea and its limits.
+keyTerms:
+  - term: Artificial neuron
+    def: A unit that computes a weighted sum of its inputs, adds a bias, and passes the result through an activation function.
+  - term: Activation function
+    def: A nonlinear function applied to each neuron's weighted sum, such as ReLU or GELU. Without it, layers collapse into one linear transformation.
+  - term: Layer
+    def: A group of neurons that all read the same inputs. Computationally, a matrix multiplication followed by an activation function.
+  - term: Hidden layer
+    def: Any layer between the input and output. Its values are internal representations, not directly observed.
+  - term: Universal approximation theorem
+    def: A result showing that a network with one sufficiently wide hidden layer can approximate any continuous function arbitrarily well.
+  - term: Deep learning
+    def: Machine learning with networks of many layers.
+sources:
+  - title: Approximation by superpositions of a sigmoidal function
+    authors: G. Cybenko
+    org: Mathematics of Control, Signals and Systems
+    year: 1989
+    url: https://doi.org/10.1007/BF02551274
+  - title: "The perceptron: a probabilistic model for information storage and organization in the brain"
+    authors: F. Rosenblatt
+    org: Psychological Review
+    year: 1958
+    url: https://doi.org/10.1037/h0042519
+  - title: Deep learning
+    authors: LeCun, Bengio & Hinton
+    org: Nature
+    year: 2015
+    url: https://doi.org/10.1038/nature14539
+  - title: Gaussian Error Linear Units (GELUs)
+    authors: Hendrycks & Gimpel
+    org: arXiv
+    year: 2016
+    url: https://arxiv.org/abs/1606.08415
+updated: 2026-10-26
+---
+
+import NeuralPlayground from '@/components/interactive/NeuralPlayground';
+import StaticFigure from '@/components/figures/registry';
+import QuickCheck from '@/components/quiz/QuickCheck';
+
+The phrase "neural network" conjures images of artificial brains. The reality is humbler and, in its way, more remarkable. A neural network is built from one simple unit, repeated millions or billions of times. Each unit does arithmetic a child could follow. Stacked in layers and tuned by gradient descent, they become functions of astonishing flexibility.
+
+## The artificial neuron
+
+An artificial neuron does three things:
+
+1. **Weighs its inputs.** Each input is multiplied by a weight, a parameter that says how much that input matters and in which direction.
+2. **Adds them up, plus a bias.** The bias is another parameter that shifts the result up or down.
+3. **Applies an activation function.** The sum passes through a simple nonlinear function that decides how strongly the neuron "fires."
+
+<Eq>output = activation( <i>w</i><sub>1</sub><i>x</i><sub>1</sub> + <i>w</i><sub>2</sub><i>x</i><sub>2</sub> + … + <i>w</i><sub>n</sub><i>x</i><sub>n</sub> + <i>b</i> )</Eq>
+
+You have seen the middle part before: it is a dot product between the input vector and the weight vector. A neuron is a dot product with a twist at the end.
+
+<Callout type="history" title="Inspired by biology, not copying it">
+Frank Rosenblatt's perceptron of 1958 was loosely inspired by biological neurons, which receive signals through many connections and fire when stimulated enough. Modern artificial neurons share that rough picture and little else. Brains and neural networks differ profoundly in how they learn, communicate, and use energy. Treat the name as history, not as a claim.
+</Callout>
+
+## Why the nonlinearity matters
+
+The most common activation function today is beautifully simple. **ReLU** (rectified linear unit) outputs its input if positive, and zero otherwise. Its smooth cousin **GELU** is used in most transformers.
+
+Why bother? Recall from the matrices module: a chain of linear transformations collapses into a single linear transformation. If neurons only computed weighted sums, a hundred-layer network would be no more expressive than a one-layer network, able to draw only straight boundaries and fit only flat relationships. The nonlinearity breaks that collapse. With it, each layer can bend and fold the space it receives, and stacking layers lets the network build up arbitrarily intricate shapes.
+
+## Layers
+
+A **layer** is a group of neurons that all read the same inputs. Computing a whole layer at once is exactly a matrix multiplication (each neuron's weights form one row), followed by applying the activation function to every entry.
+
+<StaticFigure id="net-diagram" layers={[3, 5, 5, 2]} caption="A small fully connected network: 3 inputs, two hidden layers of 5 neurons, and 2 outputs. Every line is a weight, a learned parameter." />
+
+The first layer reads the raw input. The last layer produces the output. The layers in between are **hidden layers**: their values are not specified by anyone, but discovered by training. These hidden values are the network's internal **representations** of the input, and much of modern AI research, including interpretability, is about understanding what they contain.
+
+<QuickCheck client:visible item={{
+  kind: 'estimate', id: 'count',
+  prompt: 'A fully connected layer takes 100 inputs and has 50 neurons. Counting weights and biases, about how many parameters does it have?',
+  min: 10, max: 1e6, log: true, answer: 5050, tolerance: 1.5, format: 'int',
+  explain: '100 × 50 = 5,000 weights, plus 50 biases (one per neuron): 5,050 parameters.'
+}} />
+
+## Watch a network learn
+
+Below is a real neural network, trained in your browser with real backpropagation. Each point belongs to one of two classes. The background shows the network's prediction at every location. Start with the "circle" dataset and one hidden unit: a single bend is not enough. Add hidden units and train again. Then try "spiral" and add a second hidden layer.
+
+<NeuralPlayground client:visible />
+
+What you are watching is the network discovering, through gradient descent alone, a function that separates the classes. Nobody told it to draw a circle. Each hidden unit contributes one bend, and the output layer combines the bends into a shape.
+
+## The universal approximation theorem
+
+In 1989 the mathematician George Cybenko proved that a network with a single hidden layer, if wide enough, can approximate any continuous function to any desired accuracy. Related results followed for other activation functions. This is the **universal approximation theorem**, and it is often quoted as "neural networks can learn anything."
+
+That quote overstates it in three ways. The theorem says a suitable network *exists*; it does not say gradient descent will *find* it. It says nothing about how much data you need. And the required width can be astronomically large. In practice, **depth** turns out to be far more efficient than width: deep networks can represent many useful functions with exponentially fewer neurons than shallow ones, because each layer can reuse the features computed by the layer before. That insight gave **deep learning** its name.
+
+<KeyIdea track="t2">A neural network is a stack of learned transformations, each a matrix multiplication followed by a simple bend. Depth lets it compose simple features into complex ones.</KeyIdea>
+
+## What the layers learn
+
+When researchers inspect trained image networks, they find a striking hierarchy. Early layers respond to edges and colors. Middle layers respond to textures and simple shapes. Later layers respond to object parts, and then to whole objects: faces, wheels, dogs. Nobody designed this hierarchy; it emerges from training. Language models show an analogous progression, with earlier layers handling local syntax and later layers carrying more abstract meaning, though the picture in language models is more tangled and is an active research subject you will meet in Track VI.
+
+## Reading the corpus
+
+| When a document says | It means |
+| --- | --- |
+| "MLP" (multilayer perceptron) | A stack of fully connected layers with nonlinear activations |
+| "ReLU," "GELU," "SwiGLU" | Particular activation functions; SwiGLU is common in recent transformers |
+| "hidden size" or "width" | The number of neurons in a layer |
+| "depth" or "number of layers" | How many layers are stacked |
+| "activations" | The values computed by neurons for a given input (not the activation function itself) |
+| "feed-forward network (FFN)" | The MLP block inside each transformer layer |

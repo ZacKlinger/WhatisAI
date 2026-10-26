@@ -1,0 +1,134 @@
+---
+title: "Generalization: memorizing versus learning"
+track: t2
+order: 3
+summary: Overfitting, regularization, and the strange behavior of huge models that generalize better as they grow, defying a century of statistical intuition.
+minutes: 26
+level: 3
+prerequisites: [neural-networks, statistics-for-research]
+objectives:
+  - Distinguish training, validation, and test data, and explain why they must be kept separate.
+  - Recognize underfitting and overfitting from learning curves, and name common regularization methods.
+  - Describe double descent and grokking, and why they changed how researchers think about scale.
+keyTerms:
+  - term: Generalization
+    def: Performing well on new data drawn from the same kind of source as the training data.
+  - term: Overfitting
+    def: Fitting the training data so closely, including its noise, that performance on new data suffers.
+  - term: Underfitting
+    def: Failing to capture the real pattern in the data, usually because the model is too simple or undertrained.
+  - term: Validation set
+    def: Held-out data used during development to choose settings and detect overfitting.
+  - term: Test set
+    def: Held-out data used once, at the end, to estimate performance on new data.
+  - term: Regularization
+    def: Any technique that discourages overfitting, such as weight decay, dropout, data augmentation, or early stopping.
+  - term: Double descent
+    def: The finding that test error can fall, rise, and fall again as model size grows, so very large models generalize well.
+  - term: Distribution shift
+    def: When the data a model meets in deployment differs from its training data.
+sources:
+  - title: Reconciling modern machine-learning practice and the classical bias–variance trade-off
+    authors: Belkin, Hsu, Ma & Mandal
+    org: PNAS
+    year: 2019
+    url: https://doi.org/10.1073/pnas.1903070116
+  - title: "Deep Double Descent: Where Bigger Models and More Data Hurt"
+    authors: Nakkiran et al.
+    org: OpenAI
+    year: 2019
+    url: https://arxiv.org/abs/1912.02292
+  - title: "Grokking: Generalization Beyond Overfitting on Small Algorithmic Datasets"
+    authors: Power, Burda, Edwards, Babuschkin & Misra
+    org: OpenAI
+    year: 2022
+    url: https://arxiv.org/abs/2201.02177
+  - title: Understanding deep learning requires rethinking generalization
+    authors: Zhang, Bengio, Hardt, Recht & Vinyals
+    org: ICLR
+    year: 2017
+    url: https://arxiv.org/abs/1611.03530
+updated: 2026-10-26
+---
+
+import Overfit from '@/components/interactive/Overfit';
+import StaticFigure from '@/components/figures/registry';
+import QuickCheck from '@/components/quiz/QuickCheck';
+
+A student who memorizes last year's exam answers can score perfectly on last year's exam and fail this year's. Machine learning faces the same temptation at an enormous scale. A model with billions of parameters could, in principle, memorize its entire training set. The question that defines the field is how to get a model that has *learned* rather than *memorized*: one that performs well on data it has never seen.
+
+## Splitting the data
+
+The first defense is procedural. Data is divided into separate sets:
+
+- **Training set:** the examples the model learns from.
+- **Validation set:** held-out examples used during development to compare settings and to notice when the model starts to overfit.
+- **Test set:** held-out examples used once, at the end, to report how well the model generalizes.
+
+If information from the test set leaks into training or into design decisions, the reported score becomes optimistic. In large language models, where training data is scraped from the web, this leakage is a serious and recurring problem called **contamination**. You will study it in the benchmarks module.
+
+## Underfitting and overfitting
+
+Fit a curve to noisy data and two failures are possible. Try it below. Slide the model's complexity from a straight line to a wildly flexible curve.
+
+<Overfit client:visible />
+
+With too little flexibility, the model **underfits**: it misses the real pattern, and errors are high everywhere. With too much, it **overfits**: it threads every training point, including the noise, and swings wildly between them, so error on new data rises even as training error falls toward zero. The sweet spot captures the pattern without the noise.
+
+The classic signature appears in learning curves over training time too. Training loss keeps falling; validation loss falls, bottoms out, and begins to rise.
+
+<StaticFigure id="loss-curves" caption="Training loss (blue) keeps falling. Validation loss (orange) reaches a minimum and then rises as the model starts fitting noise in the training data." />
+
+<QuickCheck client:visible item={{
+  kind: 'hotspot', id: 'overfit-region',
+  prompt: 'In which region of this training run is the model overfitting?',
+  figure: { id: 'loss-curves' },
+  answer: 'late',
+  explain: 'Overfitting is when training loss keeps improving but validation loss gets worse: the right-hand region.'
+}} />
+
+## Regularization
+
+**Regularization** is the family of techniques that discourage overfitting:
+
+- **Weight decay** penalizes large parameter values, nudging the model toward simpler functions. (You saw this as the regularization slider above.)
+- **Dropout** randomly switches off neurons during training, so the network cannot rely on any single fragile pathway.
+- **Data augmentation** creates varied copies of training examples, such as flipped or cropped images.
+- **Early stopping** halts training when validation loss stops improving.
+- **More data** is the most powerful regularizer of all: it is harder to memorize a billion examples than a thousand.
+
+## The puzzle of huge models
+
+Classical statistics taught a clear lesson: the more parameters a model has relative to its data, the more it will overfit. By that logic, modern neural networks should be catastrophic. Many have more parameters than training examples, and in 2016 researchers showed that standard image networks could perfectly memorize datasets whose labels had been *randomly shuffled*, meaning they had enough capacity to fit pure noise. Yet trained on real labels, the same networks generalized well. Something about the classical picture was incomplete.
+
+### Double descent
+
+In 2019, researchers documented **double descent**. As model size increases, test error first follows the classical U-shape: falling, then rising as the model becomes just barely able to fit the training data. But beyond that point, as the model keeps growing, test error falls *again*, often to its lowest values. OpenAI researchers showed the same pattern in modern deep networks, across model size and training time.
+
+One intuition: when a model is just barely large enough to fit the data, there is essentially one way to do it, and it is contorted. When a model is vastly larger, there are many ways to fit the data, and training with gradient descent tends to find smooth, simple ones.
+
+### Grokking
+
+In 2022, OpenAI researchers reported an even stranger phenomenon. Small networks trained on simple arithmetic tasks first memorized the training examples, with validation performance near chance. Then, after training far longer than usual, validation accuracy suddenly jumped to near perfect. The network had "grokked" the underlying rule long after memorizing. Later interpretability work showed such networks gradually building a general algorithm alongside the memorized lookup table, until the general algorithm won out.
+
+<KeyIdea track="t2">At modern scale, bigger models and more training often generalize better, not worse. This empirical surprise is part of why the field bet so heavily on scale.</KeyIdea>
+
+## When generalization fails: distribution shift
+
+Everything above assumes new data comes from the same distribution as the training data. In deployment, it often does not. A medical model trained at one hospital may stumble at another with different scanners. A language model trained on text up to a cutoff date knows nothing of events after it. This **distribution shift** is a major source of real-world AI failures, and a central concern of safety research: we need models that behave well not just on familiar inputs but on the unfamiliar situations they will inevitably meet.
+
+<Callout type="caution" title="A deeper version of the problem">
+A model can generalize its *capabilities* to new situations while generalizing its *goals* in unintended ways. Safety researchers call this goal misgeneralization: the model competently pursues the wrong objective outside its training distribution. You will meet it in the alignment track.
+</Callout>
+
+## Reading the corpus
+
+| When a document says | It means |
+| --- | --- |
+| "held-out" | Data not used in training |
+| "in-distribution" / "out-of-distribution (OOD)" | Similar to the training data / different from it |
+| "the model overfits after N epochs" | Validation performance degrades with further passes through the data |
+| "epoch" | One full pass through the training data; large language models often train for about one epoch |
+| "weight decay," "dropout" | Standard regularization techniques |
+| "generalization gap" | The difference between training and test performance |
+| "memorization" | Reproducing training examples verbatim, a concern for privacy and copyright as well as evaluation |

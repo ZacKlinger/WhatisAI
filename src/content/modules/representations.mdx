@@ -1,0 +1,108 @@
+---
+title: "Representations: what networks learn inside"
+track: t2
+order: 5
+summary: Learned features, transfer learning, and foundation models. Why the inside of a trained network is where intelligence, and much of safety research, lives.
+minutes: 22
+level: 3
+prerequisites: [neural-networks, vectors-and-embeddings]
+objectives:
+  - Explain what a learned representation is and why good representations make tasks easy.
+  - Describe transfer learning and the pretrain-then-adapt paradigm behind foundation models.
+  - Connect representations to the interpretability and safety questions studied later.
+keyTerms:
+  - term: Representation
+    def: The internal vector a network computes for an input. A good representation makes the information needed for a task easy to read off.
+  - term: Feature
+    def: A property of the input that a network represents, such as an edge, a texture, or a concept. In interpretability, often a direction in activation space.
+  - term: Transfer learning
+    def: Reusing representations learned on one task to perform another, usually with much less data.
+  - term: Pretraining
+    def: Training a model on broad data with a general objective, before adapting it to specific uses.
+  - term: Fine-tuning
+    def: Further training a pretrained model on a narrower dataset for a specific behavior or task.
+  - term: Foundation model
+    def: A large model pretrained on broad data that can be adapted to a wide range of tasks.
+  - term: Probe
+    def: A simple classifier trained to read a property out of a network's internal activations, testing whether that information is represented.
+sources:
+  - title: Feature Visualization
+    authors: Olah, Mordvintsev & Schubert
+    org: Distill
+    year: 2017
+    url: https://distill.pub/2017/feature-visualization/
+  - title: On the Opportunities and Risks of Foundation Models
+    authors: Bommasani et al.
+    org: Stanford CRFM
+    year: 2021
+    url: https://arxiv.org/abs/2108.07258
+  - title: "Emergent World Representations: Exploring a Sequence Model Trained on a Synthetic Task"
+    authors: Li et al.
+    org: ICLR
+    year: 2023
+    url: https://arxiv.org/abs/2210.13382
+  - title: "Language Models Represent Space and Time"
+    authors: Gurnee & Tegmark
+    org: ICLR
+    year: 2024
+    url: https://arxiv.org/abs/2310.02207
+updated: 2026-10-26
+---
+
+import QuickCheck from '@/components/quiz/QuickCheck';
+
+When a neural network looks at a photograph, the pixels pass through layer after layer, each producing a new vector. By the last layers, those vectors no longer describe pixels. They describe something closer to *what is in the picture*. This transformation, from raw input to meaningful internal description, is the real achievement of deep learning. The internal descriptions are called **representations**, and they are where you should look if you want to know what a model knows.
+
+## Good representations make hard problems easy
+
+Consider sorting photos into "contains a dog" and "doesn't." In the space of raw pixel values, dog photos and non-dog photos are hopelessly intertwined: a dog can be any color, size, pose, or position. No simple rule separates them.
+
+A trained network transforms the input, layer by layer, into a space where the separation becomes simple, often a single direction: far along it means "dog," far the other way means "not dog." Once you have a representation like that, the final classification is trivial. **Most of the work of learning is building the representation.**
+
+## What the layers contain
+
+Researchers have developed tools to see what individual neurons and directions respond to. In image networks, a famous 2017 visualization project showed a striking progression: early layers detect edges and color contrasts; middle layers detect textures and patterns; later layers detect parts like eyes, wheels, and fur; and the final layers respond to whole objects and scenes. Nobody programmed this hierarchy. It emerged because it is an efficient way to solve the task.
+
+Language models show analogous structure, harder to visualize but measurable. Researchers train **probes**, small classifiers that try to read a property out of a model's internal activations. If a simple probe can reliably extract, say, the part of speech of a word, or the truth of a statement, the information is represented there.
+
+<Callout type="corpus" title="Do language models build world models?">
+In 2023, researchers trained a transformer on nothing but sequences of legal moves in the board game Othello. It was never shown a board. Yet probes found it had built an internal representation of the board state, and editing that representation changed the moves it predicted. In 2024, other researchers found that large language models contain directions encoding the latitude and longitude of places and the dates of events. These results are evidence that next-token prediction can produce structured internal models of the domain, though how far this extends is fiercely debated.
+</Callout>
+
+## Transfer: reusing what was learned
+
+Good representations are reusable. A network trained to recognize a thousand kinds of objects has learned edges, textures, and shapes that are useful for almost any visual task. Take that network, keep its layers, and train only a small new final layer on a different task, such as spotting tumors in scans, and it learns with far less data than starting from scratch. This is **transfer learning**.
+
+<QuickCheck client:visible item={{
+  kind: 'mc', id: 'transfer',
+  prompt: 'A hospital has only 2,000 labeled scans. Why might fine-tuning a model pretrained on millions of general images work better than training from scratch?',
+  choices: ['General images contain medical information', 'The pretrained model already has useful visual representations, so it needs little data to adapt', 'Pretrained models cannot overfit', 'Training from scratch is illegal for medical data'],
+  answer: 1,
+  explain: 'Pretraining builds general-purpose representations (edges, textures, shapes). Adapting them requires far less task-specific data.'
+}} />
+
+## Foundation models
+
+Language took transfer learning to its extreme. Pretrain a single large model on a vast and varied corpus, and its representations are useful for nearly every language task: translation, summarization, question answering, coding. In 2021, researchers at Stanford coined a name for such models: **foundation models**, because many applications are built on top of the same base.
+
+This pattern, **pretrain broadly, then adapt**, defines the modern era. The base model is adapted through fine-tuning, through reinforcement learning, or simply through instructions and examples in its prompt. Track IV walks through each step.
+
+The concentration has consequences beyond engineering. When thousands of products are built on a handful of foundation models, a flaw or bias in one base model propagates everywhere at once, and the companies that train them gain unusual economic leverage. Policymakers noticed: the EU AI Act regulates **general-purpose AI models** directly, separately from the applications built on them.
+
+<KeyIdea track="t2">The value of a trained model lives in its representations. Pretraining builds them; everything afterward, from fine-tuning to prompting, is about reading them out for a purpose.</KeyIdea>
+
+## Why representations matter for safety
+
+If a model represents concepts internally, then in principle we can look for them directly: not just ask the model whether it is being deceptive, but check whether its internal state contains something like deception. This is the program of **interpretability** research. It faces a complication you will study in Track VI: representations are not neatly arranged one concept per neuron. Networks pack many more concepts than they have neurons into overlapping directions, a phenomenon called superposition. Untangling them is one of the central scientific projects of frontier AI safety.
+
+## Reading the corpus
+
+| When a document says | It means |
+| --- | --- |
+| "activations" or "hidden states" | The internal vectors a network computes for an input |
+| "the model represents X" | Information about X can be read out of its activations, often by a probe |
+| "linear probe" | A simple classifier trained on activations to test for a property |
+| "base model" or "pretrained model" | A model after pretraining, before adaptation into an assistant |
+| "downstream task" | A specific task the pretrained model is adapted to |
+| "general-purpose AI model" (GPAI) | The EU AI Act's legal term for foundation models |
+| "world model" | An internal representation of the state and dynamics of some domain |

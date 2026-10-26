@@ -1,0 +1,115 @@
+---
+title: "Backpropagation: assigning blame"
+track: t2
+order: 2
+summary: How a network with billions of parameters works out which way to nudge each one. The chain rule, the computational graph, and why training costs about three times a forward pass.
+minutes: 22
+level: 3
+prerequisites: [neural-networks]
+objectives:
+  - Describe the forward and backward passes through a computational graph.
+  - Explain backpropagation as repeated application of the chain rule.
+  - Use the rule of thumb that training costs about three forward passes, and connect it to the 6ND compute estimate.
+keyTerms:
+  - term: Forward pass
+    def: Computing a network's output from its input, layer by layer.
+  - term: Backward pass
+    def: Computing the gradient of the loss with respect to every parameter, from the output back toward the input.
+  - term: Backpropagation
+    def: The algorithm that computes all gradients in one backward pass by applying the chain rule and reusing intermediate results.
+  - term: Chain rule
+    def: The calculus rule that the rate of change through a chain of functions is the product of the rates of change of each link.
+  - term: Computational graph
+    def: A diagram of the operations a network performs, with data flowing forward and gradients flowing backward.
+  - term: Vanishing gradients
+    def: A failure mode where gradients shrink as they pass back through many layers, so early layers barely learn.
+sources:
+  - title: Learning representations by back-propagating errors
+    authors: Rumelhart, Hinton & Williams
+    org: Nature
+    year: 1986
+    url: https://doi.org/10.1038/323533a0
+  - title: Deep Residual Learning for Image Recognition
+    authors: He, Zhang, Ren & Sun
+    org: CVPR
+    year: 2016
+    url: https://arxiv.org/abs/1512.03385
+  - title: Scaling Laws for Neural Language Models
+    authors: Kaplan et al.
+    org: OpenAI
+    year: 2020
+    url: https://arxiv.org/abs/2001.08361
+updated: 2026-10-26
+---
+
+import Backprop from '@/components/interactive/Backprop';
+import QuickCheck from '@/components/quiz/QuickCheck';
+
+Gradient descent needs the gradient: the slope of the loss with respect to every parameter. A modern network has billions of parameters. Measuring each slope separately, by nudging one parameter and re-running the whole network, would require billions of runs per step. Training would never finish. Backpropagation computes every one of those slopes in a single backward sweep that costs only about twice as much as running the network once. It is the algorithm that made deep learning possible.
+
+## A chain of computations
+
+Think of a network as a chain of simple operations: multiply, add, apply an activation, compute the loss. Each operation takes some numbers in and passes numbers on. Drawn out, this chain is called a **computational graph**.
+
+Running the graph from input to loss is the **forward pass**. Every step's result is remembered.
+
+## The chain rule
+
+Now the key question: if I nudge a weight deep inside the network, how much does the loss change? The effect ripples through every operation between that weight and the loss. Calculus gives a simple answer, the **chain rule**: the total rate of change is the product of the rates of change along the way.
+
+An everyday version: if each extra hour of practice improves your skill by 2 points, and each extra skill point raises your score by 3 points, then each extra hour raises your score by 2 × 3 = 6 points. Rates multiply along a chain.
+
+For a single neuron with loss *L*, output *a*, pre-activation *z*, and weight *w*:
+
+<Eq><span class="frac"><span>∂<i>L</i></span><span>∂<i>w</i></span></span> = <span class="frac"><span>∂<i>L</i></span><span>∂<i>a</i></span></span> × <span class="frac"><span>∂<i>a</i></span><span>∂<i>z</i></span></span> × <span class="frac"><span>∂<i>z</i></span><span>∂<i>w</i></span></span></Eq>
+
+The curly ∂ symbols are partial derivatives: slopes with respect to one quantity while holding others fixed. Read the equation as "how the loss responds to the weight equals how the loss responds to the output, times how the output responds to its input, times how that input responds to the weight."
+
+## Backward through the graph
+
+**Backpropagation** applies the chain rule starting from the loss and moving backward through the graph. At each operation, it multiplies the incoming gradient by that operation's local slope and passes the result further back. Because the backward sweep reuses each intermediate product instead of recomputing it, one pass yields the gradient for *every* parameter at once.
+
+Step through it yourself. Run the forward pass, then the backward pass, then apply an update and watch the loss fall.
+
+<Backprop client:visible />
+
+<KeyIdea track="t2">Backpropagation tells every parameter how much it contributed to the error. It is credit assignment, computed exactly and efficiently, for billions of parameters at once.</KeyIdea>
+
+<QuickCheck client:visible item={{
+  kind: 'mc', id: 'chain',
+  prompt: 'Along a chain, ∂L/∂a = 0.5, ∂a/∂z = 0.2, and ∂z/∂w = 3. What is ∂L/∂w?',
+  choices: ['3.7', '0.3', '0.1', '1.5'],
+  answer: 1,
+  explain: 'Multiply along the chain: 0.5 × 0.2 × 3 = 0.3.'
+}} />
+
+## The cost of training: about three forward passes
+
+The backward pass costs roughly twice the forward pass, because at each layer it must compute gradients both for the layer's weights and for its inputs. So one training step on an example costs about three forward passes.
+
+This gives a famous rule of thumb. A forward pass through a model with *N* parameters costs about 2*N* floating-point operations per token (one multiplication and one addition per parameter). Training multiplies that by three, giving about 6*N* per token. Over *D* training tokens:
+
+<Eq>training compute ≈ 6 × <i>N</i> × <i>D</i></Eq>
+
+This "6ND" approximation appears throughout scaling-law papers and compute estimates, and even indirectly in law: when the EU AI Act sets a threshold of 10<sup>25</sup> operations of training compute, analysts use 6ND to estimate which models cross it. You will use it yourself in the compute module.
+
+## When gradients vanish
+
+Multiplying many numbers along a long chain has a danger. If each local slope is less than one, the product shrinks exponentially with depth, and the earliest layers receive gradients so tiny they barely learn. This **vanishing gradient** problem stalled deep networks for years. (The opposite, **exploding gradients**, makes training unstable.)
+
+Several innovations fixed it: activation functions like ReLU whose slope is exactly one for positive inputs, careful initialization of weights, normalization layers, and above all **residual connections**, introduced in 2015, which let each layer add its contribution to a running total instead of replacing it. Gradients can flow straight back through the running total. Every transformer is built around such a running total, called the residual stream, which you will meet in Track III.
+
+## Automatic differentiation
+
+Nobody computes these gradients by hand. Frameworks such as PyTorch and JAX perform **automatic differentiation**: the programmer writes only the forward computation, and the software builds the graph and runs backpropagation automatically. This is why researchers can invent new architectures quickly. It also means "the gradient" is always available for any quantity a model computes, which interpretability researchers exploit to ask which inputs most influenced an output.
+
+## Reading the corpus
+
+| When a document says | It means |
+| --- | --- |
+| "∂L/∂θ" | The gradient of the loss with respect to the parameters |
+| "backprop through X" | Gradients flow through component X during training, so X is learned or influences learning |
+| "stop-gradient" or "detached" | A deliberate block on gradient flow through some part of the computation |
+| "6ND" | The standard estimate of training compute: 6 × parameters × tokens |
+| "residual connection" or "skip connection" | Adding a layer's input to its output, which keeps gradients healthy |
+| "gradient-based attribution" | Using gradients to estimate which inputs mattered most for an output |

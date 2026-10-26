@@ -1,0 +1,137 @@
+---
+title: "Compute: the engine of scale"
+track: t2
+order: 6
+summary: FLOPs, chips, clusters, and costs. How to estimate the compute behind any model, and why compute has become the field's most strategic resource.
+minutes: 26
+level: 3
+prerequisites: [backpropagation, matrices]
+objectives:
+  - Estimate a model's training compute with the 6ND rule and express it in scientific notation.
+  - Distinguish FLOP (an amount) from FLOP/s (a rate), and explain what limits real hardware throughput.
+  - Describe how training is spread across thousands of chips, and what drives its cost and energy use.
+keyTerms:
+  - term: FLOP
+    def: A floating-point operation, such as one multiplication or addition. Training compute is counted in total FLOP.
+  - term: FLOP/s
+    def: Floating-point operations per second, a measure of hardware speed.
+  - term: Accelerator
+    def: A chip specialized for the matrix math of AI, such as an NVIDIA GPU or a Google TPU.
+  - term: Utilization (MFU)
+    def: The fraction of a chip's peak speed actually achieved during training. Often 30% to 50% in practice.
+  - term: Memory bandwidth
+    def: How fast data can move between a chip's memory and its compute units. Often the real bottleneck, especially during inference.
+  - term: Data parallelism
+    def: Splitting the training data across many copies of the model running on different chips, then combining their gradients.
+  - term: Model parallelism
+    def: Splitting a single model's layers or matrices across multiple chips because it is too large for one.
+sources:
+  - title: Compute Trends Across Three Eras of Machine Learning
+    authors: Sevilla et al.
+    org: Epoch AI
+    year: 2022
+    url: https://arxiv.org/abs/2202.05924
+  - title: AI and Compute
+    authors: Amodei & Hernandez
+    org: OpenAI
+    year: 2018
+    url: https://openai.com/index/ai-and-compute/
+  - title: The Llama 3 Herd of Models
+    authors: Llama Team
+    org: Meta
+    year: 2024
+    url: https://arxiv.org/abs/2407.21783
+  - title: Trends in Artificial Intelligence (data hub)
+    org: Epoch AI
+    year: 2026
+    url: https://epoch.ai/trends
+updated: 2026-10-26
+---
+
+import StaticFigure from '@/components/figures/registry';
+import QuickCheck from '@/components/quiz/QuickCheck';
+
+In 2018, OpenAI researchers published a short analysis with a startling chart: the compute used in the largest AI training runs had been doubling every few months since 2012, far faster than computer chips were improving. The implication was that progress in AI was being bought, in large part, with ever more computation. Nearly a decade later, compute is the axis along which labs compete, nations regulate, and trillions of dollars are being invested. This module teaches you to reason about it quantitatively.
+
+## Counting operations
+
+The unit of compute is the **FLOP**, a single floating-point operation: one multiplication or one addition of two decimal numbers. Training compute is the total number of FLOP performed during training.
+
+Careful: **FLOP** (an amount) differs from **FLOP/s** (a rate, operations per second). A chip runs at some FLOP/s; a training run consumes some total FLOP. Papers are not always consistent about the plural "FLOPs," so check the context.
+
+The numbers are enormous, so they are written in **scientific notation**: 3.14 × 10<sup>23</sup> means 3.14 followed by 23 more digits' worth of magnitude. Each increase of 1 in the exponent is a factor of ten.
+
+## The 6ND rule
+
+From the backpropagation module, you know that training costs about 6 FLOP per parameter per token: 2 for the forward pass, 4 for the backward pass. So:
+
+<Eq>training compute ≈ 6 × <i>N</i> (parameters) × <i>D</i> (training tokens)</Eq>
+
+Check it against a disclosed number. GPT-3 had 175 billion parameters and was trained on about 300 billion tokens:
+
+<Eq>6 × (1.75 × 10<sup>11</sup>) × (3 × 10<sup>11</sup>) ≈ 3.15 × 10<sup>23</sup> FLOP</Eq>
+
+The GPT-3 paper reports 3.14 × 10<sup>23</sup>. The rule works.
+
+<QuickCheck client:visible item={{
+  kind: 'estimate', id: 'llama',
+  prompt: 'Meta’s Llama 3.1 405B has 405 billion parameters and was trained on about 15.6 trillion tokens. Estimate its training compute with 6ND.',
+  min: 1e21, max: 1e28, log: true, answer: 3.8e25, tolerance: 2, format: 'sci',
+  explain: '6 × 4.05×10^11 × 1.56×10^13 ≈ 3.8 × 10^25 FLOP, matching the figure Meta reported. That is above the EU AI Act’s 10^25 systemic-risk presumption.'
+}} />
+
+## How fast is a chip?
+
+A modern AI accelerator performs on the order of 10<sup>15</sup> FLOP per second (a "petaFLOP/s") at the reduced numerical precision used for training. That sounds like it should make short work of 10<sup>25</sup> FLOP. Divide: 10<sup>25</sup> / 10<sup>15</sup> = 10<sup>10</sup> seconds, which is over 300 years on a single chip.
+
+That is why frontier models are trained on **clusters** of tens of thousands of chips running for months. And in practice, chips do not run at their peak speed. Data must be shuttled between memory and compute units and between chips, and processors wait. The fraction of peak speed achieved, called **model FLOP utilization (MFU)**, is often between 30% and 50% for large training runs. Meta reported utilization around 38% to 43% when training Llama 3.1 405B on up to 16,000 GPUs.
+
+<Callout type="insight" title="Memory, not math, is often the bottleneck">
+Chips have grown faster at arithmetic than at moving data. For generating text one token at a time, a model must read all of its parameters from memory for each new token, so speed is limited by **memory bandwidth** rather than raw FLOP/s. This is why specialized high-bandwidth memory (HBM) has become one of the scarcest components in the AI supply chain.
+</Callout>
+
+## Spreading training across thousands of chips
+
+No single chip can hold a frontier model or process its data fast enough. Training is divided in several ways at once:
+
+- **Data parallelism:** many copies of the model each process different batches of data, then average their gradients.
+- **Tensor parallelism:** individual matrix multiplications are split across several chips.
+- **Pipeline parallelism:** different layers live on different chips, with data flowing through them like an assembly line.
+
+Coordinating these requires extremely fast networking between chips. At the scale of tens of thousands of chips, hardware failures become routine; Meta reported hundreds of interruptions during the 54-day Llama 3 training run, most caused by hardware faults. Reliability engineering is now part of frontier AI.
+
+## The growth of compute
+
+<StaticFigure id="compute-trend" caption="Training compute of selected notable models, log scale. Since 2010, the compute used for notable models has grown by roughly four to five times per year (Epoch AI). Dashed lines mark thresholds written into law." />
+
+Epoch AI, which maintains the most comprehensive public database of training runs, estimates that training compute for frontier language models has grown by about **five times per year** since 2020. A growth rate of 5× per year means roughly 100× every three years. Labs no longer disclose compute for most frontier models, so recent figures are third-party estimates, but the direction is clear: by 2026, multiple models were estimated to have been trained with more than 10<sup>26</sup> FLOP.
+
+## Cost and energy
+
+Compute has a price. A training run of 10<sup>25</sup> to 10<sup>26</sup> FLOP requires thousands to tens of thousands of top-end chips for months, and the hardware alone for frontier-scale clusters costs billions of dollars. Training costs for individual frontier runs are estimated in the hundreds of millions of dollars and rising.
+
+Energy is the other constraint. A large training cluster draws tens to hundreds of megawatts, comparable to a small city. The International Energy Agency estimated in 2025 that data centers used about 415 terawatt-hours of electricity in 2024, around 1.5% of global consumption, and projected that figure to more than double by 2030, driven largely by AI. Track VII returns to what this means for infrastructure, geopolitics, and the economy.
+
+<KeyIdea track="t2">Compute is the most measurable input to AI progress. With 6ND you can estimate it for any model whose size and data you know, and compare it to the thresholds that laws now use.</KeyIdea>
+
+## Compute and governance
+
+Because compute is quantifiable, concentrated in a few physical facilities, and produced by a narrow supply chain, it has become a favorite lever of policy:
+
+- The EU AI Act presumes a general-purpose model has "systemic risk" if trained with more than 10<sup>25</sup> FLOP.
+- California's SB 53 defines a "frontier model" as one trained with more than 10<sup>26</sup> operations.
+- The United States has used export controls on advanced chips since 2022 to slow rivals' access to frontier compute.
+
+Thresholds are crude proxies: a smaller model trained cleverly can outperform a larger one, and algorithmic efficiency keeps improving. But they are easy to verify, which is why lawmakers reach for them. Track VIII examines the trade-off.
+
+## Reading the corpus
+
+| When a document says | It means |
+| --- | --- |
+| "3.8 × 10<sup>25</sup> FLOP" | The total operations used in training |
+| "H100-hours" or "GPU-hours" | Chip time used; multiply by chip speed and utilization to estimate FLOP |
+| "MFU" | Model FLOP utilization: fraction of peak hardware speed actually used |
+| "bf16" / "fp8" | Reduced-precision number formats that make arithmetic faster |
+| "a 100k-GPU cluster" | A data center with around a hundred thousand accelerators networked together |
+| "compute-optimal" | The best allocation of a fixed compute budget between model size and data (Track III) |
+| "inference compute" | Compute used when running a model, as opposed to training it |
