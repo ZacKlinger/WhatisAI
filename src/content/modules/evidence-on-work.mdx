@@ -1,0 +1,134 @@
+---
+title: "The evidence so far: productivity and jobs"
+track: t7
+order: 3
+summary: What randomized trials, field studies, and payroll data actually show about AI and work, from customer-support gains to the early-career squeeze, and how to read labor economics critically.
+minutes: 32
+level: 4
+prerequisites: [measuring-exposure, evaluation-science]
+objectives:
+  - Summarize the major productivity studies and explain why their results differ.
+  - Describe the evidence on employment, including early-career effects, and its limitations.
+  - Evaluate labor-market studies by their design, counterfactual, and external validity.
+keyTerms:
+  - term: Field experiment
+    def: A randomized experiment conducted in a real workplace or market rather than a laboratory.
+  - term: Difference-in-differences
+    def: A method comparing the change over time in an affected group with the change in a comparison group, to estimate an effect.
+  - term: Counterfactual
+    def: What would have happened without the intervention. Every causal estimate depends on how it is constructed.
+  - term: Pre-trends
+    def: Differences in trends between groups before the intervention, which can bias difference-in-differences estimates.
+  - term: External validity
+    def: Whether a study's findings generalize beyond its specific setting, workers, and tools.
+  - term: Jagged frontier
+    def: The uneven boundary of AI capability, where similar-looking tasks fall on opposite sides of what AI does well.
+sources:
+  - title: Generative AI at Work
+    authors: Brynjolfsson, Li & Raymond
+    org: Quarterly Journal of Economics
+    year: 2025
+    url: https://www.nber.org/papers/w31161
+  - title: Navigating the Jagged Technological Frontier
+    authors: Dell'Acqua et al.
+    org: Harvard Business School
+    year: 2023
+    url: https://www.hbs.edu/faculty/Pages/item.aspx?num=64700
+  - title: Experimental evidence on the productivity effects of generative artificial intelligence
+    authors: Noy & Zhang
+    org: Science
+    year: 2023
+    url: https://www.science.org/doi/10.1126/science.adh2586
+  - title: Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity
+    authors: Becker et al.
+    org: METR
+    year: 2025
+    url: https://arxiv.org/abs/2507.09089
+  - title: Canaries in the Coal Mine? Six Facts about the Recent Employment Effects of Artificial Intelligence
+    authors: Brynjolfsson, Chandar & Chen
+    org: Stanford Digital Economy Lab
+    year: 2026
+    url: https://digitaleconomy.stanford.edu/publication/canaries-in-the-coal-mine-six-facts-about-the-recent-employment-effects-of-artificial-intelligence/
+  - title: "Large Language Models, Small Labor Market Effects"
+    authors: Humlum & Vestergaard
+    org: NBER
+    year: 2025
+    url: https://www.nber.org/papers/w33777
+  - title: The Short-Term Effects of Generative Artificial Intelligence on Employment
+    authors: Hui, Reshef & Zhou
+    org: Organization Science
+    year: 2024
+    url: https://doi.org/10.1287/orsc.2023.18441
+updated: 2026-10-26
+---
+
+import StaticFigure from '@/components/figures/registry';
+import QuickCheck from '@/components/quiz/QuickCheck';
+
+Predictions about AI and work are cheap and plentiful. Evidence is scarcer and more interesting. Since 2023, economists have run randomized trials in real workplaces, analyzed payroll records for millions of workers, and tracked freelance markets in real time. The results do not support either the story that AI changes nothing or the story that it is eliminating work wholesale. They support something more specific and more useful to understand.
+
+## Productivity: large gains, unevenly distributed
+
+<StaticFigure id="forest" caption="Reported effects from five studies of AI tools and work. The measures differ (throughput, time, speed), so compare direction and context, not magnitude." />
+
+**Customer support (field study).** Erik Brynjolfsson, Danielle Li, and Lindsey Raymond studied over 5,000 customer-support agents at a software firm whose AI assistant was rolled out gradually. Agents with access resolved about **14% more issues per hour** on average. The gains were concentrated among novices and lower-skilled workers, about **34%**, with little effect for the most experienced. The tool appeared to spread the tacit knowledge of the best agents to everyone else. Customers were also more satisfied, and attrition fell.
+
+**Consulting (field experiment).** In a 2023 study with Boston Consulting Group, 758 consultants were randomly given GPT-4 access. On tasks within the model's capabilities, they completed about **12% more tasks, 25% faster, with quality rated about 40% higher**. But on a task deliberately chosen to lie just outside the model's capabilities, consultants using AI were **19 percentage points less likely** to reach the correct answer than those without it. The authors called this the **jagged technological frontier**: tasks that look similar can fall on different sides of what AI does well, and users cannot easily tell which side they are on.
+
+**Writing (laboratory experiment).** In a study published in *Science*, 453 college-educated professionals given ChatGPT completed writing tasks about **40% faster** with **18% higher quality**, and the gap between weaker and stronger writers narrowed.
+
+**Coding.** In a 2023 experiment, developers with GitHub Copilot completed a defined programming task about **56% faster**. But in METR's 2025 randomized trial, experienced developers working on their own large, familiar codebases took **19% longer** with AI tools, while believing they had been faster.
+
+<StaticFigure id="jagged-frontier" caption="The jagged frontier (schematic). Tasks inside the boundary are done well with AI help; a task just outside, which may look similar, can be done worse with AI than without it." />
+
+### What explains the differences?
+
+A consistent pattern emerges. Gains are largest for **well-defined tasks**, for **less experienced workers**, and where the AI is **inside its capability frontier**. Gains shrink or reverse for **experts working in complex, familiar contexts** with high quality standards, and for tasks **beyond the frontier**, where AI output looks plausible but is wrong. That last point is crucial: the cost of AI is often not doing the task, but checking it.
+
+<QuickCheck client:visible item={{
+  kind: 'hotspot', id: 'frontier',
+  prompt: 'In the jagged-frontier picture, which task is most likely to be done WORSE by a worker relying on AI?',
+  figure: { id: 'jagged-frontier' },
+  answer: 'out1',
+  explain: 'Tasks just outside the frontier produce plausible but wrong output; uncritical reliance leads to worse results than working alone.'
+}} />
+
+## Employment: early signals, concentrated on the young
+
+Productivity is not employment. A tool that makes a worker 30% faster can mean more output, fewer hires, or both.
+
+**The early-career squeeze.** In August 2025, Brynjolfsson, Bharat Chandar, and Ruyu Chen analyzed payroll data from ADP, the largest US payroll processor, covering millions of workers. Since late 2022, employment for workers aged **22 to 25 in the most AI-exposed occupations**, such as software development and customer service, declined relative to less-exposed occupations, while employment for older workers in the same occupations held steady or grew. The declines concentrated in occupations where AI tends to automate rather than augment, and came through slower hiring rather than layoffs. Their August 2026 update put the relative shortfall at about **19%**.
+
+The authors offer a hypothesis: AI substitutes more readily for **codified knowledge**, the kind learned in school, which is what young workers mostly bring, than for **tacit knowledge** built through experience.
+
+**The skeptical evidence.** Other careful studies find small effects so far. Using Danish administrative data on 25,000 workers in exposed occupations, Anders Humlum and Emilie Vestergaard found in 2025 that widespread chatbot adoption had **no detectable effect on earnings or recorded hours**, with modest reported time savings. Critics of the early-career findings point to pre-existing trends in tech hiring, the end of pandemic-era over-hiring, and interest-rate changes, all of which hit the same occupations.
+
+**Freelance markets.** A study of an online freelancing platform found that after ChatGPT's release, freelancers in writing-related occupations saw fewer jobs and lower earnings than those in less-exposed occupations: an early, clear effect in a market with little friction.
+
+<KeyIdea track="t7">As of 2026, the evidence shows real productivity gains concentrated on well-defined tasks and less experienced workers, early employment declines concentrated among young workers in the most automatable occupations, and no economy-wide collapse in work. All three facts can be true at once.</KeyIdea>
+
+## How to read a labor study
+
+Economics papers can look intimidating, but their logic follows a few patterns.
+
+1. **What is the counterfactual?** Every causal claim compares what happened with what would have happened. In a randomized trial, the control group supplies the counterfactual. In observational studies, researchers construct it, for example from less-exposed occupations or earlier years.
+2. **Difference-in-differences.** Compare the *change* in an affected group with the *change* in a comparison group. This removes shared trends, but only if the groups were on similar paths beforehand. Check for **pre-trends** in the figures before the event.
+3. **Who, where, and when?** A trial with 16 open-source developers in early 2025 and a field study of 5,000 support agents in 2020 to 2021 answer different questions. Ask about **external validity**.
+4. **Which tools?** AI capabilities change faster than studies are published. A study of 2023 models may understate the effects of 2026 models, or be irrelevant to them.
+5. **Partial or general equilibrium?** Studies of individual workers or firms miss economy-wide effects: lower prices, new demand, and new jobs elsewhere.
+
+<Callout type="economy" title="The policy debate">
+Governments have begun responding: through retraining programs, through proposals to measure AI's labor effects more systematically, and through debates over whether existing safety nets suit faster-moving disruption. When you read policy proposals, connect them to this evidence: who is affected (so far, often early-career workers in exposed occupations), through what mechanism (hiring more than layoffs), and with what uncertainty.
+</Callout>
+
+## Reading the corpus
+
+| When a document says | It means |
+| --- | --- |
+| "RCT," "field experiment" | Randomized comparison, in a lab or real workplace |
+| "diff-in-diff," "event study" | Methods comparing changes across groups over time |
+| "relative decline," "counterfactual" | Change compared with an estimated no-AI path, not an absolute drop |
+| "heterogeneous effects" | Different effects for different workers or tasks |
+| "extensive / intensive margin" | Whether people are employed / how much they work or earn |
+| "pre-trends" | Pre-existing differences that can bias estimates |
+| "jagged frontier" | Uneven AI capability across similar-looking tasks |

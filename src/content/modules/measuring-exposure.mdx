@@ -1,0 +1,129 @@
+---
+title: Measuring who is exposed
+track: t7
+order: 2
+summary: O*NET, exposure scores, and usage data. How researchers estimate which work AI could affect, what people actually use it for, and why exposure is not the same as displacement.
+minutes: 26
+level: 3
+prerequisites: [general-purpose-technology, statistics-for-research]
+objectives:
+  - Explain how task databases like O*NET are used to measure AI exposure.
+  - Compare capability-based exposure measures with usage-based measures such as the Anthropic Economic Index.
+  - Explain why exposure does not equal job loss, and identify the main limits of these measures.
+keyTerms:
+  - term: O*NET
+    def: The US Department of Labor's database describing occupations by their tasks, skills, and work activities.
+  - term: Exposure
+    def: A measure of how much of an occupation's work AI could plausibly affect, usually by speeding up its tasks.
+  - term: Usage-based measure
+    def: An estimate of AI's role in work based on how people actually use AI systems, rather than on what AI could do.
+  - term: Anthropic Economic Index
+    def: Anthropic's ongoing research program that maps real Claude usage to occupational tasks, using privacy-preserving analysis.
+  - term: Directive (automation) vs. collaborative (augmentation) use
+    def: Delegating a whole task to AI versus working iteratively with it.
+sources:
+  - title: "GPTs are GPTs: An Early Look at the Labor Market Impact Potential of Large Language Models"
+    authors: Eloundou, Manning, Mishkin & Rock
+    org: OpenAI & University of Pennsylvania
+    year: 2023
+    url: https://arxiv.org/abs/2303.10130
+  - title: "Occupational, industry, and geographic exposure to artificial intelligence"
+    authors: Felten, Raj & Seamans
+    org: Strategic Management Journal
+    year: 2021
+    url: https://doi.org/10.1002/smj.3286
+  - title: Which Economic Tasks are Performed with AI? Evidence from Millions of Claude Conversations
+    authors: Handa et al.
+    org: Anthropic
+    year: 2025
+    url: https://arxiv.org/abs/2503.04761
+  - title: The Anthropic Economic Index
+    org: Anthropic
+    year: 2026
+    url: https://www.anthropic.com/economic-index
+  - title: "Working with AI: Measuring the Occupational Implications of Generative AI"
+    authors: Tomlinson et al.
+    org: Microsoft Research
+    year: 2025
+    url: https://arxiv.org/abs/2507.07935
+  - title: O*NET OnLine
+    org: US Department of Labor
+    year: 2026
+    url: https://www.onetonline.org/
+updated: 2026-10-26
+---
+
+import StaticFigure from '@/components/figures/registry';
+import QuickCheck from '@/components/quiz/QuickCheck';
+
+Headlines about AI and jobs often cite a single striking number: some percentage of jobs "at risk." Behind every such number is a measurement method, and the method determines the answer. This module opens up those methods. Once you know how exposure is measured, you can read the labor-market literature critically and avoid the most common misinterpretations.
+
+## The raw material: O*NET
+
+Most exposure research begins with **O*NET**, a database maintained by the US Department of Labor that describes nearly a thousand occupations through tens of thousands of task statements. "Review legal documents for accuracy" is a task. "Prepare tax returns" is another. Because O*NET breaks jobs into tasks, it fits the task-based framework you met in the previous module: assess AI's relevance to each task, then aggregate up to occupations.
+
+## Capability-based exposure
+
+The first family of measures asks: *could* AI do or speed up this task?
+
+- **Felten, Raj, and Seamans** (2021) linked AI application areas, such as image recognition or language modeling, to the abilities O*NET says each occupation requires, producing an AI Occupational Exposure score.
+- **Webb** (2020) compared the text of AI patents with occupational task descriptions.
+- **Eloundou et al.** (2023), the "GPTs are GPTs" study, had both human annotators and GPT-4 rate each O*NET task: could a language model, alone or with additional software, reduce the time to complete it by at least half while maintaining quality? They estimated that about 80% of US workers had at least 10% of their tasks exposed, and about 19% had at least half their tasks exposed. Exposure rose with wages and education, the reverse of earlier automation waves.
+
+These measures tell you where AI's capabilities overlap with work. They do not tell you whether that overlap translates into adoption, productivity, or job loss.
+
+## Usage-based measures
+
+The second family asks: what are people *actually* using AI for?
+
+In February 2025, Anthropic launched the **Anthropic Economic Index**, analyzing about a million conversations with Claude through a privacy-preserving tool that classifies conversations without researchers reading them. Each conversation was mapped to the O*NET tasks it most resembled. Key findings from that first report:
+
+- Usage was concentrated: software development and other computer and mathematical tasks accounted for over a third of conversations.
+- About 36% of occupations showed AI use in at least a quarter of their tasks, but few occupations used it across most of their tasks.
+- Use was highest in mid-to-high-wage occupations and lower in both the lowest- and highest-paid roles.
+- 57% of usage looked like augmentation (iterating, learning, validating) and 43% like automation (directly delegating the task).
+
+<StaticFigure id="aei-bars" caption="Share of Claude conversations by occupational category, February 2025 (Anthropic Economic Index)." />
+
+Later reports tracked change over time. Through 2025, the share of directive, automation-style use grew, especially through the API, where businesses build automated workflows. Reports in 2026 found use diversifying across a wider range of tasks, spreading to lower-wage work, and varying strongly across countries and US states with income levels. Microsoft researchers published a similar analysis of Copilot conversations in 2025, finding the highest applicability in knowledge work such as writing, information gathering, and communication, and the lowest in physical occupations.
+
+<QuickCheck client:visible item={{
+  kind: 'match', id: 'methods',
+  prompt: 'Match each measure to what it captures.',
+  pairs: [
+    ['Eloundou et al. exposure', 'Whether an LLM could halve the time a task takes'],
+    ['Anthropic Economic Index', 'What tasks people actually use Claude for'],
+    ['Felten et al. AIOE', 'Overlap between AI application areas and occupational abilities'],
+  ],
+  explain: 'Capability-based measures estimate potential; usage-based measures show realized use on one platform.'
+}} />
+
+## Exposure is not displacement
+
+The single most common error in reading this literature is treating "exposed" as "at risk of elimination." Exposure can mean many different things:
+
+- **Augmentation:** the worker does the task faster or better and keeps the job.
+- **Task reallocation:** the worker spends less time on the exposed task and more on others.
+- **Higher demand:** cheaper output can increase demand for the work, as when cheaper computing increased demand for programmers for decades.
+- **Displacement:** the task, and perhaps the job, moves to the machine.
+
+Which happens depends on the elasticity of demand for the output, on how firms reorganize, and on whether the exposed tasks are the core of the job or its periphery. Exposure scores alone cannot distinguish these outcomes. That is why the next module turns to direct evidence.
+
+<KeyIdea track="t7">Exposure measures where AI could touch work. Usage data shows where it does. Neither, by itself, tells you whether jobs are lost or transformed. That requires evidence on outcomes.</KeyIdea>
+
+## The limits of each lens
+
+- **Capability measures** depend on judgments about what AI can do, which change quickly and are often made by AI systems themselves.
+- **Usage measures** describe one platform's users, who are not representative of all workers or firms, and classify conversations by similarity to task descriptions, which is imperfect.
+- **Both** are built on O*NET's task lists, which may lag behind how work actually changes and miss tasks that do not yet exist.
+
+## Reading the corpus
+
+| When a document says | It means |
+| --- | --- |
+| "O*NET task statements" | Standardized descriptions of tasks within occupations |
+| "exposure," "AIOE," "β exposure" | Capability-based estimates of AI's potential relevance |
+| "share of conversations," "usage index" | Usage-based measures from real AI interactions |
+| "augmentative vs. automative use" | Collaborative vs. delegated use |
+| "Anthropic AI Usage Index (AUI)" | Usage per capita relative to working-age population, used to compare regions |
+| "exposure is not displacement" | The standard caution that potential effects differ from realized outcomes |

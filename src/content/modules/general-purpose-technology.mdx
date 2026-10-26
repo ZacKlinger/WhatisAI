@@ -1,0 +1,126 @@
+---
+title: The economics of a general-purpose technology
+track: t7
+order: 1
+summary: Electricity, computers, and now AI. What history and economic theory say about technologies that transform everything, why their gains arrive slowly, and how tasks, not jobs, are the unit of change.
+minutes: 26
+level: 2
+prerequisites: [history-of-ai]
+objectives:
+  - Define a general-purpose technology and explain why AI is often classified as one.
+  - Explain the productivity J-curve and the role of complementary investments, using electrification as the case.
+  - Use the task-based framework to reason about automation, augmentation, and new work.
+keyTerms:
+  - term: General-purpose technology (GPT)
+    def: A technology that is pervasive, improves over time, and spawns complementary innovations across the economy, like steam, electricity, or computing.
+  - term: Productivity
+    def: Output per unit of input, such as output per hour worked. The ultimate source of rising living standards.
+  - term: Productivity J-curve
+    def: The pattern in which productivity measured during the early adoption of a GPT looks flat or worse, then rises once complementary investments pay off.
+  - term: Complementary investment
+    def: The new processes, skills, organizational structures, and products needed to use a technology well.
+  - term: Task-based framework
+    def: An approach that analyzes jobs as bundles of tasks, some of which technology can perform and some of which it cannot.
+  - term: Automation
+    def: Technology performing tasks previously done by people.
+  - term: Augmentation
+    def: Technology making people more productive at tasks they still perform.
+sources:
+  - title: "General purpose technologies: 'Engines of growth'?"
+    authors: Bresnahan & Trajtenberg
+    org: Journal of Econometrics
+    year: 1995
+    url: https://doi.org/10.1016/0304-4076(94)01598-T
+  - title: "The Dynamo and the Computer: An Historical Perspective on the Modern Productivity Paradox"
+    authors: Paul A. David
+    org: American Economic Review
+    year: 1990
+    url: https://www.jstor.org/stable/2006600
+  - title: "The Productivity J-Curve: How Intangibles Complement General Purpose Technologies"
+    authors: Brynjolfsson, Rock & Syverson
+    org: American Economic Journal, Macroeconomics
+    year: 2021
+    url: https://doi.org/10.1257/mac.20180386
+  - title: "Automation and New Tasks: How Technology Displaces and Reinstates Labor"
+    authors: Acemoglu & Restrepo
+    org: Journal of Economic Perspectives
+    year: 2019
+    url: https://doi.org/10.1257/jep.33.2.3
+  - title: "New Frontiers: The Origins and Content of New Work, 1940–2018"
+    authors: Autor, Chin, Salomons & Seegmiller
+    org: Quarterly Journal of Economics
+    year: 2024
+    url: https://doi.org/10.1093/qje/qjae008
+  - title: GPTs are GPTs
+    authors: Eloundou, Manning, Mishkin & Rock
+    org: Science
+    year: 2024
+    url: https://arxiv.org/abs/2303.10130
+updated: 2026-10-26
+---
+
+import QuickCheck from '@/components/quiz/QuickCheck';
+
+In 1987 the economist Robert Solow quipped that "you can see the computer age everywhere but in the productivity statistics." Computers were spreading through offices, yet the economy was not visibly growing faster. A decade later, it was. The puzzle and its resolution hold the most important lesson economic history offers about AI: transformative technologies change the economy slowly at first, through the reorganization of work around them, and the effects depend on choices about how they are used.
+
+## What makes a technology "general purpose"
+
+Economists Timothy Bresnahan and Manuel Trajtenberg defined **general-purpose technologies** by three properties: they are **pervasive**, spreading across many sectors; they **improve** over time, getting cheaper and better; and they **spawn complementary innovations**, enabling new products and processes that would otherwise be impossible. The steam engine, electricity, and computing are canonical examples.
+
+In 2023, researchers from OpenAI and the University of Pennsylvania argued, in a paper titled "GPTs are GPTs," that generative pre-trained transformers fit this definition: their potential applications span most occupations, their capabilities improve rapidly, and they enable a wave of complementary tools built on top of them. Many economists now treat AI as a candidate general-purpose technology, which shapes how they forecast its effects.
+
+## The lesson of electrification
+
+The economic historian Paul David studied why electricity took so long to raise productivity. Electric motors were available in the 1880s, but American manufacturing productivity did not surge until the 1920s.
+
+The reason was organization. Steam-powered factories were built around a single giant engine driving a central shaft, with machines arranged by their need for power. Early adopters simply swapped the steam engine for a large electric motor and changed little else. The gains came only when factories were redesigned around small motors attached to each machine: single-story layouts, machines arranged by workflow, cleaner and better-lit spaces. That redesign took decades, and a new generation of factories and managers.
+
+<KeyIdea track="t7">A general-purpose technology pays off only after the economy reorganizes around it. The technology is fast; the complementary investments in skills, processes, and organizations are slow.</KeyIdea>
+
+## The productivity J-curve
+
+Erik Brynjolfsson, Daniel Rock, and Chad Syverson formalized this pattern as a **productivity J-curve**. In the early years of a general-purpose technology, firms invest heavily in intangible complements: training workers, redesigning processes, building data infrastructure. These investments are costly and largely invisible in official statistics, so measured productivity can look flat or even decline. Later, as the investments pay off, measured productivity rises above trend. The curve dips before it climbs, like the letter J.
+
+For AI, the implication is that early macroeconomic data may understate, rather than overstate, eventual effects, and that the speed of organizational change, not just the speed of model improvement, will govern the timing.
+
+<QuickCheck client:visible item={{
+  kind: 'mc', id: 'jcurve',
+  prompt: 'Why might measured productivity look weak in the early years of a general-purpose technology?',
+  choices: ['The technology does not work', 'Firms are making large, hard-to-measure investments in skills and reorganization that pay off only later', 'Workers refuse to use it', 'Statistics agencies ignore new technologies'],
+  answer: 1,
+  explain: 'Intangible complementary investments are costly up front and poorly measured, producing the dip in the J-curve.'
+}} />
+
+## Tasks, not jobs
+
+How does a technology affect workers? The most influential framework, developed by Daron Acemoglu, David Autor, Pascual Restrepo and others, treats a job as a **bundle of tasks**. A paralegal researches case law, drafts documents, organizes files, and talks to clients. Technology affects tasks, and through them, jobs.
+
+Technology can affect tasks in different ways:
+
+- **Automation** shifts a task from people to machines. This *displaces* labor from that task, though it can raise demand for the remaining tasks in the job, or for other jobs, by making production cheaper.
+- **Augmentation** makes people better at tasks they keep, raising their productivity.
+- **New tasks** are created by the technology itself. Acemoglu and Restrepo emphasize that historically, the creation of new tasks in which humans have an advantage has offset displacement: the **reinstatement effect**.
+
+The scale of new work is easy to underestimate. A 2024 study by David Autor and colleagues estimated that about 60% of US employment in 2018 was in job titles that did not exist in 1940.
+
+## What makes AI different, perhaps
+
+Earlier waves of automation mostly affected routine tasks: physical work in factories, and rule-based office tasks like bookkeeping. Middle-wage routine jobs declined, a pattern economists call job polarization. Generative AI is different in that it affects **non-routine cognitive tasks**: writing, analysis, coding, design, and advice. Exposure studies find that higher-education, higher-wage occupations are among the *most* exposed, a reversal of past patterns.
+
+Whether this produces mostly augmentation or mostly automation is the central open question. Usage data from 2025 found roughly 57% of Claude conversations augmenting human work (iterating, learning, checking) and 43% automating it, with automation's share growing as agents matured. The balance is not fixed by the technology. It depends on how firms deploy it, on policy, and on the skills workers bring.
+
+<Callout type="economy" title="Why this path emphasizes judgment">
+If AI augments the tasks where human judgment adds value and automates the rest, the most durable skills are those that direct, evaluate, and integrate AI output: understanding what a model can and cannot do, checking its work, and knowing when to trust it. That is the reasoning behind this curriculum's emphasis on evaluation and calibration, laid out on the Method page.
+</Callout>
+
+## Reading the corpus
+
+| When a document says | It means |
+| --- | --- |
+| "general-purpose technology" | A pervasive, improving technology that spawns complements |
+| "total factor productivity (TFP)" | Output growth not explained by more capital or labor; the economist's measure of technological progress |
+| "J-curve," "productivity paradox" | Delayed measured gains from transformative technologies |
+| "task-based model" | Jobs as bundles of tasks affected separately by technology |
+| "displacement / reinstatement" | Labor pushed out of tasks / pulled into new tasks |
+| "augmentation vs. automation" | Helping people do tasks vs. doing tasks instead of people |
+| "skill-biased technical change" | Technology that raises demand for some skills more than others |

@@ -1,0 +1,127 @@
+---
+title: "The AI supply chain: chips, energy, and capital"
+track: t7
+order: 4
+summary: From ASML's lithography machines to gigawatt data centers. The physical industry behind AI, its concentration and costs, the geopolitics of chips, and the economics of open and closed models.
+minutes: 28
+level: 3
+prerequisites: [compute, general-purpose-technology]
+objectives:
+  - Trace the AI supply chain from chip design and fabrication through data centers and energy.
+  - Explain why the chain is concentrated and why that makes it a geopolitical lever.
+  - Reason about capital expenditure, falling inference prices, and the open versus closed model economy.
+keyTerms:
+  - term: Fab (foundry)
+    def: A semiconductor fabrication plant. The most advanced AI chips are made by very few foundries, chiefly TSMC.
+  - term: EUV lithography
+    def: Extreme ultraviolet lithography, the technique used to print the smallest chip features. ASML is the only supplier of these machines.
+  - term: HBM
+    def: High-bandwidth memory, stacked memory chips essential to AI accelerators, made by a few suppliers.
+  - term: Hyperscaler
+    def: A company operating cloud data centers at massive scale, such as Microsoft, Amazon, Google, or Meta.
+  - term: Capex
+    def: Capital expenditure, spending on long-lived assets like data centers and chips.
+  - term: Export controls
+    def: Government restrictions on selling specified technologies, such as advanced chips or chipmaking tools, to certain countries.
+  - term: Open-weight model
+    def: A model whose trained parameters are published for anyone to download, run, and modify.
+sources:
+  - title: Energy and AI
+    org: International Energy Agency
+    year: 2025
+    url: https://www.iea.org/reports/energy-and-ai
+  - title: Computing Power and the Governance of Artificial Intelligence
+    authors: Sastry et al.
+    org: arXiv
+    year: 2024
+    url: https://arxiv.org/abs/2402.08797
+  - title: Implementation of Additional Export Controls (advanced computing and semiconductor manufacturing)
+    org: US Bureau of Industry and Security
+    year: 2022
+    url: https://www.federalregister.gov/documents/2022/10/13/2022-21658/implementation-of-additional-export-controls-certain-advanced-computing-and-semiconductor-manufacturing
+  - title: DeepSeek-V3 Technical Report
+    authors: DeepSeek-AI
+    org: DeepSeek
+    year: 2024
+    url: https://arxiv.org/abs/2412.19437
+  - title: Trends in Artificial Intelligence
+    org: Epoch AI
+    year: 2026
+    url: https://epoch.ai/trends
+updated: 2026-10-26
+---
+
+import StaticFigure from '@/components/figures/registry';
+import QuickCheck from '@/components/quiz/QuickCheck';
+
+Software feels weightless. Frontier AI is not. Every response from a frontier model depends on chips printed with light in a handful of factories, memory stacked in a few more, data centers the size of small towns, and power plants to run them. This physical supply chain shapes who can build frontier AI, what it costs, and how governments try to influence it. Understanding it turns abstract debates about "AI competition" into concrete questions about machines, money, and electricity.
+
+## The chain, link by link
+
+<StaticFigure id="pipeline" stages={[
+  { id: 'design', label: 'Chip design', sub: 'NVIDIA, Google, AMD' },
+  { id: 'tools', label: 'Lithography', sub: 'ASML (EUV)' },
+  { id: 'fab', label: 'Fabrication', sub: 'TSMC, chiefly' },
+  { id: 'memory', label: 'Memory (HBM)', sub: 'SK hynix, Samsung, Micron' },
+  { id: 'dc', label: 'Data centers', sub: 'hyperscalers, labs' },
+]} caption="A simplified AI hardware supply chain. Several links are dominated by one or a few firms, making the whole chain unusually concentrated." />
+
+**Design.** NVIDIA designs the large majority of accelerators used to train frontier models, alongside its software ecosystem, which is itself a moat. Google designs its own TPUs; AMD and others compete; several cloud companies and labs design custom chips.
+
+**Lithography.** The smallest features on leading-edge chips are printed with **extreme ultraviolet (EUV) lithography** machines. One company, the Dutch firm ASML, makes them. Each costs well over a hundred million euros.
+
+**Fabrication.** The most advanced chips are manufactured by very few foundries, chiefly **TSMC**, most of whose leading-edge capacity is in Taiwan.
+
+**Memory.** Accelerators need **high-bandwidth memory (HBM)**, stacked memory chips supplied by SK hynix, Samsung, and Micron. HBM has repeatedly been a bottleneck.
+
+**Data centers and energy.** Chips are assembled into clusters of tens or hundreds of thousands, networked together, cooled, and powered. The largest new campuses are planned at gigawatt scale.
+
+## Why concentration matters
+
+When a single company or country controls a critical link, it becomes a **chokepoint**. Chokepoints create fragility (a disruption in one place can stall the industry) and leverage (whoever controls the chokepoint can shape who gets access). The concentration of advanced chip fabrication in Taiwan is one of the most discussed strategic vulnerabilities in the world economy.
+
+## Export controls
+
+Since October 2022, the United States has imposed **export controls** restricting the sale of advanced AI chips and chipmaking equipment to China, tightened in later rounds and coordinated in part with allies such as the Netherlands and Japan, which control key equipment. The stated goal is to slow the development of frontier AI capabilities by rivals. A broader rule proposed in January 2025, which would have tiered access for countries around the world, was rescinded that May, and policy has continued to shift since. Policy researchers have argued that compute is unusually governable because it is detectable, excludable, quantifiable, and concentrated, which is why it features so heavily in both trade policy and AI regulation.
+
+The effectiveness of controls is contested. In January 2025, the Chinese lab DeepSeek released R1, a reasoning model competitive with leading Western models at the time, after reporting that the final training run of its V3 base model cost about $5.6 million in compute (excluding research and earlier experiments). Markets reacted sharply. The episode showed how much algorithmic efficiency can substitute for raw compute, while also, according to many analysts, demonstrating that the most advanced chips remained a binding constraint on scaling further.
+
+<QuickCheck client:visible item={{
+  kind: 'multi', id: 'chokepoints',
+  prompt: 'Which links in the AI hardware chain are dominated by one or a very few firms?',
+  choices: ['EUV lithography machines', 'Leading-edge chip fabrication', 'High-bandwidth memory', 'Writing prompts'],
+  answers: [0, 1, 2],
+  explain: 'ASML (EUV), TSMC (fabrication), and three HBM suppliers: concentration that creates both fragility and leverage.'
+}} />
+
+## Capital: the scale of the bet
+
+Building frontier AI has become one of the largest capital investments in history. By 2025, the largest technology companies were together spending hundreds of billions of dollars a year on capital expenditure, mostly for AI data centers, and announced projects such as the "Stargate" venture of OpenAI, SoftBank, and Oracle in early 2025 were framed in the hundreds of billions. Whether revenues will grow fast enough to justify this spending is one of the central economic debates of the period, with some analysts warning of a bubble and others arguing that demand for AI compute will keep outstripping supply.
+
+## Energy
+
+A frontier training cluster draws hundreds of megawatts. The International Energy Agency estimated that data centers used about 415 terawatt-hours of electricity in 2024, roughly 1.5% of global consumption, and projected this to more than double by 2030, with AI the main driver. In some regions data center demand already strains grids, and AI companies have signed deals for new power generation, including nuclear. Energy is increasingly cited as a binding constraint on how fast compute can grow.
+
+<KeyIdea track="t7">Frontier AI rests on a narrow, capital-intensive physical chain. That chain determines who can compete, what models cost, and where governments can intervene.</KeyIdea>
+
+## Falling prices, rising usage
+
+At the same time, the cost of *using* a given level of AI capability has collapsed. Epoch AI and others have found that the price of reaching a fixed level of benchmark performance has fallen by large factors each year since 2022, varying widely by task. Cheaper inference expands the set of tasks where AI is economical, which is why total spending on AI can rise even as unit prices fall, a pattern economists call the Jevons paradox.
+
+## Open versus closed
+
+Some developers, including Meta for much of this period and many Chinese labs such as DeepSeek, Alibaba's Qwen team, and Moonshot AI, release **open-weight** models that anyone can download, run, and fine-tune. Others keep weights private and offer access through products and APIs. Analysts have estimated that the best open-weight models trail the best closed models by roughly a year or less.
+
+The trade-offs are real on both sides. Open weights enable research, competition, customization, and use without depending on a provider. They also mean safety training can be removed by fine-tuning, and that no one can recall a model once released. These trade-offs are at the center of policy debates, from the EU AI Act's partial exemptions for open-source models to discussions of which capabilities are too dangerous to release openly.
+
+## Reading the corpus
+
+| When a document says | It means |
+| --- | --- |
+| "leading-edge node," "3nm," "2nm" | The most advanced chip manufacturing processes |
+| "EUV" | Extreme ultraviolet lithography, supplied only by ASML |
+| "HBM" | High-bandwidth memory for AI accelerators |
+| "capex" | Capital expenditure on data centers and hardware |
+| "export controls," "entity list" | Restrictions on selling technology to specified countries or firms |
+| "GW-scale campus" | A data center site drawing gigawatts of power |
+| "open-weight," "closed-weight" | Downloadable parameters vs. access only through a provider |
