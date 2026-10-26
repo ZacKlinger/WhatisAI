@@ -1,0 +1,133 @@
+---
+title: "Interpretability: features, circuits, and superposition"
+track: t6
+order: 2
+summary: "Why researchers try to reverse-engineer neural networks, what they look for, and the central obstacle they found: networks store more concepts than they have neurons."
+minutes: 30
+level: 4
+prerequisites: [transformer, representations, alignment-problem]
+objectives:
+  - Explain the goals of mechanistic interpretability and how it differs from behavioral testing.
+  - Define features and circuits, and describe the induction head as a worked example.
+  - Explain polysemanticity and superposition, and why they make neurons the wrong unit of analysis.
+keyTerms:
+  - term: Mechanistic interpretability
+    def: Reverse-engineering the computations inside a neural network into human-understandable components and algorithms.
+  - term: Feature
+    def: A property of the input a network represents, often hypothesized to correspond to a direction in activation space.
+  - term: Circuit
+    def: A subnetwork of connected features and weights that implements a specific computation.
+  - term: Polysemantic neuron
+    def: A neuron that responds to several unrelated concepts.
+  - term: Monosemantic
+    def: Responding to a single, interpretable concept.
+  - term: Superposition
+    def: Representing more features than there are dimensions by assigning them nearly perpendicular directions, tolerating some interference.
+  - term: Activation patching
+    def: Replacing a component's activations with those from a different input to test whether that component causally matters for a behavior.
+sources:
+  - title: "Zoom In: An Introduction to Circuits"
+    authors: Olah et al.
+    org: Distill
+    year: 2020
+    url: https://distill.pub/2020/circuits/zoom-in/
+  - title: Toy Models of Superposition
+    authors: Elhage et al.
+    org: Anthropic
+    year: 2022
+    url: https://transformer-circuits.pub/2022/toy_model/index.html
+  - title: In-context Learning and Induction Heads
+    authors: Olsson et al.
+    org: Anthropic
+    year: 2022
+    url: https://transformer-circuits.pub/2022/in-context-learning-and-induction-heads/index.html
+  - title: Locating and Editing Factual Associations in GPT
+    authors: Meng, Bau, Andonian & Belinkov
+    org: NeurIPS
+    year: 2022
+    url: https://arxiv.org/abs/2202.05262
+  - title: "Probing Classifiers: Promises, Shortcomings, and Advances"
+    authors: Yonatan Belinkov
+    org: Computational Linguistics
+    year: 2022
+    url: https://arxiv.org/abs/2102.12452
+updated: 2026-10-26
+---
+
+import Superposition from '@/components/interactive/Superposition';
+import StaticFigure from '@/components/figures/registry';
+import QuickCheck from '@/components/quiz/QuickCheck';
+
+We built AI systems that write poetry and prove theorems without understanding how they do it. The weights are all visible; billions of numbers, every one inspectable. Yet reading them is like reading a brain by listing its synapses. **Mechanistic interpretability** is the attempt to reverse-engineer these networks: to turn the numbers back into concepts and algorithms that people can understand and check. Anthropic has made it a central research bet. This module covers its foundations; the next covers its most powerful tools.
+
+## Why look inside?
+
+Behavioral testing, asking a model questions and checking answers, has a fundamental limit: it shows what a model does on the inputs you tried, not why, and not what it would do on inputs you did not try. If a model were deceptive, or behaved differently when it believed it was unobserved, behavioral tests might never reveal it.
+
+Interpretability promises a different kind of evidence. If we could read a model's internal representations directly, we could check for concepts like deception, detect hidden goals, understand failures, and verify that a model's reasoning matches its stated reasoning. That is the long-term aspiration. The field is far from it, but making real progress.
+
+## Features and circuits
+
+In 2020, Chris Olah and colleagues proposed a research program built on three claims, studied first in image networks:
+
+1. **Features** are the fundamental units of neural networks: they correspond to meaningful properties of the input, like a curve, a dog's snout, or a particular texture.
+2. **Circuits** are features connected by weights, forming small computational subgraphs: for example, curve detectors built from edge detectors in the previous layer.
+3. **Universality:** similar features and circuits form across different networks trained on similar tasks.
+
+They found strikingly clean examples, such as families of curve detectors whose mechanism could be read directly from the weights and even reimplemented by hand.
+
+## A worked example: induction heads
+
+In 2022, Anthropic researchers found a circuit in transformers that explains part of in-context learning. An **induction head** implements a simple rule: if the current token is A, look back for an earlier occurrence of A, see what token B followed it, and predict B. Seeing "Mr. Dursley ... Mr." makes the model predict "Dursley." The circuit needs two attention heads working together across layers: one that marks each token with information about its predecessor, and one that searches for matches.
+
+The researchers found that induction heads form during a specific, abrupt phase of training, at the same moment the model's ability to use earlier context jumps. It was one of the first cases where a capability of a language model could be traced to a specific mechanism.
+
+<KeyIdea track="t6">Mechanistic interpretability treats a trained network like an unknown machine: identify its parts (features), how they connect (circuits), and what algorithm they implement, then test the account by intervening.</KeyIdea>
+
+## Testing causal claims
+
+Finding that a component *correlates* with a concept is not enough; it might be along for the ride. Interpretability researchers test causation by intervention:
+
+- **Probing** trains a simple classifier on activations to see whether information is present. Present is not the same as used, so probing alone can mislead.
+- **Activation patching** runs the model on two inputs, then swaps one component's activations from one run into the other. If the output changes accordingly, that component carries the relevant information. A 2022 study used this approach to locate where a GPT model stored factual associations, then edited one fact directly.
+- **Ablation** removes a component and measures what breaks.
+
+## The obstacle: polysemanticity
+
+If each neuron represented one concept, interpretability would be straightforward: label each neuron. But researchers repeatedly found **polysemantic neurons** that respond to several unrelated things. One neuron in an image model responded to cat faces, the fronts of cars, and cat legs. Language model neurons are even more tangled. Neurons are the wrong unit of analysis. Why?
+
+## Superposition
+
+In 2022, Anthropic's "Toy Models of Superposition" offered an answer. A model may need to represent far more features than it has neurons. If most features are **sparse**, meaning rarely active at the same time, the model can pack them into **nearly perpendicular directions** in its activation space, more directions than dimensions. When two features happen to be active together, they interfere slightly, but since that is rare, the trade is worth it. This is **superposition**. A consequence is that individual neurons, which are just the coordinate axes, end up mixing many features.
+
+The paper demonstrated this in small networks trained to compress and reconstruct sparse inputs. The instrument below is a faithful miniature of its central experiment, trained live in your browser: five features must pass through just two dimensions.
+
+<Superposition client:visible />
+
+As you raise sparsity, the model shifts from representing only the two most important features (one per dimension) to packing more and more features in, first as opposite pairs, then as a pentagon. Real models do this across thousands of dimensions and, it seems, millions of features.
+
+<StaticFigure id="superposition" n={5} caption="Five features in two dimensions, arranged as a pentagon. Each arrow is a feature direction. No coordinate axis lines up with a single feature, so a 'neuron' reading one axis would respond to several features at once." />
+
+<QuickCheck client:visible item={{
+  kind: 'mc', id: 'superpos',
+  prompt: 'Why does superposition make individual neurons hard to interpret?',
+  choices: ['Neurons are too small to measure', 'Features are stored as directions that do not align with neurons, so each neuron mixes several features', 'Neurons change randomly during inference', 'Only attention heads store information'],
+  answer: 1,
+  explain: 'With more features than dimensions, features get nearly perpendicular directions, and the neuron axes cut across many of them.'
+}} />
+
+## The way forward
+
+Superposition implies that to find a network's real features, you must find the right directions, not the right neurons. The natural tool is a method that takes the network's activations and decomposes them into a larger set of sparse, interpretable directions. That method, the sparse autoencoder, and the research it enabled at the scale of frontier models, is the subject of the next module.
+
+## Reading the corpus
+
+| When a document says | It means |
+| --- | --- |
+| "mech interp" | Mechanistic interpretability |
+| "feature," "direction" | A represented concept, usually a direction in activation space |
+| "polysemantic / monosemantic" | Responding to many concepts / to one |
+| "superposition" | More features than dimensions, packed as nearly perpendicular directions |
+| "circuit" | A connected set of features and weights implementing a computation |
+| "activation patching," "causal tracing," "ablation" | Interventions testing whether a component causally matters |
+| "induction head" | A circuit that copies patterns from earlier in the context |

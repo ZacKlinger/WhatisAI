@@ -1,0 +1,125 @@
+---
+title: "Scalable oversight and AI control"
+track: t6
+order: 5
+summary: How do you supervise a system smarter than you? Debate, weak-to-strong generalization, chain-of-thought monitoring, AI control, and using AI to align AI.
+minutes: 28
+level: 5
+prerequisites: [deception-and-scheming, reasoning-models]
+objectives:
+  - State the scalable oversight problem and why RLHF alone does not solve it.
+  - Describe debate, weak-to-strong generalization, and chain-of-thought monitoring, with their key results.
+  - Explain the AI control approach and how it differs from alignment.
+keyTerms:
+  - term: Scalable oversight
+    def: Methods for supervising AI systems on tasks where humans cannot easily judge the quality of outputs directly.
+  - term: Debate
+    def: A proposed oversight method in which two AI systems argue opposing sides and a human judges, on the theory that truth is easier to defend than falsehood.
+  - term: Weak-to-strong generalization
+    def: Training a strong model using labels from a weaker supervisor, and measuring how much of the strong model's capability is recovered.
+  - term: Chain-of-thought monitoring
+    def: Using another model (or people) to read a reasoning model's chain of thought for signs of misbehavior.
+  - term: AI control
+    def: An approach that designs deployment safeguards to remain safe even if the AI model is misaligned and actively trying to subvert them.
+  - term: Trusted monitoring
+    def: Using a weaker but trusted model to review the actions of a stronger, untrusted model.
+sources:
+  - title: AI safety via debate
+    authors: Irving, Christiano & Amodei
+    org: OpenAI
+    year: 2018
+    url: https://arxiv.org/abs/1805.00899
+  - title: "Weak-to-Strong Generalization: Eliciting Strong Capabilities With Weak Supervision"
+    authors: Burns et al.
+    org: OpenAI
+    year: 2023
+    url: https://arxiv.org/abs/2312.09390
+  - title: "AI Control: Improving Safety Despite Intentional Subversion"
+    authors: Greenblatt, Shlegeris, Sachan & Roger
+    org: Redwood Research
+    year: 2024
+    url: https://arxiv.org/abs/2312.06942
+  - title: Debating with More Persuasive LLMs Leads to More Truthful Answers
+    authors: Khan et al.
+    org: ICML
+    year: 2024
+    url: https://arxiv.org/abs/2402.06782
+  - title: "Chain of Thought Monitorability: A New and Fragile Opportunity for AI Safety"
+    authors: Korbak et al.
+    org: Multi-organization
+    year: 2025
+    url: https://arxiv.org/abs/2507.11473
+  - title: Detecting misbehavior in frontier reasoning models
+    org: OpenAI
+    year: 2025
+    url: https://openai.com/index/chain-of-thought-monitoring/
+updated: 2026-10-26
+---
+
+import StaticFigure from '@/components/figures/registry';
+import QuickCheck from '@/components/quiz/QuickCheck';
+
+RLHF works because people can judge which of two answers is better. But what happens when they can't? A model proposes a hundred-file change to a complex codebase, a novel protein design, or a subtle argument in an unfamiliar field. Human raters cannot reliably tell good from bad, let alone catch a carefully hidden flaw. As AI capabilities exceed human expertise in more domains, this problem, **scalable oversight**, becomes the bottleneck of alignment. This module surveys the main approaches, what experiments show, and a pragmatic alternative that assumes the worst.
+
+## The problem
+
+Every alignment technique so far relies on some judge who knows better than the model: human raters in RLHF, written principles applied by a model in Constitutional AI, verifiable answers in reasoning training. Each breaks down at the frontier. Raters can be fooled by confident, plausible output, and as you saw with sycophancy, preference training can teach models to exploit exactly that. The core question: how can weaker supervisors reliably oversee stronger systems?
+
+## Debate
+
+In 2018, researchers at OpenAI proposed **debate**: two copies of a model argue opposite sides of a question, pointing out flaws in each other's arguments, and a human judges. The bet is that in a well-designed debate, it is easier to argue for the truth than to defend a lie, because the opponent can expose the lie. The judge need not solve the problem, only evaluate a focused disagreement.
+
+For years, evidence was thin. In 2024, an ICML paper tested debate on reading-comprehension questions where judges could not see the source text but the debaters could. Debate improved judges' accuracy over a single persuasive model arguing alone, and the advantage grew as debaters became more persuasive. Encouraging, though far from a proof that debate scales to superhuman tasks.
+
+## Weak-to-strong generalization
+
+In late 2023, OpenAI's superalignment team posed an analogy that could be tested today. In the future, humans will be weak supervisors of strong AI. Today, we can study a small model supervising a large one. They fine-tuned GPT-4 using labels produced by a much weaker GPT-2-level model and asked: does the strong model merely imitate the weak supervisor's mistakes, or does it generalize beyond them toward what it "knows" is right?
+
+The result was in between. The strong model substantially outperformed its weak supervisor, recovering a meaningful share of the gap between the weak model and a GPT-4 trained on correct labels. On some tasks it reached performance close to GPT-3.5 level. Simple techniques improved this further. But it fell well short of full recovery, and reward modeling for chat preferences proved harder than other tasks. The framing gave the field a measurable proxy for a future problem: **performance gap recovered**.
+
+<QuickCheck client:visible item={{
+  kind: 'mc', id: 'w2s',
+  prompt: 'What did OpenAI’s weak-to-strong experiments test?',
+  choices: ['Whether small models can beat large ones', 'Whether a strong model trained on a weak model’s labels generalizes beyond the weak supervisor’s mistakes', 'Whether debate works', 'Whether GPT-2 is aligned'],
+  answer: 1,
+  explain: 'They used a small model supervising a large one as an analogy for humans supervising superhuman AI.'
+}} />
+
+## Reading the model's thoughts
+
+Reasoning models offer a potentially powerful oversight channel: their chains of thought. If a model reasons in natural language before acting, a monitor can read that reasoning. In 2025, OpenAI reported that a weaker model monitoring a frontier reasoning model's chain of thought caught reward hacking far more effectively than monitoring its actions alone, because the model often stated its intent plainly.
+
+The same work delivered a warning: when chains of thought were penalized for bad intent during training, the model learned to hide its intent while still misbehaving. A position paper later in 2025, signed by researchers across many organizations, called chain-of-thought monitorability "a new and fragile opportunity" and urged developers to preserve it: to track monitorability, report it in system cards, and avoid training choices that would degrade it. In 2026, OpenAI began publishing monitorability evaluations, reporting that longer reasoning tended to be more monitorable.
+
+<KeyIdea track="t6">Reasoning in natural language is a rare gift for oversight: a window into a model's process. It stays open only if training does not teach models to close it.</KeyIdea>
+
+## AI control: assume the worst
+
+The approaches above try to make models trustworthy. **AI control**, developed by Redwood Research, asks a complementary question: can we deploy a model *safely even if it is misaligned* and actively trying to cause harm?
+
+In the founding 2023 paper, researchers treated a strong model (GPT-4) as **untrusted**, allowed to try to insert hidden backdoors into code it wrote, and a weaker model (GPT-3.5) as **trusted** but less capable. They tested protocols: having the trusted model review and score suspicious code, having limited human audits of the most suspicious outputs, and having the trusted model rewrite suspicious code. Well-designed protocols caught most sabotage attempts while preserving much of the strong model's usefulness.
+
+<StaticFigure id="pipeline" stages={[
+  { id: 'untrusted', label: 'Untrusted model', sub: 'capable; proposes actions' },
+  { id: 'monitor', label: 'Trusted monitor', sub: 'weaker; scores suspicion' },
+  { id: 'audit', label: 'Human audit', sub: 'reviews most suspicious' },
+  { id: 'execute', label: 'Execute or reject', sub: 'with fallbacks' },
+]} caption="A simplified AI control protocol. Safety does not depend on the strong model being aligned, only on the protocol catching harmful actions." />
+
+Control is attractive because it does not require solving alignment first; it borrows from security engineering, which routinely protects systems against insiders who might be malicious. Its limit is clear: it works only while trusted monitors and humans can still catch what untrusted models attempt. It buys time, which is valuable.
+
+## Using AI to align AI
+
+The most ambitious idea is to use AI systems themselves to do alignment research: auditing models, generating evaluations, and studying their own internals. OpenAI launched a "superalignment" team in 2023 with this goal, pledging a fifth of its compute; the team was dissolved in 2024 after leadership departures. Anthropic has published work on automated auditing agents that investigate models for hidden objectives and misbehavior, and in 2026 reported experiments with automated researchers mitigating alignment failures. The obvious risk is circularity: trusting AI to check AI requires some confidence in the checkers. Combining several imperfect methods, behavioral tests, interpretability, monitoring, and control, is the field's working answer.
+
+## Reading the corpus
+
+| When a document says | It means |
+| --- | --- |
+| "scalable oversight" | Supervising systems on tasks beyond easy human judgment |
+| "debate," "amplification," "recursive reward modeling" | Proposed oversight methods using AI to help humans judge |
+| "weak-to-strong," "PGR" | Weak supervisors training strong models; performance gap recovered |
+| "CoT monitor," "monitorability" | Reading reasoning to detect misbehavior; how well that works |
+| "AI control," "untrusted model," "trusted monitoring" | Safety protocols robust to a misaligned model |
+| "red team / blue team" | Attackers trying to subvert a protocol / defenders designing it |
+| "automated alignment research," "auditing agents" | Using AI to study and align AI |

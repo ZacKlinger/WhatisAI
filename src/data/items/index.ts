@@ -5,5 +5,6 @@ import { t2 } from './t2';
 import { t3 } from './t3';
 import { t4 } from './t4';
 import { t5 } from './t5';
+import { t6 } from './t6';
 
-export const items: ItemBank = { ...t0, ...t1, ...t2, ...t3, ...t4, ...t5 };
+export const items: ItemBank = { ...t0, ...t1, ...t2, ...t3, ...t4, ...t5, ...t6 };

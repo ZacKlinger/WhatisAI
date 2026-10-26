@@ -5,7 +5,10 @@ import glob, sys, yaml
 
 bad = 0
 for f in sorted(glob.glob('src/content/modules/*.mdx')):
-    d = yaml.safe_load(open(f).read().split('---')[1])
+    try:
+        d = yaml.safe_load(open(f).read().split('---')[1])
+    except yaml.YAMLError as e:
+        print(f'{f}: invalid YAML frontmatter: {e}'); bad += 1; continue
     for i, o in enumerate(d.get('objectives', [])):
         if not isinstance(o, str):
             print(f'{f}: objective {i} is not a string: {o}'); bad += 1

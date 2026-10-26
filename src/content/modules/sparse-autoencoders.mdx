@@ -1,0 +1,145 @@
+---
+title: "Sparse autoencoders and the biology of a model"
+track: t6
+order: 3
+summary: Dictionary learning at frontier scale. How researchers extracted millions of interpretable features from Claude, steered behavior with them, and traced multi-step reasoning with attribution graphs.
+minutes: 34
+level: 5
+prerequisites: [interpretability-foundations]
+objectives:
+  - Explain how a sparse autoencoder decomposes activations into interpretable features.
+  - Summarize the main findings of Towards Monosemanticity, Scaling Monosemanticity, and the attribution-graph work.
+  - Evaluate the limits of these methods, including reconstruction error and debates over their usefulness.
+keyTerms:
+  - term: Dictionary learning
+    def: Finding a set of basic directions (a dictionary) such that each activation is a sparse combination of a few of them.
+  - term: Sparse autoencoder (SAE)
+    def: A small network trained to rewrite a model's activations as a sparse combination of many learned feature directions, then reconstruct them.
+  - term: Feature steering
+    def: Changing a model's behavior by artificially amplifying or suppressing a feature's activation.
+  - term: Transcoder
+    def: A sparse dictionary method that approximates what an MLP layer computes, mapping its input to its output through interpretable features.
+  - term: Attribution graph
+    def: A diagram tracing which features caused which other features, and ultimately the output, for a specific prompt.
+  - term: Replacement model
+    def: An interpretable approximation of a model, built from learned features, used to trace computations.
+  - term: Reconstruction error ("dark matter")
+    def: The part of a model's activations that a sparse dictionary fails to explain.
+sources:
+  - title: "Towards Monosemanticity: Decomposing Language Models With Dictionary Learning"
+    authors: Bricken et al.
+    org: Anthropic
+    year: 2023
+    url: https://transformer-circuits.pub/2023/monosemantic-features/index.html
+  - title: "Scaling Monosemanticity: Extracting Interpretable Features from Claude 3 Sonnet"
+    authors: Templeton et al.
+    org: Anthropic
+    year: 2024
+    url: https://transformer-circuits.pub/2024/scaling-monosemanticity/index.html
+  - title: Scaling and evaluating sparse autoencoders
+    authors: Gao et al.
+    org: OpenAI
+    year: 2024
+    url: https://arxiv.org/abs/2406.04093
+  - title: "Circuit Tracing: Revealing Computational Graphs in Language Models"
+    authors: Ameisen et al.
+    org: Anthropic
+    year: 2025
+    url: https://transformer-circuits.pub/2025/attribution-graphs/methods.html
+  - title: On the Biology of a Large Language Model
+    authors: Lindsey et al.
+    org: Anthropic
+    year: 2025
+    url: https://transformer-circuits.pub/2025/attribution-graphs/biology.html
+updated: 2026-10-26
+---
+
+import StaticFigure from '@/components/figures/registry';
+import QuickCheck from '@/components/quiz/QuickCheck';
+
+In May 2024, for about a day, Anthropic made available a strange version of Claude. Asked how to spend ten dollars, it suggested paying the toll on the Golden Gate Bridge. Asked about its physical form, it described itself as the bridge. Researchers had found a feature inside the model that corresponded to the Golden Gate Bridge and turned it up. "Golden Gate Claude" was a playful demonstration of a serious result: for the first time, researchers could identify and control specific concepts inside a production-scale language model. This module explains how.
+
+## The idea: a dictionary for activations
+
+Superposition means a model's activations are mixtures of many feature directions, more than there are neurons. The goal is to *un*mix them: to find a large set of directions, a **dictionary**, such that any activation is a **sparse** combination of just a few. If the dictionary's directions correspond to meaningful concepts, each activation becomes readable: "this is mostly feature 4,127 (legal language), a bit of feature 89,033 (questions about deadlines), and a bit of feature 2,551 (formal tone)."
+
+A **sparse autoencoder (SAE)** learns such a dictionary:
+
+1. **Encode:** take an activation vector from the model and map it into a much larger space, perhaps millions of dimensions, where each dimension is a candidate feature.
+2. **Sparsify:** push most of those feature activations to zero, so only a handful are active for any input.
+3. **Decode:** reconstruct the original activation from the active features.
+
+Training balances two goals: accurate reconstruction and sparsity. The result is a set of feature directions that, empirically, are often far more interpretable than neurons.
+
+## Towards Monosemanticity (2023)
+
+Anthropic first applied this to a small, one-layer transformer. Decomposing an MLP layer of just 512 neurons into dictionaries ranging up to more than a hundred thousand features, they found features that were clearly monosemantic: one for DNA sequences, one for Arabic script, one for base64-encoded text, one for Hebrew, and many more. Where individual neurons were polysemantic muddles, the features were clean. Larger dictionaries **split** features into finer distinctions, for instance one "base64" feature splitting into several for different kinds of base64 content.
+
+## Scaling Monosemanticity (2024)
+
+The question was whether this would work on a real frontier model. In May 2024, Anthropic trained SAEs with up to about 34 million features on activations from the middle of Claude 3 Sonnet. The features they found were often:
+
+- **Abstract.** A Golden Gate Bridge feature fired on text about the bridge in many languages and on images of it.
+- **Multilingual and multimodal.** The same concept features responded across languages and modalities.
+- **Safety-relevant.** Researchers found features related to deception, sycophancy, bias, power-seeking, dangerous content, and security vulnerabilities in code.
+
+Crucially, the features were **causal**. Amplifying a feature changed behavior in the expected direction: clamp the Golden Gate Bridge feature high and the model became obsessed with the bridge; activate a sycophancy feature and it produced effusive praise. OpenAI published similar work the following month, training a 16-million-feature SAE on GPT-4 activations.
+
+<KeyIdea track="t6">Sparse autoencoders turn tangled activations into millions of mostly interpretable features. Because amplifying a feature changes behavior predictably, the features are not just labels: they are handles on the model's computation.</KeyIdea>
+
+<QuickCheck client:visible item={{
+  kind: 'order', id: 'sae',
+  prompt: 'Order the steps a sparse autoencoder performs on one activation vector.',
+  items: ['Take an activation vector from the model', 'Encode it into a much larger space of candidate features', 'Keep only a few features active (sparsity)', 'Reconstruct the original activation from the active features'],
+  explain: 'Encode wide, sparsify, decode. Training rewards accurate reconstruction with few active features.'
+}} />
+
+## From features to circuits: attribution graphs
+
+Features tell you *what* a model represents. To understand *how* it computes, you need to know how features influence each other. In March 2025, Anthropic published two companion papers. The first, on **circuit tracing**, built a **replacement model** using cross-layer transcoders, which approximate each MLP's computation with interpretable features, and then traced, for a specific prompt, which features caused which other features and ultimately the output. The result is an **attribution graph**.
+
+The companion paper, "On the Biology of a Large Language Model," applied the method to Claude 3.5 Haiku and found:
+
+- **Multi-step reasoning.** Asked for the capital of the state containing Dallas, the model internally activated a "Texas" representation and then used it to produce "Austin," a genuine two-hop computation, not a memorized shortcut.
+- **Planning.** When writing rhyming poetry, the model selected the rhyme word for the end of a line *before* writing the line that led to it, and steering that planned word changed the whole line.
+- **Shared multilingual concepts.** Many features were language-independent, with language-specific features mainly at the input and output.
+- **Hallucination mechanics.** The model had a default "can't answer" pathway that was suppressed when it recognized a familiar entity; some hallucinations occurred when that recognition fired mistakenly.
+- **Unfaithful reasoning.** In some cases the graphs showed the model working backward from a suggested answer while its written reasoning claimed otherwise.
+
+Anthropic open-sourced its circuit-tracing tools in mid-2025, letting outside researchers generate attribution graphs for open models.
+
+<StaticFigure id="pipeline" stages={[
+  { id: 'dallas', label: '"Dallas"', sub: 'input token' },
+  { id: 'texas', label: 'Texas', sub: 'internal feature' },
+  { id: 'capital', label: 'say a capital', sub: 'task feature' },
+  { id: 'austin', label: '"Austin"', sub: 'output' },
+]} caption="A simplified attribution graph for 'the capital of the state containing Dallas'. The model represents the intermediate fact (Texas) internally, then combines it with the task to produce the answer." />
+
+## The limits, honestly stated
+
+These are landmark results, and the researchers are careful about their limits:
+
+- **Dark matter.** SAEs and transcoders do not explain all of a model's activations. The unexplained residual, the reconstruction error, can be substantial, and important computation may hide there.
+- **Coverage and cost.** Even millions of features likely capture a fraction of what a frontier model represents, and training dictionaries at frontier scale is expensive.
+- **Partial graphs.** Attribution graphs explain particular prompts, and the authors reported that their method gave satisfying insight on only about a quarter of the prompts they tried.
+- **Do they beat simpler tools?** In 2025, a Google DeepMind team reported that for one practical task, detecting harmful intent, SAE-based classifiers underperformed simple linear probes, and announced it would deprioritize some fundamental SAE research. Others argue SAEs' value lies in discovery, finding concepts you did not know to look for, rather than in replacing probes.
+
+<Callout type="corpus" title="Reading an interpretability paper">
+Interpretability papers mix rigorous measurement with interpretation. Separate the two. A claim like "feature 34M/31164353 represents the Golden Gate Bridge" rests on examples of what activates it (interpretation) and on interventions showing what it does (stronger evidence). Look for causal interventions, for quantitative evaluation of interpretability, and for how many cases the method worked on versus failed on. Track IX includes a guided reading of Scaling Monosemanticity.
+</Callout>
+
+## Why it matters for safety
+
+If interpretability matures, it could provide evidence that behavioral tests cannot: checking whether a model represents deception while appearing honest, auditing for hidden goals, or verifying that its reasoning matches its explanation. Anthropic has described using interpretability tools in pre-deployment audits of its models, alongside behavioral tests. In 2025 it also ran "auditing games" in which teams had to discover a hidden objective deliberately trained into a model; teams with interpretability tools found it more readily. The field is not yet where it would need to be to provide strong safety guarantees for frontier systems, and many researchers caution against relying on it alone. But it is the most direct attempt to answer the question at the heart of AI safety: what is this system actually doing?
+
+## Reading the corpus
+
+| When a document says | It means |
+| --- | --- |
+| "SAE," "dictionary learning" | Sparse autoencoder; decomposing activations into sparse features |
+| "34M-feature SAE" | A dictionary with 34 million feature directions |
+| "feature steering," "clamping" | Artificially setting a feature's activation to change behavior |
+| "transcoder," "crosscoder" | Dictionary methods that approximate layer computations or compare across layers/models |
+| "attribution graph," "circuit tracing" | Tracing feature-to-feature causal influence for a prompt |
+| "replacement model" | An interpretable approximation of the original model |
+| "dark matter," "reconstruction error" | What the dictionary fails to explain |

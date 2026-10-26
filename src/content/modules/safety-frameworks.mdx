@@ -1,0 +1,127 @@
+---
+title: Frontier safety frameworks
+track: t6
+order: 6
+summary: Anthropic's Responsible Scaling Policy, OpenAI's Preparedness Framework, Google DeepMind's Frontier Safety Framework, and the safety case. How labs commit to precautions in advance, and how those commitments are becoming law.
+minutes: 30
+level: 4
+prerequisites: [dangerous-capabilities, alignment-problem]
+objectives:
+  - Describe the common structure of frontier safety frameworks, with if-then commitments tied to capability thresholds.
+  - Compare the frameworks of Anthropic, OpenAI, and Google DeepMind, including how they have changed.
+  - Explain safety cases and assess the strengths and limits of voluntary commitments.
+keyTerms:
+  - term: Frontier safety framework
+    def: A developer's published policy linking dangerous capability levels to required safeguards and decisions about development and deployment.
+  - term: If-then commitment
+    def: A pledge of the form "if a model reaches capability X, then we will implement safeguard Y (or not deploy)."
+  - term: Responsible Scaling Policy (RSP)
+    def: Anthropic's frontier safety framework, first published in 2023 and substantially rewritten in 2026.
+  - term: AI Safety Level (ASL)
+    def: Anthropic's tiers of required safeguards, modeled loosely on biosafety levels.
+  - term: Preparedness Framework
+    def: OpenAI's frontier safety framework, which tracks risk categories with High and Critical thresholds.
+  - term: Safety case
+    def: A structured, evidence-based argument that a system is acceptably safe for a specific use.
+  - term: Deployment and security safeguards
+    def: Measures that prevent misuse of a deployed model, and measures that protect model weights from theft.
+sources:
+  - title: "Anthropic's Responsible Scaling Policy, Version 3.0"
+    org: Anthropic
+    year: 2026
+    url: https://www.anthropic.com/news/responsible-scaling-policy-v3
+  - title: Our updated Preparedness Framework
+    org: OpenAI
+    year: 2025
+    url: https://openai.com/index/updating-our-preparedness-framework/
+  - title: Frontier Safety Framework
+    org: Google DeepMind
+    year: 2025
+    url: https://deepmind.google/discover/blog/strengthening-our-frontier-safety-framework/
+  - title: Frontier AI Safety Commitments, AI Seoul Summit 2024
+    org: UK Government
+    year: 2024
+    url: https://www.gov.uk/government/publications/frontier-ai-safety-commitments-ai-seoul-summit-2024/frontier-ai-safety-commitments-ai-seoul-summit-2024
+  - title: "Safety Cases: How to Justify the Safety of Advanced AI Systems"
+    authors: Clymer, Gabrieli, Krueger & Larsen
+    org: arXiv
+    year: 2024
+    url: https://arxiv.org/abs/2403.10462
+updated: 2026-10-26
+---
+
+import QuickCheck from '@/components/quiz/QuickCheck';
+
+In September 2023, Anthropic published a short policy with an unusual structure. It did not describe the company's current models. It described what the company would do in the future, *if* its models became dangerous in specific ways. That **if-then** structure became the template for frontier AI governance. Today every major frontier developer publishes a safety framework of this kind, governments have asked them to, and laws in California, New York, and the European Union now require versions of them. To read the corpus, you must be able to read these frameworks, including their revisions.
+
+## The basic structure
+
+A frontier safety framework typically contains:
+
+1. **Risk domains:** the categories of catastrophic harm tracked, such as biological and chemical weapons, cyber offense, autonomous AI research, and loss of control.
+2. **Capability thresholds:** specific levels of dangerous capability in each domain.
+3. **Evaluations:** how and when models are tested against those thresholds, including during training.
+4. **Required safeguards:** what protections apply at each level, typically split into **deployment safeguards** (preventing misuse through the product) and **security safeguards** (preventing theft of model weights).
+5. **Governance:** who decides, how decisions are documented, and what external review exists.
+
+The logic is precommitment. Decide in advance, while calm, what you will do when a model crosses a line, so that commercial pressure in the moment cannot quietly move the line.
+
+## Anthropic's Responsible Scaling Policy
+
+Anthropic's RSP introduced **AI Safety Levels (ASLs)**, loosely modeled on the biosafety levels used for laboratories handling dangerous pathogens. Higher levels required stronger safeguards; ASL-2 described the baseline, ASL-3 a stronger tier of deployment and security measures. In May 2025, Anthropic activated ASL-3 protections for Claude Opus 4, stating it could not rule out that the model had crossed the relevant threshold for chemical and biological risk.
+
+In February 2026, Anthropic published version 3, a substantial rewrite. Its stated reasons were that capability thresholds proved more ambiguous than expected, that government action had been slower than hoped, and that some higher-level requirements might be impossible for one company to meet alone. The new version separates two sets of mitigations: those Anthropic commits to regardless of what others do, and a broader recommended map for the industry. It adds a published **Frontier Safety Roadmap** of nonbinding goals that Anthropic will publicly grade itself against, and **Risk Reports** published every three to six months, with external expert review in certain circumstances. Outside analysts debated whether the rewrite weakened earlier commitments or made them more honest. Read version 3 alongside earlier versions, and reach your own view.
+
+## OpenAI's Preparedness Framework
+
+OpenAI's framework, first published in December 2023 and substantially updated in April 2025, tracks categories including biological and chemical capability, cybersecurity, and AI self-improvement, with **High** and **Critical** thresholds. Models reaching High capability require safeguards that sufficiently minimize the associated risks before deployment; Critical capability requires safeguards during development as well. A Safety Advisory Group reviews evaluations and safeguards. The 2025 update also introduced "research categories" for emerging concerns, such as long-range autonomy and sandbagging, that were being studied but not yet tracked with thresholds. In 2025, OpenAI began treating some models as having High biological and chemical capability.
+
+## Google DeepMind's Frontier Safety Framework
+
+Google DeepMind's framework, first published in May 2024 and revised several times, defines **Critical Capability Levels (CCLs)** across misuse domains and machine learning research, and later added levels concerning harmful manipulation and misalignment risks such as a model's potential to undermine human control. Its structure echoes the others: thresholds, early-warning evaluations, and corresponding mitigations.
+
+<KeyIdea track="t6">Every frontier framework is an if-then contract with the public: if a model reaches a defined capability, then specific safeguards apply. The value of the contract depends on how precisely the "if" is defined and how verifiably the "then" is kept.</KeyIdea>
+
+<QuickCheck client:visible item={{
+  kind: 'mc', id: 'ifthen',
+  prompt: 'What is the purpose of the "if-then" structure of frontier safety frameworks?',
+  choices: ['To describe current models only', 'To commit in advance to specific safeguards when capabilities cross defined thresholds, before commercial pressure arises', 'To replace government regulation entirely', 'To set prices'],
+  answer: 1,
+  explain: 'Precommitment ties future decisions to thresholds set while decisions are not yet under pressure.'
+}} />
+
+## Safety cases
+
+A **safety case** is a structured argument, supported by evidence, that a system is acceptably safe for a particular use. Safety cases are standard in aviation, nuclear power, and medical devices. Researchers and the UK AI Security Institute have proposed them for frontier AI, outlining several kinds of argument:
+
+- **Inability:** the model cannot do the dangerous thing (supported by capability evaluations).
+- **Control:** even if it could, safeguards would prevent it (supported by red teaming of the safeguards).
+- **Trustworthiness:** the model would not try (supported by alignment evidence, eventually perhaps interpretability).
+
+As models grow more capable, inability arguments get harder to make, and the burden shifts to control and trustworthiness, which require far more mature science.
+
+## Strengths and limits of voluntary frameworks
+
+**Strengths:** frameworks made dangerous-capability testing routine, created public, comparable commitments, and gave governments a template. At the 2024 Seoul summit, sixteen companies committed to publish such frameworks, with thresholds; analyses by evaluators such as METR found substantial common structure across them.
+
+**Limits:** they are written and judged by the companies themselves; thresholds can be vague; frameworks can be revised, sometimes in ways that loosen commitments; and competitive pressure persists. These limits are why lawmakers moved to require frameworks rather than merely encourage them:
+
+- **California SB 53** (2025) requires large frontier developers to publish a frontier AI framework, follow it, and report critical safety incidents.
+- **New York's RAISE Act**, amended in 2026 and effective in 2027, imposes similar framework and transparency requirements.
+- **The EU's General-Purpose AI Code of Practice** (2025) includes a Safety and Security chapter, under which signatories adopt a safety and security framework for models with systemic risk.
+
+<Callout type="corpus" title="How to read a framework revision">
+Put the old and new versions side by side. Check whether thresholds became more or less specific, whether any commitment changed from binding to aspirational (or the reverse), whether external review was added or removed, and what reasons the developer gives. Then read outside analyses, which often disagree. Framework changes are among the most consequential and least read documents in the field.
+</Callout>
+
+## Reading the corpus
+
+| When a document says | It means |
+| --- | --- |
+| "RSP," "ASL-3" | Anthropic's framework; its third tier of safeguards |
+| "Preparedness Framework," "High / Critical" | OpenAI's framework and threshold levels |
+| "Critical Capability Level (CCL)" | Google DeepMind's threshold concept |
+| "deployment safeguards," "security safeguards" | Misuse prevention; protection of model weights |
+| "safety case" | A structured argument with evidence that a system is safe enough |
+| "Frontier AI Safety Commitments" | The 2024 Seoul pledges to publish frameworks |
+| "frontier AI framework" (in law) | The legally required version, as in California SB 53 |
