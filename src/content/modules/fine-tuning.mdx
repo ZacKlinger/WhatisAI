@@ -1,0 +1,120 @@
+---
+title: "Fine-tuning: teaching a predictor to assist"
+track: t4
+order: 1
+summary: Supervised fine-tuning, instruction tuning, chat formats, LoRA, and distillation. The first steps from a raw text predictor to a model that follows instructions.
+minutes: 22
+level: 3
+prerequisites: [pretraining]
+objectives:
+  - Explain supervised fine-tuning and instruction tuning, and what they change in a base model.
+  - Describe chat templates, system prompts, and parameter-efficient methods like LoRA.
+  - Recognize the risks of fine-tuning, including forgetting and the erosion of safety training.
+keyTerms:
+  - term: Post-training
+    def: All training after pretraining that shapes a model's behavior, including fine-tuning and reinforcement learning.
+  - term: Supervised fine-tuning (SFT)
+    def: Continued training on curated examples of desired inputs and outputs, such as instructions paired with good responses.
+  - term: Instruction tuning
+    def: Fine-tuning on many tasks phrased as natural-language instructions, so the model learns to follow instructions in general.
+  - term: Chat template
+    def: The special formatting and tokens that mark system, user, and assistant turns in a conversation.
+  - term: System prompt
+    def: Instructions placed at the start of a conversation by the developer, which set the assistant's role and rules.
+  - term: LoRA
+    def: Low-Rank Adaptation, a method that fine-tunes a model by training small add-on matrices instead of all its weights.
+  - term: Catastrophic forgetting
+    def: Loss of previously learned abilities when a model is trained on new data.
+sources:
+  - title: Finetuned Language Models Are Zero-Shot Learners (FLAN)
+    authors: Wei et al.
+    org: Google
+    year: 2021
+    url: https://arxiv.org/abs/2109.01652
+  - title: Training language models to follow instructions with human feedback
+    authors: Ouyang et al.
+    org: OpenAI
+    year: 2022
+    url: https://arxiv.org/abs/2203.02155
+  - title: "LoRA: Low-Rank Adaptation of Large Language Models"
+    authors: Hu et al.
+    org: Microsoft
+    year: 2021
+    url: https://arxiv.org/abs/2106.09685
+  - title: Fine-tuning Aligned Language Models Compromises Safety, Even When Users Do Not Intend To!
+    authors: Qi et al.
+    org: ICLR
+    year: 2024
+    url: https://arxiv.org/abs/2310.03693
+updated: 2026-10-26
+---
+
+import StaticFigure from '@/components/figures/registry';
+import QuickCheck from '@/components/quiz/QuickCheck';
+
+A base model has read much of the internet and can continue any document. But it does not know it is supposed to help you. Ask it a question and it might write a quiz; ask for an essay and it might write a forum thread complaining about essays. The first step in turning this raw capability into an assistant is **fine-tuning**: continuing training on carefully chosen examples of the behavior you want.
+
+## The post-training pipeline
+
+The path from a base model to a deployed assistant usually runs through several stages. The details vary by lab and are often not fully disclosed, but the shape has been stable since OpenAI's InstructGPT paper of 2022.
+
+<StaticFigure id="pipeline" stages={[
+  { id: 'pre', label: 'Pretraining', sub: 'next-token prediction' },
+  { id: 'sft', label: 'Fine-tuning (SFT)', sub: 'imitate good examples' },
+  { id: 'rm', label: 'Reward model', sub: 'learn preferences' },
+  { id: 'rl', label: 'Reinforcement learning', sub: 'optimize behavior' },
+]} caption="The canonical post-training pipeline. This module covers fine-tuning; the next two cover learning from preferences and from principles." />
+
+## Supervised fine-tuning
+
+In **supervised fine-tuning (SFT)**, the model continues training with the same next-token objective, but on a much smaller, curated dataset: examples of prompts paired with ideal responses, often written by skilled human contractors. Because it is predicting the responses in these examples, the model learns to produce responses like them.
+
+The datasets are tiny by pretraining standards: thousands to perhaps millions of examples, against trillions of pretraining tokens. Fine-tuning does not teach the model most of what it knows. It teaches the model *which of the many things it could do* to do by default. A common shorthand: pretraining builds capabilities; post-training selects and shapes behaviors.
+
+## Instruction tuning
+
+A key discovery, from Google's FLAN work in 2021 and others, was that fine-tuning on many different tasks, each phrased as a natural-language instruction ("Translate this to French," "Summarize this article," "Is this review positive?"), produces a model that follows instructions *in general*, including for tasks it never saw in fine-tuning. This is **instruction tuning**, and it is what turns "continue this document" into "do what I ask."
+
+OpenAI's InstructGPT paper made the effect vivid: in human evaluations, outputs from a 1.3-billion-parameter model trained with instruction tuning and human feedback were preferred over outputs from the raw 175-billion-parameter GPT-3. A model a hundred times smaller won, because it was trying to help.
+
+<QuickCheck client:visible item={{
+  kind: 'mc', id: 'sft',
+  prompt: 'What does supervised fine-tuning mainly change in a pretrained model?',
+  choices: ['It adds most of the model’s knowledge', 'It shapes which behaviors the model produces by default, using a small curated dataset', 'It changes the architecture', 'It increases the context window'],
+  answer: 1,
+  explain: 'Capabilities come mostly from pretraining. SFT, on far less data, steers how those capabilities are expressed.'
+}} />
+
+## Chat templates and system prompts
+
+To work as a chat assistant, a model must know who is speaking. Fine-tuning data is formatted with a **chat template**: special tokens mark the boundaries of each turn and its role, such as system, user, and assistant. The model learns that after the assistant marker, it should produce a helpful reply, and that it should stop when the reply is complete.
+
+The **system prompt** is a block of instructions at the start of the conversation, usually set by the developer or company deploying the model. It can assign a persona, set rules, or provide reference information. Models are trained to give system instructions priority over conflicting user requests, within limits set by the model developer. OpenAI's published Model Spec, for instance, describes an explicit "chain of command" for weighing instructions from OpenAI itself, from developers, and from users.
+
+## Parameter-efficient fine-tuning
+
+Fine-tuning every weight of a huge model is expensive, and storing a full copy per customization is impractical. **LoRA** (Low-Rank Adaptation), published by Microsoft researchers in 2021, offers a cheaper route. The original weights stay frozen. Alongside each weight matrix, LoRA trains a pair of small matrices whose product describes a low-dimensional adjustment. The LoRA paper reported reducing the number of trainable parameters for GPT-3 by a factor of about 10,000. Today, many customized models are just a base model plus a small LoRA file.
+
+## Distillation
+
+Another form of fine-tuning trains a smaller **student** model on the outputs of a larger **teacher**. The student learns to imitate the teacher's responses, sometimes including its full probability distributions or reasoning traces. Many fast, inexpensive models are distilled from frontier models. Distillation also raises commercial and security questions: a competitor who collects enough outputs from a model can distill some of its capabilities, which is why frontier labs' terms of service prohibit it and why labs now invest in defenses against it.
+
+## Risks: forgetting and fragile safety
+
+Fine-tuning can cause **catastrophic forgetting**: training hard on a narrow task can degrade abilities the model had before. Mixing in general data helps.
+
+More troubling for safety: in 2023, researchers showed that fine-tuning a safety-trained model on just ten adversarially designed examples, at a cost of under twenty cents through a public API, largely removed its refusal behavior. Even fine-tuning on entirely benign data degraded safety somewhat. Safety training, in other words, can be a thin layer. This finding matters for policy debates over open-weight models, whose safety training anyone can fine-tune away, and for how labs control access to fine-tuning of their closed models.
+
+<KeyIdea track="t4">Pretraining makes a model capable; fine-tuning makes it cooperative. But fine-tuning only reshapes what is already there, and what fine-tuning adds, fine-tuning can remove.</KeyIdea>
+
+## Reading the corpus
+
+| When a document says | It means |
+| --- | --- |
+| "SFT" | Supervised fine-tuning on curated demonstrations |
+| "instruction-tuned," "-Instruct," "chat model" | A model post-trained to follow instructions |
+| "demonstration data" | Human-written examples of ideal responses |
+| "system prompt" | Developer-provided instructions at the start of the context |
+| "LoRA," "adapters," "PEFT" | Parameter-efficient fine-tuning methods |
+| "distilled" | Trained on a larger model's outputs |
+| "post-training" | Everything after pretraining that shapes behavior |

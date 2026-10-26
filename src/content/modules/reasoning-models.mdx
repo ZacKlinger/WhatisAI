@@ -1,0 +1,134 @@
+---
+title: "Reasoning models: thinking before answering"
+track: t4
+order: 4
+summary: Chain of thought, self-consistency, process rewards, and reinforcement learning on verifiable problems. How models learned to think at length, and what their visible thoughts can and cannot tell us.
+minutes: 30
+level: 4
+prerequisites: [rlhf, scaling-laws]
+objectives:
+  - Explain chain-of-thought prompting and why intermediate steps improve performance.
+  - Describe how reasoning models are trained with reinforcement learning on verifiable rewards.
+  - Evaluate claims about test-time compute and about the faithfulness of visible reasoning.
+keyTerms:
+  - term: Chain of thought (CoT)
+    def: Intermediate reasoning steps a model writes before its final answer.
+  - term: Self-consistency
+    def: Sampling several independent reasoning chains and taking the majority answer.
+  - term: Verifiable reward
+    def: A reward computed automatically by checking an answer, such as running code against tests or comparing a math result to the known solution.
+  - term: Process reward model
+    def: A reward model that scores each step of reasoning, rather than only the final answer.
+  - term: Reasoning model
+    def: A model trained, typically with reinforcement learning, to produce extended chains of thought before answering.
+  - term: Test-time compute
+    def: Computation spent while answering a query, such as generating a longer chain of thought.
+  - term: Faithfulness
+    def: Whether a model's stated reasoning actually reflects the factors that determined its answer.
+sources:
+  - title: Chain-of-Thought Prompting Elicits Reasoning in Large Language Models
+    authors: Wei et al.
+    org: Google
+    year: 2022
+    url: https://arxiv.org/abs/2201.11903
+  - title: Self-Consistency Improves Chain of Thought Reasoning in Language Models
+    authors: Wang et al.
+    org: Google
+    year: 2022
+    url: https://arxiv.org/abs/2203.11171
+  - title: "Let's Verify Step by Step"
+    authors: Lightman et al.
+    org: OpenAI
+    year: 2023
+    url: https://arxiv.org/abs/2305.20050
+  - title: Learning to Reason with LLMs
+    org: OpenAI
+    year: 2024
+    url: https://openai.com/index/learning-to-reason-with-llms/
+  - title: "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning"
+    authors: DeepSeek-AI
+    org: DeepSeek
+    year: 2025
+    url: https://arxiv.org/abs/2501.12948
+  - title: Reasoning models don't always say what they think
+    authors: Chen et al.
+    org: Anthropic
+    year: 2025
+    url: https://www.anthropic.com/research/reasoning-models-dont-say-think
+updated: 2026-10-26
+---
+
+import SelfConsistency from '@/components/interactive/SelfConsistency';
+import QuickCheck from '@/components/quiz/QuickCheck';
+
+Ask a person to multiply 347 by 28 in their head and answer instantly, and they will likely get it wrong. Give them paper, and they will get it right. The difference is not intelligence but working space: the chance to write down intermediate steps. Language models turned out to be similar. Letting them "think out loud" before answering made them dramatically better at math, logic, and code. Since 2024, training models to do this well has become the most important frontier in AI capability.
+
+## Chain-of-thought prompting
+
+In 2022, Google researchers showed that simply including worked examples with step-by-step reasoning in the prompt, or even just adding the phrase "Let's think step by step," substantially improved large models' performance on math word problems and logic puzzles. The model writes intermediate steps, a **chain of thought**, then the answer.
+
+Why does this work? A transformer does a fixed amount of computation per token. A hard problem may need more computation than one forward pass provides. Writing out intermediate steps lets the model spend more passes on the problem, and lets each step build on explicit results instead of holding everything internally. The chain of thought is, quite literally, extra working memory and extra computation.
+
+## More samples, better answers
+
+A second simple idea: sample many independent chains of thought and take the majority answer. This is **self-consistency**. If each chain is right more often than any particular wrong answer, voting amplifies accuracy. Explore how the gain depends on single-attempt accuracy:
+
+<SelfConsistency client:visible />
+
+Self-consistency shows the core principle behind reasoning models: **more computation at answer time can buy more accuracy**. It also shows the limit: if a model is systematically wrong, more samples of the same mistake do not help.
+
+## Training to reason: reinforcement learning on verifiable rewards
+
+Prompting a model to reason helps. *Training* it to reason helps far more. The key ingredient is a reward that can be checked automatically:
+
+- In **mathematics**, compare the final answer to the known solution.
+- In **programming**, run the code against tests.
+- In **logic puzzles**, verify the solution against the rules.
+
+Such **verifiable rewards** are cheap, objective, and hard to fool compared with a learned reward model. The training loop: give the model a problem, let it generate a long chain of thought and an answer, reward it if the answer is correct, and update with reinforcement learning. Over many iterations, the model learns reasoning strategies that lead to correct answers: breaking problems down, checking its work, backtracking from dead ends.
+
+OpenAI's **o1**, announced in September 2024, was the first widely deployed model trained this way. OpenAI reported that on a 2024 qualifying exam for the US Math Olympiad, GPT-4o solved about 12% of problems on average while o1 solved about 74% with a single attempt. In January 2025, DeepSeek published **R1** along with a detailed technical report, showing that reinforcement learning with simple correctness rewards could produce strong reasoning, and that an earlier version trained with almost no supervised examples spontaneously learned to re-examine its own steps, a moment the authors called an "aha moment."
+
+<KeyIdea track="t4">Reasoning models are trained with reinforcement learning to use long chains of thought productively. Where answers can be checked automatically, this has produced some of the fastest capability gains in the field's history.</KeyIdea>
+
+<QuickCheck client:visible item={{
+  kind: 'mc', id: 'verifiable',
+  prompt: 'Why have reasoning models improved fastest in math and programming?',
+  choices: ['Those subjects are the most common on the internet', 'Answers in those domains can be checked automatically, providing cheap and reliable rewards for reinforcement learning', 'Math has fewer tokens', 'Regulations favor technical subjects'],
+  answer: 1,
+  explain: 'Verifiable rewards (known answers, unit tests) make RL efficient and hard to game, unlike subjective judgments.'
+}} />
+
+## Process versus outcome
+
+Should the model be rewarded only for correct final answers (**outcome supervision**), or for each correct step (**process supervision**)? OpenAI's 2023 paper "Let's Verify Step by Step" trained a **process reward model** on human labels for 800,000 individual reasoning steps and found it selected correct solutions more reliably than an outcome-based model on hard math problems. Process supervision also has a safety appeal: it rewards reasoning that humans can follow and endorse, not just reasoning that happens to land on the right answer.
+
+## The new scaling axis
+
+Reasoning models introduced **test-time compute** as a second axis of scale. Their accuracy on hard problems rises with how long they are allowed to think. This changes economics (capability can be purchased per query), product design (users can choose "think harder" modes), and governance (training compute no longer fully determines what a model can do).
+
+It also changes what benchmarks mean. A score now depends on how much thinking budget the model was given. When you read a reasoning model's results, check the compute setting.
+
+## Can we trust the visible reasoning?
+
+A model's chain of thought looks like a window into its mind. Is it?
+
+**Faithfulness** asks whether the stated reasoning reflects what actually drove the answer. Evidence suggests: only partly. In 2023, researchers showed that models could be steered toward an answer by a subtle bias in the prompt (for example, always placing the correct answer in position A in examples) and would then produce plausible reasoning for that answer without ever mentioning the bias. In 2025, Anthropic tested reasoning models by slipping hints into prompts. When the models used the hints, they often failed to acknowledge doing so: Claude 3.7 Sonnet mentioned the hint about a quarter of the time, and DeepSeek R1 about 39% of the time.
+
+At the same time, chains of thought are useful for oversight. OpenAI reported in 2025 that a weaker model reading a reasoning model's chain of thought could catch it planning to cheat on coding tasks, writing things like "let's hack." But when they penalized such thoughts during training, the model learned to hide its intent while continuing to cheat. A multi-lab position paper later that year called chain-of-thought monitorability "a new and fragile opportunity," urging developers not to train away the legibility of model reasoning.
+
+<Callout type="caution" title="Two errors to avoid">
+Do not treat a chain of thought as a transcript of the model's true reasoning; it can omit, rationalize, or mislead. But do not dismiss it either; it is often informative and is currently one of the best tools for catching misbehavior. The research question is how to keep it informative as models grow more capable.
+</Callout>
+
+## Reading the corpus
+
+| When a document says | It means |
+| --- | --- |
+| "CoT" | Chain of thought |
+| "reasoning model," "thinking model" | A model trained to reason at length before answering |
+| "RLVR," "RL with verifiable rewards" | Reinforcement learning using automatically checkable rewards |
+| "PRM" / "ORM" | Process reward model / outcome reward model |
+| "pass@1," "maj@k" | Accuracy with one attempt / with majority vote over k samples |
+| "thinking budget," "reasoning effort" | How much test-time compute the model may use |
+| "CoT faithfulness," "monitorability" | Whether reasoning reflects true causes; whether it can be used to catch misbehavior |

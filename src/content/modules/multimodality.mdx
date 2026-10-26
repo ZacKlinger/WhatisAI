@@ -1,0 +1,120 @@
+---
+title: "Multimodality: beyond text"
+track: t4
+order: 6
+summary: Images as patches, contrastive learning, diffusion, speech, video, and robots. How the same core ideas extend from words to every kind of signal.
+minutes: 24
+level: 3
+prerequisites: [transformer, representations]
+objectives:
+  - Explain how images, audio, and video are turned into token-like inputs for transformers.
+  - Describe contrastive learning (CLIP) and diffusion models at a conceptual level.
+  - Recognize the main multimodal capabilities and risks in frontier systems, from deepfakes to robotics.
+keyTerms:
+  - term: Modality
+    def: A type of data, such as text, images, audio, or video.
+  - term: Vision transformer (ViT)
+    def: A transformer that processes an image by splitting it into small patches and treating each patch like a token.
+  - term: Contrastive learning
+    def: Training that pulls matching pairs (an image and its caption) together in embedding space and pushes mismatched pairs apart.
+  - term: CLIP
+    def: An OpenAI model (2021) that learned a shared embedding space for images and text from hundreds of millions of image-caption pairs.
+  - term: Diffusion model
+    def: A generative model that learns to reverse a gradual noising process, creating images (or audio, video) by iteratively removing noise.
+  - term: Natively multimodal
+    def: A model trained from the start on mixed modalities, rather than bolting a vision or audio component onto a text model.
+  - term: Vision-language-action model
+    def: A model that takes in images and instructions and outputs actions for a robot.
+sources:
+  - title: "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale"
+    authors: Dosovitskiy et al.
+    org: Google
+    year: 2020
+    url: https://arxiv.org/abs/2010.11929
+  - title: Learning Transferable Visual Models From Natural Language Supervision (CLIP)
+    authors: Radford et al.
+    org: OpenAI
+    year: 2021
+    url: https://arxiv.org/abs/2103.00020
+  - title: Denoising Diffusion Probabilistic Models
+    authors: Ho, Jain & Abbeel
+    org: NeurIPS
+    year: 2020
+    url: https://arxiv.org/abs/2006.11239
+  - title: Robust Speech Recognition via Large-Scale Weak Supervision (Whisper)
+    authors: Radford et al.
+    org: OpenAI
+    year: 2022
+    url: https://arxiv.org/abs/2212.04356
+  - title: "RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control"
+    authors: Brohan et al.
+    org: Google DeepMind
+    year: 2023
+    url: https://arxiv.org/abs/2307.15818
+updated: 2026-10-26
+---
+
+import QuickCheck from '@/components/quiz/QuickCheck';
+
+Human intelligence is not confined to text. We see, hear, and move. For AI, the remarkable discovery of the last few years is that the same core machinery, embeddings, transformers, and training on massive data, works for nearly every kind of signal. A photograph, a voice, and a sentence can all become sequences of vectors, and a single model can learn to read and produce them all.
+
+## Images as tokens
+
+The **vision transformer (ViT)**, introduced by Google researchers in 2020 under the title "An Image is Worth 16x16 Words," made the connection explicit. Cut an image into a grid of small patches, say 16 by 16 pixels each. Flatten each patch into a vector, project it to the model's width, and add position information. Now the image is a sequence of tokens, and a standard transformer can process it with attention, exactly as it would words.
+
+Given enough data, vision transformers matched and then surpassed the convolutional networks that had dominated vision since 2012. The architecture had become general.
+
+## Connecting images and words: CLIP
+
+How do you get a model to understand that a picture of a dog and the words "a photo of a dog" mean the same thing? OpenAI's **CLIP** (2021) did it with **contrastive learning**. It trained an image encoder and a text encoder together on about 400 million image-caption pairs from the internet. The objective: make each image's embedding close to its own caption's embedding and far from all the other captions in the batch.
+
+The result was a shared embedding space for images and text. CLIP could classify images into categories it was never trained on, simply by comparing an image's embedding to the embeddings of candidate descriptions. That shared space became a building block for text-to-image generation and for vision-language models.
+
+<QuickCheck client:visible item={{
+  kind: 'mc', id: 'clip',
+  prompt: 'What does CLIP’s contrastive training objective do?',
+  choices: ['Generates captions word by word', 'Pulls each image’s embedding toward its own caption’s embedding and away from other captions', 'Removes noise from images', 'Labels images with fixed categories'],
+  answer: 1,
+  explain: 'Matching pairs are pulled together, mismatched pairs pushed apart, producing a shared image-text space.'
+}} />
+
+## Seeing and reasoning: vision-language models
+
+Modern frontier assistants can read charts, interpret photographs, transcribe handwriting, and reason about diagrams. The common recipe connects a vision encoder to a language model: image patches are encoded into vectors and fed into the language model's context alongside text tokens. Increasingly, frontier models are **natively multimodal**, trained from the start on interleaved text, images, and audio rather than having vision attached afterward.
+
+## Generating images: diffusion
+
+Generating images works differently from generating text. Most image generators are **diffusion models**. Training starts with real images and gradually adds random noise until only static remains. The model learns the reverse: given a noisy image, predict and remove a little of the noise. To generate, start from pure noise and apply the denoising step many times, guided by a text prompt (often via a CLIP-like text encoder). An image emerges from static, like a photograph developing.
+
+The same idea extends to video, where models must also maintain consistency across frames, and to audio and music. Since 2024, video generation models have produced clips that are often difficult to distinguish from real footage.
+
+## Hearing and speaking
+
+OpenAI's **Whisper** (2022) showed that a transformer trained on 680,000 hours of audio paired with transcripts, much of it imperfectly labeled, could transcribe speech robustly across accents, background noise, and nearly a hundred languages. Speech has since become a native modality: frontier models can converse in real time, responding with natural intonation without first converting speech to text.
+
+## Acting in the physical world
+
+Robots need to perceive, understand instructions, and act. **Vision-language-action models** extend vision-language models to output robot actions. Google DeepMind's RT-2 (2023) showed that a model pretrained on web images and text could transfer some of that knowledge to robot control: following instructions about objects it had never been trained to manipulate. Robotics remains harder than language, largely because physical data is scarce and mistakes are costly, but it is one of the most active frontiers, with substantial investment in humanoid robots and in using simulation and video to generate training data.
+
+<KeyIdea track="t4">Any signal that can be chopped into pieces and embedded as vectors can be processed by a transformer. Multimodality is less a new science than the generality of the old one.</KeyIdea>
+
+## Risks that come with new modalities
+
+Multimodal capabilities bring distinct risks, many of which policy has moved to address:
+
+- **Synthetic media and deception.** Realistic generated images, voices, and video enable fraud, impersonation, and disinformation. The EU AI Act requires that AI-generated content be marked in machine-readable form and that deepfakes be disclosed. Industry efforts such as C2PA content credentials attach provenance information to media.
+- **Non-consensual imagery.** Generators have been misused to create sexual imagery of real people. The EU's 2026 amendments to the AI Act added a prohibition on AI systems used to create such content, and many jurisdictions have passed related laws.
+- **New attack surfaces.** Instructions can be hidden in images or audio, extending prompt injection to every modality an agent can perceive.
+- **Physical consequences.** When AI controls robots or vehicles, errors can cause physical harm, bringing product-safety law into play.
+
+## Reading the corpus
+
+| When a document says | It means |
+| --- | --- |
+| "ViT," "patch embedding" | Vision transformer; turning image patches into token vectors |
+| "contrastive," "CLIP-style" | Learning a shared space by matching pairs |
+| "VLM" | Vision-language model |
+| "diffusion," "denoising" | Generating by iteratively removing noise |
+| "natively multimodal" | Trained from the start on several modalities |
+| "VLA" | Vision-language-action model for robotics |
+| "watermarking," "content credentials," "C2PA" | Techniques for marking and tracing AI-generated media |

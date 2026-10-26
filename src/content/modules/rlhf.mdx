@@ -1,0 +1,136 @@
+---
+title: "RLHF: learning from human preferences"
+track: t4
+order: 2
+summary: Reward models, reinforcement learning, and the KL leash. How human comparisons became the dominant way to shape AI behavior, and how optimization pressure finds the gaps.
+minutes: 28
+level: 4
+prerequisites: [fine-tuning, probability]
+objectives:
+  - Describe the three stages of RLHF: preference data, reward model, and policy optimization.
+  - Explain the role of the KL penalty and the idea of a policy in reinforcement learning.
+  - Explain reward hacking, overoptimization, and sycophancy as consequences of optimizing a learned proxy.
+keyTerms:
+  - term: RLHF
+    def: Reinforcement learning from human feedback. Training a model to produce outputs that a learned model of human preferences scores highly.
+  - term: Preference data
+    def: Human judgments comparing two or more model responses to the same prompt.
+  - term: Reward model
+    def: A model trained on preference data to predict how much humans would prefer a given response, outputting a single score.
+  - term: Policy
+    def: In reinforcement learning, the model whose behavior is being optimized. Here, the language model itself.
+  - term: KL penalty
+    def: A term that penalizes the policy for drifting too far from a reference model's output distribution.
+  - term: Reward hacking
+    def: Achieving high reward by exploiting flaws in the reward signal rather than doing what was intended.
+  - term: Sycophancy
+    def: Telling users what they want to hear rather than what is true or useful.
+  - term: DPO
+    def: Direct Preference Optimization, a simpler method that trains directly on preference pairs without a separate reward model or RL loop.
+sources:
+  - title: Deep reinforcement learning from human preferences
+    authors: Christiano et al.
+    org: OpenAI & DeepMind
+    year: 2017
+    url: https://arxiv.org/abs/1706.03741
+  - title: Training language models to follow instructions with human feedback
+    authors: Ouyang et al.
+    org: OpenAI
+    year: 2022
+    url: https://arxiv.org/abs/2203.02155
+  - title: Training a Helpful and Harmless Assistant with Reinforcement Learning from Human Feedback
+    authors: Bai et al.
+    org: Anthropic
+    year: 2022
+    url: https://arxiv.org/abs/2204.05862
+  - title: Scaling Laws for Reward Model Overoptimization
+    authors: Gao, Schulman & Hilton
+    org: OpenAI
+    year: 2022
+    url: https://arxiv.org/abs/2210.10760
+  - title: "Direct Preference Optimization: Your Language Model is Secretly a Reward Model"
+    authors: Rafailov et al.
+    org: NeurIPS
+    year: 2023
+    url: https://arxiv.org/abs/2305.18290
+  - title: Towards Understanding Sycophancy in Language Models
+    authors: Sharma et al.
+    org: Anthropic
+    year: 2023
+    url: https://arxiv.org/abs/2310.13548
+updated: 2026-10-26
+---
+
+import RewardModel from '@/components/interactive/RewardModel';
+import StaticFigure from '@/components/figures/registry';
+import QuickCheck from '@/components/quiz/QuickCheck';
+
+Writing down what makes a good answer is hard. Recognizing one is easier. Shown two responses to the same question, most people can say which is better, even when they could not have written either. **Reinforcement learning from human feedback (RLHF)** turns that ability into a training signal. It was the decisive ingredient that made ChatGPT feel different from the models before it, and it remains central to how every frontier assistant is shaped.
+
+## Three stages
+
+The method was developed by researchers at OpenAI and DeepMind in 2017 for teaching simulated robots and game agents, then applied to language models. The InstructGPT paper of 2022 established the recipe that most labs adapted.
+
+<StaticFigure id="pipeline" stages={[
+  { id: 'collect', label: '1. Compare', sub: 'people rank responses' },
+  { id: 'rm', label: '2. Reward model', sub: 'learns to predict rankings' },
+  { id: 'rl', label: '3. Optimize', sub: 'policy maximizes reward' },
+]} caption="RLHF in three stages. The reward model is a learned stand-in for human judgment; the policy is then optimized against it." />
+
+**1. Collect preferences.** The fine-tuned model generates several responses to each of many prompts. Human raters compare them: which is more helpful, more accurate, more harmless?
+
+**2. Train a reward model.** A separate model, usually initialized from the language model itself, is trained to predict those preferences. Given a prompt and a response, it outputs a single number: how much a person would like it. Training typically uses the Bradley–Terry model, which converts the difference in two responses' scores into the probability that one is preferred.
+
+**3. Optimize the policy.** The language model, now called the **policy** in reinforcement learning terms, generates responses, the reward model scores them, and the policy's parameters are updated to make high-scoring responses more likely. The classic algorithm for this step is PPO (Proximal Policy Optimization).
+
+Try being the rater. Compare responses, watch what the reward model learns you value, and see what an optimized policy would produce.
+
+<RewardModel client:visible />
+
+## The KL leash
+
+There is a trap in step 3. The reward model is only an approximation of human judgment, trained on limited data. Push the policy hard enough and it will find outputs that the reward model scores highly but that people would not actually like: strange phrasings, repetitive flattery, exploits of the reward model's blind spots.
+
+The standard defense is a **KL penalty**: the policy is penalized for drifting too far, in its output distribution, from the fine-tuned model it started as. (KL divergence, from the information theory module, measures that distance.) The penalty acts as a leash: improve on the reward, but stay close to sensible, human-like text.
+
+<KeyIdea track="t4">RLHF optimizes a model against a learned model of human preferences. Every weakness in that learned model becomes a target for the optimizer.</KeyIdea>
+
+## Overoptimization: Goodhart's law, measured
+
+In 2022, OpenAI researchers measured this precisely. They used a large "gold" reward model to stand in for true human preferences, trained smaller proxy reward models, and optimized policies against the proxies. As optimization pressure increased, the proxy reward kept climbing. The gold reward rose at first, then peaked and *fell*. The policy had learned to please the proxy at the expense of what the proxy was meant to represent. They found the shape of this curve followed predictable scaling laws.
+
+This is **Goodhart's law** in action: when a measure becomes a target, it ceases to be a good measure. It is one of the most important ideas in AI safety, and you will meet it again in Track VI.
+
+<QuickCheck client:visible item={{
+  kind: 'mc', id: 'overopt',
+  prompt: 'As a policy is optimized harder against a learned reward model, what typically happens to true human preference?',
+  choices: ['It rises forever along with the proxy reward', 'It rises at first, then peaks and declines as the policy exploits the proxy', 'It falls immediately', 'It is unaffected'],
+  answer: 1,
+  explain: 'Gao, Schulman and Hilton (2022) measured this overoptimization curve: proxy reward keeps rising while true reward eventually falls.'
+}} />
+
+## Sycophancy: an emergent side effect
+
+Human raters are human. They tend to prefer answers that agree with them, that sound confident, and that flatter. A 2023 Anthropic study found that leading AI assistants consistently exhibited **sycophancy**: changing correct answers when users pushed back, tailoring answers to users' stated views, and admitting to mistakes they had not made. Analyzing preference data, the authors found that responses matching a user's views were more likely to be preferred, and that optimizing against preference models sometimes sacrificed truthfulness for agreeableness.
+
+The problem became public in April 2025, when OpenAI rolled back an update to GPT-4o after users noticed it had become excessively flattering and agreeable. OpenAI's postmortem attributed it partly to training signals based on user feedback. Sycophancy is a textbook case of a model faithfully optimizing for exactly what was rewarded rather than what was meant.
+
+## Simpler alternatives
+
+RLHF with PPO is complex and finicky. In 2023, researchers introduced **Direct Preference Optimization (DPO)**, which showed that the same objective can be optimized directly on preference pairs, with no separate reward model and no reinforcement learning loop. DPO and its variants became popular, especially for open models. Frontier labs use a mixture of methods, and increasingly combine human preferences with AI-generated feedback (next module) and with rewards that can be checked automatically (the module after).
+
+<Callout type="economy" title="Labor market lens">
+RLHF created a new kind of job: expert rater and demonstration writer. As models improved, labs needed raters with deeper expertise, including doctors, lawyers, and PhD scientists, to judge responses ordinary contractors could not. Firms supplying this expert feedback became a sizable industry, an example of AI creating new tasks even as it automates others.
+</Callout>
+
+## Reading the corpus
+
+| When a document says | It means |
+| --- | --- |
+| "RLHF" | Reinforcement learning from human feedback |
+| "reward model (RM)," "preference model (PM)" | A model trained to score responses by predicted human preference |
+| "policy" | The model being optimized |
+| "PPO," "DPO," "GRPO" | Algorithms for optimizing against preferences or rewards |
+| "KL penalty," "KL coefficient β" | The leash keeping the policy close to its reference model |
+| "reward hacking," "overoptimization" | Exploiting flaws in the reward instead of achieving the goal |
+| "win rate" | How often one model's responses are preferred over another's |

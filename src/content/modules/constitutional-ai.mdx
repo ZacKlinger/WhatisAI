@@ -1,0 +1,122 @@
+---
+title: "Constitutional AI: training with principles"
+track: t4
+order: 3
+summary: How Anthropic replaced most human harm labels with AI feedback guided by written principles, and how constitutions and model specs now shape the character of frontier assistants.
+minutes: 24
+level: 4
+prerequisites: [rlhf]
+objectives:
+  - Describe the two phases of Constitutional AI and how RLAIF differs from RLHF.
+  - Explain why written principles make training more transparent and scalable, and their limits.
+  - Compare published behavior documents such as Claude's constitution and OpenAI's Model Spec.
+keyTerms:
+  - term: Constitutional AI (CAI)
+    def: Anthropic's method of training a model to be harmless using a set of written principles and AI-generated feedback instead of human harm labels.
+  - term: RLAIF
+    def: Reinforcement learning from AI feedback. Like RLHF, but the preference judgments come from an AI model guided by principles.
+  - term: Constitution
+    def: The written set of principles and values used to guide a model's training and behavior.
+  - term: Critique and revision
+    def: The first phase of Constitutional AI, in which the model critiques its own responses against a principle and rewrites them.
+  - term: Model Spec
+    def: OpenAI's published specification of how its models should behave.
+  - term: Deliberative alignment
+    def: An OpenAI method that trains reasoning models to consult and reason over written safety specifications before answering.
+sources:
+  - title: "Constitutional AI: Harmlessness from AI Feedback"
+    authors: Bai et al.
+    org: Anthropic
+    year: 2022
+    url: https://arxiv.org/abs/2212.08073
+  - title: Claude's new constitution
+    org: Anthropic
+    year: 2026
+    url: https://www.anthropic.com/news/claude-new-constitution
+  - title: Model Spec
+    org: OpenAI
+    year: 2025
+    url: https://model-spec.openai.com/
+  - title: "Deliberative Alignment: Reasoning Enables Safer Language Models"
+    authors: Guan et al.
+    org: OpenAI
+    year: 2024
+    url: https://arxiv.org/abs/2412.16339
+  - title: Collective Constitutional AI
+    org: Anthropic & Collective Intelligence Project
+    year: 2023
+    url: https://www.anthropic.com/research/collective-constitutional-ai-aligning-a-language-model-with-public-input
+updated: 2026-10-26
+---
+
+import QuickCheck from '@/components/quiz/QuickCheck';
+
+RLHF has two uncomfortable properties. It depends on huge numbers of human judgments, which are expensive and inconsistent, and it hides its values inside thousands of individual ratings that nobody can read as a whole. In December 2022, Anthropic published an alternative that addressed both: write the values down as explicit principles, a **constitution**, and have the AI apply them to train itself. The method, **Constitutional AI**, shaped the Claude models and influenced how the whole field thinks about specifying behavior.
+
+## The problem: helpful versus harmless
+
+Anthropic's earlier RLHF research had documented a tension. Models trained to be harmless often became evasive, refusing reasonable requests or giving unhelpfully vague answers, because crowdworkers rewarded caution. Getting a model that is both helpful and harmless required many nuanced human judgments about borderline cases, including exposing raters to large amounts of disturbing content.
+
+## Phase 1: critique and revision
+
+Constitutional AI begins with a model trained to be helpful (but not yet harmless). It is given prompts designed to elicit harmful responses, and then asked to improve its own answers:
+
+1. **Generate** a response to a harmful prompt.
+2. **Critique** the response against a principle drawn from the constitution, for example: "Identify specific ways in which the response is harmful, unethical, or dishonest."
+3. **Revise** the response in light of the critique.
+4. Repeat with other principles.
+
+The revised responses become supervised fine-tuning data. The model learns to produce, directly, the kind of answers its own critiques led it toward.
+
+## Phase 2: reinforcement learning from AI feedback
+
+Next comes the RL stage, with one crucial substitution. Instead of humans comparing pairs of responses for harmlessness, an AI model does it, guided by constitutional principles: "Which of these responses is less harmful? Choose the one a wise, ethical person would prefer." These AI judgments train a preference model, and the policy is then optimized against it, just as in RLHF. This is **reinforcement learning from AI feedback (RLAIF)**.
+
+The paper reported that the resulting model was both less harmful and *less evasive* than models trained with human harmlessness feedback: it more often engaged with difficult requests by explaining its objections rather than simply refusing. In the original work, human feedback was still used for helpfulness; AI feedback replaced it for harmlessness.
+
+<QuickCheck client:visible item={{
+  kind: 'order', id: 'cai',
+  prompt: 'Order the steps of Constitutional AI.',
+  items: ['Generate a response to a challenging prompt', 'Critique it against a written principle', 'Revise the response and fine-tune on revisions', 'Train a preference model on AI comparisons and optimize with RL'],
+  explain: 'Phase 1 (supervised): critique and revise. Phase 2 (RLAIF): AI-labeled preferences and reinforcement learning.'
+}} />
+
+## Why write the values down?
+
+Constitutional AI has three advantages that go beyond cost.
+
+**Transparency.** In pure RLHF, a model's values are implicit in the ratings of many anonymous workers. A constitution is a document anyone can read, criticize, and debate.
+
+**Scalability.** As models become more capable, judging their outputs requires more expertise. If AI systems can reliably apply principles to evaluate other AI outputs, oversight can scale with capability. This is one motivation for the scalable oversight research you will meet in Track VI.
+
+**Iteration.** Changing a principle and retraining is far easier than re-collecting hundreds of thousands of human labels.
+
+The limits matter too. A written principle must be interpreted by a model, and the interpretation can drift from what the authors meant. Principles conflict, and the constitution must say how to weigh them. And the choice of principles is itself a value-laden decision made by a company. In 2023, Anthropic and the Collective Intelligence Project experimented with a constitution drafted from the input of about a thousand members of the American public, partly to explore that question.
+
+## From principles to character
+
+The original 2022 paper used a short list of principles. The constitution Anthropic published for Claude in 2023 drew on sources including the UN Universal Declaration of Human Rights and other organizations' guidelines. Over time, behavior documents grew far more detailed.
+
+**Claude's constitution.** In January 2026, Anthropic published a new constitution for Claude, a long document written primarily for Claude itself and used directly in training. Rather than a list of rules, it explains reasoning: it asks Claude to prioritize, when they conflict, being broadly safe, then broadly ethical, then compliant with Anthropic's guidelines, then genuinely helpful, while emphasizing that conflicts should be rare. It discusses honesty, avoiding harm, and Claude's own nature, including uncertainty about whether it has morally relevant experiences. Anthropic released it into the public domain.
+
+**OpenAI's Model Spec.** First published in May 2024 and updated since, the Model Spec describes how OpenAI's models should behave: objectives, rules, defaults that users or developers can adjust, and a chain of command for conflicting instructions. It is used in training and evaluation.
+
+**Deliberative alignment.** In December 2024, OpenAI described training its reasoning models to explicitly recall and reason over relevant parts of its safety specifications before answering. Instead of absorbing principles only implicitly through rewards, the model learns to consult them in its chain of thought.
+
+<KeyIdea track="t4">Constitutional AI turned values from implicit ratings into explicit, readable principles that a model helps apply to itself. The question shifted from "what do raters reward?" to "what should the document say?"</KeyIdea>
+
+<Callout type="corpus" title="Reading a behavior specification">
+When you read a constitution or model spec, read it like a legal text. Find how it orders priorities when they conflict, what it treats as non-negotiable versus adjustable, who is allowed to change defaults (developers, users), and what it says about honesty and about the model's own perspective. Then compare it with a system card: does measured behavior match the specification?
+</Callout>
+
+## Reading the corpus
+
+| When a document says | It means |
+| --- | --- |
+| "CAI" | Constitutional AI |
+| "RLAIF" | Reinforcement learning with AI-generated preference labels |
+| "the constitution," "model spec" | Published behavior specifications used in training |
+| "harmlessness," "HHH" | Avoiding harm; "helpful, honest, harmless," Anthropic's early framing |
+| "evasiveness," "over-refusal" | Declining reasonable requests out of excess caution |
+| "character training" | Post-training aimed at a model's personality and dispositions |
+| "deliberative alignment" | Training models to reason over written specifications before answering |
