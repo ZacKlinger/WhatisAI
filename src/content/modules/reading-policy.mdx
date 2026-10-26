@@ -1,0 +1,128 @@
+---
+title: How to read a policy text
+track: t8
+order: 5
+summary: A method for reading any AI law, regulation, executive order, or framework. Scope, definitions, thresholds, obligations, enforcement, timing, and the gap between text and practice.
+minutes: 26
+level: 3
+prerequisites: [eu-ai-act, us-ai-policy]
+objectives:
+  - Apply a seven-question method to locate scope, obligations, enforcement, and timing in any policy text.
+  - Distinguish binding from non-binding language and recognize discretion and delegation.
+  - Identify common gaps between what a policy says and what it does in practice.
+keyTerms:
+  - term: Operative provision
+    def: A part of a legal text that actually creates rights, duties, or powers, as opposed to explaining purpose.
+  - term: Scope
+    def: The provisions defining which entities, activities, and products a law covers, and which it excludes.
+  - term: Delegated or implementing act
+    def: Secondary rules adopted under a law's authority (in the EU, by the Commission) that fill in details.
+  - term: Guidance
+    def: Non-binding interpretation issued by a regulator, often highly influential in practice.
+  - term: Safe harbor
+    def: A provision that protects an actor from liability if specified conditions are met.
+  - term: Sunset clause
+    def: A provision that makes a law expire unless renewed.
+sources:
+  - title: Regulation (EU) 2024/1689 (Artificial Intelligence Act)
+    org: Official Journal of the European Union
+    year: 2024
+    url: https://eur-lex.europa.eu/eli/reg/2024/1689/oj
+  - title: SB 53 bill text
+    org: California Legislature
+    year: 2025
+    url: https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB53
+  - title: America's AI Action Plan
+    org: The White House
+    year: 2025
+    url: https://www.whitehouse.gov/wp-content/uploads/2025/07/Americas-AI-Action-Plan.pdf
+updated: 2026-10-26
+---
+
+import StaticFigure from '@/components/figures/registry';
+import QuickCheck from '@/components/quiz/QuickCheck';
+
+A sixty-page regulation can look impenetrable. It need not be. Policy texts, like research papers, have a predictable structure, and a reader who knows where to look can extract their substance in minutes. This module gives you a method that works on statutes, regulations, executive orders, voluntary codes, and corporate safety frameworks alike. Practiced well, it lets you read a new AI policy document the day it is published and say precisely what it does.
+
+## Seven questions for any policy text
+
+**1. What kind of instrument is it?** A statute, a regulation, an executive order, guidance, a voluntary code, or a corporate policy? This determines whether it binds anyone and who can change it. An executive order binds federal agencies; guidance binds no one but shapes enforcement; a voluntary code binds signatories only by reputation and contract.
+
+**2. Who is covered? (Scope and definitions.)** Find the definitions section and the scope provisions. Who are the regulated parties: developers, deployers, providers, users? What counts as covered technology? What is excluded? Look especially for **thresholds**: compute, revenue, number of users, or uses.
+
+**3. What must they do? (Obligations.)** Find the operative provisions. Are the obligations about process (assess, document, report), outcomes (ensure accuracy), prohibitions (do not), or disclosure (publish, notify)? Are they specific or principles-based?
+
+**4. Who enforces, and how? (Enforcement and penalties.)** Which body enforces? Can individuals sue (a private right of action), or only the government? What are the penalties, and are they large enough to matter relative to the companies covered?
+
+**5. When? (Timing.)** Distinguish when a law **enters into force** from when its obligations **apply**. Many AI laws phase in over years, and dates can be amended.
+
+**6. Who fills in the details? (Delegation and discretion.)** Most laws leave specifics to regulators: implementing acts, standards, guidance, templates. Find where the text says a regulator "shall adopt" or "may specify," because that is where much of the real content will be decided later.
+
+**7. What is missing? (Gaps.)** What does the text not cover? Are there exemptions, safe harbors, or sunset clauses? What would a company determined to minimize its obligations do?
+
+<StaticFigure id="doc-anatomy" title="policy text" sections={[
+  { id: 'preamble', label: 'Preamble or recitals: purpose and reasoning', h: 50 },
+  { id: 'defs', label: 'Definitions and scope: who and what is covered', h: 56 },
+  { id: 'oblig', label: 'Obligations and prohibitions', h: 70 },
+  { id: 'enforce', label: 'Enforcement, oversight, and penalties', h: 52 },
+  { id: 'deleg', label: 'Delegation: guidance, standards, implementing acts', h: 46 },
+  { id: 'timing', label: 'Entry into force and application dates', h: 40 },
+]} caption="The anatomy of a policy text. The preamble explains; the operative parts decide." />
+
+<KeyIdea track="t8">Read a policy text in the order that reveals its substance: instrument, scope, obligations, enforcement, timing, delegation, gaps. The preamble tells you what the drafters hoped; the operative provisions tell you what they did.</KeyIdea>
+
+## The language of obligation
+
+Legal drafting uses a few words with precise meaning:
+
+- **"shall"** or **"must":** a binding obligation.
+- **"may":** a permission or a discretion.
+- **"should":** in EU law, typically found in recitals and non-binding guidance; in corporate frameworks, an aspiration.
+- **"reasonable," "appropriate," "proportionate":** standards whose content is left to interpretation, guidance, and courts. These words are where much of the real argument happens.
+- **"including but not limited to":** an illustrative, not exhaustive, list.
+
+<QuickCheck client:visible item={{
+  kind: 'mc', id: 'shall',
+  prompt: 'A framework says the company "should aim to" conduct third-party audits, while a law says providers "shall" report serious incidents. What is the difference?',
+  choices: ['None; both are binding', 'The first is an aspiration; the second is a binding legal obligation', 'Both are aspirations', 'The first is stronger'],
+  answer: 1,
+  explain: '"Shall" creates a duty; "should aim to" signals intent without commitment.'
+}} />
+
+## A worked example: California's SB 53
+
+Apply the questions to a real text.
+
+1. **Instrument:** a state statute, enforceable by the California Attorney General.
+2. **Scope:** "frontier developers" who trained a model with more than 10<sup>26</sup> operations; the heaviest duties fall on "large frontier developers" with more than $500 million in annual revenue. Smaller companies and smaller models are largely outside it.
+3. **Obligations:** publish and follow a frontier AI framework; publish transparency reports for new frontier models; report critical safety incidents; provide whistleblower protections and an anonymous internal channel; send periodic summaries of catastrophic-risk assessments of internal use to the state.
+4. **Enforcement:** civil penalties up to $1 million per violation, sought by the Attorney General. No private right of action for the core duties.
+5. **Timing:** effective January 2026.
+6. **Delegation:** the state's Office of Emergency Services handles incident reports; the law also contemplates updates to definitions as technology changes.
+7. **Gaps:** It mandates transparency and process, not specific safety outcomes. A company must publish and follow *its own* framework; the law does not prescribe the framework's contents in detail. Whether that is a weakness or a sensible design for a fast-moving field is a matter of debate.
+
+## The gap between text and practice
+
+A law's effect depends on implementation, and the gap can be large:
+
+- **Guidance can expand or narrow a text.** The EU AI Office's guidelines and templates shape what GPAI obligations mean in practice.
+- **Standards define compliance.** Until harmonized standards exist, high-risk obligations under the AI Act remain partly abstract.
+- **Enforcement capacity matters.** A regulator with few staff and many targets enforces selectively.
+- **Courts can suspend or narrow laws.** Litigation has delayed and reshaped state AI laws in the United States.
+- **Laws get amended.** The EU's 2026 Digital Omnibus moved key deadlines by more than a year.
+
+<Callout type="corpus" title="Read corporate frameworks the same way">
+The seven questions work on safety frameworks too. What kind of instrument is it (a voluntary policy, a legally required framework)? What triggers obligations (capability thresholds)? What must the company do? Who checks (internal teams, external reviewers)? When does it apply? Who fills in details? What would a determined minimizer do? Compare the answers across Anthropic, OpenAI, and Google DeepMind.
+</Callout>
+
+## Reading the corpus
+
+| When a document says | It means |
+| --- | --- |
+| "shall," "must" | Binding obligation |
+| "may" | Permission or discretion |
+| "reasonable," "appropriate" | A standard defined later by guidance or courts |
+| "entry into force" vs. "application" | When the law exists vs. when duties bite |
+| "implementing act," "guidance," "template" | Secondary rules and interpretation |
+| "private right of action" | Individuals can sue to enforce |
+| "safe harbor," "sunset" | Protection if conditions are met; automatic expiry |

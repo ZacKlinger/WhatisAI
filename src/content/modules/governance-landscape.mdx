@@ -1,0 +1,136 @@
+---
+title: The governance toolkit
+track: t8
+order: 1
+summary: Why AI is hard to govern, the tools available (from principles and standards to liability, licensing, and compute thresholds), and the actors who wield them.
+minutes: 26
+level: 2
+prerequisites: [reading-the-corpus]
+objectives:
+  - Explain the structural difficulties of governing AI, including the pacing problem and the Collingridge dilemma.
+  - Distinguish the main governance instruments, from soft law to hard law, and what each can and cannot do.
+  - Explain why definitions and thresholds, such as the OECD definition of an AI system and compute thresholds, carry so much weight.
+keyTerms:
+  - term: Soft law
+    def: Non-binding instruments such as principles, guidelines, voluntary commitments, and codes of conduct.
+  - term: Hard law
+    def: Binding legal obligations enforced by the state, such as statutes and regulations.
+  - term: Pacing problem
+    def: The gap that arises when technology changes faster than laws and institutions can adapt.
+  - term: Collingridge dilemma
+    def: Early in a technology's life its effects are hard to predict; later, when they are clear, it is entrenched and hard to change.
+  - term: Standards
+    def: Technical specifications, often developed by bodies like ISO or NIST, that define how to meet requirements in practice.
+  - term: Compute governance
+    def: Using the measurable, concentrated nature of computing power as a lever for oversight, through thresholds, reporting, or export controls.
+  - term: AI system (OECD definition)
+    def: A machine-based system that infers from inputs how to generate outputs such as predictions, content, recommendations, or decisions that can influence physical or virtual environments.
+sources:
+  - title: OECD AI Principles
+    org: OECD
+    year: 2024
+    url: https://oecd.ai/en/ai-principles
+  - title: Recommendation of the Council on Artificial Intelligence
+    org: OECD
+    year: 2024
+    url: https://legalinstruments.oecd.org/en/instruments/OECD-LEGAL-0449
+  - title: AI Risk Management Framework (AI RMF 1.0)
+    org: NIST
+    year: 2023
+    url: https://www.nist.gov/itl/ai-risk-management-framework
+  - title: Computing Power and the Governance of Artificial Intelligence
+    authors: Sastry et al.
+    org: arXiv
+    year: 2024
+    url: https://arxiv.org/abs/2402.08797
+  - title: "ISO/IEC 42001: Artificial intelligence management system"
+    org: ISO
+    year: 2023
+    url: https://www.iso.org/standard/81230.html
+updated: 2026-10-26
+---
+
+import QuickCheck from '@/components/quiz/QuickCheck';
+
+Every society eventually governs its powerful technologies: cars, drugs, aircraft, nuclear power, finance. AI is now going through that process, at speed and with unusual difficulty. Before reading specific laws, it helps to understand the problem governments face, the instruments they can use, and why the details of a definition or a threshold can matter more than any stated principle.
+
+## Why AI is hard to govern
+
+**It moves fast.** Capabilities change on a timescale of months; legislation takes years. This **pacing problem** means laws risk regulating yesterday's technology.
+
+**Its effects are uncertain early.** The technology scholar David Collingridge observed that when a technology is new, its impacts are hard to foresee, and when they become clear, the technology is entrenched and hard to change. AI governance lives inside the **Collingridge dilemma**.
+
+**It is general-purpose.** The same model can write a poem, screen a résumé, or assist a cyberattack. Rules aimed at uses miss the underlying capability; rules aimed at the capability can sweep in harmless uses.
+
+**It is global and diffuse.** Models are trained in one country, deployed in another, and accessed everywhere. Open-weight models can be copied indefinitely.
+
+**It is opaque.** Even developers cannot fully explain their models' behavior, which complicates any regulation that depends on knowing how a system reaches decisions.
+
+## The instruments
+
+Governments and institutions have a wide toolkit, from soft to hard.
+
+**Principles and declarations.** The **OECD AI Principles** (2019, updated 2024) were the first intergovernmental standard, adopted by dozens of countries: AI should be robust, transparent, accountable, and respect human rights. Principles build consensus but bind no one.
+
+**Voluntary commitments and codes.** Companies pledge practices, as at the 2023 White House commitments and the 2024 Seoul summit. Cheap to agree, hard to enforce.
+
+**Standards and frameworks.** Technical documents that make abstract requirements concrete. NIST's **AI Risk Management Framework** organizes risk management into four functions, **Govern, Map, Measure, Manage**. The international management standard **ISO/IEC 42001** lets organizations certify their AI governance. Standards often become the practical meaning of a law.
+
+**Transparency and disclosure requirements.** Laws requiring developers to publish safety frameworks, report incidents, or document training data. California's SB 53 is primarily a transparency law.
+
+**Ex ante regulation.** Requirements that must be met *before* a product reaches the market, such as conformity assessments for high-risk systems under the EU AI Act. Familiar from medical devices and aircraft.
+
+**Liability.** Holding developers or deployers responsible *after* harm occurs, through courts. Liability incentivizes care without prescribing methods, but works poorly for diffuse or catastrophic harms.
+
+**Licensing.** Requiring permission to develop or deploy certain systems. Proposed for frontier AI but not, so far, widely adopted.
+
+**Compute governance and export controls.** Using computing power as the lever: reporting requirements above a compute threshold, chip export controls, and potentially monitoring of large training runs. Compute is detectable, quantifiable, and concentrated, which makes it attractive to regulators.
+
+<QuickCheck client:visible item={{
+  kind: 'match', id: 'tools',
+  prompt: 'Match each governance instrument to its example.',
+  pairs: [
+    ['Soft law principles', 'OECD AI Principles'],
+    ['Voluntary standard', 'NIST AI Risk Management Framework'],
+    ['Ex ante regulation', 'Conformity assessment before a high-risk system goes to market'],
+    ['Compute governance', 'Obligations triggered above 10^25 FLOP of training compute'],
+  ],
+  explain: 'Instruments range from non-binding consensus to enforceable, measurable obligations.'
+}} />
+
+## Definitions do the work
+
+The most important words in any AI law are in its definitions, because they decide who is covered. The OECD updated its definition of an **AI system** in 2023 to describe "a machine-based system that, for explicit or implicit objectives, infers, from the input it receives, how to generate outputs such as predictions, content, recommendations, or decisions that can influence physical or virtual environments." The EU AI Act adopted a closely aligned definition. Notice what it includes and excludes: the key concept is *inference*, which separates AI systems from conventional software that follows fixed rules.
+
+## Thresholds: crude but verifiable
+
+Frontier AI rules often use **thresholds** to target only the most capable systems:
+
+- **Compute thresholds:** 10<sup>25</sup> FLOP in the EU AI Act (as a presumption of systemic risk); 10<sup>26</sup> operations in California's SB 53 and in the revoked 2023 US executive order.
+- **Revenue thresholds:** SB 53 and New York's RAISE Act impose their heaviest duties on developers with more than $500 million in annual revenue.
+
+Thresholds are easy to verify and focus regulatory attention, but they are imperfect proxies for risk. Algorithmic efficiency means smaller training runs can produce dangerous capabilities; inference-time compute means training compute understates capability; and thresholds can be gamed. Well-drafted laws let regulators update them.
+
+<KeyIdea track="t8">To understand an AI law, read its definitions and thresholds first. They decide who is covered, and most real political fights happen there.</KeyIdea>
+
+## The actors
+
+- **Legislatures** write statutes: the European Parliament and Council, the US Congress, state legislatures.
+- **Executives and regulators** issue orders and rules and enforce them: the European Commission's AI Office, US agencies such as the FTC, state attorneys general.
+- **Standards bodies** translate requirements into practice: NIST, ISO/IEC, the European standardization organizations CEN and CENELEC.
+- **Evaluation institutes** test models: the UK AI Security Institute, the US Center for AI Standards and Innovation, and a growing international network.
+- **International bodies** coordinate: the OECD, G7, United Nations, and Council of Europe.
+- **Courts** interpret laws and settle disputes, including over copyright and the limits of state regulation.
+- **Companies** shape all of the above through their own frameworks, lobbying, and the facts on the ground.
+
+## Reading the corpus
+
+| When a document says | It means |
+| --- | --- |
+| "soft law" / "hard law" | Non-binding / binding instruments |
+| "risk-based approach" | Obligations scaled to the risk of a use |
+| "ex ante" / "ex post" | Before market / after harm |
+| "harmonized standards" | Standards whose use creates a presumption of legal compliance (EU) |
+| "compute threshold" | A training-compute level that triggers obligations |
+| "Govern, Map, Measure, Manage" | The four functions of NIST's AI RMF |
+| "AI system" | Usually the OECD-derived legal definition |

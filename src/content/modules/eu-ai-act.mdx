@@ -1,0 +1,145 @@
+---
+title: The EU AI Act
+track: t8
+order: 2
+summary: The world's first comprehensive AI law. Risk tiers, prohibited practices, high-risk obligations, the rules for general-purpose models with systemic risk, the Code of Practice, enforcement, and the revised timeline.
+minutes: 34
+level: 3
+prerequisites: [governance-landscape, compute]
+objectives:
+  - Classify AI uses into the Act's risk tiers and name the obligations attached to each.
+  - Explain the obligations for general-purpose AI models, including the 10^25 FLOP systemic-risk presumption and the Code of Practice.
+  - State the Act's application timeline, including the 2026 Digital Omnibus changes, and its enforcement structure.
+keyTerms:
+  - term: Risk-based approach
+    def: Regulating AI uses according to the risk they pose, from prohibited to minimal.
+  - term: Prohibited practice
+    def: An AI use banned outright under Article 5, such as social scoring or untargeted scraping of facial images.
+  - term: High-risk AI system
+    def: A system used in a sensitive area listed in the Act (Annex III) or as a safety component of a regulated product (Annex I), subject to strict requirements.
+  - term: General-purpose AI (GPAI) model
+    def: A model that displays significant generality and can competently perform a wide range of tasks, regardless of how it is placed on the market.
+  - term: Systemic risk
+    def: Risk specific to the most capable general-purpose models, with potential large-scale negative effects. Presumed above 10^25 FLOP of training compute.
+  - term: AI Office
+    def: The body within the European Commission that supervises general-purpose AI models and coordinates enforcement.
+  - term: Code of Practice
+    def: A voluntary code, published in July 2025, that general-purpose model providers can sign to demonstrate compliance with their obligations.
+  - term: Digital Omnibus on AI
+    def: Regulation (EU) 2026/1744, which postponed high-risk obligations and made other targeted amendments to the Act.
+sources:
+  - title: Regulation (EU) 2024/1689 (Artificial Intelligence Act)
+    org: Official Journal of the European Union
+    year: 2024
+    url: https://eur-lex.europa.eu/eli/reg/2024/1689/oj
+  - title: The General-Purpose AI Code of Practice
+    org: European Commission
+    year: 2025
+    url: https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai
+  - title: EU AI Act Omnibus Agreement, Postponed High-Risk Deadlines and Other Key Changes
+    org: Gibson Dunn
+    year: 2026
+    url: https://www.gibsondunn.com/eu-ai-act-omnibus-agreement-postponed-high-risk-deadlines-and-other-key-changes/
+  - title: "Yes, August 2 Still Matters: The EU Approved a High-Risk AI Delay, but Most Transparency Obligations Remain"
+    org: Jones Walker
+    year: 2026
+    url: https://www.joneswalker.com/en/insights/blogs/ai-law-blog/yes-august-2-still-matters-the-eu-approved-a-high-risk-ai-delay-but-most-trans.html
+updated: 2026-10-26
+---
+
+import RiskClassifier from '@/components/interactive/RiskClassifier';
+import StaticFigure from '@/components/figures/registry';
+import QuickCheck from '@/components/quiz/QuickCheck';
+
+In 2024, the European Union adopted the **Artificial Intelligence Act**, the first comprehensive, binding AI law of any major jurisdiction. Like the EU's data protection law before it, it applies to anyone placing AI on the EU market, wherever they are based, so its influence extends far beyond Europe. It is long, layered, and has already been amended. This module gives you a working map of it, enough to read its articles and the guidance built on them.
+
+## The architecture: regulating uses by risk
+
+The Act's core idea is a **risk-based approach**. Most rules attach not to a technology but to how it is *used*, scaled by risk.
+
+<StaticFigure id="risk-pyramid" caption="The AI Act's risk tiers for AI systems. Separately, general-purpose AI models carry their own obligations, with additional duties for models with systemic risk." />
+
+**Unacceptable risk: prohibited (Article 5).** Banned practices include manipulative techniques that distort behavior and cause significant harm; exploiting vulnerabilities due to age or disability; social scoring that leads to detrimental treatment; predicting criminal behavior based solely on profiling; untargeted scraping of facial images to build recognition databases; emotion recognition in workplaces and schools (except for medical or safety reasons); biometric categorization to infer sensitive traits like political opinions or sexual orientation; and real-time remote biometric identification in public spaces for law enforcement, with narrow exceptions. A 2026 amendment added AI systems used to create non-consensual intimate imagery and child sexual abuse material.
+
+**High risk: strict obligations.** Two routes lead here. **Annex I** covers AI that is a safety component of products already regulated by EU law, such as medical devices, machinery, and toys. **Annex III** lists sensitive uses: biometrics, critical infrastructure, education and vocational training, employment and worker management, access to essential services (such as credit scoring and public benefits), law enforcement, migration and border control, and the administration of justice and democratic processes. Providers of high-risk systems must implement a risk management system, data governance, technical documentation, logging, transparency to deployers, human oversight, and appropriate accuracy, robustness, and cybersecurity, and pass a conformity assessment before market entry. Deployers have their own duties, including human oversight and, for some, a fundamental rights impact assessment.
+
+**Limited risk: transparency (Article 50).** People must be told when they interact with an AI system such as a chatbot; AI-generated or manipulated content, including deepfakes, must be disclosed; and providers of generative systems must mark outputs in a machine-readable way.
+
+**Minimal risk.** Most AI systems, like spam filters or AI in video games, face no new obligations.
+
+Try classifying some systems yourself:
+
+<RiskClassifier client:visible />
+
+## General-purpose AI models
+
+The original 2021 proposal predated ChatGPT and barely addressed foundation models. During negotiations, lawmakers added a separate regime for **general-purpose AI (GPAI) models**, obligations that attach to the *model* rather than to a use.
+
+**All GPAI providers (Article 53)** must:
+
+- maintain technical documentation of the model and provide it to the AI Office on request;
+- give downstream providers the information they need to build on the model and comply themselves;
+- put in place a policy to comply with EU copyright law, including respecting opt-outs from text and data mining;
+- publish a sufficiently detailed summary of the content used for training, following a template from the AI Office.
+
+Open-source models released under qualifying licenses are exempt from some of these duties, unless they pose systemic risk.
+
+**GPAI models with systemic risk (Articles 51 and 55).** A model is presumed to have high-impact capabilities, and thus systemic risk, when its cumulative training compute exceeds **10<sup>25</sup> floating-point operations**. The Commission can also designate models on other criteria. These providers must additionally:
+
+- perform model evaluations, including adversarial testing;
+- assess and mitigate possible systemic risks;
+- track and report serious incidents to the AI Office without undue delay;
+- ensure adequate cybersecurity for the model and its infrastructure.
+
+<QuickCheck client:visible item={{
+  kind: 'mc', id: 'presume',
+  prompt: 'A general-purpose model was trained with 4 × 10^25 FLOP. What does the AI Act presume?',
+  choices: ['That it is prohibited', 'That it has high-impact capabilities and therefore systemic risk, triggering additional obligations', 'That it is high-risk under Annex III', 'Nothing; only uses are regulated'],
+  answer: 1,
+  explain: 'Above 10^25 FLOP, Article 51 presumes systemic risk. Providers must evaluate, mitigate, report incidents, and secure the model.'
+}} />
+
+## The Code of Practice
+
+How should a provider show it meets these obligations? In July 2025, after a drafting process involving hundreds of stakeholders, the Commission published the **General-Purpose AI Code of Practice**. It has three chapters: **Transparency** (including a model documentation form), **Copyright**, and **Safety and Security**, the last applying only to models with systemic risk and requiring signatories to adopt a safety and security framework, conduct systemic risk assessments, report serious incidents, and document their work in model reports.
+
+The Code is voluntary, but signing it gives a recognized way to demonstrate compliance; non-signatories must show compliance by other means. Most major frontier developers signed. Meta declined, and xAI signed only the Safety and Security chapter. Track IX includes a guided reading of the Code.
+
+## Who enforces, and with what teeth
+
+- The **AI Office**, within the European Commission, supervises general-purpose AI models directly.
+- **National market surveillance authorities** in each member state enforce the rules on AI systems.
+- The **European AI Board** coordinates among member states; a **scientific panel** of independent experts advises, including by alerting the AI Office to possible systemic risks.
+
+Penalties are scaled. Violating the prohibitions can cost up to **€35 million or 7% of worldwide annual turnover**, whichever is higher; most other obligations, up to €15 million or 3%; supplying incorrect information, up to €7.5 million or 1%. The Commission can fine GPAI providers up to €15 million or 3%.
+
+## The timeline, as amended
+
+The Act entered into force on **1 August 2024**, with obligations phasing in. In July 2026, the **Digital Omnibus on AI** (Regulation (EU) 2026/1744) amended the schedule.
+
+| Date | What applies |
+| --- | --- |
+| 2 February 2025 | Prohibited practices; AI literacy duty |
+| 2 August 2025 | GPAI model obligations; governance structure; penalties regime |
+| 2 August 2026 | Most transparency duties (Article 50); remaining general provisions |
+| 2 December 2026 | Marking duties for generative systems already on the market; new prohibitions on non-consensual intimate imagery and CSAM |
+| 2 December 2027 | High-risk obligations for Annex III systems (postponed from August 2026) |
+| 2 August 2028 | High-risk obligations for Annex I product-embedded systems (postponed from August 2027) |
+
+<KeyIdea track="t8">The AI Act regulates uses by risk and frontier models by capability. Its most consequential numbers are a compute threshold (10^25 FLOP), a penalty ceiling (7% of global turnover), and a series of dates, some of which have already moved.</KeyIdea>
+
+<Callout type="policy" title="Debates to watch">
+Critics argue the Act is too complex and could slow European innovation, a concern that motivated the 2026 Omnibus. Others argue the delays weaken protections and that the systemic-risk regime relies too heavily on self-assessment. The harmonized standards that will define high-risk compliance in practice are still being finalized. Watch the AI Office's guidance and enforcement decisions: they will determine what the text means.
+</Callout>
+
+## Reading the corpus
+
+| When a document says | It means |
+| --- | --- |
+| "provider" / "deployer" | The developer placing AI on the market / the organization using it |
+| "placing on the market," "putting into service" | The acts that trigger obligations |
+| "Annex III" | The list of high-risk use areas |
+| "GPAI," "GPAISR" | General-purpose AI model; with systemic risk |
+| "conformity assessment," "CE marking" | Pre-market compliance check; the mark showing it |
+| "harmonised standards" | Standards whose use presumes compliance |
+| "AI Office," "AI Board" | Commission supervisor of GPAI; member-state coordination body |

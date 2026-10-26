@@ -1,0 +1,122 @@
+---
+title: AI policy in the United States
+track: t8
+order: 3
+summary: No comprehensive federal law, shifting executive orders, standards and export controls, and an active state legislative scene, from California's SB 53 to New York's RAISE Act, now contested by federal preemption efforts.
+minutes: 30
+level: 3
+prerequisites: [governance-landscape]
+objectives:
+  - Trace the evolution of federal AI policy from the 2023 executive order to the 2025 AI Action Plan and later preemption efforts.
+  - Describe the key state frontier-AI laws, especially California's SB 53 and New York's RAISE Act.
+  - Explain the federal-state preemption conflict and why its outcome matters.
+keyTerms:
+  - term: Executive order
+    def: A directive from the President to federal agencies. It binds the executive branch but cannot by itself change statutes or state law.
+  - term: Preemption
+    def: The principle that valid federal law overrides conflicting state law.
+  - term: CAISI
+    def: The Center for AI Standards and Innovation within NIST, successor to the US AI Safety Institute, which evaluates frontier models.
+  - term: SB 53
+    def: California's Transparency in Frontier Artificial Intelligence Act (2025), requiring large frontier developers to publish safety frameworks and report critical incidents.
+  - term: RAISE Act
+    def: New York's frontier AI law, enacted in 2025 and amended in 2026, imposing framework, transparency, and incident-reporting duties from 2027.
+  - term: Critical safety incident
+    def: Under SB 53, events such as unauthorized access to model weights causing harm, or loss of control causing death or injury, that must be reported.
+sources:
+  - title: Executive Order 14110, Safe, Secure, and Trustworthy Development and Use of Artificial Intelligence
+    org: Federal Register
+    year: 2023
+    url: https://www.federalregister.gov/documents/2023/11/01/2023-24283/safe-secure-and-trustworthy-development-and-use-of-artificial-intelligence
+  - title: Executive Order 14179, Removing Barriers to American Leadership in Artificial Intelligence
+    org: Federal Register
+    year: 2025
+    url: https://www.federalregister.gov/documents/2025/01/31/2025-02172/removing-barriers-to-american-leadership-in-artificial-intelligence
+  - title: America's AI Action Plan
+    org: The White House
+    year: 2025
+    url: https://www.whitehouse.gov/wp-content/uploads/2025/07/Americas-AI-Action-Plan.pdf
+  - title: SB 53, Transparency in Frontier Artificial Intelligence Act (bill text)
+    org: California Legislature
+    year: 2025
+    url: https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB53
+  - title: Governor Hochul Signs Nation-Leading Legislation to Require AI Frameworks for AI Frontier Models
+    org: State of New York
+    year: 2025
+    url: https://www.governor.ny.gov/news/governor-hochul-signs-nation-leading-legislation-require-ai-frameworks-ai-frontier-models
+  - title: "Federal AI Preemption Fight: Where It Stands"
+    org: CASRAI
+    year: 2026
+    url: https://casrai.org/news/federal-ai-moratorium-state-preemption-fight-2026
+updated: 2026-10-26
+---
+
+import QuickCheck from '@/components/quiz/QuickCheck';
+
+The United States hosts most of the world's frontier AI developers, yet as of late 2026 it has no comprehensive federal AI law. Instead, American AI policy is a moving collage: executive orders that change with administrations, voluntary standards, export controls, sector regulators applying existing law, and a wave of state legislation, now in open conflict with federal efforts to override it. Following it requires tracking several levels of government at once.
+
+## The federal arc
+
+**2023: the safety-focused executive order.** In October 2023, President Biden signed **Executive Order 14110**, the most comprehensive federal AI action to that point. Among many provisions, it used the Defense Production Act to require developers of models trained with more than 10<sup>26</sup> operations to report training plans and safety test results to the government, directed NIST to develop standards and launch the **US AI Safety Institute**, and tasked agencies with addressing AI in their domains.
+
+**January 2025: revocation and reorientation.** On his first day in office, President Trump revoked EO 14110. Days later, **Executive Order 14179**, "Removing Barriers to American Leadership in Artificial Intelligence," set a new direction emphasizing innovation, competitiveness, and reducing regulatory burdens. In June 2025, the AI Safety Institute was renamed the **Center for AI Standards and Innovation (CAISI)**, keeping a role in evaluating frontier models, with a focus that includes national security risks and standards.
+
+**July 2025: America's AI Action Plan.** The White House published a plan with more than ninety federal actions under three pillars: **accelerating innovation** (including removing regulatory barriers), **building American AI infrastructure** (data centers, energy, chips, workforce), and **leading in international diplomacy and security** (exporting American AI technology, strengthening export controls). It was accompanied by executive orders on federal procurement of AI models, data center permitting, and promoting AI exports.
+
+**Congress.** Federal legislation has been limited. In July 2025 the Senate voted 99 to 1 to strip a proposed ten-year moratorium on state AI laws from a budget bill. Later federal preemption bills were discussed but, as of the time of writing, had not passed.
+
+## The states move
+
+With Congress largely inactive, states legislated. Hundreds of AI bills have been introduced across the states each year. Three laws matter most for frontier AI readers.
+
+**California SB 53 (2025).** The **Transparency in Frontier Artificial Intelligence Act**, signed in September 2025 and effective January 2026, was the first US law aimed squarely at frontier developers. Its key provisions:
+
+- It defines a **frontier model** as one trained with more than 10<sup>26</sup> operations, and a **large frontier developer** as one with more than $500 million in annual revenue.
+- Large frontier developers must **publish a frontier AI framework** describing how they assess and mitigate catastrophic risks, and follow it.
+- Developers must publish **transparency reports** when deploying new frontier models.
+- **Critical safety incidents** must be reported to the state's Office of Emergency Services within 15 days of discovery, or within 24 hours to appropriate authorities if there is imminent risk of death or serious injury.
+- **Whistleblowers** who report catastrophic risks or violations are protected, and large developers must offer anonymous internal reporting.
+- The Attorney General can seek civil penalties of up to $1 million per violation.
+
+**New York's RAISE Act.** Signed in December 2025 and substantially amended in March 2026 to align more closely with California's approach, it applies to large developers with more than $500 million in revenue, requires published frameworks and transparency reports, requires faster incident reporting (72 hours), creates an oversight office within the state's Department of Financial Services, and takes effect on 1 January 2027.
+
+**Colorado's AI Act** took a different, broader approach: a 2024 law targeting algorithmic discrimination in "consequential decisions" such as hiring and lending. After repeated delays and legal challenge, Colorado replaced it in 2026 with a narrower, disclosure-focused law, now scheduled for 2027. Its trajectory illustrates how hard comprehensive consumer-protection AI laws have proven to be.
+
+<QuickCheck client:visible item={{
+  kind: 'multi', id: 'sb53',
+  prompt: 'Which are requirements of California’s SB 53 for large frontier developers?',
+  choices: ['Publish a frontier AI framework and follow it', 'Report critical safety incidents to the state within 15 days', 'Obtain a license before training any model', 'Protect whistleblowers who report catastrophic risks'],
+  answers: [0, 1, 3],
+  explain: 'SB 53 is a transparency and accountability law. It does not create a licensing regime.'
+}} />
+
+## The preemption fight
+
+The growth of state laws triggered a federal response. In December 2025, an executive order directed the Attorney General to form an **AI Litigation Task Force** to challenge state AI laws deemed to conflict with federal policy, and directed agencies to explore other levers, including conditions on federal funding. The Department of Justice announced the task force in January 2026.
+
+Two points are essential for reading this conflict correctly. First, an **executive order cannot by itself repeal a state law**; only Congress (through valid preemptive legislation) or courts (by finding state laws unconstitutional or preempted) can do that. Second, as of late 2026 the outcome was unresolved: litigation over some state laws was underway, and federal preemption legislation had not passed. Watch the courts and Congress, not just press releases.
+
+<KeyIdea track="t8">US AI policy has three layers in tension: a federal executive that sets direction by order, a Congress that has mostly not legislated, and states that have, led by California and New York's frontier transparency laws.</KeyIdea>
+
+## Other levers
+
+- **Existing law still applies.** Agencies such as the Federal Trade Commission apply consumer protection law to deceptive AI claims; civil rights and employment laws apply to discriminatory AI decisions; copyright law is being tested in court.
+- **Export controls** on advanced chips, administered by the Commerce Department, remain a central and bipartisan tool, though their details have shifted repeatedly.
+- **Standards and evaluation.** NIST's AI Risk Management Framework and CAISI's model evaluations shape practice even without mandates.
+- **Federal procurement.** Rules for how agencies buy and use AI influence the market.
+
+<Callout type="policy" title="How to read US AI news">
+For any announcement, ask: Is this a statute, a regulation, an executive order, guidance, or a voluntary commitment? Which level of government issued it? Does it bind private companies, or only federal agencies? Is it in effect, or pending? Is it being challenged in court? These five questions resolve most confusion.
+</Callout>
+
+## Reading the corpus
+
+| When a document says | It means |
+| --- | --- |
+| "EO 14110," "EO 14179" | The 2023 safety order (revoked) and the 2025 replacement |
+| "AI Action Plan" | The July 2025 federal strategy |
+| "CAISI" | NIST's Center for AI Standards and Innovation |
+| "TFAIA," "SB 53" | California's frontier AI transparency law |
+| "RAISE Act" | New York's frontier AI law, effective 2027 |
+| "preemption," "moratorium" | Federal override of state law; a pause on state AI laws |
+| "frontier developer" (California) | A developer that trained a model above 10<sup>26</sup> operations |

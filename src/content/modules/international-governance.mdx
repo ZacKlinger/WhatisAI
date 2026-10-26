@@ -1,0 +1,125 @@
+---
+title: International governance and coordination
+track: t8
+order: 4
+summary: China's AI rules, the UK's institute-led approach, the summit series from Bletchley to New Delhi, the International AI Safety Report, the UN's new scientific panel, and the first AI treaty.
+minutes: 28
+level: 3
+prerequisites: [governance-landscape]
+objectives:
+  - Compare the approaches of China, the United Kingdom, the EU, and the United States to AI governance.
+  - Trace the international summit series and the institutions it created, including the network of AI safety institutes.
+  - Describe the role and limits of international scientific assessment and treaty efforts.
+keyTerms:
+  - term: AI Security Institute (UK)
+    def: The UK government body, founded in 2023 as the AI Safety Institute and renamed in 2025, that evaluates frontier models and researches AI risks.
+  - term: International AI Safety Report
+    def: A scientific synthesis of evidence on general-purpose AI capabilities and risks, chaired by Yoshua Bengio and backed by dozens of countries.
+  - term: Frontier AI Safety Commitments
+    def: Pledges made by AI companies at the 2024 Seoul summit to publish safety frameworks with risk thresholds.
+  - term: Algorithm registry (China)
+    def: China's system requiring certain algorithms and generative AI services to be filed with the Cyberspace Administration of China.
+  - term: Independent International Scientific Panel on AI
+    def: A 40-member UN panel, appointed in 2026, to provide evidence-based assessments of AI's opportunities and risks.
+  - term: Framework Convention on AI
+    def: The Council of Europe's treaty on AI and human rights, democracy, and the rule of law, opened for signature in 2024.
+sources:
+  - title: The Bletchley Declaration
+    org: UK Government
+    year: 2023
+    url: https://www.gov.uk/government/publications/ai-safety-summit-2023-the-bletchley-declaration/the-bletchley-declaration-by-countries-attending-the-ai-safety-summit-1-2-november-2023
+  - title: International AI Safety Report 2026
+    org: International panel chaired by Yoshua Bengio
+    year: 2026
+    url: https://internationalaisafetyreport.org/publication/international-ai-safety-report-2026
+  - title: Interim Measures for the Management of Generative Artificial Intelligence Services
+    org: Cyberspace Administration of China
+    year: 2023
+    url: http://www.cac.gov.cn/2023-07/13/c_1690898327029107.htm
+  - title: Independent International Scientific Panel on AI
+    org: United Nations
+    year: 2026
+    url: https://www.un.org/independent-international-scientific-panel-ai/en/faq
+  - title: Framework Convention on Artificial Intelligence and Human Rights, Democracy and the Rule of Law
+    org: Council of Europe
+    year: 2024
+    url: https://www.coe.int/en/web/artificial-intelligence/the-framework-convention-on-artificial-intelligence
+  - title: AI Security Institute
+    org: UK Government
+    year: 2026
+    url: https://www.aisi.gov.uk/
+updated: 2026-10-26
+---
+
+import QuickCheck from '@/components/quiz/QuickCheck';
+
+AI is built in a few countries and used in all of them. Its risks, from disinformation to dangerous capabilities, cross borders easily, and so does competition. No single government can govern it alone, yet geopolitical rivalry makes cooperation hard. This module surveys how major jurisdictions approach AI, and the fragile international architecture that has grown up since 2023.
+
+## Different national philosophies
+
+**The European Union** regulates comprehensively and ex ante: a single horizontal law, the AI Act, with risk tiers and penalties (previous module).
+
+**The United States** relies on executive action, standards, export controls, existing law, and state legislation, with the federal emphasis since 2025 on innovation and competitiveness (previous module).
+
+**China** was among the first to adopt binding rules targeted at specific AI applications, layered over time:
+
+- rules on **algorithmic recommendation** (in force 2022) and **deep synthesis** (deepfakes, in force 2023);
+- **Interim Measures for the Management of Generative AI Services** (in force August 2023), requiring providers of public-facing generative AI to ensure content is lawful and aligned with "core socialist values," protect personal information, and label generated content;
+- an **algorithm registry** in which many services must file their algorithms with the Cyberspace Administration of China;
+- **labeling rules** for AI-generated content, in force from September 2025.
+
+China has also promoted international initiatives, including a **Global AI Governance Action Plan** announced in July 2025. Its approach combines rapid, targeted regulation with state control over information and strong support for domestic AI development.
+
+**The United Kingdom** chose a "pro-innovation," sector-led approach without a comprehensive AI law, while investing heavily in technical capacity. It founded the **AI Safety Institute** in 2023, the first government body dedicated to evaluating frontier models, renamed the **AI Security Institute** in 2025 with a sharper focus on national security risks. Frontier developers have given it pre-deployment access to models.
+
+## The summit series
+
+Since 2023, a sequence of international summits has served as the main venue for frontier AI diplomacy:
+
+- **Bletchley Park, November 2023.** The first AI Safety Summit. Twenty-eight countries, including the United States and China, and the EU signed the **Bletchley Declaration**, recognizing that frontier AI poses potentially serious risks requiring international cooperation. The UK and US announced their safety institutes.
+- **Seoul, May 2024.** Sixteen AI companies signed the **Frontier AI Safety Commitments**, pledging to publish safety frameworks with thresholds at which risks would be deemed intolerable. Countries agreed to build an international network of AI safety institutes.
+- **Paris, February 2025.** Renamed the **AI Action Summit**, it shifted emphasis toward opportunity, investment, and inclusion. The United States and the United Kingdom declined to sign the final declaration.
+- **New Delhi, February 2026.** The **AI Impact Summit** in India continued the series with a focus on development, access, and the Global South.
+
+The trajectory, from safety toward opportunity and inclusion, reflects changing political priorities, especially in the United States, and debates about whether a focus on frontier risks served or neglected the concerns of most countries.
+
+<QuickCheck client:visible item={{
+  kind: 'order', id: 'summits',
+  prompt: 'Order the international AI summits.',
+  items: ['Bletchley Park (AI Safety Summit)', 'Seoul (Frontier AI Safety Commitments)', 'Paris (AI Action Summit)', 'New Delhi (AI Impact Summit)'],
+  explain: 'November 2023, May 2024, February 2025, February 2026: a shift in emphasis from safety toward opportunity and inclusion.'
+}} />
+
+## Shared science: the International AI Safety Report
+
+One durable outcome of Bletchley was a commitment to a shared scientific assessment, modeled loosely on the Intergovernmental Panel on Climate Change. The **International AI Safety Report**, chaired by Yoshua Bengio with contributions from about a hundred experts and an advisory panel nominated by some thirty countries and international organizations, published its first full edition in January 2025 and its second in February 2026.
+
+The 2026 report concluded, among other things, that reasoning models had driven major capability gains; that AI can help enable biological and chemical threats, with substantial uncertainty about the real-world magnitude; that models increasingly distinguish test settings from deployment; that economists disagree about labor effects; and that while more companies published safety frameworks, significant gaps in safeguards remain. Like the IPCC, the report does not make policy recommendations. It aims to give governments a common evidence base.
+
+<KeyIdea track="t8">International AI governance so far is mostly soft: declarations, voluntary commitments, shared science, and networks of technical institutes. Its value is in building common understanding and capacity before binding agreements are possible.</KeyIdea>
+
+## The United Nations
+
+In August 2025, the UN General Assembly established two new bodies: an **Independent International Scientific Panel on AI** and a **Global Dialogue on AI Governance**. The panel's forty members were appointed in February 2026, electing Yoshua Bengio and the journalist and Nobel laureate Maria Ressa as co-chairs, and released a preliminary report in July 2026. The first Global Dialogue met in Geneva that same month, with delegations from more than 160 countries. Both bodies are advisory: they produce assessment and discussion, not binding rules. Their significance lies in including the many countries absent from the frontier-focused summits.
+
+## The first AI treaty
+
+The **Council of Europe's Framework Convention on Artificial Intelligence and Human Rights, Democracy and the Rule of Law**, opened for signature in September 2024, is the first legally binding international treaty on AI. Signatories, which have included the EU, the UK, and the United States, commit to ensuring that AI activities are consistent with human rights, democracy, and the rule of law. It focuses on the public sector, gives states latitude in how they apply it to private actors, and binds only those who ratify it.
+
+## Other threads
+
+- **G7 Hiroshima AI Process:** an International Code of Conduct for organizations developing advanced AI (2023), with an OECD-run reporting framework for companies.
+- **OECD:** the AI Principles and the definition of an AI system that many laws adopted.
+- **The network of AI safety and security institutes:** government evaluators in the UK, US, EU, Japan, Singapore, Canada, Korea, and elsewhere, sharing methods and conducting joint testing.
+
+## Reading the corpus
+
+| When a document says | It means |
+| --- | --- |
+| "Bletchley," "Seoul," "Paris," "New Delhi" | The international AI summit series |
+| "AISI," "AI Security Institute" | Government model evaluators; the UK body in particular |
+| "Frontier AI Safety Commitments" | 2024 company pledges to publish safety frameworks |
+| "International AI Safety Report" | The Bengio-chaired scientific synthesis |
+| "CAC," "filing," "core socialist values" | China's Cyberspace Administration; algorithm registration; content requirements |
+| "Framework Convention" | The Council of Europe AI treaty |
+| "Hiroshima Process" | The G7's AI code of conduct effort |
