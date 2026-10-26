@@ -1,0 +1,33 @@
+{
+  "$comment": "Terms the trend radar tracks, with patterns and the modules that explain them. Patterns are case-insensitive regular expressions matched against titles and summaries.",
+  "terms": [
+    { "term": "Agents", "re": "\\bagent(s|ic)?\\b", "modules": ["agents-and-tools"] },
+    { "term": "Reasoning models", "re": "\\breason(ing)? model|chain[- ]of[- ]thought|test[- ]time compute|thinking model", "modules": ["reasoning-models"] },
+    { "term": "Interpretability", "re": "interpretab|sparse autoencoder|mechanistic|attribution graph|circuit tracing|feature steering", "modules": ["interpretability-foundations", "sparse-autoencoders"] },
+    { "term": "Alignment", "re": "\\balignment\\b|misalign|reward hack|sycophan|scheming|deceptive", "modules": ["alignment-problem", "deception-and-scheming"] },
+    { "term": "AI safety", "re": "ai safety|frontier safety|safety framework|responsible scaling|preparedness framework|safety case", "modules": ["safety-frameworks"] },
+    { "term": "Evaluations", "re": "\\bevals?\\b|evaluation|benchmark|leaderboard", "modules": ["benchmarks", "evaluation-science"] },
+    { "term": "System cards", "re": "system card|model card", "modules": ["system-cards"] },
+    { "term": "Dangerous capabilities", "re": "bioweapon|biosecurity|cbrn|cyber ?(attack|offense|security)|uplift|autonomous replication", "modules": ["dangerous-capabilities"] },
+    { "term": "Scaling", "re": "scaling law|\\bscal(e|ing) up\\b|compute[- ]optimal|pretraining run", "modules": ["scaling-laws"] },
+    { "term": "Open-weight models", "re": "open[- ]weights?|open[- ]source model|llama|qwen|deepseek|mistral|kimi", "modules": ["ai-supply-chain"] },
+    { "term": "Chips and compute", "re": "\\bgpus?\\b|nvidia|\\btpus?\\b|semiconductor|chips?\\b|tsmc|\\bflops?\\b", "modules": ["compute", "ai-supply-chain"] },
+    { "term": "Data centers and energy", "re": "data ?cent(er|re)s?|gigawatt|power grid|energy demand|electricity", "modules": ["ai-supply-chain"] },
+    { "term": "Export controls", "re": "export control|chip ban|entity list|diffusion rule", "modules": ["ai-supply-chain", "us-ai-policy"] },
+    { "term": "Jobs and labor", "re": "\\bjobs?\\b|labor market|labour market|employment|layoffs?|workers?|hiring|wages?", "modules": ["evidence-on-work", "measuring-exposure"] },
+    { "term": "Productivity", "re": "productivity|\\bgdp\\b|economic growth", "modules": ["general-purpose-technology", "evidence-on-work"] },
+    { "term": "EU AI Act", "re": "ai act|ai office|code of practice|digital omnibus|brussels", "modules": ["eu-ai-act"] },
+    { "term": "US AI policy", "re": "executive order|white house|congress|senate|preemption|federal register|nist|caisi", "modules": ["us-ai-policy"] },
+    { "term": "State AI laws", "re": "sb ?53|california|colorado|new york|raise act|state law", "modules": ["us-ai-policy"] },
+    { "term": "China and AI", "re": "\\bchina\\b|chinese|beijing", "modules": ["international-governance", "ai-supply-chain"] },
+    { "term": "International governance", "re": "united nations|\\bun\\b|g7|summit|international ai safety report|ai safety institute|oecd", "modules": ["international-governance"] },
+    { "term": "Copyright and data", "re": "copyright|lawsuit|licens(e|ing) deal|training data|fair use", "modules": ["data", "governance-landscape"] },
+    { "term": "Multimodal and video", "re": "multimodal|video generation|image generation|vision[- ]language|text[- ]to[- ](video|image)|speech|voice", "modules": ["multimodality"] },
+    { "term": "Robotics", "re": "robot|humanoid|embodied", "modules": ["multimodality"] },
+    { "term": "AI for science", "re": "protein|drug discovery|materials|mathemat|theorem|scientific discovery|biology", "modules": ["measuring-progress"] },
+    { "term": "Coding assistants", "re": "coding (agent|assistant)|software engineer|swe-bench|copilot|code generation", "modules": ["agents-and-tools", "evidence-on-work"] },
+    { "term": "Hallucination", "re": "hallucinat|factuality|confabul", "modules": ["pretraining", "benchmarks"] },
+    { "term": "Security and jailbreaks", "re": "jailbreak|prompt injection|red[- ]team|adversarial", "modules": ["dangerous-capabilities"] },
+    { "term": "Model releases", "re": "\\b(gpt|claude|gemini|llama|grok|o\\d)[- ]?\\d|introducing|launch(es|ed)?|now available", "modules": ["system-cards"] }
+  ]
+}

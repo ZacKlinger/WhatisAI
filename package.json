@@ -9,7 +9,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",
-    "validate": "node scripts/validate-content.mjs",
+    "validate": "node scripts/watch/validate-signals.mjs",
     "watch:scrape": "node scripts/watch/scrape.mjs",
     "watch:gate": "node scripts/watch/gate.mjs",
     "watch:publish-heuristic": "node scripts/watch/publish-heuristic.mjs",

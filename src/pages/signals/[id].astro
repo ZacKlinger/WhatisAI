@@ -1,0 +1,56 @@
+---
+import { render } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Readiness from '@/components/app/Readiness';
+import { getModules, getSignals } from '@/lib/curriculum';
+import { moduleUrl, url } from '@/lib/url';
+
+export async function getStaticPaths() {
+  const signals = await getSignals();
+  return signals.map((s) => ({ params: { id: s.id }, props: { entry: s } }));
+}
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const d = entry.data;
+const modules = await getModules();
+const titles = Object.fromEntries(modules.map((m) => [m.id, m.data.title]));
+const linked = d.modules.filter((id) => titles[id]);
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const auraFor: Record<string, string> = { research: 'aura-t3', model: 'aura-t4', safety: 'aura-t6', policy: 'aura-t8', economy: 'aura-t7', media: 'aura-t0', trend: 'aura-t5' };
+const methodNote = { claude: 'Selected and drafted by the watcher with Claude, from the sources below.', heuristic: 'Detected automatically by the watcher’s significance scoring; summary drawn from the sources below.', editor: 'Written by the editor from the sources below.' }[d.method];
+---
+
+<BaseLayout title={d.title} description={d.summary} active="signals">
+  <header class={`aura ${auraFor[d.kind]}`} style="border-bottom:1px solid var(--line)">
+    <div class="container-read" style="padding-block:clamp(48px,8vw,96px) clamp(32px,5vw,56px)">
+      <a href={url('/signals/')} class="eyebrow" style="color:var(--fg)">← Signals · {d.kind} · {d.date.toISOString().slice(0, 10)}</a>
+      <h1 style="margin-top:14px">{d.title}</h1>
+      <p class="lead" style="margin-top:16px;color:var(--fg);opacity:.8">{d.summary}</p>
+    </div>
+  </header>
+  <article class="container-read" style="padding-block:40px 24px">
+    <div class="prose">
+      <Content />
+    </div>
+
+    {linked.length > 0 && (
+      <section style="margin-top:48px">
+        <h2 class="h3">The background you need</h2>
+        <div class="grid" style="gap:10px;margin-top:14px">
+          {linked.map((id) => (
+            <a class="card hoverable" href={moduleUrl(id)} style="padding:16px 20px"><span style="font-weight:550">{titles[id]}</span></a>
+          ))}
+        </div>
+        <div style="margin-top:14px"><Readiness client:load requires={linked} titles={titles} base={base} /></div>
+      </section>
+    )}
+
+    <section style="margin-top:48px">
+      <h2 class="h3">Sources</h2>
+      <ol class="small" style="padding-left:1.2em;display:grid;gap:10px;margin-top:12px">
+        {d.sources.map((s) => <li><a class="link" href={s.url} target="_blank" rel="noopener">{s.title}</a> <span class="muted">· {s.publisher}</span></li>)}
+      </ol>
+      <p class="xsmall faint" style="margin-top:20px">{methodNote}</p>
+    </section>
+  </article>
+</BaseLayout>

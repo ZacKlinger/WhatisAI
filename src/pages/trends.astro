@@ -1,0 +1,143 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import trends from '../../data/watch/trends.json';
+import { getModules } from '@/lib/curriculum';
+import { moduleUrl, url } from '@/lib/url';
+
+interface TermSeries { term: string; modules: string[]; recent: number; base: number; share: number; lift: number; series: number[] }
+interface Story { id: string; title: string; url: string; score: number; categories: string[]; format?: string; sources: string[]; parts?: Record<string, number> }
+
+const modules = await getModules();
+const titles = Object.fromEntries(modules.map((m) => [m.id, m.data.title]));
+const digests = import.meta.glob<{ default: Story[] }>('/data/watch/digest/*.json', { eager: true });
+const recentDigests = Object.entries(digests)
+  .sort((a, b) => b[0].localeCompare(a[0]))
+  .slice(0, 7);
+const seenIds = new Set<string>();
+const radar: (Story & { day: string })[] = [];
+for (const [path, mod] of recentDigests) {
+  const day = path.match(/(\d{4}-\d{2}-\d{2})/)?.[1] ?? '';
+  for (const s of mod.default) {
+    if (seenIds.has(s.id)) continue;
+    seenIds.add(s.id);
+    radar.push({ ...s, day });
+  }
+}
+radar.sort((a, b) => b.score - a.score);
+const top = radar.slice(0, 14);
+const rising = trends.rising as TermSeries[];
+const volume = trends.volume as TermSeries[];
+const maxVol = Math.max(1, ...volume.map((v) => v.recent));
+const hasData = !!trends.updated;
+
+const spark = (s: number[], w = 120, h = 32) => {
+  const max = Math.max(1, ...s);
+  return s.map((v, i) => `${i ? 'L' : 'M'}${((i / (s.length - 1)) * w).toFixed(1)},${(h - (v / max) * (h - 4) - 2).toFixed(1)}`).join('');
+};
+const catLabel: Record<string, string> = { lab: 'Lab', research: 'Research', policy: 'Policy', economy: 'Economy', media: 'Media', community: 'Community', newsletter: 'Newsletter' };
+---
+
+<BaseLayout title="Trend radar" description="What the AI field is talking about this week, measured from the watcher's daily scrape of labs, research, regulators, and media." active="trends">
+  <section class="aura aura-t5" style="border-bottom:1px solid var(--line)">
+    <div class="container" style="padding-block:clamp(48px,8vw,96px) clamp(36px,5vw,56px)">
+      <div class="eyebrow" style="color:var(--fg)">Trend radar{hasData ? ` · updated ${trends.updated}` : ''}</div>
+      <h1 style="margin-top:10px;max-width:18ch">What the field is talking about, measured.</h1>
+      <p class="lead" style="margin-top:16px;max-width:62ch;color:var(--fg);opacity:.8">
+        Every morning the watcher counts what labs, researchers, regulators, economists, and journalists are publishing about. A topic is <em>rising</em> when its share of this week's coverage clearly exceeds its share over the previous four weeks. The radar refreshes weekly, and whenever a signal is published.
+      </p>
+    </div>
+  </section>
+
+  {!hasData && (
+    <section class="container section-tight">
+      <div class="empty" style="text-align:left;padding:32px">
+        <div class="h3" style="color:var(--fg)">The radar is warming up.</div>
+        <p style="margin:10px 0 0;max-width:62ch">
+          The watcher needs a few days of history before it can say what is rising. Once its daily workflow is running, this page fills in automatically: rising topics with their 28-day trajectories, the week's volume by topic, and the most notable stories and media that did not quite become signals.
+        </p>
+        <a class="btn btn-ghost btn-sm" style="margin-top:16px" href={url('/method/#watcher')}>How the watcher works</a>
+      </div>
+    </section>
+  )}
+
+  {hasData && (
+    <section class="container section-tight">
+      <div class="grid grid-2" style="align-items:start">
+        <div>
+          <h2 class="h3">Rising this week</h2>
+          <p class="small muted" style="margin:6px 0 16px">Share of coverage, last 7 days versus the 28 before. Based on {trends.itemsLastWeek} new items this week.</p>
+          {rising.length === 0 && <div class="empty small">Nothing is rising sharply. A quiet week, or still too little history ({trends.daysOfHistory} days so far).</div>}
+          <div class="grid" style="gap:10px">
+            {rising.map((t) => (
+              <div class="card trend-card">
+                <div>
+                  <div style="font-weight:600">{t.term}</div>
+                  <div class="xsmall muted" style="margin-top:4px">{t.recent} mentions · <strong style="color:var(--good)">{t.lift}×</strong> usual share</div>
+                  <div class="xsmall" style="margin-top:6px">{t.modules.filter((m) => titles[m]).slice(0, 2).map((m) => <a class="link faint" href={moduleUrl(m)} style="margin-right:8px">{titles[m]}</a>)}</div>
+                </div>
+                <svg viewBox="0 0 120 32" width="120" height="32" aria-hidden="true"><path d={spark(t.series)} fill="none" stroke="var(--c3)" stroke-width="2" /></svg>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div>
+          <h2 class="h3">Volume by topic</h2>
+          <p class="small muted" style="margin:6px 0 16px">Mentions in titles and summaries over the last 7 days.</p>
+          <div class="card" style="display:grid;gap:10px">
+            {volume.map((t) => (
+              <div class="vol-row">
+                <span class="small">{t.term}</span>
+                <div class="bar" style="height:10px"><span style={`width:${(t.recent / maxVol) * 100}%;background:var(--c1)`}></span></div>
+                <span class="xsmall mono muted" style="text-align:right">{t.recent}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+
+  {top.length > 0 && (
+    <section class="container section-tight">
+      <h2 class="h3">On the radar</h2>
+      <p class="small muted" style="margin:6px 0 18px;max-width:62ch">The most notable stories, papers, and media of the past week by the watcher's significance score. Most never became signals, but they are worth knowing about.</p>
+      <div class="grid" style="gap:10px">
+        {top.map((s) => (
+          <a class="card hoverable radar-row" href={s.url} target="_blank" rel="noopener">
+            <div class="radar-score" aria-label={`Significance score ${s.score}`}>
+              <span style={`width:${Math.round(s.score * 100)}%`}></span>
+            </div>
+            <div style="min-width:0">
+              <div style="font-weight:550">{s.title}</div>
+              <div class="xsmall muted" style="margin-top:4px">
+                {s.day} · {s.sources.join(', ')} · {s.categories.map((c) => catLabel[c] ?? c).join(', ')}{s.format && s.format !== 'article' ? ` · ${s.format}` : ''}
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+  )}
+
+  {hasData && (
+    <section class="container section-tight">
+      <details class="card">
+        <summary style="cursor:pointer;font-weight:550">Source health ({trends.sources.filter((s) => s.ok).length} of {trends.sources.length} reachable on the last run)</summary>
+        <div class="grid grid-3" style="margin-top:14px;gap:6px">
+          {trends.sources.map((s) => (
+            <div class="small row" style="gap:8px"><span class={`status-dot ${s.ok ? 'mastered' : ''}`} style={s.ok ? '' : 'border-color:var(--bad)'}></span>{s.name} <span class="faint mono xsmall">{s.ok ? s.count : 'failed'}</span></div>
+          ))}
+        </div>
+      </details>
+    </section>
+  )}
+</BaseLayout>
+
+<style>
+  .trend-card { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 16px 18px; }
+  .vol-row { display: grid; grid-template-columns: 170px 1fr 34px; gap: 12px; align-items: center; }
+  @media (max-width: 520px) { .vol-row { grid-template-columns: 120px 1fr 28px; } }
+  .radar-row { display: grid; grid-template-columns: 64px 1fr; gap: 16px; align-items: center; padding: 16px 20px; }
+  .radar-score { height: 6px; border-radius: 6px; background: var(--bg-muted); overflow: hidden; }
+  .radar-score span { display: block; height: 100%; background: var(--fg); border-radius: 6px; }
+</style>

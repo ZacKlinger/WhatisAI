@@ -1,0 +1,60 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getModules } from '@/lib/curriculum';
+import { moduleUrl } from '@/lib/url';
+
+const modules = await getModules();
+const terms = modules
+  .flatMap((m) => m.data.keyTerms.map((t) => ({ ...t, module: m.id, moduleTitle: m.data.title })))
+  .sort((a, b) => a.term.localeCompare(b.term, 'en', { sensitivity: 'base' }));
+const letters = [...new Set(terms.map((t) => t.term[0].toUpperCase()))];
+---
+
+<BaseLayout title="Glossary" description="Every key term on the path, defined in plain language and linked to the module that teaches it." active="glossary">
+  <section class="container-read" style="padding-top:clamp(48px,8vw,96px)">
+    <div class="eyebrow">Glossary · {terms.length} terms</div>
+    <h1 style="margin-top:10px">The dialect of the field.</h1>
+    <p class="lead" style="margin-top:14px">Every key term from every module, in plain language. Each links to the lesson where it is taught properly.</p>
+    <input type="search" id="gsearch" placeholder="Filter terms" aria-label="Filter terms" style="margin-top:24px" />
+    <div class="chip-row" style="margin-top:14px">
+      {letters.map((l) => <a class="chip" href={`#letter-${l}`} style="min-width:34px;justify-content:center">{l}</a>)}
+    </div>
+  </section>
+  <section class="container-read section-tight">
+    {letters.map((l) => (
+      <div class="g-letter" id={`letter-${l}`}>
+        <h2 class="h3">{l}</h2>
+        <dl>
+          {terms.filter((t) => t.term[0].toUpperCase() === l).map((t) => (
+            <div class="g-row" data-term={t.term.toLowerCase()}>
+              <dt>{t.term}</dt>
+              <dd>{t.def} <a class="link xsmall faint" href={moduleUrl(t.module)}>{t.moduleTitle}</a></dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    ))}
+  </section>
+</BaseLayout>
+
+<style>
+  .g-letter { margin-top: 36px; scroll-margin-top: calc(var(--nav-h) + 16px); }
+  .g-row { padding: 14px 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 200px 1fr; gap: 18px; }
+  @media (max-width: 600px) { .g-row { grid-template-columns: 1fr; gap: 4px; } }
+  dt { font-weight: 600; }
+  dd { margin: 0; color: var(--fg-2); }
+  dl { margin: 10px 0 0; }
+</style>
+
+<script>
+  const input = document.getElementById('gsearch') as HTMLInputElement | null;
+  input?.addEventListener('input', () => {
+    const q = input.value.toLowerCase().trim();
+    document.querySelectorAll<HTMLElement>('.g-row').forEach((r) => {
+      r.style.display = !q || r.dataset.term!.includes(q) || r.textContent!.toLowerCase().includes(q) ? '' : 'none';
+    });
+    document.querySelectorAll<HTMLElement>('.g-letter').forEach((l) => {
+      l.style.display = Array.from(l.querySelectorAll<HTMLElement>('.g-row')).some((r) => r.style.display !== 'none') ? '' : 'none';
+    });
+  });
+</script>

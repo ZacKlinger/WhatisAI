@@ -1,0 +1,57 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Placement from '@/components/placement/Placement';
+import { getModules } from '@/lib/curriculum';
+import { tracks } from '@/data/tracks';
+import { items } from '@/data/items';
+import type { Item } from '@/lib/items';
+
+const modules = await getModules();
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+// Ship only the questions placement needs: the preferred item plus one backup per module.
+const bank: Record<string, Item[]> = Object.fromEntries(
+  modules.map((m) => {
+    const all = items[m.id] ?? [];
+    const pref = all.filter((i) => i.placement);
+    const rest = all.filter((i) => !i.placement);
+    return [m.id, [...pref, ...rest].slice(0, 2)];
+  }),
+);
+---
+
+<BaseLayout title="Placement exam" description="An adaptive placement exam that finds the edge of your knowledge in each track and skips you past what you already know." active="placement">
+  <section class="container" style="padding-block:clamp(24px,4vw,48px) 64px">
+    <Placement
+      client:load
+      base={base}
+      bank={bank}
+      tracks={tracks.map((t) => ({ id: t.id, numeral: t.numeral, title: t.title, aura: t.aura, tagline: t.tagline }))}
+      modules={modules.map((m) => ({ id: m.id, title: m.data.title, track: m.data.track, order: m.data.order, minutes: m.data.minutes, prerequisites: m.data.prerequisites }))}
+    />
+  </section>
+</BaseLayout>
+
+<style is:global>
+  .pl-intro { border-radius: var(--radius-lg); }
+  .pl-intro-inner { padding: clamp(28px, 6vw, 80px); }
+  .pl-wrap { max-width: 920px; margin-inline: auto; padding-top: clamp(16px, 3vw, 32px); }
+  .pl-rate { display: grid; grid-template-columns: 56px minmax(0, 1fr) auto; gap: 16px; align-items: center; padding: 14px 16px; }
+  .pl-rate-swatch { width: 56px; height: 56px; border-radius: 14px; display: grid; place-items: center; font-family: var(--font-serif); font-size: 1.3rem; }
+  @media (max-width: 720px) { .pl-rate { grid-template-columns: 48px 1fr; } .pl-rate-swatch { width: 48px; height: 48px; } .pl-rate-opts { grid-column: 1 / -1; } }
+  .pl-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; margin-bottom: 18px; }
+  .pl-between { border-radius: var(--radius-lg); padding: clamp(28px, 6vw, 64px) clamp(16px, 4vw, 40px); }
+  .pl-strip { display: flex; gap: 6px; align-items: flex-start; padding: 16px 10px 4px; overflow-x: auto; }
+  .pl-node { flex: 1 1 0; min-width: 72px; display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; position: relative; }
+  .pl-node::before { content: ''; position: absolute; top: 9px; left: -50%; right: 50%; height: 2px; background: var(--line-2); z-index: 0; }
+  .pl-node:first-child::before { display: none; }
+  .pl-dot { width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--line-3); background: var(--bg); position: relative; z-index: 1; transition: all .45s var(--ease-spring); }
+  .pl-label { font-size: 0.72rem; color: var(--fg-3); line-height: 1.3; transition: color .3s; }
+  .pl-node.placed .pl-dot { background: var(--c4); border-color: var(--c4); box-shadow: 0 0 0 6px color-mix(in srgb, var(--c4) 20%, transparent); }
+  .pl-node.placed .pl-label { color: var(--fg); }
+  .pl-node.placed::before { background: var(--c4); }
+  .pl-node.learn .pl-dot { opacity: 0.35; }
+  .pl-node.learn .pl-label { opacity: 0.5; }
+  .pl-node.probe .pl-dot { border-color: var(--fg); background: var(--fg); transform: scale(1.15); animation: pulse-ring 1.6s infinite; }
+  .pl-node.probe .pl-label { color: var(--fg); font-weight: 600; }
+  .pl-results h1 { max-width: 20ch; }
+</style>

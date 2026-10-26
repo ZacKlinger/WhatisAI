@@ -1,0 +1,38 @@
+{
+  "$comment": "Sources the watcher reads each morning. weight = authority of the source as a primary signal (0..1). filter = keep only AI-related items (for general feeds). Failures are logged and skipped; one dead feed never stops the run.",
+  "sources": [
+    { "id": "anthropic-news", "name": "Anthropic", "type": "html", "url": "https://www.anthropic.com/news", "pattern": "/news/[a-z0-9\\-]+", "category": "lab", "weight": 1.0 },
+    { "id": "anthropic-research", "name": "Anthropic Research", "type": "html", "url": "https://www.anthropic.com/research", "pattern": "/(?:research|institute)/[a-zA-Z0-9\\-]+", "category": "lab", "weight": 1.0 },
+    { "id": "openai", "name": "OpenAI", "type": "rss", "url": "https://openai.com/news/rss.xml", "category": "lab", "weight": 1.0 },
+    { "id": "deepmind", "name": "Google DeepMind", "type": "rss", "url": "https://deepmind.google/blog/rss.xml", "category": "lab", "weight": 0.95 },
+    { "id": "google-ai", "name": "Google AI", "type": "rss", "url": "https://blog.google/technology/ai/rss/", "category": "lab", "weight": 0.8 },
+    { "id": "msr", "name": "Microsoft Research", "type": "rss", "url": "https://www.microsoft.com/en-us/research/feed/", "category": "lab", "weight": 0.7, "filter": true },
+    { "id": "hf-blog", "name": "Hugging Face", "type": "rss", "url": "https://huggingface.co/blog/feed.xml", "category": "lab", "weight": 0.6 },
+
+    { "id": "hf-papers", "name": "Hugging Face Daily Papers", "type": "hf-daily", "url": "https://huggingface.co/api/daily_papers", "category": "research", "weight": 0.55 },
+    { "id": "arxiv-cl", "name": "arXiv cs.CL", "type": "rss", "url": "https://rss.arxiv.org/rss/cs.CL", "category": "research", "weight": 0.25, "trendOnly": true },
+    { "id": "arxiv-lg", "name": "arXiv cs.LG", "type": "rss", "url": "https://rss.arxiv.org/rss/cs.LG", "category": "research", "weight": 0.25, "trendOnly": true },
+    { "id": "arxiv-ai", "name": "arXiv cs.AI", "type": "rss", "url": "https://rss.arxiv.org/rss/cs.AI", "category": "research", "weight": 0.25, "trendOnly": true },
+    { "id": "metr", "name": "METR", "type": "html", "url": "https://metr.org/blog/", "pattern": "/blog/[0-9a-z\\-]+/?", "category": "research", "weight": 0.85 },
+    { "id": "epoch", "name": "Epoch AI", "type": "html", "url": "https://epoch.ai/blog", "pattern": "/(?:blog|gradient-updates|data-insights)/[a-z0-9\\-]+", "category": "research", "weight": 0.8 },
+    { "id": "import-ai", "name": "Import AI", "type": "rss", "url": "https://importai.substack.com/feed", "category": "newsletter", "weight": 0.6 },
+    { "id": "simonw", "name": "Simon Willison", "type": "rss", "url": "https://simonwillison.net/atom/everything/", "category": "newsletter", "weight": 0.5 },
+
+    { "id": "fedreg", "name": "US Federal Register", "type": "fedreg", "url": "https://www.federalregister.gov/api/v1/documents.json?conditions%5Bterm%5D=%22artificial+intelligence%22&order=newest&per_page=25", "category": "policy", "weight": 0.9 },
+    { "id": "eu-digital", "name": "European Commission (Digital Strategy)", "type": "html", "url": "https://digital-strategy.ec.europa.eu/en/news", "pattern": "/en/news/[a-z0-9\\-]+", "category": "policy", "weight": 0.9, "filter": true },
+    { "id": "uk-aisi", "name": "UK AI Security Institute", "type": "rss", "url": "https://www.gov.uk/search/news-and-communications.atom?organisations%5B%5D=ai-security-institute", "category": "policy", "weight": 0.9 },
+    { "id": "nist", "name": "NIST", "type": "rss", "url": "https://www.nist.gov/news-events/news/rss.xml", "category": "policy", "weight": 0.85, "filter": true },
+
+    { "id": "nber", "name": "NBER Working Papers", "type": "rss", "url": "https://www.nber.org/rss/new.xml", "category": "economy", "weight": 0.75, "filter": true },
+    { "id": "stanford-del", "name": "Stanford Digital Economy Lab", "type": "html", "url": "https://digitaleconomy.stanford.edu/news/", "pattern": "/(?:news|publication)/[a-z0-9\\-]+/?", "category": "economy", "weight": 0.75 },
+
+    { "id": "techreview", "name": "MIT Technology Review", "type": "rss", "url": "https://www.technologyreview.com/topic/artificial-intelligence/feed", "category": "media", "weight": 0.55 },
+    { "id": "verge-ai", "name": "The Verge", "type": "rss", "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml", "category": "media", "weight": 0.45 },
+    { "id": "wired-ai", "name": "WIRED", "type": "rss", "url": "https://www.wired.com/feed/tag/ai/latest/rss", "category": "media", "weight": 0.45 },
+    { "id": "dwarkesh", "name": "Dwarkesh Podcast", "type": "rss", "url": "https://www.dwarkesh.com/feed", "category": "media", "weight": 0.55, "format": "podcast" },
+    { "id": "latent-space", "name": "Latent Space", "type": "rss", "url": "https://www.latent.space/feed", "category": "media", "weight": 0.5, "format": "podcast" },
+    { "id": "3b1b", "name": "3Blue1Brown", "type": "rss", "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCYO_jab_esuFRV4b17AJtAw", "category": "media", "weight": 0.5, "format": "video", "filter": true },
+
+    { "id": "hn", "name": "Hacker News", "type": "hn", "url": "https://hn.algolia.com/api/v1/search?tags=front_page&hitsPerPage=60", "category": "community", "weight": 0.35, "filter": true }
+  ]
+}

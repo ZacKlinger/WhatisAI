@@ -12,7 +12,7 @@ export function calibrationBins(points: CalibrationPoint[]) {
 }
 
 export default function CalibrationChart({ points, size = 320 }: { points: CalibrationPoint[]; size?: number }) {
-  const W = size, H = size, m = { l: 50, r: 14, t: 14, b: 44 };
+  const W = size, H = size, m = { l: 62, r: 14, t: 14, b: 44 };
   const x = linear(0.45, 1, m.l, W - m.r);
   const y = linear(0, 1, H - m.b, m.t);
   const bins = calibrationBins(points).filter((b) => b.acc !== null);
