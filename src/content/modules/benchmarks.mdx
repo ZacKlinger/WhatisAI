@@ -1,0 +1,142 @@
+---
+title: "Benchmarks and their discontents"
+track: t5
+order: 1
+summary: What benchmarks measure, why they saturate, how contamination and Goodhart's law corrupt them, and how to read a leaderboard without being fooled.
+minutes: 26
+level: 3
+prerequisites: [statistics-for-research, pretraining]
+objectives:
+  - Describe what a benchmark is and name the landmark benchmarks frontier reports cite.
+  - Explain saturation, contamination, and benchmark gaming, and how each distorts scores.
+  - Read a leaderboard or capability table critically, including crowd-judged arenas.
+keyTerms:
+  - term: Benchmark
+    def: A fixed set of tasks with a scoring method, used to compare systems on a capability.
+  - term: Saturation
+    def: When top systems score near the maximum, so the benchmark can no longer distinguish them.
+  - term: Contamination
+    def: When benchmark questions or answers appear in a model's training data, inflating its score.
+  - term: Held-out / private test set
+    def: Test questions kept secret so they cannot leak into training.
+  - term: Leaderboard
+    def: A ranking of systems by benchmark score.
+  - term: Elo rating
+    def: A rating system, borrowed from chess, that infers relative strength from pairwise wins and losses.
+sources:
+  - title: Measuring Massive Multitask Language Understanding (MMLU)
+    authors: Hendrycks et al.
+    org: ICLR
+    year: 2021
+    url: https://arxiv.org/abs/2009.03300
+  - title: "GPQA: A Graduate-Level Google-Proof Q&A Benchmark"
+    authors: Rein et al.
+    org: arXiv
+    year: 2023
+    url: https://arxiv.org/abs/2311.12022
+  - title: "SWE-bench: Can Language Models Resolve Real-World GitHub Issues?"
+    authors: Jimenez et al.
+    org: ICLR
+    year: 2024
+    url: https://arxiv.org/abs/2310.06770
+  - title: Humanity's Last Exam
+    authors: Phan et al.
+    org: Center for AI Safety & Scale AI
+    year: 2025
+    url: https://arxiv.org/abs/2501.14249
+  - title: A Careful Examination of Large Language Model Performance on Grade School Arithmetic
+    authors: Zhang et al.
+    org: Scale AI
+    year: 2024
+    url: https://arxiv.org/abs/2405.00332
+  - title: "Chatbot Arena: An Open Platform for Evaluating LLMs by Human Preference"
+    authors: Chiang et al.
+    org: LMSYS
+    year: 2024
+    url: https://arxiv.org/abs/2403.04132
+updated: 2026-10-26
+---
+
+import StaticFigure from '@/components/figures/registry';
+import QuickCheck from '@/components/quiz/QuickCheck';
+
+Every model release comes with a table of numbers: MMLU 90.1, GPQA 84.0, SWE-bench Verified 74.5. These are benchmark scores, and they are the field's common currency for capability. They are also easy to misread. A benchmark is a measuring instrument with a specific range, specific blind spots, and a tendency to be bent by the very optimization it is meant to measure. This module teaches you to read these tables like an evaluator.
+
+## What a benchmark is
+
+A **benchmark** is a fixed set of tasks with a fixed way of scoring answers. It turns a vague question ("is this model good at science?") into a concrete one ("what fraction of these 448 multiple-choice physics, chemistry, and biology questions does it answer correctly?"). The concreteness is the point: fixed benchmarks let different labs compare models, and let one lab track progress over time.
+
+Every benchmark embeds choices: which tasks count, what format answers take, how they are graded, and whether the model may use tools or think at length. Two scores on "the same" benchmark run with different settings may not be comparable.
+
+## The landmarks
+
+You will meet these names constantly:
+
+| Benchmark | What it tests | Note |
+| --- | --- | --- |
+| **MMLU** (2020) | Multiple-choice questions across 57 subjects, from high school to professional level | The standard knowledge test of 2021 to 2024; now saturated |
+| **GSM8K** (2021) | Grade-school math word problems | Saturated; a contamination case study |
+| **HumanEval** (2021) | Writing short Python functions that pass tests | Early coding benchmark; saturated |
+| **GPQA** (2023) | Graduate-level science questions designed to be "Google-proof" | PhD experts in the field scored about 65%; skilled non-experts with web access, about 34% |
+| **SWE-bench** (2023) | Resolving real GitHub issues in real codebases | Measures agentic software engineering; "Verified" is a human-checked 500-task subset |
+| **Humanity's Last Exam** (2025) | About 2,500 expert-written questions at the frontier of human knowledge | Built because others saturated; top models initially scored under 10% |
+| **ARC-AGI** | Novel visual puzzles requiring abstraction from a few examples | Designed to resist memorization |
+
+## Saturation
+
+Benchmarks have a life cycle. When introduced, models perform poorly. Within a few years, scores approach the ceiling, and the benchmark stops distinguishing between models. This is **saturation**, and the pace has accelerated: benchmarks built to last a decade now often fall within two or three years.
+
+<StaticFigure id="saturation" caption="The life cycle of benchmarks (illustrative). Each new benchmark starts hard and is saturated faster than the last. A score near the ceiling says little about further progress." />
+
+Saturation has a subtle consequence: near the ceiling, remaining errors are often mistakes in the benchmark itself. Audits have found mislabeled or ambiguous questions in several popular benchmarks, which means "99% accuracy" can exceed what a careful human would score, and differences near the top can be noise.
+
+## Contamination
+
+Benchmarks are published on the internet. Models are trained on the internet. If test questions, or their answers, appear in training data, a model can score well by memory rather than skill. This is **contamination**.
+
+Detecting it is hard, because training data is rarely disclosed. One clever approach: build a fresh benchmark that mirrors an old one in style and difficulty, and compare. In 2024, Scale AI researchers created GSM1k, a new set of grade-school math problems matching GSM8K. Several models scored substantially lower on the new problems than on the original, by up to about 13 percentage points, suggesting memorization; other models, including several frontier models, showed little gap.
+
+Defenses include keeping test sets private, creating benchmarks after a model's training cutoff, and continuously refreshing questions.
+
+<QuickCheck client:visible item={{
+  kind: 'mc', id: 'contam',
+  prompt: 'A model scores 92% on a well-known public benchmark but 79% on a freshly written set of matched problems. What is the most likely explanation?',
+  choices: ['The new problems are much easier', 'The model was contaminated: it saw the original benchmark or close variants in training', 'The model got worse', 'Benchmarks cannot measure math'],
+  answer: 1,
+  explain: 'A large drop on matched fresh items is the signature of contamination: performance partly reflected memory of the public set.'
+}} />
+
+## Goodhart's law, again
+
+Even without leakage, benchmarks bend under pressure. When a score becomes the target, labs naturally tune prompts, data, and training toward it, and improvements on the benchmark can outrun improvements on the underlying capability. A model can learn the *format* of a benchmark, such as its answer style or common distractors, without the skill. This is why experienced readers weight results on newer, private, or harder-to-game evaluations more heavily, and why "the model is great on benchmarks but disappointing in practice" is a common complaint.
+
+## Arenas: letting people judge
+
+An alternative to fixed benchmarks is to let people judge. **Chatbot Arena** (now LMArena), launched in 2023, shows users two anonymous models' answers to the user's own prompt and asks which is better. Millions of votes are converted into ratings with a Bradley–Terry model, the same idea behind chess **Elo** ratings.
+
+Arenas measure something real: what people prefer in open-ended use. But they have their own biases. People favor longer, more confident, better-formatted answers, so style can masquerade as substance. And arenas can be gamed: a 2025 analysis argued that some developers privately tested many model variants and published only the best, inflating their rankings. Read arena ratings as measures of preference, not correctness.
+
+<KeyIdea track="t5">A benchmark score is a measurement taken with a particular instrument. Ask what the instrument measures, whether the model could have seen it before, whether it is saturated, and what settings produced the number.</KeyIdea>
+
+## Reading a capability table
+
+When a system card or launch post presents a table of scores, run through this checklist:
+
+1. **Which version and settings?** Number of attempts (pass@1 or majority vote), thinking budget, tool access, and prompting.
+2. **Compared with what?** Are competitors' scores from the same harness, or copied from their own reports with different settings?
+3. **How noisy?** Small benchmarks carry wide error bars. A two-point gap on 200 questions is noise.
+4. **Saturated?** Gains near the ceiling mean little.
+5. **Contaminated?** Is the benchmark public and old? Are results confirmed on private or fresh sets?
+6. **What is missing?** Which benchmarks a lab chooses not to report can be as informative as those it does.
+
+## Reading the corpus
+
+| When a document says | It means |
+| --- | --- |
+| "SOTA on X" | Best published score on benchmark X, under some settings |
+| "pass@1," "maj@32" | Accuracy with one attempt; with majority vote over 32 attempts |
+| "with tools," "no tools" | Whether the model could use code execution, search, or other tools |
+| "Verified," "Diamond" | Curated, higher-quality subsets of benchmarks (SWE-bench Verified, GPQA Diamond) |
+| "held-out," "private split" | Questions kept secret to prevent contamination |
+| "Elo," "arena score" | A rating inferred from human pairwise preferences |
+| "saturated" | Top scores near the maximum; little room to discriminate |

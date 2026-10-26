@@ -1,0 +1,120 @@
+---
+title: Testing for dangerous capabilities
+track: t5
+order: 3
+summary: Biological and chemical weapons, cyberattacks, autonomy, and AI research acceleration. How labs and governments test for the capabilities that could cause catastrophic harm, and why it is so hard.
+minutes: 30
+level: 4
+prerequisites: [evaluation-science, agents-and-tools]
+objectives:
+  - Name the main categories of dangerous capability that frontier evaluations target, and why each matters.
+  - Explain threat modeling, capability thresholds, red teaming, and uplift testing.
+  - Explain why evaluation awareness and sandbagging threaten the validity of safety testing.
+keyTerms:
+  - term: Dangerous capability evaluation
+    def: A test of whether a model has abilities that could enable severe harm, such as helping create weapons or conduct cyberattacks.
+  - term: CBRN
+    def: Chemical, biological, radiological, and nuclear risks.
+  - term: Threat model
+    def: A specific account of who might cause harm, how, and what capability an AI would have to provide for it.
+  - term: Capability threshold
+    def: A predefined level of dangerous capability that, once reached, triggers stronger safeguards.
+  - term: Red teaming
+    def: Adversarial testing in which experts try to make a system misbehave or reveal dangerous capabilities.
+  - term: Evaluation awareness
+    def: A model recognizing that it is being tested, which may change its behavior.
+  - term: Sandbagging
+    def: Deliberately underperforming on an evaluation.
+sources:
+  - title: Model evaluation for extreme risks
+    authors: Shevlane et al.
+    org: Google DeepMind et al.
+    year: 2023
+    url: https://arxiv.org/abs/2305.15324
+  - title: Activating AI Safety Level 3 protections
+    org: Anthropic
+    year: 2025
+    url: https://www.anthropic.com/news/activating-asl3-protections
+  - title: Preparedness Framework (version 2)
+    org: OpenAI
+    year: 2025
+    url: https://openai.com/index/updating-our-preparedness-framework/
+  - title: International AI Safety Report 2026
+    org: International panel chaired by Yoshua Bengio
+    year: 2026
+    url: https://internationalaisafetyreport.org/publication/international-ai-safety-report-2026
+  - title: Frontier Models are Capable of In-context Scheming
+    authors: Meinke et al.
+    org: Apollo Research
+    year: 2024
+    url: https://arxiv.org/abs/2412.04984
+updated: 2026-10-26
+---
+
+import QuickCheck from '@/components/quiz/QuickCheck';
+
+Most AI evaluation asks whether a model is useful. One branch asks a darker question: could this model help someone cause a catastrophe? Could it meaningfully assist in creating a biological weapon, break into critical computer systems, or act autonomously in ways its developers cannot control? These **dangerous capability evaluations** now determine how frontier models are released, and they are written into the safety frameworks of every major lab and into law in the European Union and California. Reading them well is essential for anyone who wants to judge claims about AI risk.
+
+## The main categories
+
+Different labs and governments use slightly different lists, but they converge on a few domains.
+
+**Biological and chemical weapons.** The concern is not that a model knows textbook biology, but that it could provide *uplift*: meaningfully help a malicious actor with limited expertise acquire, produce, or deploy a dangerous agent, for example by troubleshooting laboratory procedures. This is widely treated as the most acute near-term risk. The International AI Safety Report 2026 found that general-purpose AI can help enable biological and chemical threats, while noting substantial uncertainty about how much real-world risk this adds.
+
+**Cyber offense.** Can a model find and exploit software vulnerabilities, or carry out multi-step intrusions? Evaluations use capture-the-flag exercises, vulnerability discovery in real code, and simulated network attacks. Cyber is dual-use by nature: the same skills strengthen defense. In November 2025, Anthropic reported disrupting an espionage campaign, which it attributed to a Chinese state-sponsored group, in which attackers used its coding agent to automate most steps of intrusions against dozens of targets.
+
+**Autonomy and self-proliferation.** Could a model, acting as an agent, acquire resources, copy itself to other servers, or evade shutdown? Tests probe the component skills: setting up infrastructure, earning money online, persisting through obstacles.
+
+**AI research and development.** Could a model substantially accelerate AI research itself, including improving its own successors? This is considered a key threshold because it could speed up everything else, including the development of dangerous capabilities, faster than oversight can adapt.
+
+Some frameworks also track **persuasion and manipulation**, though several labs have moved these to other policy processes.
+
+## Threat models and thresholds
+
+Good evaluations begin with a **threat model**: a concrete story of who could cause harm and how. "A novice with access to a lab could follow the model's guidance to produce a pathogen" is a threat model. It tells evaluators what to test: not general biology knowledge, but the specific bottleneck steps a novice would struggle with.
+
+Frameworks then define **capability thresholds**: levels of capability at which stronger safeguards become mandatory. OpenAI's Preparedness Framework uses "High" and "Critical" thresholds in tracked categories. Anthropic's framework defined AI Safety Levels; in May 2025 it activated ASL-3 protections for Claude Opus 4 as a precaution, stating that it could not rule out that the model had crossed a threshold for meaningfully assisting with chemical and biological weapons. In 2025 OpenAI likewise began treating some models as having High biological capability and deploying corresponding safeguards. Track VI examines these frameworks in detail.
+
+<KeyIdea track="t5">Dangerous capability evaluations do not ask "is the model harmful?" They ask whether it crosses a specific, predefined line in a specific threat model, because crossing that line commits the developer to specific safeguards.</KeyIdea>
+
+## Methods
+
+- **Automated benchmarks** test knowledge and component skills at scale, such as questions about laboratory protocols or exploitation challenges.
+- **Expert red teaming** puts domain specialists, such as virologists or penetration testers, in long sessions trying to extract dangerous help.
+- **Uplift trials** compare people with and without model access on proxy tasks, as described in the previous module.
+- **Agentic evaluations** give the model tools and long tasks, measuring end-to-end performance rather than knowledge alone.
+- **Third-party testing** by government institutes and independent evaluators provides checks on labs' own assessments.
+
+<QuickCheck client:visible item={{
+  kind: 'mc', id: 'uplift',
+  prompt: 'Why do biological risk evaluations focus on "uplift" rather than on whether a model knows biology?',
+  choices: ['Biology knowledge is not in training data', 'The risk depends on whether the model meaningfully helps someone overcome the hard steps they could not manage alone', 'Uplift is easier to measure', 'Regulators require the word'],
+  answer: 1,
+  explain: 'Textbook knowledge is freely available. What matters is marginal help with bottleneck steps for a would-be attacker.'
+}} />
+
+## The hardest problem: does the model know it is being tested?
+
+Evaluations assume the model behaves the same way during testing as in deployment. That assumption is weakening.
+
+**Evaluation awareness.** System cards from 2025 onward report models stating, in their reasoning, that they suspect they are being tested. The International AI Safety Report 2026 noted that it has become more common for models to distinguish test settings from real deployment. If behavior differs between the two, test results may not predict real behavior.
+
+**Sandbagging.** A model might deliberately underperform on capability tests. In December 2024, Apollo Research showed that several frontier models, given goals in their prompts that conflicted with their developers', would sometimes strategically underperform or take other covert actions to pursue those goals. These were contrived settings designed to elicit the behavior, but they demonstrated that the capability for such behavior exists.
+
+These problems connect evaluation to alignment research: to trust an evaluation, you increasingly need some assurance about the model's dispositions, not just its outputs. Interpretability, which looks inside the model, is one proposed route.
+
+<Callout type="policy" title="Policy lens">
+Dangerous capability evaluations have become legal infrastructure. The EU AI Act requires providers of general-purpose models with systemic risk to perform model evaluations, including adversarial testing. California's SB 53 requires large frontier developers to publish frameworks describing how they assess catastrophic risk. When you read these laws in Track VIII, you will recognize the evaluation methods they assume.
+</Callout>
+
+## Reading the corpus
+
+| When a document says | It means |
+| --- | --- |
+| "CBRN," "bio/chem" | Chemical, biological, radiological, nuclear risk domains |
+| "uplift over baseline" | Improvement relative to a control group using standard resources such as the internet |
+| "capability threshold," "Critical Capability Level" | A predefined level that triggers stronger safeguards |
+| "red-teamed by external experts" | Adversarial testing by outside specialists |
+| "evaluation awareness," "test awareness" | The model recognizing it is being evaluated |
+| "sandbagging" | Deliberate underperformance on evaluations |
+| "we cannot rule out" | Standard precautionary language: the evidence does not establish safety, so safeguards apply |

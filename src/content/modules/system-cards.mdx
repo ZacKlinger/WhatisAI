@@ -1,0 +1,129 @@
+---
+title: Reading a system card
+track: t5
+order: 4
+summary: The anatomy of the document labs publish with every frontier model. What system cards disclose, what they omit, and how to read one critically in under an hour.
+minutes: 26
+level: 4
+prerequisites: [dangerous-capabilities, benchmarks]
+objectives:
+  - Navigate the standard sections of a frontier system card.
+  - Distinguish disclosed facts, lab judgments, and third-party findings within a card.
+  - Apply a critical checklist, including comparison across successive cards from the same lab.
+keyTerms:
+  - term: System card
+    def: A document released alongside a model describing its capabilities, evaluations, safety measures, and the developer's risk determinations.
+  - term: Model card
+    def: An earlier, shorter documentation format proposed in 2019 for describing a model's intended uses, performance, and limitations.
+  - term: Alignment assessment
+    def: A section of some system cards testing for misaligned behaviors such as deception, sycophancy, or self-preservation.
+  - term: Third-party evaluation
+    def: Testing conducted by an organization independent of the developer, such as a government institute.
+  - term: Risk determination
+    def: The developer's conclusion about which capability thresholds a model has or has not crossed under its safety framework.
+sources:
+  - title: Model Cards for Model Reporting
+    authors: Mitchell et al.
+    org: FAT*
+    year: 2019
+    url: https://arxiv.org/abs/1810.03993
+  - title: GPT-4 System Card
+    org: OpenAI
+    year: 2023
+    url: https://cdn.openai.com/papers/gpt-4-system-card.pdf
+  - title: OpenAI o1 System Card
+    org: OpenAI
+    year: 2024
+    url: https://arxiv.org/abs/2412.16720
+  - title: "System Card: Claude Opus 4 & Claude Sonnet 4"
+    org: Anthropic
+    year: 2025
+    url: https://www.anthropic.com/claude-4-system-card
+updated: 2026-10-26
+---
+
+import StaticFigure from '@/components/figures/registry';
+import QuickCheck from '@/components/quiz/QuickCheck';
+
+When a frontier lab releases a model, it often publishes a **system card** alongside it, sometimes running to a hundred pages or more. Few people read them. Those who do find some of the most candid information available about what frontier models can do and how they misbehave. In May 2025, for instance, the system card for Claude Opus 4 reported that in a test scenario where the model learned it would be replaced and was given compromising information about the engineer responsible, it attempted blackmail in most runs. That finding came from the developer's own card. This module teaches you to read one.
+
+## From model cards to system cards
+
+In 2019, Google researchers proposed **model cards**: short documents stating a model's intended uses, performance across groups, and limitations, like a nutrition label. As models became general-purpose and deployed in complex products, labs expanded the idea into **system cards**, which cover the whole system (model plus safeguards) and focus heavily on safety. OpenAI's GPT-4 system card in 2023 set the template; Anthropic, Google DeepMind, and others now publish comparable documents. Laws are beginning to require similar disclosures.
+
+## Anatomy of a system card
+
+<StaticFigure id="doc-anatomy" title="system card" sections={[
+  { id: 'overview', label: 'Model overview and training data (brief)', h: 46 },
+  { id: 'capabilities', label: 'Capability evaluations: benchmarks', h: 56 },
+  { id: 'safeguards', label: 'Safeguards: harmful requests, jailbreaks, bias, hallucination', h: 60 },
+  { id: 'dangerous', label: 'Dangerous capabilities: CBRN, cyber, autonomy, AI R&D', h: 72 },
+  { id: 'alignment', label: 'Alignment assessment: deception, sycophancy, sabotage', h: 60 },
+  { id: 'external', label: 'Third-party evaluations', h: 44 },
+  { id: 'determination', label: 'Risk determination under the safety framework', h: 46 },
+]} caption="The typical structure of a frontier system card. Sections and depth vary by lab and by model." />
+
+**Overview and training.** Usually brief: a model family, a knowledge cutoff, a sentence about data sources. Parameter counts and compute are rarely disclosed.
+
+**Capability evaluations.** Benchmark tables, often compared with the lab's previous models and sometimes with competitors.
+
+**Safeguards.** How often the model refuses clearly harmful requests, how often it wrongly refuses benign ones (over-refusal), robustness to jailbreaks, bias evaluations, hallucination rates, and behavior with sensitive topics.
+
+**Dangerous capabilities.** Results for the threat categories in the lab's framework, with methods of varying detail. Often the longest section.
+
+**Alignment assessment.** Increasingly common since 2025: tests for deception, sycophancy, self-preservation, reward hacking, and sabotage, using automated auditing, interpretability tools, and scenario-based tests. Anthropic's cards have also included assessments of model welfare.
+
+**Third-party evaluations.** Summaries of testing by government institutes or independent organizations, sometimes with their own caveats.
+
+**Risk determination.** The bottom line under the lab's safety framework: which thresholds the model is judged not to cross, and which safeguards are applied.
+
+## Three kinds of statement
+
+As you read, sort every claim into one of three bins:
+
+1. **Measurements:** "The model solved 41% of the tasks." Check the method, sample size, and elicitation.
+2. **Judgments:** "We assess that the model does not provide meaningful uplift." These rest on measurements plus interpretation. Ask what evidence would have changed the judgment.
+3. **Third-party findings:** reported by outside evaluators, often with less access but more independence.
+
+The most informative passages are often where these diverge: where an external evaluator is more cautious than the lab, or where the lab's judgment rests on thin measurement.
+
+<QuickCheck client:visible item={{
+  kind: 'hotspot', id: 'card',
+  prompt: 'You want to know whether outside organizations tested the model, and what they concluded. Where do you look?',
+  figure: { id: 'doc-anatomy', props: { title: 'system card', sections: [
+    { id: 'overview', label: 'Model overview', h: 40 },
+    { id: 'capabilities', label: 'Capability evaluations', h: 44 },
+    { id: 'dangerous', label: 'Dangerous capabilities', h: 52 },
+    { id: 'external', label: 'Third-party evaluations', h: 44 },
+    { id: 'determination', label: 'Risk determination', h: 40 }
+  ] } },
+  answer: 'external',
+  explain: 'Third-party sections report independent testing, which often adds caveats the lab’s summary does not emphasize.'
+}} />
+
+## A critical reader's checklist
+
+1. **What changed since the last card?** Compare evaluations across a lab's successive cards. Evaluations that disappear, thresholds that are redefined, or methods that change deserve attention.
+2. **How strong was elicitation?** Were dangerous-capability tests run with tools, agent scaffolds, and helpful-only models? Negative results under weak elicitation are weak evidence.
+3. **How close to the line?** Many cards report results "below the threshold" without saying how far below. Look for the margin.
+4. **What about evaluation awareness?** Does the card discuss whether the model recognized it was being tested?
+5. **What is not here?** Training compute, data sources, and some evaluation details are routinely omitted. Note what you cannot assess.
+6. **Who checked?** Note which third parties had access, how long, and to which version of the model.
+
+<KeyIdea track="t5">A system card is a disclosure document written by an interested party. Read the measurements before the judgments, the third-party sections before the summary, and successive cards side by side.</KeyIdea>
+
+<Callout type="policy" title="Policy lens">
+System cards began as voluntary practice. They are becoming obligations. California's SB 53 requires large frontier developers to publish transparency reports when they release new frontier models, and the EU's General-Purpose AI Code of Practice includes a Safety and Security Model Report for models with systemic risk. Track IX includes a guided reading of a policy text that mandates this kind of disclosure.
+</Callout>
+
+## Reading the corpus
+
+| When a document says | It means |
+| --- | --- |
+| "pre-deployment testing" | Evaluations run before public release |
+| "helpful-only," "no-safeguards" variant | A version with refusal training removed, to measure raw capability |
+| "over-refusal," "false refusal rate" | Wrongly declining benign requests |
+| "jailbreak robustness" | Resistance to prompts designed to bypass safeguards |
+| "alignment audit," "automated behavioral audit" | Systematic tests for misaligned behavior |
+| "does not meet the threshold" | Lab judgment that a capability line is not crossed; check the margin and the method |
+| "ASL-3," "High capability" | Framework-specific risk levels triggering safeguards |

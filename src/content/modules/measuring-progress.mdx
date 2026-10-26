@@ -1,0 +1,128 @@
+---
+title: Measuring the pace of progress
+track: t5
+order: 5
+summary: Time horizons, compute and efficiency trends, economic-task evaluations, and the art of extrapolation. How researchers track how fast AI is advancing, and how to read their forecasts.
+minutes: 26
+level: 4
+prerequisites: [benchmarks, scaling-laws, agents-and-tools]
+objectives:
+  - Explain METR's time-horizon metric and what its doubling time implies.
+  - Distinguish growth in compute from growth in algorithmic efficiency, and explain how they combine.
+  - Evaluate forecasts by their assumptions, measurement limits, and the gap between benchmarks and real-world impact.
+keyTerms:
+  - term: Time horizon
+    def: METR's measure of the length of task, in skilled-human working time, that an AI agent can complete with a given reliability (typically 50%).
+  - term: Doubling time
+    def: How long a quantity takes to double under exponential growth.
+  - term: Algorithmic efficiency
+    def: How much less compute is needed, over time, to reach the same performance thanks to better methods.
+  - term: Effective compute
+    def: Physical compute multiplied by algorithmic efficiency gains; a combined measure of how much "capability-producing" compute a training run represents.
+  - term: GDPval
+    def: An OpenAI evaluation of model performance on real work products from 44 occupations, graded by industry experts.
+  - term: Extrapolation
+    def: Projecting a trend beyond the range of observed data.
+sources:
+  - title: Measuring AI Ability to Complete Long Tasks
+    authors: Kwa et al.
+    org: METR
+    year: 2025
+    url: https://arxiv.org/abs/2503.14499
+  - title: Time Horizon 1.1
+    org: METR
+    year: 2026
+    url: https://metr.org/blog/2026-01-29-time-horizon-1-1/
+  - title: Algorithmic progress in language models
+    authors: Ho et al.
+    org: Epoch AI
+    year: 2024
+    url: https://arxiv.org/abs/2403.05812
+  - title: "GDPval: Evaluating AI Model Performance on Real-World Economically Valuable Tasks"
+    org: OpenAI
+    year: 2025
+    url: https://openai.com/index/gdpval/
+  - title: AI Index Report
+    org: Stanford HAI
+    year: 2026
+    url: https://hai.stanford.edu/ai-index
+updated: 2026-10-26
+---
+
+import Doubling from '@/components/interactive/Doubling';
+import StaticFigure from '@/components/figures/registry';
+import QuickCheck from '@/components/quiz/QuickCheck';
+
+How fast is AI getting better? The question sounds simple and is surprisingly hard. Benchmarks saturate, so scores on any single test eventually flatten. Capabilities are jagged, so a model may leap ahead in coding while stalling in something else. And the quantity people care about, real-world usefulness, is the hardest to measure. A small ecosystem of researchers now specializes in tracking progress, and their measurements anchor many of the most consequential claims in the field, from investment theses to government risk assessments.
+
+## The time-horizon metric
+
+In March 2025, METR introduced a metric designed to avoid saturation. Instead of asking what fraction of a fixed test a model passes, it asks: **how long a task can an AI agent complete?**
+
+The method: assemble a diverse set of software and research tasks, and measure how long skilled human professionals take on each, from seconds to many hours. Then test AI agents on the same tasks. Plot each model's success rate against task length, and find the task length at which it succeeds 50% of the time. That length is the model's **time horizon**.
+
+The headline finding was a remarkably steady exponential: from 2019 to early 2025, the 50% time horizon of frontier models had doubled about every seven months. METR's January 2026 update, with a rebuilt task suite, estimated faster doubling over recent years, around four months since 2023. By mid-2026, frontier models' measured horizons on these tasks had reached many hours, with METR cautioning that measurements at the top of its range had become unreliable because the task suite was running out of long enough tasks.
+
+<KeyIdea track="t5">The time horizon converts AI progress into an intuitive unit: how long a task, measured in human working time, an agent can do. Its steady doubling is one of the clearest trends in the field.</KeyIdea>
+
+## Doubling times compound
+
+Small differences in doubling time produce huge differences in projections. Explore it:
+
+<Doubling client:visible />
+
+This is why careful forecasters report ranges and state their assumptions, and why critics push on whether the trend will continue. Exponentials in the real world eventually bend, for reasons such as running out of data, energy, money, or easy problems. The interesting question is never "will it continue forever?" but "what would make it bend, and when?"
+
+<QuickCheck client:visible item={{
+  kind: 'mc', id: 'horizon',
+  prompt: 'A model has a 50% time horizon of 2 hours. What does that mean?',
+  choices: ['It can work for 2 hours before crashing', 'It succeeds about half the time on tasks that take skilled humans about 2 hours', 'It completes every task in 2 hours', 'It needs 2 hours of compute per answer'],
+  answer: 1,
+  explain: 'The horizon is the human-time length of tasks at which the model’s success rate is 50%.'
+}} />
+
+## Measuring the limits of the metric
+
+Read time-horizon results with their caveats:
+
+- The tasks are mostly software engineering and research tasks, with clear success criteria. Messier work, with ambiguous goals and coordination with people, may lag.
+- 50% reliability is far from the reliability many real jobs require; horizons at 80% reliability are substantially shorter.
+- METR found horizons varied across domains, and their estimates are sensitive to which tasks are included.
+
+The trend is a strong signal about a specific, important kind of capability, not a measure of general intelligence.
+
+## Compute, and the efficiency of using it
+
+You met the compute trend in Track II: frontier training compute grew about five times per year in recent years. A second trend compounds it. **Algorithmic efficiency** measures how much less compute is needed, over time, to reach the same performance. Epoch AI researchers estimated in 2024 that for language models, the compute needed to reach a fixed level of performance had been halving roughly every eight months.
+
+Combine the two and you get **effective compute**: physical compute multiplied by efficiency gains. Effective compute has grown faster than either trend alone, which is part of why capabilities have advanced so quickly. Efficiency gains also mean that capabilities which once required frontier-scale compute soon become achievable with much less, which matters for policy built on compute thresholds.
+
+<StaticFigure id="compute-trend" caption="Training compute of notable models (log scale). Algorithmic efficiency improvements mean each FLOP buys more capability over time, so the effective growth is faster than this chart shows." />
+
+## From benchmarks to the economy: GDPval
+
+Benchmarks measure test performance. What about real work? In September 2025, OpenAI introduced **GDPval**: tasks drawn from the actual work of professionals in 44 occupations across the sectors that contribute most to US GDP, such as legal briefs, engineering drawings, nursing care plans, and financial analyses. Industry experts with an average of over a decade of experience blindly compared model outputs with those of human professionals. At launch, the best-performing model, Anthropic's Claude Opus 4.1, produced work rated as good as or better than the experts' in just under half of tasks, and performance roughly doubled over the year before.
+
+GDPval is a significant step toward economically meaningful evaluation, and its limits are instructive: tasks are well specified and one-shot, whereas real jobs involve iteration, context, and judgment about what the task even is. Track VII asks what such evaluations mean for work.
+
+## How to read a forecast
+
+Claims about the future of AI fill the corpus, from lab leaders predicting transformative systems within a few years to skeptics predicting plateaus. Evaluate them like any other claim:
+
+1. **What metric is being extrapolated?** Benchmark scores, time horizons, compute, revenue?
+2. **Over what range is the trend observed, and how far is it extended?** Extending a trend twice as far as the data is very different from extending it ten times as far.
+3. **What could bend the curve?** Data limits, energy, investment, regulation, or the difficulty of the remaining tasks.
+4. **Is the forecaster calibrated?** Track records matter. Forecasting platforms and surveys of researchers have repeatedly been surprised by how fast benchmarks fell.
+5. **What would update the forecast?** A good forecast names the evidence that would change it.
+
+## Reading the corpus
+
+| When a document says | It means |
+| --- | --- |
+| "50% time horizon" | Task length, in human time, at which a model succeeds half the time |
+| "doubling every N months" | The exponential growth rate of a metric |
+| "effective compute" | Physical compute adjusted for algorithmic efficiency |
+| "algorithmic progress halves compute every N months" | Rate of efficiency improvement |
+| "wins or ties against experts" | GDPval's measure of parity with human professionals |
+| "the trend continues" | An extrapolation; check its range and assumptions |
+| "AI Index" | Stanford HAI's annual compilation of AI trends |

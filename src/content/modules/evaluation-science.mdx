@@ -1,0 +1,125 @@
+---
+title: The science of evaluation
+track: t5
+order: 2
+summary: Error bars, prompt sensitivity, elicitation, AI judges, human baselines, and randomized trials. How careful researchers turn "the model can do X" into evidence.
+minutes: 28
+level: 4
+prerequisites: [benchmarks, statistics-for-research]
+objectives:
+  - Apply statistical reasoning to evaluation results, including paired comparisons and clustered errors.
+  - Explain elicitation and prompt sensitivity, and why they make negative results fragile.
+  - Evaluate designs that use AI judges, human baselines, and randomized uplift trials.
+keyTerms:
+  - term: Elicitation
+    def: The effort to draw out a model's full capability on a task through good prompting, tools, scaffolding, or fine-tuning.
+  - term: Prompt sensitivity
+    def: Variation in a model's measured performance caused by superficial changes to the prompt.
+  - term: LLM-as-a-judge
+    def: Using a language model to grade other models' outputs.
+  - term: Human baseline
+    def: The performance of people on the same task, used to interpret a model's score.
+  - term: Uplift study
+    def: A controlled experiment measuring how much access to an AI system improves people's performance on a task, compared with a control group.
+  - term: Randomized controlled trial (RCT)
+    def: An experiment in which participants are randomly assigned to conditions, so differences in outcomes can be attributed to the condition.
+sources:
+  - title: "Adding Error Bars to Evals: A Statistical Approach to Language Model Evaluations"
+    authors: Evan Miller
+    org: Anthropic
+    year: 2024
+    url: https://arxiv.org/abs/2411.00640
+  - title: "Quantifying Language Models' Sensitivity to Spurious Features in Prompt Design"
+    authors: Sclar, Choi, Tsvetkov & Suhr
+    org: ICLR
+    year: 2024
+    url: https://arxiv.org/abs/2310.11324
+  - title: Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena
+    authors: Zheng et al.
+    org: NeurIPS
+    year: 2023
+    url: https://arxiv.org/abs/2306.05685
+  - title: The Operational Risks of AI in Large-Scale Biological Attacks
+    authors: Mouton, Lucas & Guest
+    org: RAND
+    year: 2024
+    url: https://www.rand.org/pubs/research_reports/RRA2977-2.html
+  - title: Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity
+    authors: Becker et al.
+    org: METR
+    year: 2025
+    url: https://arxiv.org/abs/2507.09089
+updated: 2026-10-26
+---
+
+import BenchmarkStats from '@/components/interactive/BenchmarkStats';
+import QuickCheck from '@/components/quiz/QuickCheck';
+
+"Model X can write production code." "Model Y cannot help build a bioweapon." Statements like these drive investment, policy, and public fear. Each is a claim about capability, and each is only as good as the evaluation behind it. Evaluation has become a scientific discipline of its own, with labs, government institutes, and independent organizations devoted to it. This module covers the methods that separate careful evaluations from impressive-sounding ones.
+
+## Statistics for evals
+
+Every eval score is a sample estimate. You met the basics in Track I; evaluation research adds refinements.
+
+**Compare on the same questions.** When two models answer the same set of questions, their errors are correlated (some questions are hard for both). A *paired* comparison, looking at question-by-question differences, is far more sensitive than comparing two overall scores with separate error bars.
+
+**Cluster related questions.** Many benchmarks contain groups of questions about the same passage or problem. These are not independent, so treating them as such understates uncertainty. Anthropic's 2024 guidance on eval error bars recommends clustered standard errors for this reason.
+
+**Account for sampling randomness.** At non-zero temperature, the same model can answer differently each time. Running each question several times and averaging reduces this noise.
+
+<BenchmarkStats client:visible />
+
+## Elicitation: did you really try?
+
+A model's measured performance depends heavily on how hard you try to elicit it. A 2023 study found that superficial changes to prompt formatting, such as separators and spacing, could swing a model's accuracy on some tasks by as much as 76 percentage points. Tools, chain-of-thought, better scaffolding, more attempts, or a small amount of fine-tuning can each raise performance substantially.
+
+This asymmetry matters enormously for safety. A **positive result** (the model did the dangerous thing) is strong evidence of capability. A **negative result** (it didn't) is weak evidence of incapability, because a better prompt, a better scaffold, or a determined adversary might succeed where the evaluator failed. Safety evaluations therefore invest heavily in elicitation: expert red teamers, agent scaffolds, fine-tuning for the task, and "helpful-only" model versions with refusal training removed, so that safety refusals do not mask underlying capability.
+
+<KeyIdea track="t5">Capability evaluations are asymmetric. Success shows what a model can do. Failure shows only what the evaluator could not get it to do.</KeyIdea>
+
+<QuickCheck client:visible item={{
+  kind: 'mc', id: 'elicit',
+  prompt: 'A lab reports its model "could not" complete a hacking challenge, tested with a simple prompt and no tools. How should you read this?',
+  choices: ['Strong evidence the model lacks the capability', 'Weak evidence: better elicitation (tools, scaffolding, expert prompting) might succeed', 'Proof the model is safe to release', 'Evidence the model is deceptive'],
+  answer: 1,
+  explain: 'Negative results under weak elicitation are fragile. Serious evaluations test with strong scaffolds and expert effort.'
+}} />
+
+## When AI grades AI
+
+Many tasks lack a simple right answer: essays, conversations, open-ended analyses. Grading them by hand is slow and expensive, so researchers increasingly use **LLM-as-a-judge**: a strong model scores outputs, often against a rubric. A 2023 study found that strong judges agreed with human preferences about as often as humans agreed with each other, while documenting characteristic biases:
+
+- **Position bias:** preferring whichever answer is shown first (or second).
+- **Verbosity bias:** preferring longer answers.
+- **Self-preference:** preferring answers in its own style, or its own outputs.
+
+Good practice swaps positions, controls for length, validates the judge against human labels, and reports agreement rates.
+
+## Human baselines
+
+A score means little without a reference. "73% on a medical exam" is impressive if expert physicians score 75% and unimpressive if they score 95%. Good evaluations measure a **human baseline**, and say precisely who the humans were: crowdworkers, students, or domain experts, with or without internet access, with how much time. GPQA's careful baselines (PhD experts versus skilled non-experts with web access) are a model of this.
+
+## Uplift studies: does AI help people do harm, or do good?
+
+The most decision-relevant question is often not what a model can do alone, but how much it helps a person do something. **Uplift studies** answer this with experiments: one group works with an AI system, a control group works without it (often with internet access), and outcomes are compared, ideally in a **randomized controlled trial**.
+
+- In January 2024, RAND reported a red-team exercise in which teams planned hypothetical biological attacks with or without access to the language models of the time, and found no statistically significant difference in the viability of their plans. Later evaluations of newer models by labs and government institutes found growing capability, which is why several frontier models from 2025 onward were released with heightened biological safeguards.
+- In July 2025, METR ran an RCT with 16 experienced open-source developers working on their own large codebases. Tasks randomly allowed to use AI tools took **19% longer**, while the developers believed AI had made them about 20% faster. The authors cautioned against generalizing beyond this setting, but the gap between perceived and measured effect is a lesson in why experiments matter.
+
+Uplift trials are expensive and slow, so they lag behind model releases. Their results are among the most valuable evidence in the field.
+
+## Who evaluates the evaluators?
+
+Evaluation results come from labs grading their own models, from independent organizations such as METR and Apollo Research, and from government institutes such as the UK AI Security Institute and the US Center for AI Standards and Innovation, which test frontier models before release under voluntary agreements. When reading results, note who ran them, whether methods and data are published, and whether others have replicated them.
+
+## Reading the corpus
+
+| When a document says | It means |
+| --- | --- |
+| "elicitation," "under-elicited" | Effort to draw out full capability; insufficient effort |
+| "helpful-only model" | A version without safety refusals, used to measure raw capability |
+| "LLM-as-judge," "autograder" | A model grading outputs |
+| "inter-rater agreement" | How often graders agree with each other |
+| "uplift," "control arm" | Improvement from AI access; the comparison group without it |
+| "RCT" | Randomized controlled trial |
+| "paired difference," "clustered SE" | Statistical methods for comparing models on shared, grouped questions |
