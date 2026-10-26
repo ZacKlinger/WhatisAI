@@ -153,6 +153,7 @@ const kindLabel: Record<string, string> = { research: 'Research', model: 'Model'
   .signal-card p { padding-bottom: 8px; }
   .signal-aura { height: 140px; border-radius: 14px; }
   .grid-track { grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); }
+  @media (min-width: 1100px) { .grid-track { grid-template-columns: repeat(5, 1fr); } }
   .track-tile { min-height: 220px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; color: #0d0d0d; transition: transform .4s var(--ease), box-shadow .4s var(--ease); }
   .track-tile:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
   :global(:root[data-theme='dark']) .track-tile { color: #f2f2f4; }

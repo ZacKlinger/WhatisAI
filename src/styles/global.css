@@ -244,7 +244,7 @@ h4, .h4 { font-size: 1.02rem; line-height: 1.35; letter-spacing: -0.01em; font-w
 .chip[aria-pressed='true'] { background: var(--bg-inverse); color: var(--fg-inverse); border-color: transparent; }
 
 /* ---------- cards ---------- */
-.card { background: var(--bg-elev); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: clamp(20px, 2.4vw, 28px); transition: border-color 0.25s, transform 0.35s var(--ease), box-shadow 0.35s var(--ease); }
+.card { display: block; background: var(--bg-elev); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: clamp(20px, 2.4vw, 28px); transition: border-color 0.25s, transform 0.35s var(--ease), box-shadow 0.35s var(--ease); }
 a.card:hover, .card.hoverable:hover { border-color: var(--line-2); transform: translateY(-2px); box-shadow: var(--shadow); }
 .card-soft { background: var(--bg-soft); border-color: transparent; }
 .tile { position: relative; border-radius: var(--radius-lg); overflow: hidden; isolation: isolate; }

@@ -44,7 +44,11 @@ export default function ScalingLaws() {
               <g key={i}>
                 <path d={path(pts.map(([n, l]) => [x(n), y(l)]))} style={{ fill: 'none', stroke: i === 1 ? palette[0] : 'var(--line-3)', strokeWidth: i === 1 ? 3 : 1.5 }} />
                 <circle cx={x(o[0])} cy={y(o[1])} r={i === 1 ? 6 : 4} style={{ fill: i === 1 ? palette[2] : 'var(--fg-3)' }} />
-                {i !== 1 && pts.length > 0 && <text x={x(pts[0][0]) + 4} y={y(pts[0][1]) - 6} style={{ fontSize: 10.5, fill: 'var(--fg-3)' }}>{fmtPow10(10 ** Math.round(lc))} FLOP</text>}
+                {pts.length > 0 && (
+                  <text x={x(pts[pts.length - 1][0]) - 6} y={y(pts[pts.length - 1][1]) - 8} textAnchor="end" style={{ fontSize: 10.5, fill: i === 1 ? palette[0] : 'var(--fg-3)', fontWeight: i === 1 ? 600 : 400 }}>
+                    {fmtNum(10 ** lc)} FLOP
+                  </text>
+                )}
               </g>
             );
           })}
