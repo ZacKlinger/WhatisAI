@@ -1,0 +1,145 @@
+---
+title: A short history of a long ambition
+track: t0
+order: 2
+summary: From Dartmouth's summer project to reasoning agents, the seventy-year story of AI and the one lesson it keeps teaching.
+minutes: 22
+level: 1
+prerequisites: [welcome]
+objectives:
+  - Place the major eras of AI (symbolic, statistical, deep learning, scaling) on a timeline.
+  - Explain why the field's progress has been driven mostly by compute and data rather than clever rules.
+  - Describe what changed between GPT-3, ChatGPT, and reasoning models.
+keyTerms:
+  - term: Symbolic AI
+    def: The early approach of programming intelligence as explicit rules and logic, sometimes called GOFAI ("good old-fashioned AI").
+  - term: Machine learning
+    def: Building systems that improve at a task by learning patterns from data instead of following hand-written rules.
+  - term: Deep learning
+    def: Machine learning with neural networks of many layers, which learn their own internal representations of data.
+  - term: AI winter
+    def: A period of reduced funding and interest after expectations outran results. There were major winters in the 1970s and late 1980s.
+  - term: The bitter lesson
+    def: Rich Sutton's 2019 observation that general methods which scale with computation have repeatedly beaten methods built on human knowledge.
+sources:
+  - title: Computing Machinery and Intelligence
+    authors: A. M. Turing
+    org: Mind
+    year: 1950
+    url: https://doi.org/10.1093/mind/LIX.236.433
+  - title: A Proposal for the Dartmouth Summer Research Project on Artificial Intelligence
+    authors: McCarthy, Minsky, Rochester & Shannon
+    org: Dartmouth College
+    year: 1955
+    url: http://jmc.stanford.edu/articles/dartmouth/dartmouth.pdf
+  - title: ImageNet Classification with Deep Convolutional Neural Networks
+    authors: Krizhevsky, Sutskever & Hinton
+    org: NeurIPS
+    year: 2012
+    url: https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks
+  - title: The Bitter Lesson
+    authors: Rich Sutton
+    org: Incomplete Ideas (essay)
+    year: 2019
+    url: http://www.incompleteideas.net/IncIdeas/BitterLesson.html
+  - title: Attention Is All You Need
+    authors: Vaswani et al.
+    org: Google
+    year: 2017
+    url: https://arxiv.org/abs/1706.03762
+  - title: Language Models are Few-Shot Learners
+    authors: Brown et al.
+    org: OpenAI
+    year: 2020
+    url: https://arxiv.org/abs/2005.14165
+updated: 2026-10-25
+---
+
+import QuickCheck from '@/components/quiz/QuickCheck';
+import StaticFigure from '@/components/figures/registry';
+
+In the summer of 1955, four researchers asked for funding to spend two months at Dartmouth College. They believed that "every aspect of learning or any other feature of intelligence can in principle be so precisely described that a machine can be made to simulate it," and that "a significant advance can be made" in a summer. They named the project *artificial intelligence*. The ambition was right. The timeline was off by about seventy years.
+
+The history of AI is worth knowing not for its trivia but for its pattern. Again and again, researchers tried to build intelligence by writing down what they knew, and again and again, methods that simply learned from more data with more computation overtook them.
+
+## The eras
+
+<Timeline events={[
+  { year: '1950', title: 'Turing asks whether machines can think', text: 'Alan Turing proposes the "imitation game" as a test, and predicts learning machines that are taught rather than programmed.' },
+  { year: '1956', title: 'The Dartmouth workshop', text: 'The field is named. Early programs prove theorems and play checkers, and optimism runs high.' },
+  { year: '1958', title: 'The perceptron', text: 'Frank Rosenblatt builds a machine that learns to classify simple images by adjusting weights, the ancestor of every neural network.' },
+  { year: '1969', title: 'Perceptrons, the book', text: 'Minsky and Papert prove the limits of single-layer perceptrons. Neural network research largely stalls for over a decade.' },
+  { year: '1973', title: 'The first winter', text: 'In the UK, the Lighthill report concludes that AI has failed its grand promises. Funding collapses on both sides of the Atlantic.' },
+  { year: '1980s', title: 'Expert systems boom and bust', text: 'Companies build rule-based systems encoding specialist knowledge. They prove brittle and costly to maintain, and a second winter follows.' },
+  { year: '1986', title: 'Backpropagation popularized', text: 'Rumelhart, Hinton and Williams show how multi-layer networks can learn internal representations, reviving neural networks.' },
+  { year: '1997', title: 'Deep Blue beats Kasparov', text: 'IBM\'s chess machine wins with massive search, not learning. A triumph of computation over cleverness.' },
+  { year: '2012', title: 'AlexNet', text: 'A deep network trained on GPUs cuts the ImageNet image-recognition error rate dramatically. The deep learning era begins.' },
+  { year: '2016', title: 'AlphaGo', text: 'DeepMind\'s system defeats Lee Sedol at Go, a game long considered too intuitive for machines, using deep networks and reinforcement learning.' },
+  { year: '2017', title: 'The transformer', text: 'Google researchers publish "Attention Is All You Need." The architecture will power nearly every frontier model that follows.' },
+  { year: '2020', title: 'GPT-3 and scaling laws', text: 'OpenAI shows a 175-billion-parameter model can learn new tasks from a few examples in its prompt, and that loss improves predictably with scale.' },
+  { year: '2022', title: 'ChatGPT', text: 'A language model fine-tuned to follow instructions is released as a free chat app on November 30 and becomes one of the fastest-adopted consumer products in history.' },
+  { year: '2024', title: 'Reasoning models and Nobel prizes', text: 'OpenAI\'s o1 is trained to think at length before answering. The physics Nobel goes to Hopfield and Hinton; the chemistry Nobel honors AlphaFold.' },
+  { year: '2025', title: 'Open reasoning and agents', text: 'DeepSeek-R1 shows reasoning can be trained openly and cheaply. Labs ship agents that write software, browse, and operate computers.' },
+  { year: '2026', title: 'Agents at work', text: 'Measured task horizons stretch from minutes to many hours. Governments move from principles to enforcement and fights over who regulates.' },
+]} />
+
+## Rules versus learning
+
+For its first thirty years, mainstream AI was **symbolic**. Researchers wrote programs that manipulated symbols according to rules: if the patient has a fever and a rash, consider measles. This approach produced real successes, from theorem provers to medical expert systems, and it shares one fatal property. The world is too large and too messy to write down. Every rule has exceptions, every exception has exceptions, and the systems shattered on inputs their authors had not anticipated.
+
+**Machine learning** inverts the approach. Instead of writing the rules, you write a system that can adjust itself, show it many examples, and let it find the rules. For decades this was hampered by small datasets and slow computers. Then three things arrived together: the internet supplied data at unprecedented scale, graphics processors (GPUs) supplied cheap parallel computation, and a few algorithmic refinements made deep networks trainable.
+
+<Callout type="history" title="The 2012 moment">
+The ImageNet challenge asked systems to label photographs among a thousand categories. In 2012, AlexNet, a deep convolutional network trained on two consumer GPUs, achieved a top-5 error of about 15%, against roughly 26% for the next best entry. A gap that large, overnight, is rare in any science. Within a few years nearly every computer vision group had switched to deep learning.
+</Callout>
+
+## The bitter lesson
+
+In 2019 the reinforcement learning pioneer Rich Sutton wrote a short essay with a long shadow. "The biggest lesson that can be read from 70 years of AI research," he argued, "is that general methods that leverage computation are ultimately the most effective, and by a large margin." Chess fell to search, not to encoded grandmaster wisdom. Speech recognition fell to statistics, not to linguistic rules. Vision fell to learned features, not to hand-designed edge detectors.
+
+The lesson is bitter because researchers repeatedly invested in building their own understanding into systems, which helped in the short term and then plateaued, while methods that simply scaled with more compute kept improving.
+
+<KeyIdea track="t0">The most reliable driver of AI progress has been scale: more data, more parameters, more computation, applied through general methods that can absorb them.</KeyIdea>
+
+You will meet this idea formally in the scaling laws module. Training compute for frontier models has grown by roughly four to five times per year since around 2010, a pace that dwarfs the historical doubling of chip performance.
+
+<StaticFigure id="compute-trend" caption="Training compute of selected notable models, on a logarithmic axis. Each gridline is a hundredfold increase. Filled points are disclosed by the developers; hollow points are third-party estimates from Epoch AI. Dashed lines mark compute thresholds that appear in law." />
+
+## From predicting text to an assistant
+
+The modern era rests on a surprisingly simple training task: given some text, predict the next piece of it. A model that does this well across the internet must, in some sense, learn grammar, facts, reasoning patterns, and styles of argument, because all of these help predict what comes next.
+
+**GPT-3** (2020) showed that a large enough next-word predictor could perform tasks it was never explicitly trained on, given just a few examples in its prompt. But a raw predictor is an odd collaborator: ask it a question and it might continue with five more questions, because that is what text on the internet often does.
+
+**ChatGPT** (2022) was the same family of model after additional training to follow instructions and to produce answers people preferred, a technique called reinforcement learning from human feedback. You will study it in Track IV. The technical change was modest; the change in usefulness was enormous.
+
+**Reasoning models** (2024 onward) are trained, with reinforcement learning on problems that have checkable answers, to produce long internal chains of thought before responding. They brought large gains in mathematics, science, and programming, and introduced a second scaling axis: spending more computation at the moment of answering, not only during training.
+
+**Agents** (2025 onward) place these models in loops with tools: a code interpreter, a web browser, a computer's mouse and keyboard. The question shifted from "can it answer?" to "how long a task can it carry out on its own?"
+
+<QuickCheck client:visible item={{
+  kind: 'order', id: 'q-era',
+  prompt: 'Put these developments in chronological order.',
+  items: ['The perceptron', 'Backpropagation popularized', 'AlexNet wins ImageNet', 'The transformer', 'ChatGPT', 'Reasoning models like o1'],
+  explain: 'Perceptron (1958), backpropagation (1986), AlexNet (2012), transformer (2017), ChatGPT (2022), o1 (2024).'
+}} />
+
+## Why the history matters for reading the corpus
+
+Three patterns from this history will recur in nearly every document you read.
+
+**Hype cycles are real, and so is progress.** AI has endured two winters after promises outran results. Skepticism toward bold claims is therefore historically justified. But the deep learning era has also delivered, repeatedly, things experts had called decades away. Both "it's all hype" and "it changes everything tomorrow" have been reliably wrong. The skill is to weigh specific evidence.
+
+**Capabilities often arrive before understanding.** The field learned to build systems that work well before it learned why they work. Interpretability research, which you will study in Track VI, is a late attempt to catch up.
+
+**Scale changes the questions.** As systems grew more capable, debates moved from "can it recognize a cat?" to "can it help design a pathogen?" and "who is accountable when an agent acts?" The policy documents of the 2020s exist because of the scaling of the 2010s.
+
+## Reading the corpus
+
+| When a document says | It usually means |
+| --- | --- |
+| "general-purpose AI" | A model useful across many tasks, not built for one; the EU AI Act uses this term in law |
+| "foundation model" | A large model trained on broad data that can be adapted to many uses (a term coined at Stanford in 2021) |
+| "emergent capability" | A skill that appears at larger scale and was absent or weak in smaller models; whether these are truly sudden is debated |
+| "post-training" | Everything done after next-token pretraining: instruction tuning, RLHF, reasoning training |
+| "open-weight model" | A model whose trained parameters are published for anyone to download and run |

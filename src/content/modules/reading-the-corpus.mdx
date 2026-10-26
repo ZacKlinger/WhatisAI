@@ -1,0 +1,155 @@
+---
+title: How to read a frontier document
+track: t0
+order: 3
+summary: The anatomy of research papers, system cards, and policy texts, and a three-pass method for reading any of them.
+minutes: 24
+level: 1
+prerequisites: [welcome]
+objectives:
+  - Use the three-pass method to read a research paper efficiently.
+  - Locate the claim, evidence, and limitations in a paper, a system card, and a policy text.
+  - Apply a checklist of critical questions to any capability or risk claim.
+keyTerms:
+  - term: Abstract
+    def: The paper's summary of its question, method, and headline result. Written to persuade; read it as a claim to be checked.
+  - term: Ablation
+    def: An experiment that removes one component of a system to measure how much that component contributes.
+  - term: Baseline
+    def: The point of comparison against which a result is judged. A result is only as meaningful as its baseline is fair.
+  - term: System card
+    def: A document released alongside a model describing its capabilities, evaluations, safety testing, and mitigations.
+  - term: Recital
+    def: In EU law, the numbered "whereas" paragraphs before the articles that explain the law's purpose. They guide interpretation but do not themselves impose obligations.
+  - term: Preprint
+    def: A paper posted publicly (often on arXiv) before or without peer review. Most AI research is first released this way.
+sources:
+  - title: How to Read a Paper
+    authors: S. Keshav
+    org: ACM SIGCOMM Computer Communication Review
+    year: 2007
+    url: https://web.stanford.edu/class/ee384m/Handouts/HowtoReadPaper.pdf
+  - title: GPT-4 Technical Report
+    authors: OpenAI
+    org: OpenAI
+    year: 2023
+    url: https://arxiv.org/abs/2303.08774
+  - title: Regulation (EU) 2024/1689 (Artificial Intelligence Act)
+    org: Official Journal of the European Union
+    year: 2024
+    url: https://eur-lex.europa.eu/eli/reg/2024/1689/oj
+updated: 2026-10-25
+---
+
+import QuickCheck from '@/components/quiz/QuickCheck';
+import StaticFigure from '@/components/figures/registry';
+
+A frontier document is not a story to be read from the first word to the last. It is a structure to be navigated. Experienced readers rarely read a paper linearly; they move through it in passes, each time deciding whether the next pass is worth the effort. This module gives you that structure for the three kinds of documents you will read most.
+
+## The three-pass method
+
+In 2007 the computer scientist S. Keshav described a method that many researchers use, often without having heard of it.
+
+**First pass, about five minutes.** Read the title, abstract, and introduction. Read every section heading. Look at every figure and table, and read the conclusion. At the end you should be able to say what kind of paper it is, what it claims, and whether you need to go further. Most papers you encounter should stop here.
+
+**Second pass, about an hour.** Read the body, but skip proofs and the fine details of the method. Study the figures closely: what is on each axis, what is being compared, where are the error bars. Note the references you do not recognize. At the end you should be able to summarize the argument and its evidence to someone else.
+
+**Third pass, several hours.** Try to reconstruct the work. Ask what you would have done differently, and what assumptions the authors made silently. This is how a reviewer or a replicator reads. You will do this kind of reading in the final track.
+
+<Callout type="insight">
+The second pass is mostly about figures. In machine learning papers, the figures and tables *are* the evidence. The prose around them is the authors' interpretation of that evidence. Learn to read the figure before you read what the authors say about it.
+</Callout>
+
+## Anatomy of a research paper
+
+Most machine learning papers follow a predictable skeleton. Knowing it lets you jump straight to what you need.
+
+<StaticFigure id="doc-anatomy" title="research paper" sections={[
+  { id: 'abstract', label: 'Abstract: the claim, compressed', h: 48 },
+  { id: 'intro', label: 'Introduction and contributions: why it matters, what is new', h: 70 },
+  { id: 'related', label: 'Related work: what came before', h: 40 },
+  { id: 'method', label: 'Method: what they built or did', h: 70 },
+  { id: 'results', label: 'Experiments and results: the evidence (figures, tables)', h: 90 },
+  { id: 'ablations', label: 'Ablations and analysis: which parts mattered', h: 50 },
+  { id: 'limits', label: 'Limitations and discussion: what they could not show', h: 50 },
+  { id: 'appendix', label: 'Appendix: details, prompts, extra results', h: 44 },
+]} caption="The typical structure of a machine learning paper. Experienced readers go to the contributions list, the main results figure, and the limitations section first." />
+
+A few sections deserve special attention.
+
+**The contributions list.** Near the end of the introduction, most papers list their contributions as bullet points. This is the most compact statement of what the authors believe they have shown.
+
+**The baseline.** Every result is a comparison. A new method that beats a weak, outdated, or poorly tuned baseline proves little. Ask: compared with what, and was the comparison given the same resources?
+
+**The ablations.** If a system has five new ingredients, which one does the work? Ablation studies remove ingredients one at a time. Papers without them often cannot tell you why their method works.
+
+**The limitations section.** This is where honest authors put the reasons you should be cautious. It is frequently the most informative section in the paper and the least read.
+
+**The appendix.** In AI papers, the appendix often contains the exact prompts, evaluation details, and failure cases. When a result seems surprising, the explanation is often in the appendix.
+
+## Anatomy of a system card
+
+A system card (sometimes called a model card) is published by a lab when it releases a model. It is neither a peer-reviewed paper nor a marketing page, and should be read as something in between: a disclosure document.
+
+A typical frontier system card includes:
+
+- **Model details and training data**, usually described in general terms. Labs rarely disclose parameter counts, compute, or exact data sources.
+- **Capability evaluations** on public benchmarks, often compared with the lab's previous models.
+- **Safety evaluations**: refusals of harmful requests, jailbreak robustness, bias, hallucination rates.
+- **Dangerous capability evaluations** in areas such as biological and chemical weapons, cybersecurity, and autonomous replication or AI research, often conducted with external partners.
+- **Alignment assessments**: tests for deception, sycophancy, reward hacking, or awareness of being evaluated.
+- **A determination under the lab's safety framework**, stating which risk threshold the model is judged to be under and which safeguards apply.
+
+<Callout type="corpus" title="How to read a system card">
+Read what is measured, and notice what is not. A system card chooses its own evaluations. Compare the evaluations across successive cards from the same lab: an evaluation that quietly disappears, or a threshold that is redefined, is information. Read the external evaluators' sections closely; they are often more cautious than the lab's own summary.
+</Callout>
+
+## Anatomy of a policy text
+
+Laws, executive orders, and regulatory guidance have their own skeleton. The details vary by jurisdiction, but the EU AI Act is a good example.
+
+- **Recitals.** The EU AI Act opens with 180 numbered recitals explaining its reasoning. They help interpret the law but do not create obligations.
+- **Definitions.** Article 3 defines terms such as "AI system," "provider," and "general-purpose AI model." In policy texts, definitions do most of the work: they decide who is covered.
+- **Scope.** Who and what the law applies to, and what is excluded. The AI Act excludes, for example, systems used exclusively for military purposes.
+- **Obligations.** What covered parties must do, often differentiated by risk level or role.
+- **Enforcement and penalties.** Who checks compliance and what happens when it fails. A law without enforcement mechanisms is a statement of intent.
+- **Entry into force and application dates.** Laws often phase in over years. The AI Act entered into force on 1 August 2024, with obligations applying in stages, some since postponed by later amendment.
+
+<QuickCheck client:visible item={{
+  kind: 'hotspot', id: 'q-anat',
+  prompt: 'You want to know which companies a new AI law applies to. Which part of the document should you read first?',
+  figure: { id: 'doc-anatomy', props: { title: 'policy text', sections: [
+    { id: 'recitals', label: 'Recitals: the reasoning behind the law', h: 56 },
+    { id: 'definitions', label: 'Definitions and scope', h: 56 },
+    { id: 'obligations', label: 'Obligations', h: 64 },
+    { id: 'enforcement', label: 'Enforcement and penalties', h: 48 },
+    { id: 'dates', label: 'Entry into force and application', h: 40 }
+  ] } },
+  answer: 'definitions',
+  explain: 'Coverage is decided by the definitions and scope provisions. Recitals explain intent but do not determine who is bound.'
+}} />
+
+## The critical reader's checklist
+
+Whatever the document, these questions will carry you a long way. You will practice each of them in later modules.
+
+1. **What exactly is the claim?** Restate it in one sentence, keeping its qualifiers. "Model X outperforms humans" and "Model X outperforms the median crowdworker on a multiple-choice test" are different claims.
+2. **Compared with what?** Identify the baseline, and whether it was given a fair chance.
+3. **How big is the effect relative to the noise?** Are there error bars, confidence intervals, or multiple runs? Track I teaches you to read these.
+4. **Could the test be contaminated?** If benchmark questions appeared in training data, a high score may reflect memory, not ability.
+5. **Was the capability properly elicited?** A model may fail a test because of a poor prompt rather than a lack of ability. This matters enormously for safety evaluations.
+6. **Who wrote this, and what do they want?** Labs, regulators, advocates, and academics all have incentives. Incentives do not make a document wrong, but they tell you where to look for blind spots.
+7. **What would change my mind?** If you cannot name evidence that would overturn the conclusion, you are not evaluating it.
+
+<KeyIdea track="t0">Read the figure before the prose, the limitations before the abstract's adjectives, and the definitions before the obligations.</KeyIdea>
+
+## Reading the corpus
+
+| When a document says | It usually means |
+| --- | --- |
+| "we leave this to future work" | We did not do it, and the result may depend on it |
+| "significantly" | In a careful paper, statistically significant; in a careless one, merely "noticeably" |
+| "comparable to" | Close, but possibly worse; check the numbers |
+| "preprint" / "arXiv" | Not yet (or never) peer reviewed; judge the evidence yourself |
+| "shall" (in law) | Is legally required to |
+| "may" (in law) | Is permitted to, or has discretion to |

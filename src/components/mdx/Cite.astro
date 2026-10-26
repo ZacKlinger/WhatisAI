@@ -1,0 +1,6 @@
+---
+// Inline citation that links to a primary source.
+interface Props { href: string; children?: any }
+const { href } = Astro.props;
+---
+<a href={href} class="cite" target="_blank" rel="noopener"><slot /></a>

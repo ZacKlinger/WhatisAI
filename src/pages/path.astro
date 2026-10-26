@@ -1,0 +1,97 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Constellation from '@/components/interactive/Constellation';
+import { getModules, moduleSummary } from '@/lib/curriculum';
+import { tracks } from '@/data/tracks';
+import { moduleUrl, url } from '@/lib/url';
+
+const modules = await getModules();
+const summaries = modules.map(moduleSummary);
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const levelLabel = ['', 'Foundational', 'Introductory', 'Intermediate', 'Advanced', 'Frontier'];
+---
+
+<BaseLayout title="The path" description="Every module on the path to mastery of AI, from first principles to the frontier research corpus." active="path">
+  <section class="container" style="padding-top:clamp(48px,8vw,96px)">
+    <div class="eyebrow">The path</div>
+    <h1 style="margin-top:10px;max-width:18ch">Ten tracks. One continuous climb.</h1>
+    <p class="lead" style="margin-top:16px;max-width:60ch">
+      Each track builds on the ones before it, but the path is a guide, not a gate. Follow it in order, or let the placement exam skip you past what you already know.
+    </p>
+    <div class="row" style="margin-top:24px">
+      <a class="btn btn-primary" href={moduleUrl(modules[0].id)}>Start at the beginning</a>
+      <a class="btn btn-ghost" href={url('/placement/')}>Find my starting point</a>
+    </div>
+  </section>
+
+  <section class="container section-tight">
+    <div class="card" style="padding:clamp(12px,2vw,24px)">
+      <Constellation client:visible modules={summaries} tracks={tracks.map((t) => ({ id: t.id, numeral: t.numeral, title: t.title }))} base={base} />
+    </div>
+  </section>
+
+  <section class="container">
+    {tracks.map((t) => {
+      const mods = modules.filter((m) => m.data.track === t.id);
+      return (
+        <div class="track-section" id={t.id}>
+          <div class={`track-banner aura ${t.aura}`}>
+            <div class="track-banner-inner">
+              <div class="numeral">{t.numeral}</div>
+              <div>
+                <div class="small" style="opacity:.75">{t.tagline}</div>
+                <h2 style="margin-top:4px">{t.title}</h2>
+                <p style="margin:10px 0 0;max-width:60ch;opacity:.85">{t.description}</p>
+                <p class="small" style="margin:12px 0 0;opacity:.75"><strong>Outcome:</strong> {t.outcome}</p>
+              </div>
+            </div>
+          </div>
+          <ol class="module-list">
+            {mods.map((m, i) => (
+              <li>
+                <a href={moduleUrl(m.id)} class="module-row" data-module={m.id}>
+                  <span class="idx mono">{String(i + 1).padStart(2, '0')}</span>
+                  <span class="status-dot" data-status-for={m.id}></span>
+                  <span class="mr-body">
+                    <span class="mr-title">{m.data.title}</span>
+                    <span class="mr-summary">{m.data.summary}</span>
+                  </span>
+                  <span class="mr-meta xsmall faint hide-sm">{levelLabel[m.data.level]} · {m.data.minutes} min</span>
+                </a>
+              </li>
+            ))}
+          </ol>
+        </div>
+      );
+    })}
+  </section>
+</BaseLayout>
+
+<style>
+  .track-section { margin-top: clamp(48px, 7vw, 88px); scroll-margin-top: calc(var(--nav-h) + 16px); }
+  .track-banner { border-radius: var(--radius-lg); color: #0d0d0d; }
+  :global(:root[data-theme='dark']) .track-banner { color: #f2f2f4; }
+  @media (prefers-color-scheme: dark) { :global(:root:not([data-theme='light'])) .track-banner { color: #f2f2f4; } }
+  .track-banner-inner { display: grid; grid-template-columns: auto 1fr; gap: clamp(16px, 3vw, 40px); padding: clamp(24px, 4vw, 44px); align-items: start; }
+  .numeral { font-family: var(--font-serif); font-size: clamp(3rem, 7vw, 5rem); line-height: 0.9; letter-spacing: -0.04em; opacity: 0.85; min-width: 1.4em; }
+  .module-list { list-style: none; padding: 0; margin: 12px 0 0; }
+  .module-row { display: grid; grid-template-columns: 34px 14px 1fr auto; gap: 14px; align-items: center; padding: 18px 12px; border-bottom: 1px solid var(--line); border-radius: 12px; transition: background .2s; }
+  .module-row:hover { background: var(--bg-soft); }
+  .idx { color: var(--fg-3); font-size: 0.82rem; }
+  .mr-body { display: grid; gap: 2px; min-width: 0; }
+  .mr-title { font-weight: 550; letter-spacing: -0.01em; font-size: 1.04rem; }
+  .mr-summary { color: var(--fg-2); font-size: 0.9rem; }
+</style>
+
+<script>
+  try {
+    const raw = localStorage.getItem('whatisai:progress:v1');
+    if (raw) {
+      const s = JSON.parse(raw);
+      document.querySelectorAll<HTMLElement>('[data-status-for]').forEach((el) => {
+        const st = s.modules?.[el.dataset.statusFor!]?.status;
+        if (st) el.classList.add(st);
+      });
+    }
+  } catch {}
+</script>

@@ -1,0 +1,9 @@
+---
+interface Props { track?: string; label?: string }
+const { track = 't0', label = 'Key idea' } = Astro.props;
+const n = track.replace('t', '');
+---
+<div class={`keyidea aura aura-t${n}`}>
+  <span class="label">{label}</span>
+  <div><slot /></div>
+</div>

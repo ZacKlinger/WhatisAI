@@ -1,0 +1,19 @@
+---
+interface Props {
+  type?: 'insight' | 'corpus' | 'caution' | 'history' | 'economy' | 'policy';
+  title?: string;
+}
+const { type = 'insight', title } = Astro.props;
+const meta = {
+  insight: { glyph: '✦', label: 'Insight' },
+  corpus: { glyph: '¶', label: 'From the corpus' },
+  caution: { glyph: '!', label: 'Common misconception' },
+  history: { glyph: '◷', label: 'History' },
+  economy: { glyph: '$', label: 'Labor market lens' },
+  policy: { glyph: '§', label: 'Policy lens' },
+}[type];
+---
+<aside class={`callout ${type}`}>
+  <div class="callout-title"><span class="glyph" aria-hidden="true">{meta.glyph}</span>{title ?? meta.label}</div>
+  <slot />
+</aside>

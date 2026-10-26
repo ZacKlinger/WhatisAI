@@ -1,0 +1,125 @@
+---
+title: How to master a moving field
+track: t0
+order: 1
+summary: What fluency in AI actually means, who shapes the field, and how this path is designed to get you there.
+minutes: 14
+level: 1
+prerequisites: []
+objectives:
+  - Define what it means to read the AI research corpus fluently, as four concrete questions.
+  - Name the main kinds of institutions that produce the field's documents and what each one wants.
+  - Explain the learning science behind mastery checks, confidence wagers, and spaced review.
+keyTerms:
+  - term: Frontier model
+    def: One of the most capable general-purpose AI models in existence at a given moment, typically trained with the largest compute budgets.
+  - term: Frontier lab
+    def: An organization that trains frontier models, such as Anthropic, OpenAI, or Google DeepMind.
+  - term: Retrieval practice
+    def: Learning by recalling information from memory rather than re-reading it. One of the most robust findings in cognitive science.
+  - term: Calibration
+    def: The match between how confident you are and how often you are right. A calibrated person who says "70% sure" is right about 70% of the time.
+sources:
+  - title: "Test-Enhanced Learning: Taking Memory Tests Improves Long-Term Retention"
+    authors: Roediger & Karpicke
+    org: Psychological Science
+    year: 2006
+    url: https://doi.org/10.1111/j.1467-9280.2006.01693.x
+  - title: "Distributed practice in verbal recall tasks: A review and quantitative synthesis"
+    authors: Cepeda, Pashler, Vul, Wixted & Rohrer
+    org: Psychological Bulletin
+    year: 2006
+    url: https://doi.org/10.1037/0033-2909.132.3.354
+  - title: Improving Students' Learning With Effective Learning Techniques
+    authors: Dunlosky, Rawson, Marsh, Nathan & Willingham
+    org: Psychological Science in the Public Interest
+    year: 2013
+    url: https://doi.org/10.1177/1529100612453266
+  - title: Active learning increases student performance in science, engineering, and mathematics
+    authors: Freeman et al.
+    org: PNAS
+    year: 2014
+    url: https://doi.org/10.1073/pnas.1319030111
+updated: 2026-10-25
+---
+
+import QuickCheck from '@/components/quiz/QuickCheck';
+
+Every week, a new paper, system card, or policy text claims something important about artificial intelligence. Most people meet these claims secondhand, compressed into a headline. This path exists so that you can meet them firsthand: open the original document on the morning it appears, and understand it well enough to judge it.
+
+That is a high bar, and a reachable one. The field's documents are written in a dialect, but it is a learnable dialect, built from perhaps a few hundred core ideas. You will learn those ideas in order, practice them until they are yours, and then read the real thing.
+
+## What fluency means
+
+Fluency is not knowing every acronym. It is being able to answer four questions about any document in the field, quickly and correctly:
+
+1. **What is claimed?** Not what the headline says, but what the authors actually assert, with its qualifiers intact.
+2. **How was it measured?** What experiment, benchmark, dataset, or legal mechanism stands behind the claim.
+3. **How strong is the evidence?** Whether the effect is large relative to its noise, whether the comparison is fair, and what the authors could not rule out.
+4. **What follows from it?** For technology, for safety, for work, for policy, and for what you should believe next.
+
+<KeyIdea track="t0">A fluent reader does not ask "is this impressive?" but "what would have to be true for this to be wrong?"</KeyIdea>
+
+You will practice these four questions throughout. By the final track, you will apply them to landmark papers on scaling, interpretability, alignment, and law.
+
+## Who writes the corpus
+
+The documents you will learn to read come from a small number of institutions, and each has its own incentives. Knowing who wrote a document is the first step in reading it well.
+
+**Frontier labs** train the most capable models. Anthropic, OpenAI, and Google DeepMind publish research papers, *system cards* that describe a model's evaluations before release, and *safety frameworks* that commit them to precautions as capabilities grow. Meta, xAI, and Chinese labs such as DeepSeek, Alibaba's Qwen team, and Moonshot AI are also at or near the frontier, several of them releasing *open-weight* models anyone can download. Labs have deep expertise and unique access, and also commercial and reputational stakes in what they report.
+
+**Academic and independent researchers** test, replicate, and critique. Universities, along with independent evaluation organizations such as METR and Apollo Research, often measure what labs would rather not, or measure it differently.
+
+**Government bodies** both study and regulate. The UK AI Security Institute and the US Center for AI Standards and Innovation evaluate frontier models. The European Commission's AI Office enforces the EU AI Act. NIST writes voluntary frameworks. The OECD and the International AI Safety Report synthesize evidence across countries.
+
+**Economists and social scientists** measure effects on work and wealth, using payroll records, randomized trials, and data on how people actually use AI.
+
+<Callout type="insight" title="A habit worth forming now">
+When you open any document, before reading a single sentence of the argument, note who wrote it, when, and for whom. A lab's system card, a regulator's guidance, and a university replication can describe the same model and reach different conclusions. All three can be honest.
+</Callout>
+
+## How this path is built
+
+The design of this path follows a few of the most replicated findings in the science of learning. You will feel them as small frictions. They are deliberate.
+
+**Retrieval practice.** Trying to recall something strengthens memory far more than re-reading it. In a classic experiment, students who practiced recalling a passage remembered substantially more a week later than students who studied it repeatedly, even though the re-readers *felt* more confident. That is why every module ends in a mastery check, and why quick checks appear mid-lesson.
+
+**Spacing.** Practice spread over days beats the same practice crammed into one session. A large review of the literature found the benefit across hundreds of studies. Every question you answer joins your review deck and returns at widening intervals, timed to arrive just before you would forget.
+
+**Calibration.** Before each answer is revealed, you will wager a confidence: 50%, 70%, 90%, or 99%. The site keeps a record and shows you, over time, whether your 90% really means 90%. Calibration is the core skill of reading research. A confident wrong belief is far more dangerous than an uncertain one, because it stops you from looking further.
+
+**Active manipulation.** Many lessons contain instruments: a neural network you train, a tokenizer you watch learn, a scaling law you spend compute against. A meta-analysis of 225 studies found that active learning reduced failure rates in STEM courses by about a third compared with lecturing. You learn a mechanism by touching it.
+
+<Callout type="caution" title="The fluency illusion">
+Reading a clear explanation feels like understanding. It is not. Feeling that something makes sense while reading it predicts almost nothing about whether you can use it later. The only reliable test is to close the page and try. That is what the checks are for.
+</Callout>
+
+<QuickCheck client:visible item={{
+  kind: 'mc', id: 'q1',
+  prompt: 'A student re-reads a chapter three times and feels confident. Another reads it once and then tries to write down everything they remember. Which is likely to remember more a week later?',
+  choices: ['The re-reader, because repetition builds memory', 'The one who practiced recall', 'Both about the same', 'It depends entirely on intelligence'],
+  answer: 1,
+  explain: 'Retrieval practice reliably beats re-reading for long-term retention, even though re-reading feels more effective in the moment.'
+}} />
+
+## How to use this place
+
+There are three ways in, and you can use all of them.
+
+- **The path.** Ten tracks, from foundations to guided readings of real frontier documents. Each module takes ten to forty minutes and ends with a mastery check. Pass it at 80% or above and the module is mastered.
+- **The placement exam.** If you already know some of this, the adaptive placement exam will find the edge of your knowledge in each track and mark what you can skip. It is optional, and you can retake it.
+- **Signals.** A watcher reads the field every morning: lab announcements, new papers, regulatory actions, labor data, and notable media. It publishes only when something significant happens, and it links each signal to the modules that explain it. When a signal arrives that you are now equipped to read, the site will tell you.
+
+The first track ahead is short: a history of how we got here, and a guide to the anatomy of research papers, system cards, and policy texts. After that the climb begins, starting with the mathematics of meaning. It assumes no math beyond what you used to balance a checkbook, and builds everything else.
+
+## Reading the corpus
+
+Every module ends with a short translation guide: phrases you will meet in real documents, and what they mean. Here are the first.
+
+| When a document says | It usually means |
+| --- | --- |
+| "frontier model" | One of the most capable models available at the time of writing |
+| "we find that" | An empirical result from the authors' own experiments, with whatever limits those experiments had |
+| "suggests" or "is consistent with" | The evidence fits the claim but does not prove it; other explanations remain |
+| "state of the art" (SOTA) | The best published result on a particular benchmark, which may not mean best in practice |
+| "system card" | A lab's account of a model's capabilities, evaluations, and safety measures at release |
