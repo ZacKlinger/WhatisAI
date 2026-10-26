@@ -1,0 +1,137 @@
+---
+title: Scaling laws
+track: t3
+order: 6
+summary: The empirical laws that made AI progress predictable. Kaplan's power laws, Chinchilla's correction, the emergence debate, and the new scaling of inference.
+minutes: 32
+level: 4
+prerequisites: [pretraining, compute, statistics-for-research]
+objectives:
+  - Read a scaling law as a power law on a log-log plot and explain what it predicts.
+  - Explain the Chinchilla result and compute-optimal allocation between parameters and data.
+  - Weigh the debate over emergent abilities and describe inference-time scaling.
+keyTerms:
+  - term: Scaling law
+    def: An empirical relationship, typically a power law, between a model's loss and its parameters, data, or compute.
+  - term: Compute-optimal
+    def: The allocation of a fixed compute budget between model size and training data that minimizes loss.
+  - term: Chinchilla ratio
+    def: The rule of thumb, from DeepMind's 2022 study, of roughly 20 training tokens per parameter for compute-optimal training.
+  - term: Emergent ability
+    def: A capability that appears in larger models but is absent or near chance in smaller ones. Whether such jumps are real or an artifact of measurement is debated.
+  - term: Overtraining
+    def: Training a model on far more tokens than compute-optimal, sacrificing training efficiency to get a smaller, cheaper model to serve.
+  - term: Inference-time scaling
+    def: Improving performance by spending more compute when answering, such as longer reasoning.
+sources:
+  - title: Scaling Laws for Neural Language Models
+    authors: Kaplan et al.
+    org: OpenAI
+    year: 2020
+    url: https://arxiv.org/abs/2001.08361
+  - title: Training Compute-Optimal Large Language Models
+    authors: Hoffmann et al.
+    org: Google DeepMind
+    year: 2022
+    url: https://arxiv.org/abs/2203.15556
+  - title: "Chinchilla Scaling: A replication attempt"
+    authors: Besiroglu, Erdil, Barnett & You
+    org: Epoch AI
+    year: 2024
+    url: https://arxiv.org/abs/2404.10102
+  - title: Emergent Abilities of Large Language Models
+    authors: Wei et al.
+    org: TMLR
+    year: 2022
+    url: https://arxiv.org/abs/2206.07682
+  - title: Are Emergent Abilities of Large Language Models a Mirage?
+    authors: Schaeffer, Miranda & Koyejo
+    org: NeurIPS
+    year: 2023
+    url: https://arxiv.org/abs/2304.15004
+  - title: Learning to Reason with LLMs
+    authors: OpenAI
+    org: OpenAI
+    year: 2024
+    url: https://openai.com/index/learning-to-reason-with-llms/
+updated: 2026-10-26
+---
+
+import ScalingLaws from '@/components/interactive/ScalingLaws';
+import StaticFigure from '@/components/figures/registry';
+import QuickCheck from '@/components/quiz/QuickCheck';
+
+Most of science is unpredictable in advance. You cannot know a drug will work until you test it. But in 2020, researchers at OpenAI found something unusual about language models: their performance improved with scale in a way so regular that it could be forecast across orders of magnitude. If you know how much compute you will spend, you can predict, before training, roughly how good the model will be. These **scaling laws** turned AI development into something closer to engineering, and they underpin the hundreds of billions of dollars invested since.
+
+## Kaplan's power laws
+
+In January 2020, Jared Kaplan and colleagues at OpenAI trained hundreds of language models of different sizes on different amounts of data. They found that the test loss followed smooth **power laws** in each of three quantities: the number of parameters *N*, the amount of training data *D*, and the training compute *C*, across more than seven orders of magnitude. On a log-log plot, each relationship is a straight line.
+
+<StaticFigure id="scaling-loglog" caption="Illustrative shape of a compute scaling law: loss against training compute on log-log axes, a straight line. Each tenfold increase in compute buys a predictable, constant-percentage reduction in the reducible loss." />
+
+A power law has a crucial property: **constant returns per multiplicative step**. Each tenfold increase in compute cuts the loss by the same *fraction*. Progress never stops, but each step costs ten times more than the last. The relationship also showed something unexpected: architectural details like depth versus width mattered surprisingly little compared with sheer scale.
+
+Kaplan's analysis also suggested that, for a fixed compute budget, it was best to make models very large and train them on relatively little data. The industry followed. GPT-3 had 175 billion parameters trained on 300 billion tokens; DeepMind's Gopher had 280 billion parameters on a similar amount.
+
+## Chinchilla's correction
+
+In 2022, a team at DeepMind led by Jordan Hoffmann revisited the question with more careful experiments, including adjusting the learning rate schedule to each training length. Their conclusion was different: **parameters and data should be scaled in equal proportion.** Doubling compute should mean roughly 1.4 times more parameters and 1.4 times more data, not mostly more parameters.
+
+The implication was dramatic: most large models of the day were badly **undertrained**. To prove it, they trained **Chinchilla**, a 70-billion-parameter model on 1.4 trillion tokens, using the same compute as Gopher's 280 billion parameters. Chinchilla outperformed Gopher across a wide range of benchmarks while being four times smaller, and therefore four times cheaper to run.
+
+Explore the trade-off yourself. Each curve holds compute fixed; slide the model size to trade parameters against data.
+
+<ScalingLaws client:visible />
+
+The rule of thumb that emerged, roughly **20 tokens per parameter**, became known as the Chinchilla ratio. (A 2024 replication by Epoch AI found errors in one of the paper's three fitting methods; the corrected fit, used in the instrument above, agrees with the 20-to-1 conclusion.)
+
+<KeyIdea track="t3">Scaling laws make progress forecastable: loss falls as a power law in compute. Chinchilla showed that compute should be split evenly between bigger models and more data, about twenty tokens per parameter.</KeyIdea>
+
+<QuickCheck client:visible item={{
+  kind: 'estimate', id: 'tokens',
+  prompt: 'By the Chinchilla rule of about 20 tokens per parameter, how many training tokens would a compute-optimal 10-billion-parameter model use?',
+  min: 1e9, max: 1e14, log: true, answer: 2e11, tolerance: 2, format: 'sci',
+  explain: '20 × 10^10 = 2 × 10^11: two hundred billion tokens.'
+}} />
+
+## Why not always compute-optimal?
+
+Compute-optimal minimizes *training* cost for a given quality. But a deployed model is run billions of times, and smaller models are cheaper to serve. So labs often deliberately **overtrain**: train a smaller model on far more data than Chinchilla would suggest, paying more in training to save on every future inference. Meta's Llama 3 8B was trained on about 15 trillion tokens, nearly 2,000 tokens per parameter. Scaling laws still apply; the business objective simply changed.
+
+## Loss is not capability
+
+Scaling laws predict loss, a measure of next-token surprise. But what people care about are capabilities: solving math problems, writing working code, giving sound advice. The link between smooth loss curves and specific abilities is less smooth.
+
+### The emergence debate
+
+In 2022, Jason Wei and colleagues catalogued **emergent abilities**: tasks where small models performed at chance and then, past some scale, performance jumped sharply. Multi-digit arithmetic and certain reasoning tasks seemed to switch on suddenly. If capabilities can appear unpredictably, that matters enormously for safety: dangerous abilities might arrive without warning.
+
+In 2023, Rylan Schaeffer and colleagues argued that many of these jumps were a **mirage** created by the choice of metric. If you score arithmetic as all-or-nothing (only a fully correct answer counts), then a model gradually improving at each digit will appear to leap from 0% to high accuracy. Measured with a continuous metric, such as per-digit accuracy or the probability of the correct answer, the same improvement looks smooth and predictable.
+
+Where does this leave you? Both papers made real points. Many apparent discontinuities do dissolve under better metrics. But what matters in the real world is often all-or-nothing (a proof is valid or not; an exploit works or not), so threshold effects in *usefulness* can be genuine even when underlying improvement is smooth. When you read claims of emergence, ask what metric was used.
+
+<Callout type="policy" title="Why governments care">
+If capability gains were perfectly predictable, oversight could be planned around them. If they can arrive suddenly, safety evaluations must happen before and during training, not just after. Frontier safety frameworks at Anthropic, OpenAI, and Google DeepMind all include provisions for testing models as they scale, partly because of this uncertainty.
+</Callout>
+
+## The second axis: inference-time scaling
+
+Since 2024, a second scaling law has become central. OpenAI's announcement of its o1 reasoning model included a pair of charts: performance on a hard math benchmark rose smoothly with the log of training compute, and *also* with the log of compute spent at test time, thinking longer before answering. Models trained with reinforcement learning to reason can convert extra inference compute into better answers on hard problems.
+
+This changed the economics of the field. Capability is no longer fixed at the end of training; it can be bought per query. It also complicates governance built around training compute thresholds. You will study reasoning models in Track IV.
+
+## Is scaling slowing?
+
+Every year brings claims that scaling has hit a wall: data is running out, returns are diminishing, the next model disappointed. Every year so far, measured capabilities have continued to advance, though the sources of gains have shifted, from pretraining scale alone toward data quality, post-training, reinforcement learning, and inference-time compute. Power laws, remember, never stop delivering, but they always get more expensive. Whether the economic returns justify the next tenfold step is a question scaling laws cannot answer.
+
+## Reading the corpus
+
+| When a document says | It means |
+| --- | --- |
+| "L(N) ∝ N<sup>−α</sup>" | Loss falls as a power of parameters; α is the exponent |
+| "isoFLOP curves" | Loss versus model size at a fixed compute budget (as in the instrument above) |
+| "compute-optimal," "Chinchilla-optimal" | Allocating compute to minimize loss, about 20 tokens per parameter |
+| "overtrained" | Trained on far more tokens than compute-optimal, to make a smaller model |
+| "emergent" | Appearing at scale; check how it was measured |
+| "predictable scaling" | Forecasting a large model's loss from smaller runs (featured in the GPT-4 report) |
+| "test-time compute scaling" | Performance improving with inference compute |

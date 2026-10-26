@@ -1,0 +1,131 @@
+---
+title: "Pretraining: what prediction teaches"
+track: t3
+order: 4
+summary: Next-token prediction on trillions of words, the base model it produces, in-context learning, and the roots of hallucination. Plus the great debate over what these models understand.
+minutes: 28
+level: 3
+prerequisites: [transformer, information-theory, data]
+objectives:
+  - Describe the pretraining objective and what a base model is.
+  - Explain in-context learning and why base models behave oddly as assistants.
+  - Explain where hallucinations come from, and summarize the debate over whether prediction yields understanding.
+keyTerms:
+  - term: Pretraining
+    def: Training a model on a vast text corpus to predict the next token. The most compute-intensive stage of building a language model.
+  - term: Base model
+    def: A model after pretraining, before any training to follow instructions. It continues text rather than answering.
+  - term: In-context learning
+    def: A model's ability to perform a new task from instructions or examples in its prompt, without changing its parameters.
+  - term: Few-shot prompting
+    def: Including a handful of worked examples in the prompt to show the model what is wanted.
+  - term: Hallucination
+    def: A fluent, confident output that is false or unsupported, such as an invented citation.
+  - term: Knowledge cutoff
+    def: The date after which a model's training data contains no information.
+sources:
+  - title: Language Models are Few-Shot Learners
+    authors: Brown et al.
+    org: OpenAI
+    year: 2020
+    url: https://arxiv.org/abs/2005.14165
+  - title: "On the Dangers of Stochastic Parrots: Can Language Models Be Too Big?"
+    authors: Bender, Gebru, McMillan-Major & Shmitchell
+    org: FAccT
+    year: 2021
+    url: https://doi.org/10.1145/3442188.3445922
+  - title: Why Language Models Hallucinate
+    authors: Kalai, Nachum, Vempala & Zhang
+    org: OpenAI
+    year: 2025
+    url: https://arxiv.org/abs/2509.04664
+  - title: "Emergent World Representations: Exploring a Sequence Model Trained on a Synthetic Task"
+    authors: Li et al.
+    org: ICLR
+    year: 2023
+    url: https://arxiv.org/abs/2210.13382
+updated: 2026-10-26
+---
+
+import Softmax from '@/components/interactive/Softmax';
+import QuickCheck from '@/components/quiz/QuickCheck';
+
+Pretraining is where almost all of a language model's knowledge and capability is born. The recipe is almost absurdly simple: show a transformer trillions of tokens of text, and at every position, ask it to predict the next token. Adjust the parameters to reduce its surprise. Repeat for months on tens of thousands of chips. What emerges is a model that can translate, summarize, write code, and reason, though it was never directly taught any of these things.
+
+## The objective
+
+At each position in a training document, the model outputs a probability distribution over its vocabulary for the next token. The loss is the **cross-entropy**: the negative log of the probability it gave to the token that actually came next. Average over trillions of positions. Backpropagate. Step.
+
+Because of the causal mask, a single document of a thousand tokens gives a thousand training examples at once: predict token 2 from token 1, token 3 from tokens 1 and 2, and so on. This efficiency is part of why the approach scales.
+
+<KeyIdea track="t3">To predict the next word of everything humans have written, a model is pushed to absorb whatever makes text predictable: grammar, facts, styles, the structure of arguments, and the patterns of reasoning.</KeyIdea>
+
+## Why prediction teaches so much
+
+Consider what it takes to predict the next token well in different documents. To continue a physics textbook, it helps to model physics. To continue a dialogue in a novel, it helps to model what each character knows and wants. To continue a proof, it helps to follow the logic. To continue code, it helps to track what each variable holds. The objective is narrow, but the data is the record of nearly every human activity, so doing well on it rewards an enormous range of skills.
+
+The OpenAI researcher Ilya Sutskever has framed it this way: predicting the next token well requires understanding the process that produced the text. Not everyone agrees, as you will see.
+
+## The base model
+
+The result of pretraining is a **base model**: an extraordinary text-continuation engine, but an odd assistant. Give it a question and it may continue with more questions, because on the internet questions often appear in lists. Give it the start of a news article and it writes a plausible article. It has no particular disposition to be helpful, truthful, or safe; it imitates whatever kind of document the prompt suggests.
+
+Turning a base model into an assistant is the job of **post-training**, the subject of Track IV. But nearly all capability comes from pretraining. Post-training mostly shapes how existing capabilities are expressed.
+
+## In-context learning
+
+The 2020 GPT-3 paper documented a remarkable ability. Without any change to its parameters, the model could perform new tasks simply from instructions or a few examples placed in its prompt:
+
+> English: cheese → French: fromage
+> English: sea otter → French: loutre de mer
+> English: peppermint → French:
+
+The model continues with "menthe poivrée." This is **in-context learning**, and providing examples is called **few-shot prompting**. The paper's title, "Language Models are Few-Shot Learners," named the phenomenon, and it showed the ability strengthening sharply with model scale. Mechanistically, interpretability work has traced part of it to the induction heads you met in the attention module.
+
+<QuickCheck client:visible item={{
+  kind: 'mc', id: 'icl',
+  prompt: 'A model translates a new word correctly after seeing three example translations in its prompt. What changed in the model?',
+  choices: ['Its parameters were updated by the examples', 'Nothing in its parameters; it used the examples as context (in-context learning)', 'It searched the internet', 'It was fine-tuned on French'],
+  answer: 1,
+  explain: 'In-context learning happens entirely in the forward pass. The weights are untouched; the examples shape the prediction.'
+}} />
+
+## Where hallucinations come from
+
+A model trained to produce probable continuations will produce probable-*sounding* continuations even when it has no reliable knowledge. Ask a base model for a citation and it will generate something with the shape of a citation: plausible authors, a plausible journal, a plausible year, all possibly invented. This is **hallucination**.
+
+A 2025 paper from OpenAI, "Why Language Models Hallucinate," offered a statistical account. Some facts appear too rarely in training data to be learned reliably, so errors on them are inevitable for a pure predictor. Worse, the way models are typically trained and evaluated rewards confident guessing: on most benchmarks, a wrong answer scores the same as "I don't know," so guessing is always the better strategy. The authors argued that evaluations should reward appropriate expressions of uncertainty. The same logic, incidentally, is why this site's placement exam offers "I don't know" at no cost.
+
+<Callout type="caution" title="Knowledge cutoffs">
+A model knows nothing about events after its training data was collected, its knowledge cutoff, unless that information is supplied in its context, for instance through web search. A model asked about recent events without such tools may confidently describe an outdated world.
+</Callout>
+
+## The great debate: parrots or world models?
+
+What, exactly, has a pretrained model learned? This is one of the most contested questions in the field, and you will see both positions in the corpus.
+
+**The skeptical view.** In a widely cited 2021 paper, Emily Bender, Timnit Gebru, and colleagues described large language models as "stochastic parrots": systems that stitch together linguistic forms according to statistical patterns, without any reference to meaning. On this view, fluency is not understanding, and treating it as such is dangerous.
+
+**The world-model view.** Others point to evidence that prediction produces structured internal models. A transformer trained only on Othello moves built an internal representation of the board. Models contain linear representations of space, time, and truth. Interpretability research has found models planning ahead, for instance choosing a rhyme word before writing the line that leads to it.
+
+**The careful middle.** Most researchers now hold that models learn substantial, useful internal structure, that this structure is uneven and sometimes brittle, and that words like "understand" smuggle in assumptions better replaced by specific, testable questions: Does the model represent X? Does it use that representation causally? Does it generalize to new situations? When you read claims on either side, look for which of these questions the evidence actually addresses.
+
+## Seeing the distribution
+
+Remember that a pretrained model outputs a full distribution at every step. The words you see are samples. Here is the same distribution machinery you met in Track I, now understood as the output layer of a transformer:
+
+<Softmax client:visible context="The capital of Australia is" tokens={[' Canberra', ' Sydney', ' Melbourne', ' a', ' Perth', ' the']} logits={[5.2, 3.9, 2.4, 1.1, 0.6, 0.4]} showTopP={false} />
+
+Notice that a substantial probability can sit on a wrong answer ("Sydney") when the training data contains the common misconception. At higher temperatures, the model will sometimes say it. This is one concrete, mechanical origin of confident errors.
+
+## Reading the corpus
+
+| When a document says | It means |
+| --- | --- |
+| "pretrained on N tokens" | The size of the next-token-prediction training run |
+| "base model" / "pretrained checkpoint" | The model before instruction tuning |
+| "zero-shot," "few-shot," "k-shot" | Performance with no examples, a few, or k examples in the prompt |
+| "in-context learning (ICL)" | Learning from the prompt without weight updates |
+| "hallucination," "confabulation" | Fluent but false or unsupported output |
+| "knowledge cutoff" | The most recent date represented in training data |
+| "next-token prediction" | The pretraining objective |

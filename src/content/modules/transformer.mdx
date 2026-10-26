@@ -1,0 +1,131 @@
+---
+title: The transformer, assembled
+track: t3
+order: 3
+summary: Embeddings, the residual stream, attention and MLP blocks, normalization, and unembedding. The complete architecture behind every frontier language model, piece by piece.
+minutes: 30
+level: 3
+prerequisites: [attention, neural-networks]
+objectives:
+  - Trace a token through a decoder-only transformer from embedding to output probabilities.
+  - Explain the residual stream and the distinct roles of attention and MLP sublayers.
+  - Estimate where a transformer's parameters live, and describe mixture-of-experts models.
+keyTerms:
+  - term: Transformer
+    def: The neural network architecture, introduced in 2017, built from repeated blocks of attention and MLP sublayers around a residual stream.
+  - term: Residual stream
+    def: The running vector for each token position that every layer reads from and adds to. The model's main channel of communication.
+  - term: MLP sublayer (feed-forward network)
+    def: The part of each transformer block that transforms each token's vector independently. Holds most of the parameters.
+  - term: Layer normalization
+    def: An operation that rescales vectors to a standard size, keeping training stable.
+  - term: Positional encoding
+    def: Information added so the model knows the order of tokens. Modern models typically use rotary position embeddings (RoPE).
+  - term: Decoder-only
+    def: A transformer that generates text left to right with causal attention. The design of GPT, Claude, Gemini, and Llama.
+  - term: Mixture of experts (MoE)
+    def: An architecture where each token is routed to a few of many specialist MLP blocks, increasing total parameters without increasing compute per token.
+sources:
+  - title: Attention Is All You Need
+    authors: Vaswani et al.
+    org: Google
+    year: 2017
+    url: https://arxiv.org/abs/1706.03762
+  - title: A Mathematical Framework for Transformer Circuits
+    authors: Elhage et al.
+    org: Anthropic
+    year: 2021
+    url: https://transformer-circuits.pub/2021/framework/index.html
+  - title: "RoFormer: Enhanced Transformer with Rotary Position Embedding"
+    authors: Su et al.
+    org: arXiv
+    year: 2021
+    url: https://arxiv.org/abs/2104.09864
+  - title: "Outrageously Large Neural Networks: The Sparsely-Gated Mixture-of-Experts Layer"
+    authors: Shazeer et al.
+    org: ICLR
+    year: 2017
+    url: https://arxiv.org/abs/1701.06538
+  - title: Transformer Feed-Forward Layers Are Key-Value Memories
+    authors: Geva, Schuster, Berant & Levy
+    org: EMNLP
+    year: 2021
+    url: https://arxiv.org/abs/2012.14913
+updated: 2026-10-26
+---
+
+import StaticFigure from '@/components/figures/registry';
+import QuickCheck from '@/components/quiz/QuickCheck';
+
+You now know every ingredient: tokens, embeddings, matrices, nonlinear layers, attention, softmax. This module assembles them into the **transformer**, the architecture underneath GPT, Claude, Gemini, Llama, and nearly every other frontier model. Once you can trace a token through it, the methods sections of most AI papers will read as variations on a structure you know.
+
+## The shape of the machine
+
+A frontier language model is a **decoder-only transformer**. "Decoder-only" means it generates text from left to right, with causal attention, as you saw in the previous module. Click on each part of the diagram to orient yourself, then read on.
+
+<StaticFigure id="transformer-block" caption="A decoder-only transformer. A token enters at the bottom as an embedding, travels up the residual stream through N repeated blocks of attention and MLP, and leaves at the top as probabilities for the next token." />
+
+Follow one token through:
+
+1. **Embedding.** The token's ID selects a row of the embedding table: a vector of, say, 4,096 numbers. Information about the token's position is also incorporated.
+2. **The residual stream.** That vector becomes the start of the token's **residual stream**, a running vector that flows upward through the whole model.
+3. **Repeated blocks.** The model has dozens of identical blocks (layers), commonly 32 to 128 in large models. Each block contains two sublayers:
+   - **Attention**, which reads from the residual streams of this and earlier tokens, gathers relevant information, and *adds* its result back into this token's stream.
+   - **MLP** (a small two-layer neural network), which reads this token's stream alone, transforms it, and *adds* its result back.
+4. **Unembedding.** At the top, the final vector is multiplied by an output matrix to produce one score (logit) per vocabulary token, and softmax converts those to next-token probabilities.
+
+## The residual stream: a shared workspace
+
+The most important idea for understanding transformers, and for reading interpretability research, is the residual stream. No sublayer *replaces* the token's vector. Each one reads from it and **adds** its output to it. The stream is like a shared whiteboard that every component of the model can read and write. Attention heads move information between token positions; MLPs process information within a position; everything accumulates.
+
+This design, inherited from residual networks, keeps gradients healthy in very deep models. But it also has a profound conceptual consequence that Anthropic researchers emphasized in their 2021 "Mathematical Framework for Transformer Circuits": because everything communicates through additions to a shared vector space, the model's computation can be decomposed into contributions from individual components. That decomposability is what makes mechanistic interpretability possible at all.
+
+<KeyIdea track="t3">The residual stream is the transformer's spine. Attention moves information between positions; MLPs transform it in place; both write their results into the same stream by addition.</KeyIdea>
+
+## What do the MLPs do?
+
+If attention routes information between tokens, what are the MLP sublayers for? They hold most of the model's parameters, roughly two-thirds in a standard design, and research suggests they act partly as a vast **key-value memory**: detecting patterns in the stream and writing associated information back. Studies have found specific factual associations, such as a landmark's location, stored in particular MLP layers, and have even edited those facts directly. The picture is incomplete, but a rough division of labor is useful: **attention decides where information comes from; MLPs decide what to do with it.**
+
+## Smaller pieces that matter
+
+**Layer normalization** rescales each vector to a standard size before each sublayer, preventing numbers from drifting and keeping training stable.
+
+**Positional information.** Attention, by itself, has no notion of order: a bag of tokens and a sentence look the same to it. Models therefore inject position. The original transformer added fixed wave patterns to the embeddings; most modern models use **rotary position embeddings (RoPE)**, which rotate query and key vectors by an angle that depends on position, so attention scores naturally reflect relative distance.
+
+<QuickCheck client:visible item={{
+  kind: 'hotspot', id: 'mlp',
+  prompt: 'Which component transforms each token’s vector independently, and holds most of a transformer’s parameters?',
+  figure: { id: 'transformer-block' },
+  answer: 'mlp',
+  explain: 'The MLP (feed-forward) sublayer operates position by position and contains roughly two-thirds of the parameters in a standard transformer.'
+}} />
+
+## Where the parameters live
+
+You can estimate a transformer's size from its shape. With a model width (residual stream size) *d*, each block has attention matrices totaling about 4*d*² parameters and an MLP of about 8*d*² parameters (two matrices that expand the vector to 4*d* and back). So each layer holds about **12*d*²** parameters.
+
+GPT-3 had *d* = 12,288 and 96 layers: 12 × 12,288² × 96 ≈ 174 billion. Add the embedding table and you reach its 175 billion. The formula works.
+
+## Mixture of experts
+
+Many recent frontier models use a **mixture of experts (MoE)** design. Instead of one large MLP per layer, there are many smaller "expert" MLPs, and a small router sends each token to just a few of them. A model might have hundreds of billions of total parameters while using only a fraction for any given token. This decouples **total parameters** (knowledge capacity) from **active parameters** (compute per token). When you read "a 671B-parameter MoE with 37B active," as in DeepSeek's V3 model, the second number determines inference cost and the first, roughly, capacity.
+
+<Callout type="corpus" title="Reading an architecture table">
+Technical reports list hyperparameters such as: layers 80, model dimension 8192, attention heads 64, KV heads 8, FFN dimension 28672, vocabulary 128,256, context 128k. You can now interpret each: depth, residual stream width, number of attention heads, a memory-saving variant called grouped-query attention, the MLP's inner width, tokenizer size, and context window.
+</Callout>
+
+## What hasn't changed since 2017
+
+It is striking how little the core architecture has changed. Frontier models of 2026 still use the 2017 skeleton: embeddings, a residual stream, attention, MLPs, normalization, and unembedding. The refinements are real (rotary positions, better normalization placement, gated activations, mixture of experts, efficient attention), but the dominant source of progress has been scaling the same design up, training it on better data, and post-training it more skillfully. That is the bitter lesson in action.
+
+## Reading the corpus
+
+| When a document says | It means |
+| --- | --- |
+| "decoder-only transformer" | The GPT-style architecture with causal attention |
+| "d_model," "hidden dimension" | The width of the residual stream |
+| "n_layers," "depth" | Number of transformer blocks |
+| "FFN" or "MLP" | The feed-forward sublayer in each block |
+| "residual stream" | The per-token running vector all components read from and write to |
+| "MoE," "active parameters" | Mixture of experts; parameters actually used per token |
+| "RoPE," "GQA," "SwiGLU" | Common modern refinements: rotary positions, grouped-query attention, gated activations |

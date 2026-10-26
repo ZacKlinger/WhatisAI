@@ -1,0 +1,113 @@
+---
+title: "Attention: every word asks a question"
+track: t3
+order: 2
+summary: The mechanism at the heart of the transformer. Queries, keys, and values; why attention replaced recurrence; and why context windows are expensive.
+minutes: 30
+level: 3
+prerequisites: [tokens, matrices, probability]
+objectives:
+  - Explain the problem attention solves and why recurrent networks struggled with long contexts.
+  - Describe attention in terms of queries, keys, values, dot products, and softmax.
+  - Explain causal masking, multi-head attention, and why attention cost grows with context length.
+keyTerms:
+  - term: Attention
+    def: A mechanism that lets each token gather information from other tokens, weighted by relevance.
+  - term: Query, key, value
+    def: Three vectors computed from each token. Queries are matched against keys to produce weights; the weights blend the values.
+  - term: Attention weights
+    def: The softmax-normalized relevance scores between a token and each token it can see. They sum to 1.
+  - term: Causal mask
+    def: A rule preventing each token from attending to later tokens, so a model generating text cannot peek at the future.
+  - term: Attention head
+    def: One independent attention computation with its own query, key, and value weights. Models run many heads in parallel.
+  - term: Recurrent neural network (RNN)
+    def: An older architecture that reads a sequence one step at a time, carrying a fixed-size memory forward.
+sources:
+  - title: Attention Is All You Need
+    authors: Vaswani et al.
+    org: Google
+    year: 2017
+    url: https://arxiv.org/abs/1706.03762
+  - title: Neural Machine Translation by Jointly Learning to Align and Translate
+    authors: Bahdanau, Cho & Bengio
+    org: ICLR
+    year: 2015
+    url: https://arxiv.org/abs/1409.0473
+  - title: In-context Learning and Induction Heads
+    authors: Olsson et al.
+    org: Anthropic
+    year: 2022
+    url: https://transformer-circuits.pub/2022/in-context-learning-and-induction-heads/index.html
+updated: 2026-10-26
+---
+
+import Attention from '@/components/interactive/Attention';
+import StaticFigure from '@/components/figures/registry';
+import QuickCheck from '@/components/quiz/QuickCheck';
+
+Consider the sentence: "The trophy didn't fit in the suitcase because it was too big." What does "it" refer to? You know instantly: the trophy. Change "big" to "small" and "it" becomes the suitcase. To get this right, a system must connect words that may be far apart and decide which connections matter. In 2017, a paper from Google titled "Attention Is All You Need" introduced an architecture built around a mechanism for exactly this. Every frontier language model descends from it.
+
+## The problem with reading one word at a time
+
+Before 2017, the dominant approach to language was the **recurrent neural network (RNN)**. An RNN reads a sentence one token at a time, updating a fixed-size memory vector as it goes, like a person reading through a keyhole and taking notes on a single index card.
+
+This has two problems. First, everything the network knows about the beginning of a long passage must survive being squeezed through that one card, step after step; distant information fades. Second, reading is inherently sequential: the network cannot process word 100 until it has processed word 99, which makes training slow on parallel hardware like GPUs.
+
+Researchers first added **attention** to RNNs in 2014 and 2015, letting a translation model look back at all the input words when producing each output word. The 2017 insight was radical: drop the recurrence entirely and build the whole model from attention.
+
+## Attention as a soft lookup
+
+Attention lets every token look at every other token it is allowed to see, and pull in information from the relevant ones. It works like a search engine in miniature. From each token's vector, the model computes three new vectors using learned weight matrices:
+
+- A **query**: what this token is looking for.
+- A **key**: what this token offers, as a label to be matched.
+- A **value**: the information this token will pass along if selected.
+
+To update a given token, the model compares its query with every token's key using a **dot product**, which is large when they align. The scores are scaled and passed through **softmax**, producing **attention weights** that are positive and sum to one. The token's new vector is the weighted average of all the values.
+
+<Eq>Attention(<i>Q</i>, <i>K</i>, <i>V</i>) = softmax( <span class="frac"><span><i>Q K</i><sup>T</sup></span><span>√<i>d</i></span></span> ) <i>V</i></Eq>
+
+That single line is the most famous equation in modern AI. You already know every piece: *QK*<sup>T</sup> computes all the query-key dot products at once (a matrix multiplication), dividing by √*d* keeps the scores in a reasonable range, softmax turns them into weights, and multiplying by *V* blends the values.
+
+Explore it. Click a word to make it the query and see where its attention goes. Switch heads, and switch the final word.
+
+<Attention client:visible />
+
+<KeyIdea track="t3">Attention is a learned, soft, content-based lookup. Each token asks a question (query), every visible token advertises an answer (key), and the best matches contribute their information (values).</KeyIdea>
+
+## Many heads, many questions
+
+One attention computation can only ask one kind of question. So transformers run many **attention heads** in parallel, each with its own query, key, and value weights. Different heads learn different jobs. Interpretability researchers have identified heads that attend to the previous token, heads that track syntax, and **induction heads**, which Anthropic researchers showed in 2022 implement a simple form of in-context learning: if the current token appeared earlier, look at what followed it last time and predict that again. The outputs of all heads are combined and passed on.
+
+## The causal mask
+
+A model generating text must not see the future: when predicting the next word, the following words do not exist yet. During training, the full text is available, so the model is prevented from cheating by a **causal mask**: each token may attend only to itself and earlier tokens. This is why, in the demo, later words are faded. It also explains a subtle point you saw there: at the word "it," a model reading left to right cannot yet know whether the sentence ends in "tired" or "wide," so the resolution happens at a later position.
+
+<StaticFigure id="attention-map" tokens={['The', 'trophy', 'did', 'not', 'fit', 'because', 'it', 'was', 'big']} weights={[0.04, 0.58, 0.02, 0.02, 0.08, 0.03, 0.12, 0.03, 0.08]} query={8} caption="Illustrative attention from the final word 'big' in one head. Most weight goes to 'trophy', resolving what was too big. Real heads are learned and often less clean than this." />
+
+## The cost of context
+
+Attention compares every token with every other token it can see. Double the length of the input and the number of comparisons roughly quadruples. This **quadratic** cost is why long context windows are expensive, and why so much engineering has gone into efficient attention variants. Context windows grew from 2,048 tokens in GPT-3 (2020) to hundreds of thousands and, in some models, millions of tokens by 2025, through a combination of better algorithms, hardware, and memory techniques.
+
+A longer window does not guarantee the model uses all of it well. Researchers measure whether models can find and reason over information placed anywhere in a long context, and performance often degrades for information buried in the middle.
+
+<QuickCheck client:visible item={{
+  kind: 'mc', id: 'quadratic',
+  prompt: 'If the input to standard attention grows from 10,000 to 40,000 tokens, roughly how much more work does computing all attention scores take?',
+  choices: ['4× more', '16× more', '40× more', 'The same'],
+  answer: 1,
+  explain: 'Attention compares all pairs of tokens. 4× longer means about 4² = 16× more pairs.'
+}} />
+
+## Reading the corpus
+
+| When a document says | It means |
+| --- | --- |
+| "self-attention" | Tokens attending to other tokens in the same sequence |
+| "Q, K, V" or *W*<sub>Q</sub>, *W*<sub>K</sub>, *W*<sub>V</sub> | Queries, keys, values, and the weight matrices that produce them |
+| "multi-head attention," "32 heads" | Several attention computations run in parallel |
+| "causal" or "decoder-only" | Each token sees only earlier tokens |
+| "context window," "sequence length" | How many tokens can be attended to at once |
+| "attention pattern" | The matrix of weights showing which tokens attend to which |
+| "induction head" | A head that copies patterns: after seeing A then B before, it predicts B after A |

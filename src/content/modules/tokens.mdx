@@ -1,0 +1,119 @@
+---
+title: "Tokens: how text becomes numbers"
+track: t3
+order: 1
+summary: Byte-pair encoding, vocabularies, and the hidden unit of everything a language model reads, writes, and charges for. Why models stumble on spelling and arithmetic.
+minutes: 20
+level: 2
+prerequisites: [vectors-and-embeddings]
+objectives:
+  - Explain how byte-pair encoding builds a vocabulary of tokens from text.
+  - Estimate token counts for English text and connect them to context windows and pricing.
+  - Explain how tokenization causes characteristic failures and inequities across languages.
+keyTerms:
+  - term: Token
+    def: The basic unit a language model reads and writes, typically a word or a piece of a word.
+  - term: Tokenizer
+    def: The fixed procedure that splits text into tokens and maps each to an integer ID.
+  - term: Vocabulary
+    def: The set of all tokens a model knows, often around 100,000 to 200,000.
+  - term: Byte-pair encoding (BPE)
+    def: A tokenization algorithm that starts from characters (or bytes) and repeatedly merges the most frequent adjacent pair into a new token.
+  - term: Embedding table
+    def: The matrix that maps each token ID to its initial vector inside the model.
+  - term: Context window
+    def: The maximum number of tokens a model can take into account at once.
+sources:
+  - title: Neural Machine Translation of Rare Words with Subword Units
+    authors: Sennrich, Haddow & Birch
+    org: ACL
+    year: 2016
+    url: https://arxiv.org/abs/1508.07909
+  - title: Language Models are Unsupervised Multitask Learners (GPT-2)
+    authors: Radford et al.
+    org: OpenAI
+    year: 2019
+    url: https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf
+  - title: Language Model Tokenizers Introduce Unfairness Between Languages
+    authors: Petrov, La Malfa, Torr & Bibi
+    org: NeurIPS
+    year: 2023
+    url: https://arxiv.org/abs/2305.15425
+updated: 2026-10-26
+---
+
+import Tokenizer from '@/components/interactive/Tokenizer';
+import QuickCheck from '@/components/quiz/QuickCheck';
+
+A language model never sees letters or words. Before any text reaches the network, a **tokenizer** chops it into pieces called **tokens** and replaces each with a number. Tokens are the atoms of a language model's world: what it reads, what it predicts, what its context window is measured in, and what you are billed for. They also explain some of the strangest things models do.
+
+## Why not letters, or whole words?
+
+There are two obvious ways to turn text into numbers, and both are poor.
+
+**One number per character** keeps the vocabulary tiny, but sequences become very long. A model would need many steps to read a single word, and compute grows with sequence length.
+
+**One number per word** keeps sequences short, but the vocabulary explodes: every name, typo, technical term, and inflection would need its own entry, and any word not seen in training would be unknown.
+
+The modern solution sits in between. Common words become single tokens; rarer words are built from common pieces. "unbelievably" might become "un" + "believ" + "ably." Any string can be represented, yet frequent text stays compact.
+
+## Byte-pair encoding
+
+The most widely used method is **byte-pair encoding (BPE)**, adapted for language modeling in 2016. Its training procedure is simple:
+
+1. Start with a vocabulary of individual characters (or raw bytes).
+2. Count every adjacent pair of symbols in a large text corpus.
+3. Merge the most frequent pair into a single new symbol and add it to the vocabulary.
+4. Repeat until the vocabulary reaches the desired size.
+
+Watch it happen below. This tokenizer learns its merges live from a small corpus. Drag the slider from zero merges (every character separate) upward, and type your own text.
+
+<Tokenizer client:visible />
+
+Notice that words common in the training text quickly become single tokens, while unusual words remain fragmented. Production tokenizers do exactly this over enormous corpora. GPT-2's vocabulary had 50,257 tokens. OpenAI's later tokenizers, and Meta's Llama 3, use vocabularies of roughly 100,000 to 200,000.
+
+<QuickCheck client:visible item={{
+  kind: 'order', id: 'bpe',
+  prompt: 'Order the steps of training a byte-pair encoding tokenizer.',
+  items: ['Start with individual characters or bytes', 'Count adjacent pairs in a large corpus', 'Merge the most frequent pair into a new token', 'Repeat until the vocabulary reaches its target size'],
+  explain: 'BPE greedily merges the most frequent pairs, so common strings end up as single tokens.'
+}} />
+
+## From token to vector
+
+Each token ID is a row number in the model's **embedding table**, a matrix with one row per vocabulary entry. Looking up that row gives the token's initial vector, perhaps several thousand numbers long. These vectors are learned during training like every other parameter. From then on, the model works entirely with vectors; the original text is gone. At the output, the process runs in reverse: the model produces one score per vocabulary entry, and softmax turns the scores into probabilities over the next token.
+
+## Rules of thumb
+
+For English text with modern tokenizers:
+
+- One token is about **four characters**, or about **three quarters of a word**.
+- 1,000 tokens is roughly 750 words, about a page and a half of prose.
+- A 200,000-token context window holds roughly a long novel.
+
+These ratios matter. Context windows, pricing, and rate limits are all denominated in tokens. When a provider charges a few dollars per million tokens, you can now estimate what a task will cost.
+
+## Strange failures, explained
+
+Tokenization explains several failures that once seemed baffling:
+
+- **Spelling and counting letters.** Asked how many r's are in "strawberry," models historically often answered wrongly. The model may see "straw" + "berry" as two tokens, never the individual letters. It has to have *learned* which letters each token contains.
+- **Arithmetic.** Numbers are often split into irregular chunks ("12345" might become "123" + "45"), which complicates digit-by-digit arithmetic. Some tokenizers now split numbers into single digits for this reason.
+- **Odd sensitivity to spacing.** "Hello" and " Hello" (with a leading space) are typically different tokens, so tiny formatting changes can alter behavior.
+
+<Callout type="economy" title="The token tax on other languages">
+Tokenizers are trained mostly on English-heavy data, so other languages fragment into more tokens per word. A 2023 study found that the same content could require up to fifteen times as many tokens in some languages as in English. Because pricing, speed, and context limits are measured in tokens, speakers of those languages pay more and get less. Newer tokenizers trained on more multilingual data narrow, but do not eliminate, the gap.
+</Callout>
+
+<KeyIdea track="t3">The tokenizer is a fixed lens between the world and the model. Everything the model knows about text, it knows through tokens, and some of its blind spots are blind spots of the lens.</KeyIdea>
+
+## Reading the corpus
+
+| When a document says | It means |
+| --- | --- |
+| "vocabulary of 128k" | The tokenizer knows about 128,000 distinct tokens |
+| "trained on 15T tokens" | Data quantity, measured in tokens, not words or documents |
+| "context length 200k" | The model can attend to about 200,000 tokens at once |
+| "$3 per million input tokens" | Pricing per million tokens read by the model |
+| "BPE," "SentencePiece," "tiktoken" | Tokenization algorithms and libraries |
+| "special tokens" | Reserved tokens marking structure, such as the start of a message or the end of text |

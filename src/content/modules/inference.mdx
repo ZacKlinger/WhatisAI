@@ -1,0 +1,134 @@
+---
+title: "Inference: running the model"
+track: t3
+order: 5
+summary: Autoregressive decoding, sampling strategies, the KV cache, latency and cost, and the tricks that make serving billions of requests possible.
+minutes: 24
+level: 3
+prerequisites: [pretraining]
+objectives:
+  - Describe autoregressive generation and the main decoding strategies.
+  - Explain the prefill and decode phases, the KV cache, and what drives latency and cost.
+  - Recognize efficiency techniques such as quantization, distillation, and speculative decoding.
+keyTerms:
+  - term: Autoregressive decoding
+    def: Generating text one token at a time, appending each new token to the context before predicting the next.
+  - term: Prefill
+    def: The first phase of inference, processing the whole prompt in parallel.
+  - term: Decode
+    def: The second phase, generating output tokens one at a time.
+  - term: KV cache
+    def: Stored keys and values for all previous tokens, so they need not be recomputed for each new token.
+  - term: Latency
+    def: How long a user waits, often split into time to first token and time per output token.
+  - term: Quantization
+    def: Storing parameters with fewer bits (for example 8 or 4 instead of 16) to save memory and speed up inference, at some cost in accuracy.
+  - term: Distillation
+    def: Training a smaller "student" model to imitate a larger "teacher" model's outputs.
+sources:
+  - title: The Curious Case of Neural Text Degeneration
+    authors: Holtzman et al.
+    org: ICLR
+    year: 2020
+    url: https://arxiv.org/abs/1904.09751
+  - title: Fast Inference from Transformers via Speculative Decoding
+    authors: Leviathan, Kalman & Matias
+    org: ICML
+    year: 2023
+    url: https://arxiv.org/abs/2211.17192
+  - title: Efficient Memory Management for Large Language Model Serving with PagedAttention
+    authors: Kwon et al.
+    org: SOSP
+    year: 2023
+    url: https://arxiv.org/abs/2309.06180
+  - title: Distilling the Knowledge in a Neural Network
+    authors: Hinton, Vinyals & Dean
+    org: arXiv
+    year: 2015
+    url: https://arxiv.org/abs/1503.02531
+updated: 2026-10-26
+---
+
+import Decoder from '@/components/interactive/Decoder';
+import QuickCheck from '@/components/quiz/QuickCheck';
+
+Training happens once. Inference happens billions of times a day. Every message to an AI assistant, every line of code completed, every agent step is an act of inference: running a trained model forward to produce output. Its mechanics determine how fast models respond, how much they cost, and how much energy they use. They also explain features you see every day, like text streaming onto the screen word by word.
+
+## One token at a time
+
+A language model produces a distribution over the next token. To generate a response, inference runs a loop:
+
+1. Feed in the context (the prompt so far).
+2. Compute the distribution over the next token.
+3. Choose a token according to a **decoding strategy**.
+4. Append it to the context and go back to step 1.
+
+This is **autoregressive decoding**. Try it with a tiny model trained in your browser:
+
+<Decoder client:visible />
+
+The tiny model only knows which words followed each pair of words in its training text, so its output wanders. A transformer considers the entire context through attention and is vastly more capable, but the loop is identical. The model never plans the whole sentence at once in its output, though, as interpretability research has found, it may represent plans internally.
+
+## Decoding strategies
+
+How should step 3 choose?
+
+- **Greedy decoding** always takes the most probable token. It is deterministic and tends toward repetitive, flat text.
+- **Temperature sampling** samples from the distribution after dividing logits by a temperature, trading predictability for variety.
+- **Top-k** samples only from the k most probable tokens. **Top-p** (nucleus sampling) samples from the smallest set whose probabilities sum to p, adapting to how confident the model is.
+
+A 2020 study showed why pure greedy or beam search produces degenerate, repetitive text, and introduced nucleus sampling, now standard. When an API exposes "temperature" and "top_p" settings, these are the knobs.
+
+## Prefill and decode
+
+Inference has two phases with very different characters.
+
+**Prefill** processes the entire prompt at once. All prompt tokens can go through the transformer in parallel, so this phase is compute-heavy but efficient. It determines **time to first token**.
+
+**Decode** generates output tokens one by one. Each new token requires a full pass through the model, but only for one position. The chip must read all the model's parameters from memory to produce each token, so this phase is limited by **memory bandwidth**, not arithmetic. It determines how fast text streams.
+
+This asymmetry is why providers price output tokens higher than input tokens, often several times higher.
+
+<QuickCheck client:visible item={{
+  kind: 'mc', id: 'pricing',
+  prompt: 'Why do AI providers typically charge more per output token than per input token?',
+  choices: ['Output tokens are longer', 'Output tokens must be generated one at a time in the memory-bound decode phase, while input tokens are processed in parallel', 'Input tokens are free to store', 'Output tokens use a different model'],
+  answer: 1,
+  explain: 'Prefill processes the prompt in parallel; decode needs a full memory-bound pass per generated token, making each output token costlier.'
+}} />
+
+## The KV cache
+
+When generating token 501, attention needs the keys and values of tokens 1 through 500. Recomputing them every step would be wasteful, so they are stored: the **KV cache**. It makes each decoding step fast, but it consumes memory that grows with context length and with the number of simultaneous users. For long contexts, the KV cache can exceed the size of the model itself. Much inference engineering, from grouped-query attention to memory-paging systems, exists to shrink or manage it.
+
+## Making inference cheaper
+
+Inference costs have fallen dramatically: the price of reaching a given level of capability has dropped by orders of magnitude since 2022. Techniques include:
+
+- **Quantization.** Storing weights in 8 or 4 bits instead of 16 halves or quarters memory needs and speeds up decoding, usually with modest quality loss.
+- **Distillation.** Training a small model to imitate a large one. Many fast, cheap models are distilled from frontier models.
+- **Batching.** Serving many users at once, so each read of the weights from memory serves many requests.
+- **Speculative decoding.** A small, fast model drafts several tokens; the large model checks them all in one parallel pass, accepting the ones it agrees with. Output quality is unchanged; speed can double or better.
+- **Mixture of experts.** Activating only part of the model per token, as you saw in the transformer module.
+
+<Callout type="economy" title="Labor market lens">
+Falling inference costs change which tasks are economical to automate. A task that costs a dollar of compute may not be worth automating; the same task at a tenth of a cent may be. When you read projections of AI's economic impact, check what they assume about inference prices, which have repeatedly fallen faster than forecast.
+</Callout>
+
+## Inference compute as a new axis
+
+Reasoning models, which you will study in Track IV, generate long internal chains of thought before answering, sometimes tens of thousands of tokens per question. That shifts a growing share of computation from training to inference. A model can now become more capable on a hard problem simply by being allowed to think longer, at higher cost. Policymakers who designed rules around training compute are now grappling with this second axis.
+
+<KeyIdea track="t3">Inference is a loop of predict, choose, append. Its cost is dominated by reading the model's weights for every generated token, which is why output is pricier than input and why so much engineering targets memory.</KeyIdea>
+
+## Reading the corpus
+
+| When a document says | It means |
+| --- | --- |
+| "TTFT," "tokens per second" | Time to first token; generation speed |
+| "temperature 0.7, top_p 0.95" | Sampling settings |
+| "KV cache" | Stored keys and values from earlier tokens |
+| "int8," "4-bit quantized" | Weights stored with fewer bits |
+| "distilled from" | Trained to imitate a larger model |
+| "speculative decoding" | Drafting with a small model and verifying with a large one |
+| "test-time compute," "inference-time scaling" | Spending more computation when answering to improve quality |
