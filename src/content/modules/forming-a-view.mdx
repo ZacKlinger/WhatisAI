@@ -1,0 +1,125 @@
+---
+title: "Forming your own view"
+track: t9
+order: 5
+summary: The capstone. How to reason under deep uncertainty about AI, weigh expert disagreement, make and track calibrated forecasts, and build a reading practice that keeps you at the frontier for years.
+minutes: 30
+level: 5
+prerequisites: [reading-a-scaling-paper, reading-an-alignment-paper, measuring-progress, evidence-on-work]
+objectives:
+  - Apply base rates, the outside view, and calibration to claims about AI's future.
+  - Identify the cruxes behind major disagreements about AI, and what evidence would resolve them.
+  - Build a sustainable practice for reading new frontier documents as they appear.
+keyTerms:
+  - term: Outside view (reference class forecasting)
+    def: Predicting by looking at how similar situations turned out, rather than reasoning only from the specifics of the case at hand.
+  - term: Inside view
+    def: Predicting by reasoning from the specific mechanisms and details of the case.
+  - term: Crux
+    def: A belief that, if you changed your mind about it, would change your overall conclusion.
+  - term: Brier score
+    def: "A measure of forecast accuracy: the average squared difference between stated probabilities and outcomes. Lower is better."
+  - term: Steelmanning
+    def: Stating the strongest version of a view you disagree with before responding to it.
+  - term: Epistemic humility
+    def: Holding beliefs with confidence proportional to the evidence, and expecting to be wrong sometimes.
+sources:
+  - title: "Superforecasting: The Art and Science of Prediction"
+    authors: Tetlock & Gardner
+    org: Crown
+    year: 2015
+    url: https://goodjudgment.com/resources/the-superforecasters-track-record/
+  - title: Thousands of AI Authors on the Future of AI
+    authors: Grace et al.
+    org: arXiv
+    year: 2024
+    url: https://arxiv.org/abs/2401.02843
+  - title: International AI Safety Report 2026
+    org: International panel chaired by Yoshua Bengio
+    year: 2026
+    url: https://internationalaisafetyreport.org/publication/international-ai-safety-report-2026
+  - title: Verification of forecasts expressed in terms of probability
+    authors: Glenn W. Brier
+    org: Monthly Weather Review
+    year: 1950
+    url: https://doi.org/10.1175/1520-0493(1950)078%3C0001:VOFEIT%3E2.0.CO;2
+updated: 2026-10-26
+---
+
+import Doubling from '@/components/interactive/Doubling';
+import QuickCheck from '@/components/quiz/QuickCheck';
+
+You have come a long way. You can read the equations in a scaling paper, interpret the figures in an interpretability study, judge the evidence behind a capability claim, separate a system card's measurements from its judgments, and find the teeth in a regulation. The last skill is the one all the others serve: forming your own view about a field where the experts themselves disagree profoundly, and holding that view with exactly the confidence the evidence warrants.
+
+## The shape of the disagreement
+
+Serious, informed people disagree about almost every big question in AI:
+
+- **How fast will capabilities advance?** Some lab leaders have predicted AI systems matching or exceeding top human experts across most cognitive work within a few years. Many economists and researchers expect a slower, more uneven path.
+- **How large will the economic effects be?** Estimates range from modest productivity gains over a decade to transformative acceleration of growth.
+- **How serious are the risks?** Some researchers regard catastrophic risks from advanced AI as among the most important problems of the century; others regard them as speculative distractions from present harms.
+
+Surveys capture this spread. A 2023 survey of 2,778 researchers who had published at top AI venues, reported in 2024, produced an aggregate forecast of a 50% chance that machines could outperform humans at every task by 2047, thirteen years earlier than the same survey had estimated a year before. The individual answers ranged across decades. The 2026 International AI Safety Report similarly recorded disagreement among experts on timelines, labor effects, and risk.
+
+When experts disagree this much, deferring to "the experts" is not available. You need a method.
+
+## Outside view, inside view
+
+**The inside view** reasons from the specifics: this model can do X, the trend in Y is steep, therefore Z. **The outside view** asks how similar predictions have fared before. Both are necessary.
+
+The outside view counsels humility in both directions. Technology forecasters have often been too optimistic about timelines: AI itself has gone through two winters after promises outran results. But in the deep learning era, experts have also repeatedly been too *pessimistic* about specific capabilities: benchmarks built to last a decade fell in two or three years, and surveyed researchers moved their own forecasts sharply earlier between 2022 and 2023. A good forecaster holds both lessons at once.
+
+## Trends and their limits
+
+You have met several strong trends: compute growing about five times per year, algorithmic efficiency compounding on top, time horizons doubling every few months. The inside view says extrapolate. The outside view says trends bend. Revisit the question with what you now know:
+
+<Doubling client:visible />
+
+Ask of any extrapolation: what would make this trend bend? Running out of data? Energy? Capital? Hard tasks that do not yield to the same methods? Regulation? Naming the bending forces, and watching for evidence of them, is more useful than a single point forecast.
+
+## Find the cruxes
+
+When you disagree with someone about AI, or when two papers seem to point in opposite directions, look for the **crux**: the specific belief which, if it changed, would change the conclusion. For example:
+
+- "Will AI cause mass unemployment?" often turns on a crux about *elasticity of demand*: when AI makes a service cheaper, does demand grow enough to employ the same people?
+- "Is catastrophic risk worth prioritizing?" often turns on cruxes about *whether goal-directed agency emerges* in more capable systems, and whether *alignment techniques keep pace*.
+- "Will scaling continue?" often turns on whether *new sources of training signal*, like reinforcement learning on verifiable tasks, keep delivering.
+
+Cruxes turn unproductive arguments into research questions. They also tell you what to watch in the signals feed.
+
+<QuickCheck client:visible item={{
+  kind: 'mc', id: 'crux',
+  prompt: 'Two analysts disagree about whether AI will reduce employment in accounting. Which question is most likely their crux?',
+  choices: ['Whether AI is impressive', 'Whether cheaper accounting services will increase demand enough to offset fewer hours per task', 'Which company makes the best model', 'Whether accountants like AI'],
+  answer: 1,
+  explain: 'The employment effect of a productivity gain hinges on how demand responds to lower costs.'
+}} />
+
+## Steelman, then decide
+
+Before rejecting a view, state its strongest form. The strongest case that AI risk is overstated is not "AI is just autocomplete"; it is an argument about the gap between capability and coherent agency, and about the track record of doom predictions. The strongest case that AI risk is serious is not science fiction; it is the combination of rapid capability growth, demonstrated failures of alignment techniques in controlled experiments, and the asymmetry between reversible and irreversible mistakes. You now have the knowledge to evaluate both in their strongest forms.
+
+<KeyIdea track="t9">Fluency is not having the right opinion about AI. It is being able to state the strongest version of each view, identify the evidence that would decide between them, and update when that evidence arrives.</KeyIdea>
+
+## Calibration as a discipline
+
+Philip Tetlock's research on forecasting found that a small fraction of people, "superforecasters," made consistently better probabilistic predictions than others, including domain experts. Their habits are learnable: they break questions into parts, start from base rates, update incrementally on new evidence, express beliefs as numbers, and track their accuracy.
+
+You have been practicing this throughout the path. Every confidence wager you made fed a calibration record, scored with the same Brier score used to evaluate forecasters. Look at yours on the progress page. If your 90% answers are right 90% of the time, your sense of your own knowledge is trustworthy. If not, you know which way to adjust.
+
+Extend the practice beyond the site. When you read a claim, write down your probability that it will hold up. When a forecastable question appears, such as whether a benchmark will be saturated by a date or whether a law will be enforced, record a number. Check back. Nothing improves judgment faster than being visibly wrong and adjusting.
+
+## A reading practice for the long run
+
+The frontier will keep moving after you finish this path. A sustainable practice:
+
+1. **Scan signals weekly.** The watcher surfaces what is significant and links the background modules. Use the trend radar to see which topics are rising.
+2. **Read one primary document a week.** Use the three-pass method. Most documents deserve only a first pass; one a week deserves a second.
+3. **Keep the review deck alive.** Ten minutes of spaced review a few times a week keeps the foundations sharp.
+4. **Read across institutions.** For any major claim, read what the lab says, what an independent evaluator says, and what a skeptic says.
+5. **Track your forecasts.** Write down predictions with probabilities, and score yourself.
+6. **Teach someone.** Explaining a paper to someone else is the fastest way to find the gaps in your own understanding.
+
+## Where you are now
+
+Open the research library. Filter by "Ready to read." The documents listed there, papers from Anthropic, OpenAI, and Google DeepMind, system cards, the EU AI Act, California's SB 53, the International AI Safety Report, are now within your reach. You do not need anyone to summarize them for you. That was the goal.

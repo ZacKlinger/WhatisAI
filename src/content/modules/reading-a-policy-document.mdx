@@ -1,0 +1,138 @@
+---
+title: "Guided reading: the EU General-Purpose AI Code of Practice"
+track: t9
+order: 4
+summary: A guided reading of the 2025 code that tells frontier developers how to comply with the EU AI Act, compared with California's SB 53. Practice extracting obligations, mechanisms, and gaps from real policy texts.
+minutes: 38
+level: 5
+prerequisites: [reading-policy, eu-ai-act, safety-frameworks]
+objectives:
+  - Map the structure of the General-Purpose AI Code of Practice to the AI Act articles it implements.
+  - Extract the main commitments of the Safety and Security chapter and explain how they relate to frontier safety frameworks.
+  - Compare the Code with California's SB 53 and identify what each does and does not require.
+keyTerms:
+  - term: Code of Practice (GPAI)
+    def: A voluntary instrument, published in July 2025, that general-purpose model providers can sign to demonstrate compliance with their AI Act obligations.
+  - term: Model Documentation Form
+    def: The Code's standardized template for documenting a general-purpose model for the AI Office and downstream providers.
+  - term: Safety and Security Framework
+    def: Under the Code, a signatory's documented approach to identifying, analyzing, and mitigating systemic risks, analogous to a frontier safety framework.
+  - term: Safety and Security Model Report
+    def: A report a signatory provides to the AI Office documenting its systemic-risk assessment and mitigations for a specific model.
+  - term: Systemic risk acceptance
+    def: The Code's step in which a provider determines whether a model's systemic risks are acceptable before proceeding.
+sources:
+  - title: The General-Purpose AI Code of Practice
+    org: European Commission
+    year: 2025
+    url: https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai
+  - title: Regulation (EU) 2024/1689 (Artificial Intelligence Act), Articles 53 and 55
+    org: Official Journal of the European Union
+    year: 2024
+    url: https://eur-lex.europa.eu/eli/reg/2024/1689/oj
+  - title: SB 53 bill text
+    org: California Legislature
+    year: 2025
+    url: https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB53
+updated: 2026-10-26
+---
+
+import QuickCheck from '@/components/quiz/QuickCheck';
+
+Laws state obligations in general terms. Codes, standards, and guidance turn them into practice. The EU's **General-Purpose AI Code of Practice**, published in July 2025, is where the AI Act's obligations for frontier models became concrete. It was drafted over nearly a year by independent experts with input from about a thousand stakeholders, and most major frontier developers signed it. Reading it shows you how a regulator thinks a frontier lab should manage catastrophic risk.
+
+## Before you open it
+
+Use the seven questions from the policy-reading module.
+
+1. **Instrument:** a voluntary code. Signing it is a recognized way to demonstrate compliance with Articles 53 and 55 of the AI Act; non-signatories must demonstrate compliance some other way and may face more scrutiny.
+2. **Scope:** providers of general-purpose AI models placed on the EU market. The Safety and Security chapter applies only to models with systemic risk.
+3. **Obligations:** what follows below.
+4. **Enforcement:** the AI Office supervises; obligations under the Act itself are enforceable with fines.
+5. **Timing:** published July 2025; GPAI obligations applied from August 2025, with Commission enforcement powers from August 2026.
+6. **Delegation:** the Code refers to AI Office templates and guidance, and anticipates updates.
+7. **Gaps:** keep a list as you read.
+
+## First pass: the structure
+
+The Code has three chapters, each mapped to obligations in the Act:
+
+| Chapter | Implements | Applies to |
+| --- | --- | --- |
+| **Transparency** | Article 53 documentation duties | All GPAI providers |
+| **Copyright** | Article 53 copyright policy duty | All GPAI providers |
+| **Safety and Security** | Article 55 systemic-risk duties | Providers of models with systemic risk |
+
+The first two are relatively short. The Safety and Security chapter is the long one, and the one that matters most for frontier AI.
+
+<QuickCheck client:visible item={{
+  kind: 'match', id: 'chapters',
+  prompt: 'Match each chapter of the Code to what it centers on.',
+  pairs: [
+    ['Transparency', 'A Model Documentation Form for the AI Office and downstream providers'],
+    ['Copyright', 'A copyright policy, including respecting machine-readable opt-outs'],
+    ['Safety and Security', 'Frameworks, risk assessment, mitigations, and incident reporting for systemic-risk models'],
+  ],
+  explain: 'Each chapter operationalizes specific AI Act obligations.'
+}} />
+
+## Second pass: Transparency and Copyright
+
+**Transparency.** Signatories document their models using a standardized **Model Documentation Form**, covering items such as architecture, training process, data, compute and energy use, and intended uses. Some information goes to the AI Office on request, some to downstream providers who build on the model. Note the tiering: not everything documented is published.
+
+**Copyright.** Signatories adopt a copyright policy, respect machine-readable rights reservations such as robots.txt when crawling, avoid circumventing technical protections like paywalls, take steps to mitigate infringing outputs, and provide a way for rights holders to complain.
+
+## Second pass: Safety and Security
+
+This chapter reads like a regulator's version of a frontier safety framework. Its commitments follow a lifecycle:
+
+1. **Framework.** Adopt a **Safety and Security Framework** describing how the provider will assess and manage systemic risks, and keep it up to date.
+2. **Risk identification.** Identify systemic risks, including a set of specified risks such as chemical, biological, radiological, and nuclear threats, cyber offense, harmful manipulation, and loss of control.
+3. **Risk analysis.** Analyze each risk with model evaluations, including state-of-the-art testing of capabilities and propensities, and with modeling of how harm could occur.
+4. **Risk acceptance.** Determine, against criteria defined in advance, whether the risks are acceptable, before proceeding with development or deployment.
+5. **Mitigations.** Implement safety mitigations (such as refusal training, monitoring, staged access) and security mitigations (protecting model weights against theft) proportionate to the risk.
+6. **Model report.** Document all of this in a **Safety and Security Model Report** to the AI Office.
+7. **Responsibility.** Allocate internal responsibility for systemic risk, with adequate resources and a culture that supports raising concerns.
+8. **Incident reporting.** Track serious incidents and report them to the AI Office within deadlines measured in days, shorter for more severe incidents.
+
+Compare this with the frontier safety frameworks from Track VI. The structure is familiar: thresholds and acceptance criteria, evaluations, mitigations, documentation. The difference is that here the structure is specified by a regulator, documented to a regulator, and backed by a law.
+
+<KeyIdea track="t9">The Code's Safety and Security chapter turns the voluntary frontier safety framework into a regulated process: identify, analyze, decide acceptability in advance, mitigate, document to the regulator, and report incidents.</KeyIdea>
+
+## Third pass: compare with SB 53
+
+Put the Code beside California's SB 53.
+
+| Question | EU Code of Practice | California SB 53 |
+| --- | --- | --- |
+| Instrument | Voluntary code under a binding law | Binding state statute |
+| Who is covered | GPAI providers; systemic-risk chapter for models above 10<sup>25</sup> FLOP or designated | Frontier developers above 10<sup>26</sup> operations; heaviest duties above $500M revenue |
+| Framework required? | Yes, a Safety and Security Framework | Yes, a published frontier AI framework |
+| Contents prescribed? | In considerable detail | In general terms; the developer defines specifics |
+| Who sees the details? | Much goes to the AI Office, not the public | Framework and transparency reports are public |
+| Incident reporting | To the AI Office | To California's Office of Emergency Services |
+| Teeth | AI Act fines, enforcement from August 2026 | Attorney General, up to $1M per violation |
+
+Two different philosophies emerge. The EU prescribes process in detail but keeps much of the reporting confidential to the regulator. California prescribes less but requires public disclosure, relying on transparency and reputation. Each has a characteristic gap: the EU approach depends on the AI Office's capacity to scrutinize what it receives; the California approach depends on developers writing meaningful frameworks and on the public reading them.
+
+<QuickCheck client:visible item={{
+  kind: 'mc', id: 'compare',
+  prompt: 'What is a key difference between the EU Code of Practice and California’s SB 53?',
+  choices: ['Only SB 53 requires a safety framework', 'The Code prescribes risk processes in detail with much reporting to the regulator; SB 53 prescribes less but requires public disclosure', 'The Code is binding law; SB 53 is voluntary', 'They are identical'],
+  answer: 1,
+  explain: 'Detailed process with confidential reporting versus general requirements with public transparency.'
+}} />
+
+## Gaps to note
+
+- **Voluntariness.** Developers who decline to sign must show compliance otherwise; the practical difference depends on enforcement.
+- **Self-assessment.** Risk acceptance decisions are made by the provider, with documentation to the regulator rather than prior approval.
+- **Confidentiality.** Much of what the AI Office receives is not public, limiting outside scrutiny.
+- **Pace.** The Code anticipates updates, but capabilities move faster than codes are revised.
+
+## Your reading checklist, practiced
+
+- **Instrument and scope:** a voluntary code implementing binding law, for GPAI providers, with a chapter for systemic-risk models.
+- **Obligations:** documentation, copyright policy, and a full systemic-risk lifecycle with incident reporting.
+- **Teeth:** AI Act enforcement by the AI Office.
+- **Gaps:** self-assessment, confidentiality, and the capacity of the regulator.

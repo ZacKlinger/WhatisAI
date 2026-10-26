@@ -8,5 +8,6 @@ import { t5 } from './t5';
 import { t6 } from './t6';
 import { t7 } from './t7';
 import { t8 } from './t8';
+import { t9 } from './t9';
 
-export const items: ItemBank = { ...t0, ...t1, ...t2, ...t3, ...t4, ...t5, ...t6, ...t7, ...t8 };
+export const items: ItemBank = { ...t0, ...t1, ...t2, ...t3, ...t4, ...t5, ...t6, ...t7, ...t8, ...t9 };

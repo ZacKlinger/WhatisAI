@@ -1,0 +1,126 @@
+---
+title: "Guided reading: Chinchilla"
+track: t9
+order: 1
+summary: A pass-by-pass reading of DeepMind's 2022 paper that rewrote how frontier models are trained. You will read its figures, test its claims, and see how a replication refined it.
+minutes: 40
+level: 5
+prerequisites: [scaling-laws, reading-the-corpus]
+objectives:
+  - Read the Chinchilla paper in three passes and state its central claim with its qualifiers.
+  - Interpret its IsoFLOP figures and explain how its three methods triangulate a result.
+  - Evaluate the paper critically, including why it disagreed with Kaplan et al. and what a later replication found.
+keyTerms:
+  - term: IsoFLOP profile
+    def: A curve of final loss against model size for training runs that all used the same compute budget.
+  - term: Compute-optimal frontier
+    def: The set of model-size and data choices that minimize loss for each compute budget.
+  - term: Parametric fit
+    def: Fitting a formula with a few free constants to experimental results, so it can be extrapolated.
+  - term: Triangulation
+    def: Reaching a conclusion through several independent methods, so that its validity does not rest on any one.
+sources:
+  - title: Training Compute-Optimal Large Language Models
+    authors: Hoffmann et al.
+    org: Google DeepMind
+    year: 2022
+    url: https://arxiv.org/abs/2203.15556
+  - title: Scaling Laws for Neural Language Models
+    authors: Kaplan et al.
+    org: OpenAI
+    year: 2020
+    url: https://arxiv.org/abs/2001.08361
+  - title: "Chinchilla Scaling: A replication attempt"
+    authors: Besiroglu, Erdil, Barnett & You
+    org: Epoch AI
+    year: 2024
+    url: https://arxiv.org/abs/2404.10102
+  - title: "LLaMA: Open and Efficient Foundation Language Models"
+    authors: Touvron et al.
+    org: Meta
+    year: 2023
+    url: https://arxiv.org/abs/2302.13971
+updated: 2026-10-26
+---
+
+import ScalingLaws from '@/components/interactive/ScalingLaws';
+import QuickCheck from '@/components/quiz/QuickCheck';
+
+This is the first of four guided readings. Each takes a landmark document from the frontier corpus and walks through it the way an experienced researcher would: in passes, figure first, claims checked against evidence. Open the paper in another tab as you go. The point is not to learn about the paper; it is to practice reading it.
+
+## Before you open it
+
+Know the context. In 2020, OpenAI's Kaplan et al. had shown that loss falls as a power law in parameters, data, and compute, and had recommended that, as compute grows, most of it should go to making models *bigger*. The industry followed: GPT-3 had 175 billion parameters trained on 300 billion tokens, and DeepMind's own Gopher had 280 billion parameters on a similar amount of data.
+
+**The question the paper asks:** given a fixed compute budget, how should you divide it between model size (*N*) and training data (*D*)?
+
+## First pass: five minutes
+
+Read the title, abstract, and the first figure. You should come away able to state:
+
+- **The claim:** for compute-optimal training, model size and training tokens should be scaled in *equal proportion*. Every doubling of model size should come with a doubling of training tokens.
+- **The implication:** current large models were significantly **undertrained**.
+- **The demonstration:** a 70-billion-parameter model, **Chinchilla**, trained on 1.4 trillion tokens with the same compute as Gopher, outperforms Gopher (280B) and other larger models across a wide range of evaluations.
+
+Notice how the abstract structures this: claim, implication, demonstration. Good abstracts do this. Also notice what a strong claim it is: it contradicts the previous standard practice of the field's leading labs.
+
+<QuickCheck client:visible item={{
+  kind: 'mc', id: 'claim',
+  prompt: 'Which sentence best states the Chinchilla paper’s central claim, with its qualifier intact?',
+  choices: ['Smaller models are better', 'For a fixed compute budget, model size and training tokens should grow in roughly equal proportion', 'Data is more important than parameters', 'Scaling laws do not hold'],
+  answer: 1,
+  explain: 'The qualifier "for a fixed compute budget" (compute-optimal) is essential. The paper does not claim smaller models are better in general.'
+}} />
+
+## Second pass: the method
+
+The authors trained **over 400 models**, from about 70 million to over 16 billion parameters, on 5 billion to 500 billion tokens. They then estimated the optimal allocation in three different ways. This is **triangulation**: if three methods with different assumptions agree, the conclusion is more trustworthy than any one alone.
+
+**Approach 1: fix model sizes, vary training length.** For each model size, they trained runs of different lengths and recorded loss along the way. For each compute level, they took the lowest loss achieved by any model, tracing a frontier, and asked which size achieved it.
+
+**Approach 2: IsoFLOP profiles.** This is the paper's most famous figure, and the one to study closely. For each of several fixed compute budgets, they trained models of different sizes, adjusting the number of tokens so that every run used exactly that budget. Plotting final loss against model size gives a U-shaped curve for each budget: too small a model and it cannot absorb the data; too big and it sees too little. The bottom of each U is the optimal size for that budget.
+
+Rebuild the figure yourself. Each curve below is an IsoFLOP profile.
+
+<ScalingLaws client:visible />
+
+**Approach 3: parametric fit.** They fit a formula, loss = E + A/N<sup>α</sup> + B/D<sup>β</sup>, to all the runs. *E* is the irreducible loss of the text itself; the other two terms are the penalties for finite model size and finite data. Minimizing the formula subject to a compute budget gives the optimal allocation directly.
+
+**The results.** All three approaches found that the optimal model size and the optimal number of tokens grow at nearly the same rate with compute: each roughly as the square root of compute, with exponents near 0.5. Kaplan et al. had found an exponent of about 0.73 for model size, meaning parameters should grow much faster than data. The practical rule that emerged: about **20 tokens per parameter**.
+
+<KeyIdea track="t9">The paper's strength is triangulation. Three methods with different assumptions converge on the same answer, which is why its conclusion changed industry practice almost immediately.</KeyIdea>
+
+## Second pass: the demonstration
+
+A scaling-law paper makes predictions; the Chinchilla model tests one. Using Gopher's compute budget, the laws predicted that a model of about 70 billion parameters trained on about 1.4 trillion tokens would be optimal. They trained it, and it beat Gopher on a wide range of benchmarks, improving on the massive multitask benchmark MMLU by about 7 percentage points. A prediction confirmed by an expensive experiment is the strongest evidence in the paper.
+
+## Third pass: reading critically
+
+Now challenge it, as a reviewer would.
+
+**Why did Kaplan get a different answer?** The Chinchilla authors attributed much of the discrepancy to experimental choices. In particular, Kaplan et al. used a learning-rate schedule that was not adjusted to each run's length, which disadvantages shorter runs and biases the analysis toward larger models. Small details of training protocols can change scaling conclusions, which is a lesson about how fragile even "laws" can be.
+
+**Does it replicate?** In 2024, researchers at Epoch AI tried to reproduce the third approach from data extracted from the paper's figures. They found that the published parametric fit was inconsistent with the paper's own data and the other two approaches, likely due to an optimization issue. Their corrected fit, used in the instrument above, agrees with the other approaches and the 20-tokens-per-parameter conclusion. The headline survived; one of its three supports had a crack. This is how science is supposed to work, and it is why you check for replications.
+
+**Is compute-optimal what you want?** The paper optimizes *training* compute. But a model that will serve billions of requests should arguably be smaller and trained longer, trading training efficiency for cheaper inference. In 2023, Meta's LLaMA paper did exactly this, training a 7B model on a trillion tokens, far beyond the Chinchilla ratio. The paper answered the question it asked; the industry's question had more terms in it.
+
+**What does it not address?** Data quality and repetition (it assumes effectively unlimited fresh data), downstream capabilities beyond loss, and the inference-time scaling that would become central two years later.
+
+<QuickCheck client:visible item={{
+  kind: 'multi', id: 'critique',
+  prompt: 'Which are fair critical observations about the Chinchilla paper?',
+  choices: ['Its parametric fit (approach 3) was later found to have an error, though the conclusion held', 'It optimizes training compute, not the total cost of training plus inference', 'It was never replicated or tested', 'It assumes access to effectively unlimited fresh data'],
+  answers: [0, 1, 3],
+  explain: 'The paper was both tested (by training Chinchilla) and later replicated; its scope limits are fair critiques.'
+}} />
+
+## What it changed
+
+Within a year, the field's models were trained on far more data relative to their size, and the conversation shifted from "how big?" to "how much data, and how good?" That shift fed directly into concerns about running out of high-quality text, into investment in data quality and synthetic data, and eventually into the turn toward reinforcement learning as a new source of training signal. One careful paper redirected billions of dollars of compute.
+
+## Your reading checklist, practiced
+
+- **Claim with qualifiers:** equal scaling of parameters and data, *for compute-optimal training*.
+- **Evidence:** 400+ training runs, three methods, and a confirmed prediction.
+- **Strength of evidence:** high, through triangulation and a costly test; one method later corrected.
+- **What follows:** undertrained models; the data constraint becomes central.

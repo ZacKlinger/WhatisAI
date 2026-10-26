@@ -1,0 +1,121 @@
+---
+title: "Guided reading: Scaling Monosemanticity"
+track: t9
+order: 2
+summary: A guided reading of Anthropic's 2024 paper that extracted millions of interpretable features from Claude 3 Sonnet, followed by its 2025 successor on attribution graphs. Learn to separate interpretation from evidence in interpretability research.
+minutes: 40
+level: 5
+prerequisites: [sparse-autoencoders, reading-the-corpus]
+objectives:
+  - Read Scaling Monosemanticity and state what it demonstrates and what it explicitly does not.
+  - Distinguish the kinds of evidence interpretability papers use, from activating examples to causal interventions.
+  - Read an attribution graph claim critically, using the 2025 "Biology" paper as the case.
+keyTerms:
+  - term: Activating examples
+    def: The inputs on which a feature fires most strongly, used to guess what the feature represents.
+  - term: Automated interpretability
+    def: Using a language model to describe or score features at scale.
+  - term: Feature splitting
+    def: The tendency for a single feature in a small dictionary to divide into several more specific features in a larger one.
+  - term: Clamping
+    def: Fixing a feature's activation at a chosen value during a forward pass to test its causal effect.
+sources:
+  - title: "Scaling Monosemanticity: Extracting Interpretable Features from Claude 3 Sonnet"
+    authors: Templeton et al.
+    org: Anthropic
+    year: 2024
+    url: https://transformer-circuits.pub/2024/scaling-monosemanticity/index.html
+  - title: On the Biology of a Large Language Model
+    authors: Lindsey et al.
+    org: Anthropic
+    year: 2025
+    url: https://transformer-circuits.pub/2025/attribution-graphs/biology.html
+  - title: Golden Gate Claude
+    org: Anthropic
+    year: 2024
+    url: https://www.anthropic.com/news/golden-gate-claude
+  - title: Scaling and evaluating sparse autoencoders
+    authors: Gao et al.
+    org: OpenAI
+    year: 2024
+    url: https://arxiv.org/abs/2406.04093
+updated: 2026-10-26
+---
+
+import QuickCheck from '@/components/quiz/QuickCheck';
+
+Interpretability papers are among the most striking documents in the frontier corpus and among the easiest to over-read. They are full of evocative examples, a "Golden Gate Bridge feature," a "deception feature," and it is tempting to conclude that researchers can now read a model's mind. This reading teaches the discipline the papers themselves practice: separating what the evidence shows from what the examples suggest.
+
+## Before you open it
+
+Context: superposition means a model packs far more concepts than it has neurons into overlapping directions. Anthropic's 2023 "Towards Monosemanticity" showed that sparse autoencoders could recover clean features from a tiny one-layer model. **The question of this paper:** does the method scale to a production frontier model, and are the features it finds meaningful and safety-relevant?
+
+Note the format. Anthropic's interpretability papers are published on the Transformer Circuits site, not as conventional PDFs. They are long, interactive, and organized around many small investigations. Reading them in passes is essential.
+
+## First pass
+
+Read the introduction, the summary of results, and skim the section headings and the large figures. The claims:
+
+1. Sparse autoencoders scale to Claude 3 Sonnet, a production model. The authors trained dictionaries with about 1 million, 4 million, and 34 million features on activations from the middle of the model.
+2. The resulting features are often highly abstract: multilingual, multimodal (responding to text and images of the same concept), and generalizing between concrete and abstract references.
+3. Features can be used to **steer** the model, and steering effects are consistent with the feature interpretations.
+4. Some features are **safety-relevant**, related to deception, sycophancy, bias, power-seeking, dangerous content, and security vulnerabilities in code.
+
+Equally important, find the paper's statements of what it does *not* show. The authors are explicit that they have found only a fraction of the model's features, that finding a feature related to deception does not mean they can detect deception, and that their methods are expensive and incomplete.
+
+## Second pass: kinds of evidence
+
+As you read the investigations, sort the evidence into three strengths.
+
+**Weak: activating examples.** The inputs that most strongly activate a feature suggest what it represents. A feature whose top examples are all about the Golden Gate Bridge is probably about the bridge. But top examples can mislead: a feature might respond to something correlated with the bridge, or have different meanings at lower activation levels.
+
+**Medium: specificity and breadth analyses.** The authors check how often a feature fires on text that is *not* about its supposed concept, and whether it fires across languages and modalities. They also use automated interpretability, having Claude rate how well a description matches activations, at scale.
+
+**Strong: causal interventions.** If you clamp the feature high and the model's behavior changes in the predicted way, the feature is not merely correlated with the concept; it influences the computation. Clamping the Golden Gate Bridge feature made the model identify as the bridge. Clamping a feature associated with scam emails led the model, which normally refuses, to draft one. These interventions are the paper's strongest evidence.
+
+<QuickCheck client:visible item={{
+  kind: 'order', id: 'evidence',
+  prompt: 'Order these kinds of interpretability evidence from weakest to strongest.',
+  items: ['Top activating examples suggest a concept', 'Specificity checks show the feature rarely fires on unrelated text', 'Clamping the feature changes behavior as predicted'],
+  explain: 'Correlation in examples is suggestive; specificity rules out confounds; causal intervention shows the feature does work in the computation.'
+}} />
+
+<KeyIdea track="t9">In interpretability research, a feature's label is a hypothesis. Activating examples propose it, specificity tests constrain it, and causal interventions test it.</KeyIdea>
+
+## Second pass: the safety-relevant features
+
+This section drew the most attention, and deserves the most careful reading. The authors found features that fire on discussions of deception, on sycophantic praise, on code with security vulnerabilities, and on dangerous content such as weapons. Some activated when the model itself was, in a scenario, being deceptive or sycophantic.
+
+Read the exact claims. The paper argues these features *exist* and *can affect behavior*. It does not claim that monitoring them is a reliable deception detector, or that the absence of such activations demonstrates safety. The authors frame these findings as a promising direction for future safety tools, not as tools in hand.
+
+## Third pass: limitations
+
+- **Coverage.** The features found are likely a small fraction of what the model represents. The authors note that representing all of the model's concepts might require far larger dictionaries than they trained.
+- **Dark matter.** The dictionaries do not perfectly reconstruct the activations; some of the computation is unexplained.
+- **One layer.** Features were extracted from one point in the model. How they are computed and used across layers is left open.
+- **Cost.** Training these dictionaries required substantial compute, raising questions about applying the method to every frontier model.
+
+## The sequel: attribution graphs
+
+In 2025, "On the Biology of a Large Language Model" pushed from features to mechanisms, tracing how features influence each other for specific prompts in Claude 3.5 Haiku. Read its claims with the same discipline. A finding like "the model plans its rhyme before writing the line" rests on an attribution graph (a hypothesis about the computation) plus interventions: suppressing the planned word and observing the model write toward a different rhyme. The intervention is what makes the claim strong.
+
+Note also the paper's candor: the authors report that their method provided satisfying insight for only about a quarter of the prompts they tried, and that the graphs explain the computation of a *replacement model*, an approximation, rather than the original model directly.
+
+<QuickCheck client:visible item={{
+  kind: 'mc', id: 'deception-claim',
+  prompt: 'Which statement does Scaling Monosemanticity support?',
+  choices: ['Anthropic can now reliably detect whether Claude is lying', 'Features related to deception exist in the model and can influence its behavior, a promising direction for future tools', 'Claude is deceptive', 'All of Claude’s features have been found'],
+  answer: 1,
+  explain: 'Existence and causal influence are shown; reliable detection and completeness are explicitly not claimed.'
+}} />
+
+## What it changed
+
+The paper demonstrated, for the first time, that dictionary learning works on a frontier production model, and Golden Gate Claude made the result vivid to the public. OpenAI published comparable work on GPT-4 within weeks. It also sharpened the field's questions: whether such features are the right unit of analysis, whether they can scale, and whether they beat simpler tools for practical safety tasks, a debate that continued through 2025 and 2026.
+
+## Your reading checklist, practiced
+
+- **Claim with qualifiers:** SAEs extract many interpretable, often abstract and causal features from a frontier model; safety-relevant features exist.
+- **Evidence:** activating examples, specificity analyses, automated interpretability, and causal steering.
+- **Strength:** strong for existence and causal influence of specific features; weak for completeness or deployable safety tools.
+- **What follows:** interpretability is feasible at scale in principle; practical safety value remains to be shown.
