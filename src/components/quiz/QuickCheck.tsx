@@ -7,7 +7,7 @@ export default function QuickCheck({ item, title = 'Quick check' }: { item: Item
     <div className="widget">
       <div className="widget-head">
         <div className="widget-title">{title}</div>
-        <div className="widget-kicker">Retrieval practice · not scored</div>
+        <div className="widget-kicker">Not scored</div>
       </div>
       <ItemView item={item} compact />
     </div>

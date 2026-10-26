@@ -168,7 +168,7 @@ export default function ItemView({ item, seed = item.id, wager = false, explain 
       Object.entries(pairs).forEach(([l, r]) => usedRight.set(r, Number(l)));
       body = (
         <div>
-          <div className="xsmall faint" style={{ marginBottom: 10 }}>Tap an item on the left, then its match on the right.</div>
+          <div className="xsmall faint" style={{ marginBottom: 10 }}>Tap an item, then its match.</div>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
             <div className="stack" style={{ ['--stack' as string]: '8px' }}>
               {item.pairs.map((p, i) => {
@@ -222,7 +222,7 @@ export default function ItemView({ item, seed = item.id, wager = false, explain 
     case 'order':
       body = (
         <div>
-          <div className="xsmall faint" style={{ marginBottom: 10 }}>Drag, or use the arrows, to put these in order (first at top).</div>
+          <div className="xsmall faint" style={{ marginBottom: 10 }}>Drag or use the arrows. First goes on top.</div>
           <ol className="stack" style={{ ['--stack' as string]: '8px', listStyle: 'none', padding: 0, margin: 0 }}>
             {order.map((idx, pos) => {
               const ok = submitted && idx === pos;
@@ -290,7 +290,7 @@ export default function ItemView({ item, seed = item.id, wager = false, explain 
     case 'hotspot':
       body = (
         <div>
-          <div className="xsmall faint" style={{ marginBottom: 8 }}>Click the part of the figure that answers the question.</div>
+          <div className="xsmall faint" style={{ marginBottom: 8 }}>Click your answer on the figure.</div>
           <Figure spec={item.figure} selected={spot} onSelect={submitted ? undefined : setSpot} reveal={submitted ? item.answer : undefined} />
         </div>
       );
@@ -313,7 +313,7 @@ export default function ItemView({ item, seed = item.id, wager = false, explain 
         <div style={{ marginTop: 18 }}>
           {wager ? (
             <div style={{ opacity: complete ? 1 : 0.45, transition: 'opacity .3s' }}>
-              <div className="small muted" style={{ marginBottom: 8 }}>How sure are you? Your wager is scored: confident and right earns the most, confident and wrong costs the most.</div>
+              <div className="small muted" style={{ marginBottom: 8 }}>How sure are you?</div>
               <div className="chip-row">
                 {CONFIDENCES.map((c) => (
                   <button key={c} type="button" className="chip" disabled={!complete} onClick={() => submit(c)}>
@@ -336,7 +336,7 @@ export default function ItemView({ item, seed = item.id, wager = false, explain 
               {confidence !== null && (
                 <span style={{ fontWeight: 400 }} className="muted">
                   {' '}You wagered {Math.round(confidence * 100)}%.
-                  {!result.correct && confidence >= 0.9 ? ' A confident miss: worth noting, this is where a misconception hides.' : ''}
+                  {!result.correct && confidence >= 0.9 ? ' A confident miss.' : ''}
                   {result.correct && confidence <= 0.5 ? ' You knew more than you thought.' : ''}
                 </span>
               )}

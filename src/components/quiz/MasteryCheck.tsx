@@ -50,19 +50,15 @@ export default function MasteryCheck({ moduleId, items, nextHref, nextTitle }: P
       <div className="widget" id="mastery">
         <div className="widget-head">
           <div>
-            <div className="widget-kicker">Mastery check · {items.length} questions</div>
-            <div className="h3" style={{ marginTop: 4 }}>Prove it to yourself</div>
+            <div className="widget-kicker">{items.length} questions · {Math.round(PASS * 100)}% to master</div>
+            <div className="h3" style={{ marginTop: 4 }}>Mastery check</div>
           </div>
           {status === 'mastered' && <span className="pill pill-good">Mastered{best ? ` · ${Math.round(best * 100)}%` : ''}</span>}
           {status === 'placed' && <span className="pill" style={{ color: 'var(--c4)' }}>Placed out</span>}
         </div>
-        <p className="muted" style={{ margin: '0 0 16px' }}>
-          Score {Math.round(PASS * 100)}% or more to master this module. For each answer you will wager a confidence. Over time this
-          builds a calibration record, the habit frontier researchers prize most: knowing what you know. Every question then joins your
-          spaced-review deck so it returns just before you would forget it.
-        </p>
+        <p className="muted" style={{ margin: '0 0 16px' }}>Wager your confidence on each answer.</p>
         <button type="button" className="btn btn-primary" onClick={() => { setPhase('run'); setIdx(0); setResults([]); setAttempt((a) => a + 1); }}>
-          {status === 'mastered' ? 'Retake' : 'Begin the check'}
+          {status === 'mastered' ? 'Retake' : 'Start'}
         </button>
       </div>
     );
@@ -90,10 +86,8 @@ export default function MasteryCheck({ moduleId, items, nextHref, nextTitle }: P
       <div className="widget-kicker">Result</div>
       <div className="display" style={{ fontSize: 'clamp(2.4rem,6vw,3.6rem)', margin: '6px 0 4px' }}>{Math.round(score * 100)}%</div>
       <p style={{ margin: '0 0 16px', maxWidth: '52ch' }}>
-        {passed
-          ? 'Mastered. The questions now live in your review deck and will return at widening intervals.'
-          : 'Not yet mastered, and that is useful information. Revisit the sections behind the questions you missed, then retake. The questions are in your review deck either way.'}
-        {confidentMisses > 0 && ` You had ${confidentMisses} confident miss${confidentMisses > 1 ? 'es' : ''}: those mark beliefs worth re-examining.`}
+        {passed ? 'Mastered. These questions will return in review.' : 'Not yet. Revisit what you missed and retake.'}
+        {confidentMisses > 0 && ` ${confidentMisses} confident miss${confidentMisses > 1 ? 'es' : ''}: worth a second look.`}
       </p>
       <div className="row">
         {nextHref && <a href={nextHref} className="btn btn-primary">Next: {nextTitle}</a>}

@@ -16,7 +16,7 @@ export default function Readiness({ requires, titles, base, compact }: { require
   }
   return (
     <div className={`feedback ${ready ? 'good' : ''}`} style={{ background: ready ? undefined : 'var(--bg-soft)' }}>
-      <strong>{ready ? 'You are ready to read the source.' : `You have covered ${requires.length - missing.length} of ${requires.length} modules behind this.`}</strong>
+      <strong>{ready ? 'Ready to read the source.' : `${requires.length - missing.length} of ${requires.length} prerequisites done.`}</strong>
       {!ready && (
         <span className="small">Read first: {missing.map((id, i) => (
           <span key={id}><a className="link" href={`${base}/learn/${id}/`}>{titles[id] ?? id}</a>{i < missing.length - 1 ? ', ' : ''}</span>

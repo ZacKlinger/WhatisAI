@@ -1,14 +1,10 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import StaticFigure from '@/components/figures/registry';
-import { getModules } from '@/lib/curriculum';
 import { corpus } from '@/data/corpus';
-import { tracks } from '@/data/tracks';
 import { url } from '@/lib/url';
 import sources from '../../scripts/watch/sources.json';
 
-const modules = await getModules();
-const totalHours = Math.round(modules.reduce((s, m) => s + m.data.minutes, 0) / 60);
 const srcByCat = sources.sources.reduce<Record<string, string[]>>((acc, s) => {
   (acc[s.category] ??= []).push(s.name);
   return acc;
@@ -16,112 +12,102 @@ const srcByCat = sources.sources.reduce<Record<string, string[]>>((acc, s) => {
 const catLabel: Record<string, string> = { lab: 'Frontier labs', research: 'Research and evaluation', newsletter: 'Expert newsletters', policy: 'Government and regulators', economy: 'Economics', media: 'Journalism, podcasts, video', community: 'Community' };
 ---
 
-<BaseLayout title="Method and research" description="Why the path is built the way it is: backward design from the frontier corpus, labor-market evidence on which skills matter, the science of learning, and how the daily watcher decides what is significant." active="method">
+<BaseLayout title="Method" description="Why the path is built the way it is: backward design from the frontier corpus, labor-market evidence, the science of learning, and how the daily watcher decides what is significant." active="method">
   <header class="aura aura-t7" style="border-bottom:1px solid var(--line)">
     <div class="container-read" style="padding-block:clamp(48px,8vw,104px) clamp(32px,5vw,56px)">
-      <div class="eyebrow" style="color:var(--fg)">Method and research</div>
+      <div class="eyebrow" style="color:var(--fg)">Method</div>
       <h1 style="margin-top:12px">Why this path, in this order.</h1>
       <p class="lead" style="margin-top:16px;color:var(--fg);opacity:.8">
-        The curriculum rests on three foundations: a dependency map worked backward from the documents a fluent reader must handle, evidence on how AI is reshaping the value of skills, and the best-replicated findings in the science of learning.
+        Three foundations: a map worked backward from the documents you will read, evidence on how AI is changing work, and the science of learning.
       </p>
     </div>
   </header>
 
   <article class="container-read prose" style="padding-block:48px 24px">
     <p>
-      WhatisAI has one goal: that a college graduate without a technical background can, by the end of the path, open any paper published by Anthropic or OpenAI, any system card, or any policy text from a body such as the European Commission, NIST, or the UK AI Security Institute, and read it fluently. "Fluently" has a precise meaning here. It is the ability to answer four questions about the document: what is claimed, how it was measured, how strong the evidence is, and what follows from it.
+      The goal: open any Anthropic or OpenAI paper, system card, or AI policy text and answer four questions. What is claimed? How was it measured? How strong is the evidence? What follows?
     </p>
 
     <h2 id="backward">1. Designed backward from the corpus</h2>
     <p>
-      The path was built in reverse, following the principle of <em>backward design</em>: start from the performance you want, then derive what must be learned to make it possible. We began with the documents in the <a href={url('/library/')}>research library</a>, {corpus.length} landmark papers, system cards, frameworks, and laws, and asked of each one: what concepts does a reader need in order to evaluate it, rather than merely skim it?
+      We started from the {corpus.length} documents in the <a href={url('/library/')}>library</a> and asked what a reader needs to evaluate each one, not just skim it. The answers became the ten tracks.
     </p>
     <p>
-      The answers cluster into a dependency structure that became the ten tracks. Reading <em>Scaling Monosemanticity</em> requires the geometry of vectors, the idea of superposition, the transformer's residual stream, and dictionary learning. Reading a system card requires benchmark statistics, the logic of dangerous-capability evaluation, and a lab's safety framework. Reading the EU AI Act's provisions on general-purpose AI requires knowing what training compute is and why a threshold of 10<sup>25</sup> operations was chosen. Each module's prerequisites encode these dependencies, and each library entry lists the modules that unlock it.
+      Reading <em>Scaling Monosemanticity</em> takes vector geometry, superposition, the residual stream, and dictionary learning. Reading a system card takes benchmark statistics and dangerous-capability evaluation. Reading the EU AI Act's rules for general-purpose models takes knowing what training compute is and why the threshold sits at 10<sup>25</sup> operations. Module prerequisites encode these dependencies.
     </p>
     <p>
-      For a non-STEM graduate, the deepest dependency is mathematical. Nearly every frontier document assumes comfort with five ideas: vectors and similarity, probability distributions, optimization by gradient descent, statistical uncertainty, and logarithmic scales. Track I teaches these from zero, using only arithmetic, and always in the service of an AI concept that needs them. Nothing is taught for its own sake.
+      The deepest dependency is math. Frontier documents assume five ideas: vectors and similarity, probability, gradient descent, statistical uncertainty, and log scales. Track I teaches them from zero, each in service of an AI concept.
     </p>
 
     <h2 id="labor">2. Shaped by the labor market</h2>
-    <p>
-      A path to mastery should also be a path to value. The evidence on how AI is changing work tells us which capabilities matter most, and it points consistently in one direction: toward judgment about AI rather than mere use of it.
-    </p>
+    <p>The evidence points one way: toward judgment about AI, not just use of it.</p>
 
     <h3>Exposure is broad</h3>
     <p>
-      Researchers measure <em>exposure</em> by asking which tasks in an occupation a language model could speed up substantially. The most cited study, by researchers at OpenAI and the University of Pennsylvania, estimated that around 80% of US workers could have at least 10% of their tasks affected, and about 19% could see at least half their tasks affected, with exposure rising with education and wages. Exposure is not displacement: it measures where change is possible, not what happens.
+      About 80% of US workers could have at least 10% of their tasks affected by language models, and about 19% could see half or more, with exposure rising with education and wages. Exposure measures where change is possible, not what happens.
     </p>
 
-    <h3>Usage is concentrated, and mostly augments</h3>
+    <h3>Use is concentrated, and mostly augments</h3>
     <p>
-      Usage data shows what people actually do. Anthropic's Economic Index, which maps millions of real conversations to occupational tasks, found in early 2025 that software and mathematical work accounted for over a third of use, that about 36% of occupations used AI for at least a quarter of their tasks, and that 57% of use <em>augmented</em> human work (iterating, learning, validating) while 43% <em>automated</em> it. Later editions through 2026 found use diversifying across tasks and spreading to lower-wage work.
+      Anthropic's Economic Index maps millions of real conversations to occupational tasks. In early 2025, software and math made up over a third of use, and 57% of use augmented work while 43% automated it. Later editions through 2026 show use spreading to more tasks and to lower-wage work.
     </p>
-    <StaticFigure id="aei-bars" caption="Share of Claude conversations by occupational category, February 2025. Source: Anthropic Economic Index." />
+    <StaticFigure id="aei-bars" caption="Claude conversations by occupational category, February 2025. Source: Anthropic Economic Index." />
 
     <h3>The productivity frontier is jagged</h3>
     <p>
-      Controlled studies find large gains in some settings and losses in others. Customer support agents resolved about 14% more issues per hour with an AI assistant, with the least experienced gaining about 34%. Consultants using GPT-4 on tasks within the model's capability completed 12% more tasks, 25% faster, at higher quality, but on a task just outside that frontier they were 19 percentage points <em>less</em> likely to be correct. Experienced open-source developers in a 2025 randomized trial were 19% <em>slower</em> with AI tools, while believing they had been faster.
+      Support agents resolved 14% more issues per hour with AI, and novices 34% more. Consultants working inside GPT-4's abilities finished 12% more tasks, 25% faster. On a task just outside them, they were 19 points <em>less</em> likely to be right. Experienced developers in a 2025 trial were 19% <em>slower</em> with AI, while believing they were faster.
     </p>
-    <StaticFigure id="forest" caption="Reported effects from five studies of AI and work. Measures differ across studies (throughput, time, task completion), so compare directions and contexts, not magnitudes. Sources: Brynjolfsson et al.; Noy & Zhang; Dell'Acqua et al.; Peng et al.; METR." />
+    <StaticFigure id="forest" caption="Effects from five studies. Measures differ, so compare directions, not magnitudes. Sources: Brynjolfsson et al.; Noy & Zhang; Dell'Acqua et al.; Peng et al.; METR." />
 
-    <h3>Entry-level work is where the change shows first</h3>
+    <h3>Entry-level work changes first</h3>
     <p>
-      Using payroll records covering millions of workers, Stanford's Digital Economy Lab found that employment for workers aged 22 to 25 in the most AI-exposed occupations fell relative to less-exposed peers after late 2022, while employment for experienced workers in the same occupations held steady. By the August 2026 update, the shortfall for young workers had widened to about 19% relative to its counterfactual. The adjustment came through slower hiring rather than layoffs, and concentrated in occupations where AI tends to automate rather than augment. The authors stress that the patterns are descriptive, not proof of causation, and other researchers note pre-existing trends and sample limits.
+      Payroll data covering millions of workers shows employment for 22 to 25 year olds in the most exposed jobs falling relative to peers since late 2022, by about 19% as of the August 2026 update. Experienced workers in the same jobs held steady. The change came through slower hiring, not layoffs. The authors call the pattern descriptive, not proof of cause.
     </p>
     <p>
-      The macroeconomic picture remains contested. Task-based estimates such as Acemoglu's (2024) imply modest productivity gains over a decade, while others argue that faster capability growth and AI-assisted research could produce much larger effects. The International AI Safety Report 2026 records that economists still disagree about whether job losses will be offset by new work.
+      The macro picture is contested. Task-based estimates (Acemoglu, 2024) imply modest gains over a decade; others expect far larger ones. The International AI Safety Report 2026 records that economists still disagree.
     </p>
 
-    <h3>What the evidence implies for this curriculum</h3>
+    <h3>What this means for the path</h3>
     <ul>
-      <li><strong>Judgment about AI is the scarce skill.</strong> On a jagged frontier, the most valuable capability is knowing which side of the frontier a task falls on. That is why the path invests heavily in evaluation (Track V) and calibration (every question carries a confidence wager).</li>
-      <li><strong>Codified knowledge is the most exposed.</strong> The early-career evidence suggests AI substitutes most readily for book knowledge and least for experience-based judgment. The path therefore emphasizes reasoning with evidence over memorizing facts, and every module ends by translating the field's language as it is actually used in primary documents.</li>
-      <li><strong>Augmentation beats automation for the worker.</strong> Users who iterate, check, and direct AI outperform those who delegate blindly. Understanding how models work, from tokens to post-training, is what makes skilled direction possible.</li>
-      <li><strong>Governance is now a profession.</strong> The EU AI Act, California's SB 53, and safety frameworks at every frontier lab have created demand for people who can read both a system card and a statute. Tracks VI and VIII exist for them.</li>
+      <li><strong>Judgment is the scarce skill.</strong> On a jagged frontier, what matters is knowing which side a task falls on. Hence the weight on evaluation (Track V) and a confidence wager on every question.</li>
+      <li><strong>Book knowledge is the most exposed.</strong> The path trains reasoning with evidence over memorizing facts.</li>
+      <li><strong>Directing AI beats delegating to it.</strong> Knowing how models work is what makes skilled direction possible.</li>
+      <li><strong>Governance is now a profession.</strong> The EU AI Act, California's SB 53, and lab safety frameworks need people who can read a system card and a statute. Tracks VI and VIII are for them.</li>
     </ul>
-    <p>
-      These implications are themselves claims, held with appropriate uncertainty. The labor evidence is young, and the path will change as it does. The watcher tracks new studies and statistics daily for exactly that reason.
-    </p>
 
     <h2 id="learning">3. Built on the science of learning</h2>
-    <p>Every design choice on this site traces to findings that have been replicated many times.</p>
     <ul>
-      <li><strong>Mastery learning.</strong> Learners advance when they demonstrate understanding, not when time runs out. In Bloom's classic studies, tutored mastery learning produced achievement about two standard deviations above conventional instruction. Each module ends in a mastery check with an 80% bar.</li>
-      <li><strong>Retrieval practice.</strong> Recalling information strengthens memory far more than re-reading it. Quick checks appear mid-lesson, and every module ends in a test rather than a summary.</li>
-      <li><strong>Spacing.</strong> Practice distributed over time beats massed practice. Every question you answer enters a review deck that resurfaces it at expanding intervals, using an algorithm in the SM-2 family.</li>
-      <li><strong>Calibration and metacognition.</strong> Knowing what you know is the foundation of good judgment, and it can be trained. Confidence wagers turn every question into calibration practice, and the site scores you with the Brier score used to evaluate forecasters.</li>
-      <li><strong>Active, manipulable learning.</strong> Across 225 studies, active learning reduced failure rates in STEM courses by about a third relative to lectures. The interactive instruments, which include a neural network trained in your browser, a tokenizer that learns byte-pair encoding live, and a toy model that reproduces superposition, let you manipulate mechanisms directly.</li>
-      <li><strong>Adaptive testing.</strong> The placement exam borrows the logic of computerized adaptive testing: each answer narrows the search for your level, so the exam measures more with fewer questions. Its binary search over each track typically locates the edge of your knowledge in about three questions.</li>
+      <li><strong>Mastery learning.</strong> Advance by showing understanding. In Bloom's studies, tutored mastery learning beat conventional teaching by about two standard deviations. Each module ends in a check with an 80% bar.</li>
+      <li><strong>Retrieval practice.</strong> Recalling beats rereading. Quick checks appear mid-lesson.</li>
+      <li><strong>Spacing.</strong> Spread-out practice beats cramming. Answered questions return at expanding intervals (SM-2 family).</li>
+      <li><strong>Calibration.</strong> Knowing what you know can be trained. Every answer carries a wager, scored with the Brier score forecasters use.</li>
+      <li><strong>Active learning.</strong> Across 225 studies it cut STEM failure rates by about a third. The interactives let you manipulate each mechanism directly.</li>
+      <li><strong>Adaptive testing.</strong> Placement binary-searches each track and finds your level in about three questions.</li>
     </ul>
 
     <h2 id="watcher">4. How the watcher works</h2>
-    <p>
-      A field that moves weekly cannot be taught from a static syllabus. Every morning, an automated watcher reads {sources.sources.length} sources across seven categories:
-    </p>
+    <p>Every morning it reads {sources.sources.length} sources:</p>
     <table>
       <thead><tr><th>Category</th><th>Sources</th></tr></thead>
       <tbody>
         {Object.entries(srcByCat).map(([cat, names]) => <tr><td>{catLabel[cat] ?? cat}</td><td>{names.join(', ')}</td></tr>)}
       </tbody>
     </table>
-    <p>It then does four things.</p>
     <ol>
-      <li><strong>Remembers.</strong> Every item is fingerprinted. Only items never seen before count as news.</li>
-      <li><strong>Measures trends.</strong> It counts mentions of about thirty tracked topics, from agents to export controls, and compares each topic's share of this week's coverage with its share over the previous four weeks. The <a href={url('/trends/')}>trend radar</a> shows the results.</li>
-      <li><strong>Clusters and scores.</strong> Reports about the same event are grouped into stories. Each story gets a significance score combining the authority of its sources (a lab's own announcement or an official legal text outranks commentary), corroboration (how many independent sources cover it), impact markers (a system card, a law taking effect, a major dataset), and community engagement.</li>
-      <li><strong>Publishes only when it matters.</strong> Most days, nothing clears the bar, and nothing is published. When a story does, an editor model (Claude, running on the site owner's subscription) reads the primary sources, verifies the key facts, decides whether the story truly matters, and if so writes a short signal linked to the modules that explain it. Every signal is validated automatically before it can go live. If the editor is not configured, a stricter automatic bar applies and the signal is written as an excerpt with links, never as unverified prose.</li>
+      <li><strong>Remembers.</strong> Only never-seen items count as news.</li>
+      <li><strong>Measures trends.</strong> Compares each of about thirty topics' share of this week's coverage with the previous four weeks. See the <a href={url('/trends/')}>trend radar</a>.</li>
+      <li><strong>Scores stories.</strong> Clusters related reports and scores each story on source authority, corroboration, impact markers, and engagement.</li>
+      <li><strong>Publishes only when it matters.</strong> Most days nothing clears the bar. When a story does, Claude reads the primary sources, checks the facts, and writes a short signal linked to the relevant modules. Without Claude, a stricter bar applies and the signal is excerpted, never paraphrased.</li>
     </ol>
     <p>
-      <strong>It costs nothing to run.</strong> Scraping and scoring use only public feeds and run on free GitHub Actions minutes. The editor uses a Claude subscription token, never a pay-per-use API key, and the workflow refuses to run at all if a pay-per-use key is present. Turn limits and timeouts bound every step.
+      <strong>It costs nothing.</strong> Public feeds, free GitHub Actions minutes, and a Claude subscription token. The workflow refuses to run if a pay-per-use API key exists.
     </p>
 
     <h2 id="standards">5. Editorial standards</h2>
     <ul>
-      <li>Claims trace to primary sources, listed at the end of every module and signal. Where a figure comes from a third-party estimate rather than a disclosure, the text says so.</li>
-      <li>Every module carries an update date. The field moves; check dates when it matters.</li>
-      <li>Where experts disagree, as on emergent abilities, the economic effects of AI, or the meaning of interpretability results, the curriculum presents the disagreement rather than resolving it by fiat.</li>
-      <li>No module asks you to believe anything about AI's future. The path teaches you to weigh the evidence yourself.</li>
+      <li>Claims trace to primary sources, listed under every module and signal. Third-party estimates are labeled as such.</li>
+      <li>Every module shows its update date.</li>
+      <li>Where experts disagree, the disagreement is presented, not resolved by fiat.</li>
     </ul>
 
     <h2>References</h2>
@@ -145,10 +131,6 @@ const catLabel: Record<string, string> = { lab: 'Frontier labs', research: 'Rese
     </ol>
   </article>
   <section class="container-read" style="padding-bottom:48px">
-    <div class="card card-soft">
-      <div class="h4">The path at a glance</div>
-      <p class="small muted" style="margin:6px 0 12px">{tracks.length} tracks, {modules.length} modules, about {totalHours} hours of reading and practice.</p>
-      <a class="btn btn-primary btn-sm" href={url('/path/')}>See the path</a>
-    </div>
+    <a class="btn btn-primary" href={url('/path/')}>See the path</a>
   </section>
 </BaseLayout>

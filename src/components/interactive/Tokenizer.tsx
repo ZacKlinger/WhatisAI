@@ -71,7 +71,7 @@ export default function Tokenizer({ initial = 'The researchers trained the trans
 
   return (
     <Widget title="How text becomes tokens" kicker="Interactive · byte-pair encoding, learned live"
-      note={<>Byte-pair encoding starts from single characters and repeatedly merges the most frequent adjacent pair in a training corpus into a new token. Slide the merge count: with zero merges every character is its own token; with more merges, common words and word pieces become single tokens while rare words stay fragmented. The ▁ marks the start of a word. This toy learned from {CORPUS.split(/\s+/).length} words; production tokenizers learn from billions.</>}>
+      note={<>Slide the merges: common words become single tokens, rare ones stay in pieces. ▁ marks a word start. Learned from {CORPUS.split(/\s+/).length} words.</>}>
       <textarea value={text} onChange={(e) => setText(e.target.value)} rows={2} aria-label="Text to tokenize" style={{ resize: 'vertical', fontSize: '1rem' }} />
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: 4, marginTop: 14, minHeight: 40 }}>
         {tokens.map((t, i) => (

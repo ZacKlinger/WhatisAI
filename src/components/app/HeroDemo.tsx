@@ -38,9 +38,10 @@ export default function HeroDemo() {
   const alts = n < script.tokens.length ? script.alts[n] : [];
   return (
     <div className="hero-demo" aria-label="A language model generating a sentence one token at a time" role="img">
-      <div style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.35rem, 2.6vw, 2rem)', letterSpacing: '-0.01em', lineHeight: 1.35, minHeight: '2.8em' }}>
+      {/* pre-wrap keeps each token's leading space but lets the sentence wrap, so the card grows taller instead of wider. */}
+      <div style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.35rem, 2.6vw, 2rem)', letterSpacing: '-0.01em', lineHeight: 1.35, minHeight: '4.05em', overflowWrap: 'break-word' }}>
         {script.tokens.slice(0, n).map((t, i) => (
-          <span key={`${s}-${i}`} style={{ animation: 'rise .5s var(--ease)', display: 'inline', whiteSpace: 'pre' }}>{t}</span>
+          <span key={`${s}-${i}`} style={{ animation: 'rise .5s var(--ease)', display: 'inline', whiteSpace: 'pre-wrap' }}>{t}</span>
         ))}
         <span style={{ display: 'inline-block', width: 3, height: '0.95em', background: 'currentColor', verticalAlign: '-0.1em', marginLeft: 3, animation: 'twinkle 1s infinite' }} />
       </div>

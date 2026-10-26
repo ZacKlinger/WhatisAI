@@ -28,7 +28,7 @@ export default function RiskClassifier() {
 
   return (
     <Widget title="Classify it under the EU AI Act" kicker="Interactive · sort eight real-world systems"
-      note={<>The Act regulates <em>uses</em>, not technologies. The same model can power a minimal-risk spam filter and a high-risk hiring tool. Separately, general-purpose AI models carry their own obligations, with extra duties for models with systemic risk. Simplified for learning: real classification turns on precise legal definitions and exemptions.</>}>
+      note={<>The Act regulates uses, not technologies. Simplified: real classification turns on precise legal definitions.</>}>
       <div className="grid grid-2" style={{ gap: 18 }}>
         <div className="stack" style={{ ['--stack' as string]: '8px' }}>
           {SYSTEMS.map((s, i) => {

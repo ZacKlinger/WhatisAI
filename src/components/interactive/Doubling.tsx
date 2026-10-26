@@ -23,7 +23,7 @@ export default function Doubling() {
 
   return (
     <Widget title="The tyranny of the doubling time" kicker="Interactive · extrapolating a trend"
-      note={<>METR measures an AI system's <em>time horizon</em>: the length of task, measured by how long it takes skilled humans, that the AI completes with 50% reliability. Their 2025 paper found horizons doubling about every 7 months since 2019, and later updates estimated faster doubling (around 4 months) for recent models. Small differences in doubling time compound into enormous differences in forecasts. Exponential trends also end; the question is when. A forecast is only as good as its assumptions about the trend continuing.</>}>
+      note={<>Time horizon: the length of task, in skilled-human time, that an AI completes half the time. Small changes in doubling time compound into huge forecast gaps.</>}>
       <div ref={ref} style={{ background: 'var(--bg-soft)', borderRadius: 'var(--radius)' }}>
         <svg viewBox={`0 0 ${W} ${H}`} width="100%" role="img" aria-label="Projected time horizon">
           <Axis scale={y} orient="left" at={m.l} length={[H - m.b, m.t]} grid={W - m.r} ticks={[0.1, 1, 10, 100, 1e3, 1e4, 1e5, 1e6]} format={(v) => (v < 1 ? '6m' : v < 40 ? `${v}h` : v < 2000 ? `${Math.round(v / 40)}wk` : `${Math.round(v / 2000)}yr`)} />
@@ -40,7 +40,7 @@ export default function Doubling() {
         <Slider label="Years ahead" value={years} min={0.5} max={5} step={0.5} onChange={setYears} display={`${years} yr`} />
       </div>
       <div className="small muted" style={{ marginTop: 12 }}>
-        If the trend held, in {years} years the horizon would be <strong style={{ color: 'var(--fg)' }}>{fmtDur(at)}</strong> ({(at / h0).toFixed(0)}× today). Dashed lines show 4-month and 12-month doubling for comparison.
+        If the trend held, in {years} years the horizon would be <strong style={{ color: 'var(--fg)' }}>{fmtDur(at)}</strong> ({(at / h0).toFixed(0)}× today). Dashed: 4- and 12-month doubling.
       </div>
     </Widget>
   );

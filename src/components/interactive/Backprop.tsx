@@ -25,7 +25,7 @@ export default function Backprop() {
 
   return (
     <Widget title="Backpropagation is the chain rule, applied patiently" kicker="Interactive · step forward, then backward"
-      note={<>The forward pass computes each value from left to right. The backward pass starts from the loss and moves right to left, multiplying local slopes: ∂L/∂w = ∂L/∂a × ∂a/∂z × ∂z/∂w. Every parameter learns how much it is to blame for the error. A real network does exactly this through billions of nodes, and reuses each intermediate result so the whole backward pass costs about twice the forward pass.</>}>
+      note={<>Forward runs left to right. Backward runs right to left, multiplying local slopes, so every weight learns its share of the blame.</>}>
       <div style={{ overflowX: 'auto' }}>
         <svg viewBox="0 0 700 300" width="100%" style={{ minWidth: 520, background: 'var(--bg-soft)', borderRadius: 'var(--radius)' }} role="img" aria-label="Computational graph">
           <defs>

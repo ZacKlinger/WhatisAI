@@ -22,7 +22,7 @@ export default function ModuleStatus({ id, prerequisites, titles, base }: { id: 
         <div className="small muted">
           Builds on: {missing.map((p, i) => (
             <span key={p}><a className="link" href={`${base}/learn/${p}/`}>{titles[p] ?? p}</a>{i < missing.length - 1 ? ', ' : ''}</span>
-          ))}. You can read on regardless; the path is a guide, not a gate.
+          ))}
         </div>
       )}
     </div>

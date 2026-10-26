@@ -21,11 +21,11 @@ export default function ContinuePanel({ modules, base }: { modules: M[]; base: s
     return (
       <div className="grid grid-3">
         {[
-          ['01', 'Find your starting point', 'An optional, adaptive placement exam probes each track and skips you past what you already know. About fifteen minutes.', `${base}/placement/`, 'Take the placement'],
-          ['02', 'Walk the path', `${modules.length} modules, from what a function is to how frontier labs evaluate dangerous capabilities. Every module ends in a mastery check.`, `${base}/path/`, 'See the path'],
-          ['03', 'Stay at the frontier', 'A watcher reads the field every morning and publishes only what matters, linked to the modules that explain it.', `${base}/signals/`, 'Read the signals'],
+          ['01', 'Place out', 'Skip what you already know. About 15 minutes.', `${base}/placement/`, 'Placement exam'],
+          ['02', 'Learn', `${modules.length} modules, each ending in a mastery check.`, `${base}/path/`, 'See the path'],
+          ['03', 'Stay current', 'Major developments, linked to the modules that explain them.', `${base}/signals/`, 'Signals'],
         ].map(([n, t, d, href, cta]) => (
-          <a key={n} href={href} className="card hoverable" style={{ display: 'flex', flexDirection: 'column', gap: 10, minHeight: 220 }}>
+          <a key={n} href={href} className="card hoverable" style={{ display: 'flex', flexDirection: 'column', gap: 10, minHeight: 180 }}>
             <span className="mono xsmall faint">{n}</span>
             <span className="h3">{t}</span>
             <span className="muted small" style={{ flex: 1 }}>{d}</span>
@@ -60,7 +60,7 @@ export default function ContinuePanel({ modules, base }: { modules: M[]; base: s
       <a href={`${base}/review/`} className="card card-soft hoverable" style={{ padding: 16 }}>
         <div className="xsmall faint">Spaced review</div>
         <div style={{ fontWeight: 550 }}>{due ? `${due} card${due > 1 ? 's' : ''} due` : 'Nothing due'}</div>
-        <div className="small muted">{Number.isFinite(b) ? `Calibration (Brier) ${b.toFixed(3)}` : 'Builds as you answer'}</div>
+        {Number.isFinite(b) && <div className="small muted">Calibration (Brier) {b.toFixed(3)}</div>}
       </a>
     </div>
   );

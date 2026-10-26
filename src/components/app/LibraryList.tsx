@@ -56,7 +56,7 @@ export default function LibraryList({ docs, titles, base }: { docs: CorpusDoc[];
                 </div>
                 <a href={d.url} target="_blank" rel="noopener" className="lib-title">{d.title}</a>
                 <p className="small muted" style={{ margin: 0 }}>{d.summary}</p>
-                {d.guided && <a className="arrow-link small" href={`${base}/learn/${d.guided}/`}>Guided reading available</a>}
+                {d.guided && <a className="arrow-link small" href={`${base}/learn/${d.guided}/`}>Guided reading</a>}
               </div>
               <div className="lib-side">
                 {ready ? <span className="pill pill-good">Ready to read</span> : <span className="pill">{d.requires.length - miss.length}/{d.requires.length} prerequisites</span>}
@@ -69,7 +69,7 @@ export default function LibraryList({ docs, titles, base }: { docs: CorpusDoc[];
             </div>
           );
         })}
-        {shown.length === 0 && <div className="empty">Nothing matches. {onlyReady ? 'Complete more modules to unlock documents.' : ''}</div>}
+        {shown.length === 0 && <div className="empty">Nothing matches.</div>}
       </div>
     </div>
   );

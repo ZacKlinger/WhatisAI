@@ -38,7 +38,7 @@ export default function VectorSpace({ analogy = true }: { analogy?: boolean }) {
 
   return (
     <Widget title="Meaning as geometry" kicker="Interactive · click a word"
-      note={<>Each word is a point, an arrow from the origin. Similar meanings point in similar directions, measured by <strong>cosine similarity</strong>: 1 means the same direction, 0 means unrelated (perpendicular), −1 means opposite. Directions themselves can carry meaning: the arrow from <em>man</em> to <em>woman</em> is nearly the same as from <em>king</em> to <em>queen</em>.</>}>
+      note={<>Similar meanings point the same way (cosine similarity near 1). Directions carry meaning too: <em>man</em> → <em>woman</em> ≈ <em>king</em> → <em>queen</em>.</>}>
       {analogy && (
         <div className="chip-row" style={{ marginBottom: 12 }}>
           <button type="button" className="chip" aria-pressed={mode === 'similar'} onClick={() => setMode('similar')}>Similarity</button>

@@ -33,7 +33,7 @@ export default function SpecGaming() {
   const sc = SCENARIOS[s];
   return (
     <Widget title="Specify the reward, then watch it break" kicker="Interactive · specification gaming"
-      note={<>An optimizer does not pursue what you meant. It pursues what you measured. The gap between the two is where <strong>specification gaming</strong> lives, and the more capable the optimizer, the more reliably it finds the gap. This is Goodhart's law: when a measure becomes a target, it ceases to be a good measure.</>}>
+      note={<>An optimizer pursues what you measured, not what you meant. The more capable it is, the more reliably it finds the gap.</>}>
       <div className="chip-row" style={{ marginBottom: 14 }}>
         {SCENARIOS.map((x, i) => <button key={x.goal} type="button" className="chip" aria-pressed={i === s} onClick={() => { setS(i); setPick(null); }}>{x.goal}</button>)}
       </div>

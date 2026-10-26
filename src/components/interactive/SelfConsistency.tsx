@@ -35,7 +35,7 @@ export default function SelfConsistency() {
 
   return (
     <Widget title="Thinking longer by thinking more times" kicker="Interactive · test-time compute"
-      note={<>One way to spend more compute at inference is to sample many independent solutions and take a majority vote (<em>self-consistency</em>). If each attempt beats any single wrong answer often enough, accuracy climbs toward certainty as samples grow. If the model is usually wrong in a consistent way, voting cannot help. Reasoning models go further: they are trained, with reinforcement learning, to use long chains of thought productively within a single attempt.</>}>
+      note={<>Voting helps when the right answer beats any single wrong one. If the model is consistently wrong, more samples will not save it.</>}>
       <div ref={ref} style={{ background: 'var(--bg-soft)', borderRadius: 'var(--radius)' }}>
         <svg viewBox={`0 0 ${W} ${H}`} width="100%" role="img" aria-label="Accuracy versus number of samples">
           <Axis scale={y} orient="left" at={m.l} length={[H - m.b, m.t]} grid={W - m.r} ticks={[0, 0.25, 0.5, 0.75, 1]} format={(v) => `${v * 100}%`} label="accuracy" />
@@ -50,7 +50,7 @@ export default function SelfConsistency() {
       </div>
       <div className="small muted" style={{ marginTop: 12 }}>
         With <strong style={{ color: 'var(--fg)' }}>{k}</strong> votes, accuracy is <strong style={{ color: 'var(--fg)' }}>{(majorityAccuracy(p, k) * 100).toFixed(1)}%</strong> (from {Math.round(p * 100)}% for one attempt), at {k}× the inference cost.
-        Grey curves show p = 25% and 70% for comparison. Wrong answers are assumed to scatter among four alternatives.
+        Grey: p = 25% and 70%. Wrong answers split among four options.
       </div>
     </Widget>
   );

@@ -32,7 +32,7 @@ export default function ScalingLaws() {
 
   return (
     <Widget title="Spend a compute budget: the Chinchilla trade-off" kicker="Interactive · a fitted scaling law"
-      note={<>Each curve holds compute fixed. Along it, you trade model size (parameters, <em>N</em>) against training data (tokens, <em>D</em>), since compute ≈ 6 × N × D. Too big a model sees too little data; too small a model cannot absorb the data it sees. The minimum of each curve is the compute-optimal model. With this fit it sits near <strong>20 tokens per parameter</strong>, the famous Chinchilla ratio. Before 2022 many flagship models were several times too large for their data.</>}>
+      note={<>Each curve fixes compute (≈ 6 × N × D). Its low point is the compute-optimal model, near <strong>20 tokens per parameter</strong>.</>}>
       <div ref={ref} style={{ background: 'var(--bg-soft)', borderRadius: 'var(--radius)' }}>
         <svg viewBox={`0 0 ${W} ${H}`} width="100%" role="img" aria-label="Loss versus model size at fixed compute">
           <Axis scale={y} orient="left" at={m.l} length={[H - m.b, m.t]} label="predicted loss" grid={W - m.r} ticks={[2, 2.4, 2.8, 3.2, 3.6]} />
@@ -73,7 +73,7 @@ export default function ScalingLaws() {
         ))}
       </div>
       <div className="small muted" style={{ marginTop: 12 }}>
-        Try it: set compute to 5.8×10²³ (the budget of DeepMind's Gopher and Chinchilla). Gopher spent it on 280 billion parameters; Chinchilla on 70 billion parameters and four times more data, and beat it.
+        Try 5.8×10²³ FLOP: Gopher spent it on 280B parameters, Chinchilla on 70B with 4× the data. Chinchilla won.
       </div>
     </Widget>
   );

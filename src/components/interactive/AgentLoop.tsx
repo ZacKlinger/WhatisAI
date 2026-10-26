@@ -27,7 +27,7 @@ export default function AgentLoop() {
   const [n, setN] = useState(1);
   return (
     <Widget title="Inside an agent loop" kicker="Interactive · step through a trace"
-      note={<>An agent is a model in a loop. It reasons, decides to call a tool (run code, search, click a button), receives the result as new context, and continues until it can answer. The model itself never "runs" the tool: it emits a structured request, the surrounding software (the <em>harness</em> or <em>scaffold</em>) executes it, and the output is fed back as text. Everything an agent knows about the world arrives through that loop.</>}>
+      note={<>The model never runs a tool. It asks, the harness runs it, and the result comes back as text. Everything an agent knows arrives through this loop.</>}>
       <div className="stack" style={{ ['--stack' as string]: '10px' }}>
         {TRACE.slice(0, n).map((s, i) => (
           <div key={i} style={{ display: 'grid', gridTemplateColumns: '4px 1fr', gap: 12, animation: 'rise .35s var(--ease)' }}>

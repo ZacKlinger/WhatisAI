@@ -50,7 +50,7 @@ export default function RewardModel() {
 
   return (
     <Widget title="Be the human rater" kicker="Interactive · learning a reward from preferences"
-      note={<>This is the heart of RLHF. People compare two responses and pick the better one. A <strong>reward model</strong> (here a Bradley–Terry model over four hidden features) learns a score that predicts their choices. Then the policy is optimized to produce whatever scores highest. If raters systematically favored long or flattering answers, even slightly, optimization finds and exaggerates that preference. Try rating honestly, then reset and rate as if you love compliments.</>}>
+      note={<>Rate honestly, then reset and rate as if you love compliments. Optimization amplifies whatever raters reward.</>}>
       {!done ? (
         <div>
           <div className="small muted" style={{ marginBottom: 6 }}>Comparison {round + 1} of {PAIRS.length} · Question: <strong style={{ color: 'var(--fg)' }}>{QUESTION}</strong></div>

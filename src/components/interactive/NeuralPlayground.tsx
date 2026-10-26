@@ -163,7 +163,7 @@ export default function NeuralPlayground() {
 
   return (
     <Widget title="Train a neural network in your browser" kicker="Interactive · real backpropagation"
-      note={<>The colored background is the network's belief at every point: blue for one class, orange for the other, deeper color for more confidence. A network with no hidden units can only draw a straight boundary. Add hidden units and it can bend that boundary into circles and spirals. This is the universal approximation idea, made visible. Every frame runs real forward and backward passes on {data.length} points.</>}>
+      note={<>Color is the network's belief. With no hidden units it can only draw a straight line; add some and the boundary bends. Real training on {data.length} points, every frame.</>}>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))', gap: 18 }}>
         <canvas ref={canvas} width={480} height={480} style={{ width: '100%', aspectRatio: '1', borderRadius: 'var(--radius)', background: 'var(--bg-soft)' }} aria-label="Decision boundary of the network" />
         <div className="stack" style={{ ['--stack' as string]: '16px' }}>

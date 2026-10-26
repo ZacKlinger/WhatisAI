@@ -60,7 +60,7 @@ export default function Overfit() {
 
   return (
     <Widget title="Memorizing versus learning" kicker="Interactive · model complexity"
-      note={<>Black dots are the training data; faint dots are new data the model never saw. A degree-1 model (a straight line) is too simple: it <em>underfits</em>. Around degree 3 to 5 it captures the real pattern. Push to degree 11 and the curve threads every training point while swinging wildly between them: it has <em>overfit</em>, memorizing noise. The right panel is the signature of overfitting: training error keeps falling while error on new data turns upward. Regularization penalizes extreme parameters and tames the swings.</>}>
+      note={<>Degree 1 underfits. Degree 11 threads every training point and fails on new data: training error falls while test error climbs.</>}>
       <div ref={ref} style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
         <svg viewBox={`0 0 ${W1} ${H1}`} width={W1} style={{ background: 'var(--bg-soft)', borderRadius: 'var(--radius)', maxWidth: '100%' }} role="img" aria-label="Polynomial fit">
           {test.map(([a, b], i) => <circle key={`t${i}`} cx={x(a)} cy={y(b)} r={3} style={{ fill: palette[1], opacity: 0.35 }} />)}

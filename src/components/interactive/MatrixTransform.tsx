@@ -33,7 +33,7 @@ export default function MatrixTransform() {
 
   return (
     <Widget title="A matrix is a transformation of space" kicker="Interactive · edit the four numbers"
-      note={<>A 2×2 matrix tells you where the two basic arrows go: the first column is where <span style={{ color: palette[0] }}>→ (1, 0)</span> lands, the second where <span style={{ color: palette[1] }}>↑ (0, 1)</span> lands. Every other point follows along, because the transformation keeps grid lines straight and evenly spaced. The <strong>determinant</strong> says how much areas grow; at zero, space collapses onto a line and information is lost.</>}>
+      note={<>Column one is where <span style={{ color: palette[0] }}>→</span> lands; column two is where <span style={{ color: palette[1] }}>↑</span> lands. A determinant of zero collapses space onto a line.</>}>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))', gap: 18, alignItems: 'center' }}>
         <div style={{ background: 'var(--bg-soft)', borderRadius: 'var(--radius)' }}>
           <svg viewBox={`0 0 ${S} ${S}`} width="100%" role="img" aria-label="Transformed grid">

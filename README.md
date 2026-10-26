@@ -8,7 +8,7 @@ It is adaptive (an optional placement exam, mastery checks, spaced review, and r
 
 | Area | What it is |
 | --- | --- |
-| **The path** | 10 tracks, 53 modules, about 27 hours. Prologue → Foundations (math from zero) → Learning Machines → Language Models → From Model to Assistant → Measuring Minds → Inside the Machine → AI and the Economy → Governing AI → The Frontier (guided readings). |
+| **The path** | 10 tracks, 53 modules, about 24 hours. Prologue → Foundations (math from zero) → Learning Machines → Language Models → From Model to Assistant → Measuring Minds → Inside the Machine → AI and the Economy → Governing AI → The Frontier (guided readings). |
 | **Interactives** | 20+ instruments: a neural network trained live in the browser, a BPE tokenizer that learns its merges live, an attention explorer, a Chinchilla scaling-law calculator, a real toy model of superposition, an RLHF rater game, and more. |
 | **Assessment** | ~265 items: multiple choice, select-all, matching, ordering, log-scale estimates, and figure hotspots, every one with a confidence wager. |
 | **Placement exam** | Optional. Binary-searches each track for the edge of your knowledge (about 3 questions per track), with confidence wagers, an "I don't know" option, and a constellation results map. |

@@ -62,7 +62,7 @@ export default function Decoder() {
 
   return (
     <Widget title="Generation, one token at a time" kicker="Interactive · a tiny language model"
-      note={<>This miniature model only knows which word followed each pair of words in its training text (a <em>trigram</em> model). A transformer is vastly more capable, but generation works the same way: compute a probability distribution over the next token, sample one, append it to the context, and repeat. Nothing about the sentence is decided in advance. That is called <strong>autoregressive</strong> decoding.</>}>
+      note={<>Predict a distribution, sample a token, append it, repeat. A transformer generates the same way; this toy only knows word triples.</>}>
       <div style={{ fontFamily: 'var(--font-serif)', fontSize: '1.2rem', lineHeight: 1.7, minHeight: 64, padding: '12px 16px', background: 'var(--bg-soft)', borderRadius: 'var(--radius)' }}>
         {out.map((w, i) => (
           <span key={i} style={{ color: i >= out.length - 1 ? palette[0] : undefined, fontWeight: i >= out.length - 1 ? 600 : 400 }}>{w} </span>

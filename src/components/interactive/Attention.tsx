@@ -44,7 +44,7 @@ export default function Attention() {
 
   return (
     <Widget title="Attention: every word asks a question" kicker="Interactive · click any word"
-      note={<>Each token produces a <strong>query</strong> ("what am I looking for?"), and every earlier token offers a <strong>key</strong> ("what do I contain?"). Query-key matches become attention weights that sum to 1, and the token gathers a weighted blend of the others' <strong>values</strong>. Different heads learn different questions. Click the last word and switch it between <em>tired</em> and <em>wide</em>: the pronoun-resolution head binds it to the animal or the street. Now click "it": because attention only looks backward, the model cannot yet know the referent, so attention splits between both candidates. Meaning is assembled over many positions and layers. These patterns are illustrative, modeled on heads found in trained models.</>}>
+      note={<>Click the last word, then switch <em>tired</em> and <em>wide</em>: one head binds "it" to the animal or the street. Click "it" itself: attention only looks back, so it cannot know yet. Patterns are illustrative.</>}>
       <div className="chip-row" style={{ marginBottom: 10 }}>
         {(['coreference', 'previous', 'first'] as HeadName[]).map((h) => (
           <button key={h} type="button" className="chip" aria-pressed={head === h} onClick={() => setHead(h)}>
@@ -76,7 +76,7 @@ export default function Attention() {
         })}
       </div>
       <div className="small muted" style={{ marginTop: 16 }}>
-        Query: <strong style={{ color: 'var(--fg)' }}>"{tokens[q]}"</strong>. Faded words come later in the sentence; a language model's attention is <em>causal</em>, so a word can only look backward.
+        Query: <strong style={{ color: 'var(--fg)' }}>"{tokens[q]}"</strong>. Faded words come later and can't be seen.
       </div>
     </Widget>
   );

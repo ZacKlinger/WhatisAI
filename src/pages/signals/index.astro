@@ -16,16 +16,11 @@ for (const s of signals) {
 
 <BaseLayout title="Signals" description="The developments in AI that actually matter, selected by a daily watcher and linked to the modules that explain them." active="signals">
   <section class="container" style="padding-top:clamp(48px,8vw,96px)">
-    <div class="eyebrow">Signals</div>
-    <h1 style="margin-top:10px;max-width:16ch">Only what matters, linked to what explains it.</h1>
-    <p class="lead" style="margin-top:16px;max-width:62ch">
-      Every morning a watcher reads lab announcements, research feeds, regulators, labor data, and notable media. Most mornings it publishes nothing.
-      When something significant happens, it writes a signal: what happened, why it matters, and which modules give you the background to read the original.
-    </p>
+    <h1 style="max-width:16ch">Signals</h1>
+    <p class="lead" style="margin-top:16px;max-width:52ch">Only what matters, linked to the modules that explain it.</p>
     <div class="row" style="margin-top:20px">
       <a class="btn btn-ghost btn-sm" href={url('/trends/')}>Trend radar</a>
-      <a class="btn btn-ghost btn-sm" href={url('/signals.xml')}>RSS feed</a>
-      <a class="btn btn-ghost btn-sm" href={url('/method/#watcher')}>How the watcher decides</a>
+      <a class="btn btn-ghost btn-sm" href={url('/signals.xml')}>RSS</a>
     </div>
   </section>
 
@@ -57,7 +52,7 @@ for (const s of signals) {
         </div>
       </div>
     ))}
-    {signals.length === 0 && <div class="empty">No signals yet. The watcher publishes only when something significant happens.</div>}
+    {signals.length === 0 && <div class="empty">No signals yet.</div>}
   </section>
 </BaseLayout>
 

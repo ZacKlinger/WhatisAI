@@ -61,7 +61,7 @@ export default function Softmax({
   const H = entropyBits(final);
   return (
     <Widget title="From scores to choices: softmax and temperature" kicker="Interactive · drag the sliders"
-      note={<>The model outputs a raw score (a <em>logit</em>) for every token in its vocabulary. Softmax turns scores into probabilities that sum to 1. Temperature divides every score before softmax: low temperature sharpens the distribution toward the top choice, high temperature flattens it toward uniform randomness. Top-p keeps only the smallest set of tokens whose probability adds up to p.</>}>
+      note={<>Low temperature sharpens toward the top token; high temperature flattens toward random. Top-p keeps the smallest set of tokens adding up to p.</>}>
       <div style={{ fontFamily: 'var(--font-serif)', fontSize: '1.25rem', marginBottom: 14 }}>
         {context}<span style={{ background: 'var(--bg-muted)', borderRadius: 6, padding: '0 8px', marginLeft: 4, color: 'var(--fg-3)' }}>?</span>
       </div>

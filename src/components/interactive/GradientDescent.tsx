@@ -41,7 +41,7 @@ export default function GradientDescent() {
 
   return (
     <Widget title="Rolling downhill: gradient descent" kicker="Interactive · set a learning rate, then run"
-      note={<>The slope (the <em>gradient</em>) at the ball's position says which way is uphill. Each step moves the parameter a little in the opposite direction: <span className="mono">new = old − learning_rate × slope</span>. Too small a learning rate crawls. Too large overshoots or flies off entirely. And descent only ever finds the bottom of the valley it starts in. Try starting at different points.</>}>
+      note={<>Too small a learning rate crawls; too large overshoots. Try other starting points: descent only finds the valley it starts in.</>}>
       <div ref={ref} style={{ background: 'var(--bg-soft)', borderRadius: 'var(--radius)', cursor: 'crosshair' }}
         onClick={(e) => {
           const r = (e.currentTarget as HTMLDivElement).getBoundingClientRect();

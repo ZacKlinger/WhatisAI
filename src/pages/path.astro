@@ -13,14 +13,11 @@ const levelLabel = ['', 'Foundational', 'Introductory', 'Intermediate', 'Advance
 
 <BaseLayout title="The path" description="Every module on the path to mastery of AI, from first principles to the frontier research corpus." active="path">
   <section class="container" style="padding-top:clamp(48px,8vw,96px)">
-    <div class="eyebrow">The path</div>
-    <h1 style="margin-top:10px;max-width:18ch">Ten tracks. One continuous climb.</h1>
-    <p class="lead" style="margin-top:16px;max-width:60ch">
-      Each track builds on the ones before it, but the path is a guide, not a gate. Follow it in order, or let the placement exam skip you past what you already know.
-    </p>
+    <h1 style="max-width:18ch">Ten tracks. One climb.</h1>
+    <p class="lead" style="margin-top:16px;max-width:60ch">Go in order, or place out of what you already know.</p>
     <div class="row" style="margin-top:24px">
-      <a class="btn btn-primary" href={moduleUrl(modules[0].id)}>Start at the beginning</a>
-      <a class="btn btn-ghost" href={url('/placement/')}>Find my starting point</a>
+      <a class="btn btn-primary" href={moduleUrl(modules[0].id)}>Start</a>
+      <a class="btn btn-ghost" href={url('/placement/')}>Placement exam</a>
     </div>
   </section>
 
@@ -39,10 +36,8 @@ const levelLabel = ['', 'Foundational', 'Introductory', 'Intermediate', 'Advance
             <div class="track-banner-inner">
               <div class="numeral">{t.numeral}</div>
               <div>
-                <div class="small" style="opacity:.75">{t.tagline}</div>
-                <h2 style="margin-top:4px">{t.title}</h2>
-                <p style="margin:10px 0 0;max-width:60ch;opacity:.85">{t.description}</p>
-                <p class="small" style="margin:12px 0 0;opacity:.75"><strong>Outcome:</strong> {t.outcome}</p>
+                <h2>{t.title}</h2>
+                <p style="margin:10px 0 0;max-width:60ch;opacity:.85">{t.outcome}</p>
               </div>
             </div>
           </div>
@@ -72,7 +67,7 @@ const levelLabel = ['', 'Foundational', 'Introductory', 'Intermediate', 'Advance
   .track-banner { border-radius: var(--radius-lg); color: #0d0d0d; }
   :global(:root[data-theme='dark']) .track-banner { color: #f2f2f4; }
   @media (prefers-color-scheme: dark) { :global(:root:not([data-theme='light'])) .track-banner { color: #f2f2f4; } }
-  .track-banner-inner { display: grid; grid-template-columns: auto 1fr; gap: clamp(16px, 3vw, 40px); padding: clamp(24px, 4vw, 44px); align-items: start; }
+  .track-banner-inner { display: grid; grid-template-columns: auto 1fr; gap: clamp(16px, 3vw, 40px); padding: clamp(24px, 4vw, 44px); align-items: center; }
   .numeral { font-family: var(--font-serif); font-size: clamp(3rem, 7vw, 5rem); line-height: 0.9; letter-spacing: -0.04em; opacity: 0.85; min-width: 1.4em; }
   .module-list { list-style: none; padding: 0; margin: 12px 0 0; }
   .module-row { display: grid; grid-template-columns: 34px 14px 1fr auto; gap: 14px; align-items: center; padding: 18px 12px; border-bottom: 1px solid var(--line); border-radius: 12px; transition: background .2s; }

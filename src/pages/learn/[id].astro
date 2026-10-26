@@ -45,7 +45,6 @@ const levelLabel = ['', 'Foundational', 'Introductory', 'Intermediate', 'Advance
       <div class="row small" style="margin-top:22px;gap:8px">
         <span class="pill" style="background:color-mix(in srgb,var(--bg) 55%,transparent)">{d.minutes} min</span>
         <span class="pill" style="background:color-mix(in srgb,var(--bg) 55%,transparent)">{levelLabel}</span>
-        <span class="pill" style="background:color-mix(in srgb,var(--bg) 55%,transparent)">Updated {d.updated.toISOString().slice(0, 10)}</span>
       </div>
     </div>
   </header>
@@ -67,7 +66,7 @@ const levelLabel = ['', 'Foundational', 'Introductory', 'Intermediate', 'Advance
       </div>
 
       <section class="card card-soft" style="margin-block:24px 40px">
-        <h2 class="h4" style="margin-bottom:10px">By the end, you will be able to</h2>
+        <h2 class="h4" style="margin-bottom:10px">You will be able to</h2>
         <ul class="objectives">
           {d.objectives.map((o) => <li>{o}</li>)}
         </ul>
@@ -93,8 +92,8 @@ const levelLabel = ['', 'Foundational', 'Introductory', 'Intermediate', 'Advance
 
       {d.sources.length > 0 && (
         <section style="margin-top:56px">
-          <h2 class="h3">Primary sources</h2>
-          <p class="small muted" style="margin:6px 0 16px">Go to the originals. Every claim above traces to one of these.</p>
+          <h2 class="h3">Sources</h2>
+          <p class="xsmall faint" style="margin:6px 0 16px">Updated {d.updated.toISOString().slice(0, 10)}</p>
           <ol class="sources">
             {d.sources.map((s) => (
               <li>
@@ -109,8 +108,7 @@ const levelLabel = ['', 'Foundational', 'Introductory', 'Intermediate', 'Advance
       {signals.length > 0 && (
         <section style="margin-top:56px">
           <h2 class="h3">In the world now</h2>
-          <p class="small muted" style="margin:6px 0 16px">Recent developments the daily watcher linked to this module.</p>
-          <div class="grid" style="gap:10px">
+          <div class="grid" style="gap:10px;margin-top:16px">
             {signals.map((s) => (
               <a class="card hoverable" href={url(`/signals/${s.id}/`)} style="padding:18px 20px">
                 <div class="xsmall faint">{s.data.date.toISOString().slice(0, 10)} · {s.data.kind}</div>
@@ -127,7 +125,7 @@ const levelLabel = ['', 'Foundational', 'Introductory', 'Intermediate', 'Advance
 
       {unlocks.length > 0 && (
         <p class="small muted" style="margin-top:24px">
-          This module prepares you for: {unlocks.map((u, i) => <><a class="link" href={moduleUrl(u.id)}>{u.data.title}</a>{i < unlocks.length - 1 ? ', ' : ''}</>)}.
+          Unlocks: {unlocks.map((u, i) => <><a class="link" href={moduleUrl(u.id)}>{u.data.title}</a>{i < unlocks.length - 1 ? ', ' : ''}</>)}.
         </p>
       )}
 

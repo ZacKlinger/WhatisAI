@@ -25,7 +25,7 @@ const bank: Record<string, Item[]> = Object.fromEntries(
       client:load
       base={base}
       bank={bank}
-      tracks={tracks.map((t) => ({ id: t.id, numeral: t.numeral, title: t.title, aura: t.aura, tagline: t.tagline }))}
+      tracks={tracks.map((t) => ({ id: t.id, numeral: t.numeral, title: t.title, aura: t.aura }))}
       modules={modules.map((m) => ({ id: m.id, title: m.data.title, track: m.data.track, order: m.data.order, minutes: m.data.minutes, prerequisites: m.data.prerequisites }))}
     />
   </section>

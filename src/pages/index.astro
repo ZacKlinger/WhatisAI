@@ -20,15 +20,13 @@ const kindLabel: Record<string, string> = { research: 'Research', model: 'Model'
   <section class="hero aura aura-hero">
     <div class="container hero-inner">
       <div class="hero-copy">
-        <div class="eyebrow reveal" style="color:var(--fg)"><span class="dot" style="color:var(--c3)"></span> A path to mastery of artificial intelligence</div>
-        <h1 class="display reveal" style="margin-top:18px">Understand AI,<br />all the way to the frontier.</h1>
-        <p class="lead reveal" style="margin-top:22px;max-width:44ch;color:var(--fg);opacity:.8">
-          From your first vector to fluently reading the newest papers from Anthropic, OpenAI, and the bodies that govern them.
-          Adaptive, interactive, and kept current by a watcher that reads the field every morning.
+        <h1 class="display reveal">Understand AI,<br />all the way to the frontier.</h1>
+        <p class="lead reveal" style="margin-top:22px;max-width:40ch;color:var(--fg);opacity:.8">
+          From first principles to reading frontier papers and AI policy the day they come out.
         </p>
         <div class="row reveal" style="margin-top:30px">
-          <a href={url('/path/')} class="btn btn-primary btn-lg">Begin the path</a>
-          <a href={url('/placement/')} class="btn btn-lg" style="background:color-mix(in srgb,var(--bg) 60%,transparent);backdrop-filter:blur(10px)">Take the placement exam</a>
+          <a href={url('/path/')} class="btn btn-primary btn-lg">Start the path</a>
+          <a href={url('/placement/')} class="btn btn-lg" style="background:color-mix(in srgb,var(--bg) 60%,transparent);backdrop-filter:blur(10px)">Placement exam</a>
         </div>
       </div>
       <div class="hero-card reveal">
@@ -42,16 +40,10 @@ const kindLabel: Record<string, string> = { research: 'Research', model: 'Model'
   </section>
 
   <section class="container section-tight">
-    <div class="section-head">
-      <div>
-        <div class="eyebrow">Signals</div>
-        <h2 style="margin-top:8px">What matters now</h2>
-      </div>
+    <div class="section-head" style="margin-bottom:28px">
+      <h2>What matters now</h2>
       <a class="arrow-link" href={url('/signals/')}>All signals</a>
     </div>
-    <p class="muted" style="max-width:62ch;margin:10px 0 28px">
-      The watcher scrapes labs, journals, regulators, and the wider press every morning. It publishes only when something is genuinely significant, and links each signal to the modules that explain it.
-    </p>
     <div class="grid grid-3">
       {signals.map((s, i) => (
         <a href={url(`/signals/${s.id}/`)} class={`card hoverable signal-card reveal`} style={`transition-delay:${i * 60}ms`}>
@@ -61,7 +53,7 @@ const kindLabel: Record<string, string> = { research: 'Research', model: 'Model'
             <span>{s.data.date.toISOString().slice(0, 10)}</span>
           </div>
           <h3 style="margin-top:10px">{s.data.title}</h3>
-          <p class="small muted" style="margin:8px 0 0">{s.data.summary}</p>
+          <p class="small muted clamp-3" style="margin:8px 8px 8px">{s.data.summary}</p>
         </a>
       ))}
     </div>
@@ -70,18 +62,17 @@ const kindLabel: Record<string, string> = { research: 'Research', model: 'Model'
   <section class="container section" id="tracks">
     <div class="section-head">
       <div>
-        <div class="eyebrow">The path · {tracks.length} tracks · {modules.length} modules · about {Math.round(totalMinutes / 60)} hours</div>
+        <div class="eyebrow">{tracks.length} tracks · {modules.length} modules · {Math.round(totalMinutes / 60)} hours</div>
         <h2 style="margin-top:8px">From first principles to the frontier</h2>
       </div>
-      <a class="arrow-link" href={url('/path/')}>See the full map</a>
+      <a class="arrow-link" href={url('/path/')}>Full map</a>
     </div>
     <div class="grid grid-track" style="margin-top:32px">
       {tracks.map((t, i) => (
         <a href={url(`/path/#${t.id}`)} class={`tile track-tile aura ${t.aura} reveal`} style={`transition-delay:${(i % 4) * 50}ms`}>
           <div class="track-num">{t.numeral}</div>
           <div class="track-body">
-            <div class="xsmall" style="opacity:.75">{t.tagline}</div>
-            <div class="h3" style="margin-top:4px">{t.title}</div>
+            <div class="h3">{t.title}</div>
             <div class="xsmall" style="opacity:.7;margin-top:8px">{perTrack(t.id).length} modules · {perTrack(t.id).reduce((s, m) => s + m.data.minutes, 0)} min</div>
           </div>
         </a>
@@ -92,11 +83,8 @@ const kindLabel: Record<string, string> = { research: 'Research', model: 'Model'
   <section class="container section-tight">
     <div class="split">
       <div>
-        <div class="eyebrow">The research library</div>
-        <h2 style="margin-top:8px">Read the documents that move the field</h2>
-        <p class="muted" style="margin-top:14px;max-width:46ch">
-          Every landmark paper, system card, and policy text in the library lists the modules that make it readable. As you progress, the library tells you what you are now ready to read.
-        </p>
+        <h2>Read the documents that move the field</h2>
+        <p class="muted" style="margin-top:14px;max-width:40ch">Each one lists the modules that make it readable.</p>
         <a class="btn btn-ghost" style="margin-top:22px" href={url('/library/')}>Open the library</a>
       </div>
       <div class="stack" style="--stack:10px">
@@ -104,7 +92,6 @@ const kindLabel: Record<string, string> = { research: 'Research', model: 'Model'
           <a href={d.url} target="_blank" rel="noopener" class="card hoverable doc-row">
             <div class="xsmall faint">{d.org} · {d.year} · {d.kind}</div>
             <div style="font-weight:550;margin-top:3px">{d.title}</div>
-            <div class="small muted" style="margin-top:4px">{d.summary}</div>
           </a>
         ))}
       </div>
@@ -114,29 +101,25 @@ const kindLabel: Record<string, string> = { research: 'Research', model: 'Model'
   <section class="container section">
     <div class="evidence aura aura-t7">
       <div class="evidence-inner">
-        <div class="eyebrow" style="color:var(--fg)">Built on evidence</div>
-        <h2 style="margin-top:10px;max-width:22ch">Why this path, in this order</h2>
+        <h2 style="max-width:22ch">The scarce skill is judging AI, not using it</h2>
         <div class="grid grid-3" style="margin-top:32px">
           <div class="stat">
             <div class="stat-n">19%</div>
-            <div class="small">Shortfall in employment for 22 to 25 year olds in the most AI-exposed occupations relative to peers, as of June 2026.</div>
+            <div class="small">Employment shortfall for 22 to 25 year olds in the most AI-exposed jobs.</div>
             <div class="xsmall" style="opacity:.65;margin-top:6px">Stanford Digital Economy Lab, Aug 2026</div>
           </div>
           <div class="stat">
             <div class="stat-n">57 / 43</div>
-            <div class="small">Split between AI augmenting human work and automating it, across a million Claude conversations.</div>
+            <div class="small">Augmenting versus automating, across a million Claude conversations.</div>
             <div class="xsmall" style="opacity:.65;margin-top:6px">Anthropic Economic Index, Feb 2025</div>
           </div>
           <div class="stat">
             <div class="stat-n">−19%</div>
-            <div class="small">Speed change for experienced developers using AI in a randomized trial, who believed they were 20% faster.</div>
+            <div class="small">Speed change for expert developers using AI. They believed they were 20% faster.</div>
             <div class="xsmall" style="opacity:.65;margin-top:6px">METR, Jul 2025</div>
           </div>
         </div>
-        <p style="margin-top:28px;max-width:62ch">
-          The labor market rewards people who can judge AI, not merely use it: who can tell a robust result from a noisy one, a capability from a demo, and a regulation's teeth from its preamble. The curriculum is built to grow exactly that judgment.
-        </p>
-        <a class="btn btn-primary" style="margin-top:20px" href={url('/method/')}>Read the method</a>
+        <a class="btn btn-primary" style="margin-top:32px" href={url('/method/')}>The method</a>
       </div>
     </div>
   </section>
@@ -144,14 +127,14 @@ const kindLabel: Record<string, string> = { research: 'Research', model: 'Model'
 
 <style>
   .hero { min-height: min(86vh, 860px); display: flex; align-items: center; border-bottom: 1px solid var(--line); }
-  .hero-inner { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: clamp(32px, 5vw, 72px); align-items: center; padding-block: clamp(64px, 10vw, 120px); }
+  .hero-inner { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: clamp(32px, 5vw, 72px); align-items: center; padding-block: clamp(64px, 10vw, 120px); }
   .hero-card { background: color-mix(in srgb, var(--bg) 58%, transparent); backdrop-filter: blur(24px) saturate(1.4); -webkit-backdrop-filter: blur(24px) saturate(1.4); border: 1px solid color-mix(in srgb, var(--fg) 8%, transparent); border-radius: var(--radius-lg); padding: clamp(22px, 3vw, 34px); box-shadow: var(--shadow-lg); }
   @media (max-width: 900px) { .hero-inner { grid-template-columns: 1fr; } .hero { min-height: auto; } }
   .section-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; flex-wrap: wrap; }
   .signal-card { display: flex; flex-direction: column; padding: 14px; }
-  .signal-card h3, .signal-card p, .signal-card .row { padding-inline: 8px; }
-  .signal-card p { padding-bottom: 8px; }
+  .signal-card h3, .signal-card .row { padding-inline: 8px; }
   .signal-aura { height: 140px; border-radius: 14px; }
+  .clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
   .grid-track { grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); }
   @media (min-width: 1100px) { .grid-track { grid-template-columns: repeat(5, 1fr); } }
   .track-tile { min-height: 220px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; color: #0d0d0d; transition: transform .4s var(--ease), box-shadow .4s var(--ease); }

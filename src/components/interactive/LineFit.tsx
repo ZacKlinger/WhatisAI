@@ -41,7 +41,7 @@ export default function LineFit() {
 
   return (
     <Widget title="Fitting a model by hand" kicker="Interactive · two parameters"
-      note={<>This model is a line with two <strong>parameters</strong>: a slope <em>w</em> and an intercept <em>b</em>. The vertical gaps between prediction and data are the errors; squaring and averaging them gives the <strong>loss</strong>. Training is the search for parameters with the lowest loss. A frontier language model is the same idea with roughly a trillion knobs instead of two.</>}>
+      note={<>Training is the search for the slope and intercept with the lowest loss. A frontier model does the same with about a trillion knobs.</>}>
       <div ref={ref} style={{ background: 'var(--bg-soft)', borderRadius: 'var(--radius)' }}>
         <svg viewBox={`0 0 ${W} ${H}`} width="100%" role="img" aria-label="Scatter plot with an adjustable line">
           <Axis scale={x} orient="bottom" at={H - m.b} length={[m.l, W - m.r]} ticks={[0, 2, 4, 6, 8, 10]} grid={m.t} />

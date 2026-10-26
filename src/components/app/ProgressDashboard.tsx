@@ -57,7 +57,7 @@ export default function ProgressDashboard({ modules, tracks, base }: { modules: 
       </div>
       <div className="card">
         <div className="h4" style={{ marginBottom: 6 }}>Your data</div>
-        <p className="small muted" style={{ margin: '0 0 14px' }}>Progress is stored only in this browser. Export it to move devices or keep a backup.</p>
+        <p className="small muted" style={{ margin: '0 0 14px' }}>Saved in this browser only. Export to move devices.</p>
         <div className="row">
           <button type="button" className="btn btn-secondary btn-sm" onClick={() => {
             const blob = new Blob([exportProgress()], { type: 'application/json' });

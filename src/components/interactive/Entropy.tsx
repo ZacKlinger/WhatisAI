@@ -44,7 +44,7 @@ export default function Entropy() {
 
   return (
     <Widget title="Surprise, measured in bits" kicker="Interactive · entropy and cross-entropy"
-      note={<><strong>Entropy</strong> is the average surprise of the true distribution: how unpredictable the world is. <strong>Cross-entropy</strong> is the average surprise you feel when the world follows the truth but you expected your model's distribution. It can never be lower than entropy; the gap is the <em>KL divergence</em>, the price of a wrong model. Language models are trained to minimize exactly this cross-entropy on real text. Perplexity, 2 to the cross-entropy, is the effective number of choices the model feels it is guessing among.</>}>
+      note={<>Cross-entropy never drops below entropy. The gap, the <em>KL divergence</em>, is the cost of a wrong model. Language models are trained to shrink it.</>}>
       <div className="grid grid-2" style={{ gap: 24 }}>
         <Editor vals={truth} set={setTruth} label="The true distribution (the world)" color={palette[2]} />
         <Editor vals={model} set={setModel} label="Your model's prediction" color={palette[0]} />

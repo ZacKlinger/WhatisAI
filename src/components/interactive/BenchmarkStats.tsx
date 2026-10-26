@@ -36,7 +36,7 @@ export default function BenchmarkStats() {
 
   return (
     <Widget title="Is model B really better?" kicker="Interactive · sampling error in evaluations"
-      note={<>A benchmark is a sample of questions, so every score carries sampling noise. The standard error of an accuracy <em>p</em> on <em>n</em> questions is √(p(1−p)/n), and a 95% confidence interval spans about ±1.96 standard errors. When two models' intervals overlap heavily, a leaderboard gap may be noise. Watch how often the truly worse model ties or beats the better one across {runs} simulated evaluations, then raise the number of questions.</>}>
+      note={<>Every score carries noise of about ±1.96 × √(p(1−p)/n). Watch how often the worse model ties or wins across {runs} runs, then add questions.</>}>
       <svg viewBox="0 0 600 170" width="100%" role="img" aria-label="Distribution of simulated scores" style={{ background: 'var(--bg-soft)', borderRadius: 'var(--radius)' }}>
         {[ha, hb].map((h, k) => h.map((c, i) => (
           <rect key={`${k}-${i}`} x={20 + (i / bins) * 560} y={150 - (c / max) * 125} width={560 / bins - 1} height={(c / max) * 125}

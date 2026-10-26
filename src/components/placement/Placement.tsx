@@ -5,7 +5,7 @@ import ItemView, { type ItemResult } from '@/components/quiz/ItemView';
 import Constellation, { type CMod, type CTrack } from '@/components/interactive/Constellation';
 import CalibrationChart from '@/components/interactive/CalibrationChart';
 
-interface PTrack extends CTrack { aura: string; tagline: string }
+interface PTrack extends CTrack { aura: string }
 interface PMod extends CMod { minutes: number }
 
 interface Props {
@@ -141,17 +141,16 @@ export default function Placement({ tracks, modules, bank, base }: Props) {
     return (
       <div className="pl-intro aura aura-hero">
         <div className="pl-intro-inner">
-          <div className="eyebrow" style={{ color: 'var(--fg)' }}>Placement exam · optional · about 10 to 15 minutes</div>
+          <div className="eyebrow" style={{ color: 'var(--fg)' }}>Optional · 10 to 15 minutes</div>
           <h1 className="display" style={{ fontSize: 'clamp(2.4rem, 6vw, 4.4rem)', marginTop: 14 }}>Find the edge of what you know.</h1>
-          <p className="lead" style={{ color: 'var(--fg)', opacity: 0.8, maxWidth: '54ch', marginTop: 18 }}>
-            The exam searches each track for the boundary between what you have mastered and what you have not, usually in three questions or fewer per track.
-            Modules behind your boundary are marked as placed, and your path begins where your knowledge ends.
+          <p className="lead" style={{ color: 'var(--fg)', opacity: 0.8, maxWidth: '44ch', marginTop: 18 }}>
+            About three questions per track. Pass a module and you skip it.
           </p>
           <div className="grid grid-3" style={{ marginTop: 32, gap: 12 }}>
             {[
-              ['Adaptive', 'Each answer halves the search. Get one right and the next question jumps ahead; miss one and it steps back.'],
-              ['Wagered', 'Before each answer is revealed, bet your confidence. A confident miss is flagged as a likely misconception.'],
-              ['Varied', 'Match concepts, order processes, estimate on log scales, click the right part of a figure, and choose.'],
+              ['Adaptive', 'Right answers jump ahead. Misses step back.'],
+              ['Wagered', 'Bet your confidence. Confident misses get flagged.'],
+              ['Varied', 'Match, order, estimate, click a figure, choose.'],
             ].map(([t, d]) => (
               <div key={t} className="card" style={{ background: 'color-mix(in srgb, var(--bg) 62%, transparent)', backdropFilter: 'blur(14px)', borderColor: 'transparent' }}>
                 <div className="h4">{t}</div>
@@ -161,11 +160,9 @@ export default function Placement({ tracks, modules, bank, base }: Props) {
           </div>
           <div className="row" style={{ marginTop: 32 }}>
             <button type="button" className="btn btn-primary btn-lg" onClick={() => setPhase('assess')}>Begin</button>
-            <a className="btn btn-lg" href={`${base}/path/`} style={{ background: 'color-mix(in srgb, var(--bg) 60%, transparent)' }}>Skip, start from the beginning</a>
+            <a className="btn btn-lg" href={`${base}/path/`} style={{ background: 'color-mix(in srgb, var(--bg) 60%, transparent)' }}>Skip</a>
           </div>
-          <p className="small" style={{ marginTop: 18, opacity: 0.75, maxWidth: '60ch' }}>
-            Honesty beats luck here. Every question offers "I don't know," which costs nothing. Guessing right with low confidence triggers a second question rather than a pass.
-          </p>
+          <p className="small" style={{ marginTop: 18, opacity: 0.75 }}>"I don't know" costs nothing. A lucky guess gets a second question.</p>
         </div>
       </div>
     );
@@ -177,16 +174,14 @@ export default function Placement({ tracks, modules, bank, base }: Props) {
       <div className="pl-wrap">
         <div className="eyebrow">Step 1 of 2</div>
         <h2 style={{ marginTop: 8 }}>How familiar is each track?</h2>
-        <p className="muted" style={{ maxWidth: '60ch', marginTop: 10 }}>
-          This only decides where to start searching. Tracks marked "New to me" are skipped entirely. You will still be tested on everything else, so a generous rating cannot place you past anything you do not know.
-        </p>
+        <p className="muted" style={{ maxWidth: '60ch', marginTop: 10 }}>This only sets where testing starts. "New to me" skips the track.</p>
         <div className="stack" style={{ ['--stack' as string]: '10px', marginTop: 24 }}>
           {probeable.map((t) => (
             <div key={t.id} className="card pl-rate">
               <div className={`pl-rate-swatch aura ${t.aura}`}><span>{t.numeral}</span></div>
               <div style={{ minWidth: 0 }}>
                 <div style={{ fontWeight: 600 }}>{t.title}</div>
-                <div className="small muted">{t.tagline} · {byTrack[t.id].length} modules</div>
+                <div className="small muted">{byTrack[t.id].length} modules</div>
               </div>
               <div className="chip-row pl-rate-opts" role="radiogroup" aria-label={`Familiarity with ${t.title}`}>
                 {RATING_LABEL.map((l, i) => (
@@ -197,10 +192,10 @@ export default function Placement({ tracks, modules, bank, base }: Props) {
           ))}
         </div>
         <div className="row" style={{ marginTop: 24, justifyContent: 'space-between' }}>
-          <div className="small muted">Probing {probing} track{probing === 1 ? '' : 's'} · about {Math.max(1, Math.round(probing * 1.4))} minutes</div>
+          <div className="small muted">{probing} track{probing === 1 ? '' : 's'} · about {Math.max(1, Math.round(probing * 1.4))} min</div>
           <div className="row">
-            <button type="button" className="btn btn-ghost" onClick={() => setRatings(Object.fromEntries(probeable.map((t) => [t.id, 1 as Rating])))}>Probe everything</button>
-            <button type="button" className="btn btn-primary" onClick={start}>Start the exam</button>
+            <button type="button" className="btn btn-ghost" onClick={() => setRatings(Object.fromEntries(probeable.map((t) => [t.id, 1 as Rating])))}>Test all</button>
+            <button type="button" className="btn btn-primary" onClick={start}>Start</button>
           </div>
         </div>
       </div>
@@ -236,7 +231,7 @@ export default function Placement({ tracks, modules, bank, base }: Props) {
       <div className="pl-wrap">
         <div className="pl-head">
           <div>
-            <div className="eyebrow">Track {t.numeral} of the path · {tracksDone + 1} of {totalProbe} being probed</div>
+            <div className="eyebrow">Track {t.numeral} · {tracksDone + 1} of {totalProbe}</div>
             <div className="h3" style={{ marginTop: 4 }}>{t.title}</div>
           </div>
           <div className="small muted tabular" style={{ textAlign: 'right' }}>
@@ -246,15 +241,15 @@ export default function Placement({ tracks, modules, bank, base }: Props) {
         <TrackStrip mods={mods} lo={search.lo} hi={search.hi} mid={search.mid} />
         <div className="card" style={{ marginTop: 18, padding: 'clamp(18px, 3vw, 32px)' }}>
           <div className="xsmall faint" style={{ marginBottom: 10 }}>
-            Probing: <strong style={{ color: 'var(--fg)' }}>{mods[search.mid].title}</strong>{search.attempt > 0 ? ' · a second question, since the first was a guess' : ''}
+            Testing: <strong style={{ color: 'var(--fg)' }}>{mods[search.mid].title}</strong>{search.attempt > 0 ? ' · second question' : ''}
           </div>
           {currentItem ? (
             <ItemView key={`probe-${probeN}`} item={currentItem} wager onResult={onResult} onNext={onNext} nextLabel="Continue" />
           ) : (
-            <div className="empty">No placement question exists for this module yet. <button className="link" type="button" onClick={dontKnow}>Skip it</button></div>
+            <div className="empty">No question for this module yet. <button className="link" type="button" onClick={dontKnow}>Skip</button></div>
           )}
           {!answered && currentItem && (
-            <button type="button" className="btn btn-ghost btn-sm" style={{ marginTop: 14 }} onClick={dontKnow}>I don't know this yet</button>
+            <button type="button" className="btn btn-ghost btn-sm" style={{ marginTop: 14 }} onClick={dontKnow}>I don't know</button>
           )}
         </div>
       </div>
@@ -274,10 +269,9 @@ export default function Placement({ tracks, modules, bank, base }: Props) {
     <div className="pl-wrap pl-results">
       <div className="eyebrow">Your placement</div>
       <h1 style={{ marginTop: 8 }}>{placedIds.length ? `You place past ${placedIds.length} module${placedIds.length > 1 ? 's' : ''}.` : 'Your path begins at the beginning.'}</h1>
-      <p className="lead" style={{ marginTop: 12, maxWidth: '58ch' }}>
-        {placedIds.length ? `That is about ${Math.round(saved / 60 * 10) / 10} hours of material you can skip. ` : ''}
-        Placed modules glow on the map below. You can still open any of them, and their mastery checks will confirm or correct the placement.
-      </p>
+      {placedIds.length > 0 && (
+        <p className="lead" style={{ marginTop: 12 }}>About {Math.round(saved / 60 * 10) / 10} hours saved. Placed modules glow below.</p>
+      )}
       <div className="card" style={{ marginTop: 28, padding: 'clamp(10px, 2vw, 22px)' }}>
         <Constellation modules={modules} tracks={tracks} base={base} statusOverride={override} highlight={placedIds} />
       </div>
@@ -300,8 +294,8 @@ export default function Placement({ tracks, modules, bank, base }: Props) {
                 return <li key={id} style={{ marginBottom: 6 }}><a className="link" href={`${base}/learn/${id}/`}>{m.title}</a></li>;
               })}
             </ul>
-          ) : <div className="small muted" style={{ marginTop: 8 }}>None. When you were sure, you were right, or you said so when you were not.</div>}
-          {misconceptions.length > 0 && <div className="xsmall muted" style={{ marginTop: 8 }}>You were 90%+ sure and wrong here. These are worth reading first: a confident wrong belief blocks learning more than ignorance does.</div>}
+          ) : <div className="small muted" style={{ marginTop: 8 }}>None.</div>}
+          {misconceptions.length > 0 && <div className="xsmall muted" style={{ marginTop: 8 }}>90%+ sure and wrong. Read these first.</div>}
         </div>
       </div>
       <div className="row" style={{ marginTop: 28 }}>

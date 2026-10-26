@@ -2,7 +2,7 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import trends from '../../data/watch/trends.json';
 import { getModules } from '@/lib/curriculum';
-import { moduleUrl, url } from '@/lib/url';
+import { moduleUrl } from '@/lib/url';
 
 interface TermSeries { term: string; modules: string[]; recent: number; base: number; share: number; lift: number; series: number[] }
 interface Story { id: string; title: string; url: string; score: number; categories: string[]; format?: string; sources: string[]; parts?: Record<string, number> }
@@ -41,9 +41,9 @@ const catLabel: Record<string, string> = { lab: 'Lab', research: 'Research', pol
   <section class="aura aura-t5" style="border-bottom:1px solid var(--line)">
     <div class="container" style="padding-block:clamp(48px,8vw,96px) clamp(36px,5vw,56px)">
       <div class="eyebrow" style="color:var(--fg)">Trend radar{hasData ? ` · updated ${trends.updated}` : ''}</div>
-      <h1 style="margin-top:10px;max-width:18ch">What the field is talking about, measured.</h1>
-      <p class="lead" style="margin-top:16px;max-width:62ch;color:var(--fg);opacity:.8">
-        Every morning the watcher counts what labs, researchers, regulators, economists, and journalists are publishing about. A topic is <em>rising</em> when its share of this week's coverage clearly exceeds its share over the previous four weeks. The radar refreshes weekly, and whenever a signal is published.
+      <h1 style="margin-top:10px;max-width:18ch">What the field is talking about.</h1>
+      <p class="lead" style="margin-top:16px;max-width:52ch;color:var(--fg);opacity:.8">
+        A topic is rising when its share of this week's coverage beats the previous four.
       </p>
     </div>
   </section>
@@ -51,11 +51,8 @@ const catLabel: Record<string, string> = { lab: 'Lab', research: 'Research', pol
   {!hasData && (
     <section class="container section-tight">
       <div class="empty" style="text-align:left;padding:32px">
-        <div class="h3" style="color:var(--fg)">The radar is warming up.</div>
-        <p style="margin:10px 0 0;max-width:62ch">
-          The watcher needs a few days of history before it can say what is rising. Once its daily workflow is running, this page fills in automatically: rising topics with their 28-day trajectories, the week's volume by topic, and the most notable stories and media that did not quite become signals.
-        </p>
-        <a class="btn btn-ghost btn-sm" style="margin-top:16px" href={url('/method/#watcher')}>How the watcher works</a>
+        <div class="h3" style="color:var(--fg)">Warming up.</div>
+        <p style="margin:10px 0 0">The radar needs a few days of scraping. It fills in on its own.</p>
       </div>
     </section>
   )}
@@ -65,8 +62,8 @@ const catLabel: Record<string, string> = { lab: 'Lab', research: 'Research', pol
       <div class="grid grid-2" style="align-items:start">
         <div>
           <h2 class="h3">Rising this week</h2>
-          <p class="small muted" style="margin:6px 0 16px">Share of coverage, last 7 days versus the 28 before. Based on {trends.itemsLastWeek} new items this week.</p>
-          {rising.length === 0 && <div class="empty small">Nothing is rising sharply. A quiet week, or still too little history ({trends.daysOfHistory} days so far).</div>}
+          <p class="small muted" style="margin:6px 0 16px">Last 7 days vs. the 28 before · {trends.itemsLastWeek} items</p>
+          {rising.length === 0 && <div class="empty small">Nothing rising sharply ({trends.daysOfHistory} days of history).</div>}
           <div class="grid" style="gap:10px">
             {rising.map((t) => (
               <div class="card trend-card">
@@ -82,7 +79,7 @@ const catLabel: Record<string, string> = { lab: 'Lab', research: 'Research', pol
         </div>
         <div>
           <h2 class="h3">Volume by topic</h2>
-          <p class="small muted" style="margin:6px 0 16px">Mentions in titles and summaries over the last 7 days.</p>
+          <p class="small muted" style="margin:6px 0 16px">Mentions, last 7 days</p>
           <div class="card" style="display:grid;gap:10px">
             {volume.map((t) => (
               <div class="vol-row">
@@ -100,7 +97,7 @@ const catLabel: Record<string, string> = { lab: 'Lab', research: 'Research', pol
   {top.length > 0 && (
     <section class="container section-tight">
       <h2 class="h3">On the radar</h2>
-      <p class="small muted" style="margin:6px 0 18px;max-width:62ch">The most notable stories, papers, and media of the past week by the watcher's significance score. Most never became signals, but they are worth knowing about.</p>
+      <p class="small muted" style="margin:6px 0 18px">The week's most notable stories, papers, and media.</p>
       <div class="grid" style="gap:10px">
         {top.map((s) => (
           <a class="card hoverable radar-row" href={s.url} target="_blank" rel="noopener">
@@ -122,7 +119,7 @@ const catLabel: Record<string, string> = { lab: 'Lab', research: 'Research', pol
   {hasData && (
     <section class="container section-tight">
       <details class="card">
-        <summary style="cursor:pointer;font-weight:550">Source health ({trends.sources.filter((s) => s.ok).length} of {trends.sources.length} reachable on the last run)</summary>
+        <summary style="cursor:pointer;font-weight:550">Sources ({trends.sources.filter((s) => s.ok).length} of {trends.sources.length} reachable)</summary>
         <div class="grid grid-3" style="margin-top:14px;gap:6px">
           {trends.sources.map((s) => (
             <div class="small row" style="gap:8px"><span class={`status-dot ${s.ok ? 'mastered' : ''}`} style={s.ok ? '' : 'border-color:var(--bad)'}></span>{s.name} <span class="faint mono xsmall">{s.ok ? s.count : 'failed'}</span></div>

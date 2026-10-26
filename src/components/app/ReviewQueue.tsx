@@ -47,7 +47,7 @@ export default function ReviewQueue({ bank, titles, base }: Props) {
       <div className="card aura aura-t2" style={{ borderColor: 'transparent', padding: 'clamp(24px,4vw,48px)' }}>
         <div className="eyebrow" style={{ color: 'var(--fg)' }}>Session complete</div>
         <div className="display" style={{ fontSize: 'clamp(2.4rem,6vw,3.6rem)', margin: '8px 0' }}>{correct} / {session.length}</div>
-        <p style={{ maxWidth: '50ch' }}>Cards you knew confidently move further into the future. Cards you missed return tomorrow. This is how knowledge becomes durable.</p>
+        <p style={{ maxWidth: '50ch' }}>Misses return tomorrow. The rest move further out.</p>
         <button type="button" className="btn btn-primary" onClick={() => setSession(null)}>Done</button>
       </div>
     );
@@ -58,12 +58,12 @@ export default function ReviewQueue({ bank, titles, base }: Props) {
       <div className="card" style={{ padding: 'clamp(22px,3vw,36px)' }}>
         <div className="xsmall faint">Due now</div>
         <div className="display" style={{ fontSize: 'clamp(3rem,8vw,4.6rem)' }}>{due.length}</div>
-        <p className="muted small" style={{ marginTop: 4 }}>{deck.length} cards in your deck in total.</p>
+        <p className="muted small" style={{ marginTop: 4 }}>{deck.length} in deck</p>
         <div className="row" style={{ marginTop: 18 }}>
           <button type="button" className="btn btn-primary" disabled={!due.length} onClick={() => begin(due)}>Review due cards</button>
           <button type="button" className="btn btn-ghost" disabled={!deck.length} onClick={() => begin(deck.map(([k]) => k).sort(() => Math.random() - 0.5))}>Practice anyway</button>
         </div>
-        {!deck.length && <p className="small muted" style={{ marginTop: 16 }}>Your deck is empty. Every mastery check you take adds its questions here.</p>}
+        {!deck.length && <p className="small muted" style={{ marginTop: 16 }}>Mastery checks add cards here.</p>}
       </div>
       <div className="card">
         <div className="xsmall faint" style={{ marginBottom: 10 }}>Coming up</div>

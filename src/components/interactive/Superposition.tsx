@@ -66,7 +66,7 @@ export default function Superposition() {
 
   return (
     <Widget title="Superposition: more features than dimensions" kicker="Interactive · a real toy model, trained as you watch"
-      note={<>Five features must pass through a space of only two dimensions. Each arrow shows the direction the model assigns to one feature (longer means better represented; feature 1 matters most). With dense features, the model represents only as many as it has dimensions. Raise sparsity, so each feature is rarely active, and the geometry changes in steps: first features pair up as opposite (antipodal) arrows, four features in two dimensions; then all five pack into a pentagon, the model accepting a little interference because features seldom collide. This is why individual neurons in real models are often <em>polysemantic</em>.</>}>
+      note={<>Five features, two dimensions. Raise sparsity and the model packs in more: first opposite pairs, then a pentagon. This is why real neurons are <em>polysemantic</em>.</>}>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 240px), 1fr))', gap: 18, alignItems: 'center' }}>
         <div style={{ background: 'var(--bg-soft)', borderRadius: 'var(--radius)', position: 'relative' }}>
           <svg viewBox={`0 0 ${S} ${S}`} width="100%" role="img" aria-label="Feature directions in two dimensions" style={{ opacity: busy ? 0.4 : 1, transition: 'opacity .3s' }}>

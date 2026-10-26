@@ -17,7 +17,7 @@ const titles = Object.fromEntries(modules.map((m) => [m.id, m.data.title]));
 const linked = d.modules.filter((id) => titles[id]);
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const auraFor: Record<string, string> = { research: 'aura-t3', model: 'aura-t4', safety: 'aura-t6', policy: 'aura-t8', economy: 'aura-t7', media: 'aura-t0', trend: 'aura-t5' };
-const methodNote = { claude: 'Selected and drafted by the watcher with Claude, from the sources below.', heuristic: 'Detected automatically by the watcher’s significance scoring; summary drawn from the sources below.', editor: 'Written by the editor from the sources below.' }[d.method];
+const methodNote = { claude: 'Drafted by Claude from these sources.', heuristic: 'Selected automatically and excerpted from these sources.', editor: 'Written by the editor.' }[d.method];
 ---
 
 <BaseLayout title={d.title} description={d.summary} active="signals">
@@ -35,7 +35,7 @@ const methodNote = { claude: 'Selected and drafted by the watcher with Claude, f
 
     {linked.length > 0 && (
       <section style="margin-top:48px">
-        <h2 class="h3">The background you need</h2>
+        <h2 class="h3">Background</h2>
         <div class="grid" style="gap:10px;margin-top:14px">
           {linked.map((id) => (
             <a class="card hoverable" href={moduleUrl(id)} style="padding:16px 20px"><span style="font-weight:550">{titles[id]}</span></a>
