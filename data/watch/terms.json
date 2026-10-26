@@ -1,1 +1,21 @@
-{}
+{
+  "2026-10-26": {
+    "Evaluations": 14,
+    "Copyright and data": 1,
+    "Robotics": 8,
+    "Model releases": 2,
+    "Agents": 20,
+    "Multimodal and video": 6,
+    "Alignment": 2,
+    "Reasoning models": 1,
+    "AI for science": 2,
+    "Interpretability": 1,
+    "Chips and compute": 2,
+    "Hallucination": 1,
+    "Security and jailbreaks": 1,
+    "Dangerous capabilities": 1,
+    "Coding assistants": 1,
+    "Open-weight models": 1,
+    "__items": 53
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "date": "2026-10-26",
+  "sources": {
+    "anthropic-news": {
+      "ok": true,
+      "count": 21
+    },
+    "anthropic-research": {
+      "ok": true,
+      "count": 24
+    },
+    "openai": {
+      "ok": true,
+      "count": 1319
+    },
+    "deepmind": {
+      "ok": true,
+      "count": 100
+    },
+    "google-ai": {
+      "ok": true,
+      "count": 20
+    },
+    "msr": {
+      "ok": true,
+      "count": 7
+    },
+    "hf-blog": {
+      "ok": true,
+      "count": 890
+    },
+    "hf-papers": {
+      "ok": true,
+      "count": 50
+    },
+    "arxiv-cl": {
+      "ok": true,
+      "count": 169
+    },
+    "arxiv-lg": {
+      "ok": true,
+      "count": 321
+    },
+    "arxiv-ai": {
+      "ok": true,
+      "count": 321
+    },
+    "metr": {
+      "ok": true,
+      "count": 19
+    },
+    "epoch": {
+      "ok": true,
+      "count": 0
+    },
+    "import-ai": {
+      "ok": false,
+      "error": "HTTP 403"
+    },
+    "simonw": {
+      "ok": true,
+      "count": 30
+    },
+    "fedreg": {
+      "ok": true,
+      "count": 25
+    },
+    "eu-digital": {
+      "ok": false,
+      "error": "HTTP 403"
+    },
+    "uk-aisi": {
+      "ok": true,
+      "count": 11
+    },
+    "nist": {
+      "ok": true,
+      "count": 8
+    },
+    "nber": {
+      "ok": true,
+      "count": 7
+    },
+    "stanford-del": {
+      "ok": true,
+      "count": 2
+    },
+    "techreview": {
+      "ok": true,
+      "count": 10
+    },
+    "verge-ai": {
+      "ok": true,
+      "count": 10
+    },
+    "wired-ai": {
+      "ok": true,
+      "count": 10
+    },
+    "dwarkesh": {
+      "ok": true,
+      "count": 20
+    },
+    "latent-space": {
+      "ok": true,
+      "count": 20
+    },
+    "3b1b": {
+      "ok": true,
+      "count": 2
+    },
+    "hn": {
+      "ok": true,
+      "count": 3
+    }
+  }
+}

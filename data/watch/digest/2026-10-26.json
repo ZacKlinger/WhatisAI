@@ -1,0 +1,477 @@
+[
+  {
+    "id": "f83d3ef572af6ab7",
+    "title": "Agent Mosaic: Recognizing Confidentiality Leaks in Agentic LLM Systems",
+    "url": "https://huggingface.co/papers/2610.30418",
+    "score": 0.473,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0.3
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "af500f36fb4d2230",
+    "title": "FLORA: An Open Model Suite for Scaling Robotics Data Engines",
+    "url": "https://huggingface.co/papers/2610.31779",
+    "score": 0.443,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "2800e91d32e9755b",
+    "title": "UserArena: Benchmarking Interactive User Simulation for Long-Horizon Shopping Agents",
+    "url": "https://huggingface.co/papers/2610.30932",
+    "score": 0.376,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.59
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "ce5ce5fc43fb0958",
+    "title": "Concerning behavior from a popular open-weight AI model",
+    "url": "https://cohere.com/blog/concerning-behaviour-popular-open-weight-ai-model",
+    "score": 0.374,
+    "parts": {
+      "authority": 0.35,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0.01
+    },
+    "categories": [
+      "community"
+    ],
+    "format": "article",
+    "sources": [
+      "Hacker News"
+    ]
+  },
+  {
+    "id": "6d821db0b9cbe1e6",
+    "title": "HiSTEVE 1.0: Harnessing Human-Interface VLA Agents for Open-World Games",
+    "url": "https://huggingface.co/papers/2610.31162",
+    "score": 0.365,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.47
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "b1121fffb5263882",
+    "title": "RSIHub: A Composable Framework for Agent-Evolution Methods",
+    "url": "https://huggingface.co/papers/2610.32253",
+    "score": 0.359,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.41
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "bf7522cb1febc6dd",
+    "title": "FilmFlow: Agentic System for 3D Virtual Film Cinematography",
+    "url": "https://huggingface.co/papers/2610.30753",
+    "score": 0.358,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.4
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "90d760ff48146acf",
+    "title": "RynnUnify: Towards Unified Embodied Brain",
+    "url": "https://huggingface.co/papers/2610.32965",
+    "score": 0.356,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.39
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "de0cdef672fa0381",
+    "title": "Different Tasks, Different Timesteps: Temporal Task-Aware Quantization for Diffusion Language Models",
+    "url": "https://huggingface.co/papers/2610.31198",
+    "score": 0.348,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.3
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "51e9e54f5ad5ca18",
+    "title": "Omni-Woodpecker: Hallucination Correction via Evidence-Prior Rebalancing for Omni LLMs",
+    "url": "https://huggingface.co/papers/2610.27103",
+    "score": 0.345,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.28
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "b0b119b4ebab06fa",
+    "title": "EvalResearchBench: Can AI Agents Build Their Own Feedback for Recursive Self-Improvement?",
+    "url": "https://huggingface.co/papers/2610.04184",
+    "score": 0.345,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.28
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "0400e12e3fe4d7c7",
+    "title": "RIDAR: Safeguarding Research Integrity in Autonomous Research Agents via Automated Detection and Runtime Intervention",
+    "url": "https://huggingface.co/papers/2610.31372",
+    "score": 0.338,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.2
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "e3f48429b02e4503",
+    "title": "DirCast: Live Esports Directing and Commentary with a Single Streaming Video-Language Model",
+    "url": "https://huggingface.co/papers/2610.31734",
+    "score": 0.336,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.19
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "cc1a14d02134716d",
+    "title": "Dual Exam: Controlled Evaluation of Multimodal Agents and World Models",
+    "url": "https://huggingface.co/papers/2610.31066",
+    "score": 0.335,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.17
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "f59fa144209bfd0f",
+    "title": "BrickWright: Agentic Creation of Physically Feasible Brick Builds",
+    "url": "https://huggingface.co/papers/2610.31651",
+    "score": 0.334,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.16
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "816ac455a9dc7a8a",
+    "title": "TenetBench: A Clause-Anchored Russian Corpus for Evaluating Language Models against Professional Codes of Ethics",
+    "url": "https://huggingface.co/papers/2610.29477",
+    "score": 0.333,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.15
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "257b6373c1472f70",
+    "title": "Who Takes the Lead? Model Ability and Task-Conditioned Collaboration with Humans",
+    "url": "https://huggingface.co/papers/2610.27148",
+    "score": 0.331,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.14
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "5d83afc7dc659b05",
+    "title": "Reading, Writing, Sharing, and Interacting with the World through Video",
+    "url": "https://huggingface.co/papers/2610.31668",
+    "score": 0.33,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.15,
+      "engagement": 1
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "ad5140263098ffd0",
+    "title": "On-Policy Self-Training: Data-Free Self-Improvement in Large Language Models",
+    "url": "https://huggingface.co/papers/2610.32770",
+    "score": 0.33,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.13
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "7fb3076e94a038a2",
+    "title": "FLOMSS: Generative Music Source Separation by Flow Matching",
+    "url": "https://huggingface.co/papers/2610.17821",
+    "score": 0.33,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.13
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "9b9bfbf4dbd03f12",
+    "title": "The LLM-Attacker: A Unified Red-Team Framework for Privacy Evaluation of Split and Distributed LLM Systems",
+    "url": "https://huggingface.co/papers/2610.22722",
+    "score": 0.33,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.13
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "3ae7623c907e0f17",
+    "title": "DraMaze: A Multi-Agent Pipeline with Future-Aware Memory for Diverse Microdrama Script Generation",
+    "url": "https://huggingface.co/papers/2610.32002",
+    "score": 0.329,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.11
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "08a3295bc1c96f8a",
+    "title": "IF-MAP: Influence-Function-Inspired Agent Prioritization in Multi-Agent Systems",
+    "url": "https://huggingface.co/papers/2610.24383",
+    "score": 0.329,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.11
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "b3577a0ad362f7d8",
+    "title": "TARSphere: A Robot-Oriented Full-Stack Framework for Long-Horizon Embodied Agents in Evolving Physical and Social Environments",
+    "url": "https://huggingface.co/papers/2610.30043",
+    "score": 0.328,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.1
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "66e7cefdd44f9b7d",
+    "title": "Bridging Exploration and Persona: Information-Directed Dueling for Test-Time Agent Personalization",
+    "url": "https://huggingface.co/papers/2610.24385",
+    "score": 0.328,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.1
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  }
+]
