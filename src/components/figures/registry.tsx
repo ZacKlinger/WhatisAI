@@ -319,7 +319,8 @@ function Landscape(fp: FigureProps) {
   const x = linear(-3.2, 3.6, m.l, W - m.r);
   const y = linear(0.4, 3.6, H - m.b, m.t);
   const pts = Array.from({ length: 200 }, (_, i) => { const t = -3.2 + (i / 199) * 6.8; return [x(t), y(f(t))] as [number, number]; });
-  const marks: [string, number, string][] = [['A', -1.95, 'Point A'], ['B', 0.65, 'Point B'], ['C', 1.95, 'Point C']];
+  // A: a local minimum; B: the lowest valley shown; C: a hilltop between them.
+  const marks: [string, number, string][] = [['A', 1.963, 'Point A'], ['B', -0.654, 'Point B'], ['C', 0.654, 'Point C']];
   return (
     <Frame label="A one-dimensional loss landscape" w={W} h={H}>
       <path d={path(pts)} style={{ fill: 'none', stroke: palette[0], strokeWidth: 2.5 }} />
@@ -626,6 +627,9 @@ function ExpTwoAxes(_: FigureProps) {
     </Frame>
   );
 }
+
+/** Figures that contain clickable regions and can therefore host hotspot questions. */
+export const hotspotFigures = new Set(['loss-curves', 'transformer-block', 'risk-pyramid', 'landscape', 'doc-anatomy', 'pipeline', 'attention-map', 'net-diagram', 'jagged-frontier']);
 
 export const figures: Record<string, (p: FigureProps) => ReactNode> = {
   'loss-curves': LossCurves,

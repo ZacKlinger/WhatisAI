@@ -1,0 +1,139 @@
+---
+title: Statistics for reading research
+track: t1
+order: 6
+summary: Error bars, confidence intervals, significance, log scales, and exponential trends. The toolkit that separates a real result from noise in every AI paper and chart.
+minutes: 32
+level: 2
+prerequisites: [probability]
+objectives:
+  - Read error bars and confidence intervals, and judge whether a difference between two scores is meaningful.
+  - Explain what a p-value does and does not tell you, and recognize multiple-comparison and selection pitfalls.
+  - Read logarithmic axes and recognize exponential growth and power laws on a chart.
+keyTerms:
+  - term: Standard error
+    def: How much an estimate (like an accuracy score) would vary if you repeated the measurement with a fresh sample.
+  - term: Confidence interval
+    def: A range constructed so that, across many repetitions, it would contain the true value a stated fraction of the time (usually 95%).
+  - term: Statistical significance
+    def: A result unlikely to arise from chance alone if there were no real effect, conventionally p < 0.05.
+  - term: Effect size
+    def: How large a difference is, as opposed to whether it is statistically detectable.
+  - term: Logarithmic scale
+    def: An axis where each step multiplies the value by a fixed factor (often 10), instead of adding a fixed amount.
+  - term: Exponential growth
+    def: Growth by a constant factor per period. A straight line on a log-scale y-axis.
+  - term: Power law
+    def: A relationship of the form y = a·x^k. A straight line when both axes are logarithmic.
+sources:
+  - title: "Adding Error Bars to Evals: A Statistical Approach to Language Model Evaluations"
+    authors: Evan Miller
+    org: Anthropic
+    year: 2024
+    url: https://arxiv.org/abs/2411.00640
+  - title: "The ASA Statement on p-Values: Context, Process, and Purpose"
+    authors: Wasserstein & Lazar
+    org: The American Statistician
+    year: 2016
+    url: https://doi.org/10.1080/00031305.2016.1154108
+  - title: Scaling Laws for Neural Language Models
+    authors: Kaplan et al.
+    org: OpenAI
+    year: 2020
+    url: https://arxiv.org/abs/2001.08361
+updated: 2026-10-26
+---
+
+import BenchmarkStats from '@/components/interactive/BenchmarkStats';
+import StaticFigure from '@/components/figures/registry';
+import QuickCheck from '@/components/quiz/QuickCheck';
+
+Almost every claim in AI research rests on a number: a benchmark score, a growth rate, an effect in an experiment. Numbers are never as solid as they look in a headline. Every measurement carries noise, every chart makes choices about its axes, and every comparison can be fair or unfair. This module gives you the statistical instincts to read those numbers like a researcher. It may be the most practically useful module on the path.
+
+## Every score is an estimate
+
+Suppose a model scores 74% on a benchmark of 200 questions. Is its "true" accuracy 74%? Not necessarily. The benchmark is a *sample* of the questions the model might face. A different 200 questions of the same kind might yield 70% or 78%.
+
+The **standard error** measures this wobble. For an accuracy *p* measured on *n* questions:
+
+<Eq>standard error = √( <i>p</i> (1 − <i>p</i>) / <i>n</i> )</Eq>
+
+For *p* = 0.74 and *n* = 200, that is about 0.031, or 3.1 percentage points. A **95% confidence interval** extends about two standard errors in each direction: roughly 68% to 80%. The lesson is immediate: two models scoring 72% and 74% on this benchmark are statistically indistinguishable.
+
+Explore how this works. Set two models' true accuracies close together and watch how often the worse one ties or wins on a small benchmark. Then raise the number of questions.
+
+<BenchmarkStats client:visible />
+
+<StaticFigure id="error-bars" rows={[['Model A', 71, 4], ['Model B', 74, 4]]} caption="Two scores with 95% confidence intervals. The intervals overlap heavily: the data do not establish that Model B is better." />
+
+<Callout type="corpus" title="From the corpus">
+In 2024 an Anthropic researcher published "Adding Error Bars to Evals," arguing that most language model evaluations report scores without uncertainty and proposing standard statistical practice: report standard errors, cluster them when questions come in related groups, and compare models on the same questions. When you read a leaderboard, look for error bars. Their absence is information.
+</Callout>
+
+## Significance and p-values
+
+A result is **statistically significant** when it would be unlikely to occur by chance if there were no real effect. The **p-value** quantifies this: it is the probability of seeing a difference at least as large as the one observed, assuming there is truly no difference. By convention, p below 0.05 is called significant.
+
+Three cautions keep you from being misled:
+
+1. **A p-value is not the probability the hypothesis is true.** p = 0.03 does not mean "97% chance the effect is real."
+2. **Significant does not mean large.** With enough data, trivially small effects become significant. Always ask about the **effect size**: how big is the difference, in units that matter?
+3. **Not significant does not mean no effect.** A small study may simply lack the data to detect a real difference.
+
+## How results get distorted
+
+Many misleading results come not from fraud but from the quiet arithmetic of selection.
+
+**Multiple comparisons.** Test twenty different prompts and one will likely look "significantly" better by chance alone at the 5% level. If a paper tried many variants and reports the best, its result is inflated.
+
+**Cherry-picked examples.** A paper showing five impressive outputs tells you what the model *can* do, not what it *usually* does. Look for systematic evaluation over many examples.
+
+**Benchmark contamination.** If test questions leaked into training data, high scores may reflect memory, not ability. You will study this in Track V.
+
+**Unfair baselines.** A new method compared against an old, poorly tuned competitor will look better than it is.
+
+<QuickCheck client:visible item={{
+  kind: 'mc', id: 'sig',
+  prompt: 'A paper reports that a new prompting method improves accuracy from 81.2% to 81.9%, statistically significant at p < 0.01, on a benchmark of 500,000 questions. What is the most accurate reading?',
+  choices: ['The method produces a large, important improvement', 'The improvement is real but small; whether it matters depends on context', 'The result must be due to chance', 'p < 0.01 means there is a 99% chance the method works'],
+  answer: 1,
+  explain: 'With half a million questions, even a 0.7-point difference is easily detected. Significance tells you it is probably real; effect size tells you it is small.'
+}} />
+
+## Correlation is not causation
+
+Two things moving together do not prove one causes the other. When you read that "occupations more exposed to AI saw slower job growth," ask: could something else explain both? Perhaps exposed occupations were already declining, or were hit differently by interest rates. Economists address this with careful designs, such as comparing similar groups before and after a change (a *difference-in-differences*) or running randomized experiments. Track VII teaches you to read those designs.
+
+## Logarithmic scales
+
+AI quantities span enormous ranges. Training compute has grown by more than a billion times since 2012. On an ordinary axis, everything before the last few years would be squashed flat against zero. So researchers use **logarithmic scales**, where each equal step on the axis *multiplies* the value by the same factor, usually 10.
+
+On a log axis, 1, 10, 100, and 1,000 are equally spaced. A change from 10<sup>20</sup> to 10<sup>21</sup> covers the same distance as 10<sup>24</sup> to 10<sup>25</sup>, even though the second jump is ten thousand times larger in absolute terms.
+
+<StaticFigure id="exp-two-axes" caption="The same exponential growth (quadrupling each year) plotted two ways. On a linear axis it looks like nothing happens, then everything happens. On a log axis it is a straight line, and its slope is the growth rate." />
+
+## Exponentials and doubling times
+
+**Exponential growth** means growth by a constant factor per period. It appears as a straight line on a log-scale y-axis. A useful way to grasp it is the **doubling time**: if something doubles every seven months, then in about two years it grows more than tenfold, and in five years more than three hundredfold.
+
+A quick rule of thumb: to find a doubling time from a growth rate, divide 70 by the percentage growth per period. Seven percent per year doubles in about ten years.
+
+## Power laws
+
+A **power law** has the form *y* = *a* · *x*<sup>*k*</sup>. Its signature is a straight line when *both* axes are logarithmic. Power laws are central to modern AI because of **scaling laws**: in 2020, OpenAI researchers found that a language model's loss falls as a power law in its size, its data, and its compute, holding across more than seven orders of magnitude. A straight line on a log-log plot, extending across years of progress, is one of the most important images in the field.
+
+<StaticFigure id="scaling-loglog" caption="Illustration: model loss versus training compute on log-log axes. The points fall close to a straight line, the signature of a power law. You will study real scaling laws in Track III." />
+
+<KeyIdea track="t1">Before believing a number, ask three questions. How much noise is in it? What is it being compared against? And what scale is the chart drawn on?</KeyIdea>
+
+## Reading the corpus
+
+| When a document says | It means |
+| --- | --- |
+| "± 1.2" or error bars | Usually one standard error, or a 95% interval; check which |
+| "95% CI [68, 80]" | A 95% confidence interval from 68 to 80 |
+| "p &lt; 0.05" | Statistically significant at the conventional threshold |
+| "n = 200" | The sample size: here, 200 questions, participants, or runs |
+| "log-log plot" | Both axes logarithmic; straight lines indicate power laws |
+| "orders of magnitude" | Factors of ten; "three orders of magnitude" means 1,000 times |
+| "pass@k" | The probability that at least one of k attempts succeeds |

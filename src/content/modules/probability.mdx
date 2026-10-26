@@ -1,0 +1,119 @@
+---
+title: "Probability: the language of uncertainty"
+track: t1
+order: 4
+summary: Distributions, conditional probability, and the softmax function, which together explain exactly what a language model outputs and how it chooses its words.
+minutes: 26
+level: 2
+prerequisites: [functions-and-models]
+objectives:
+  - Describe a probability distribution and read conditional probabilities like P(next word | context).
+  - Explain how logits become probabilities through softmax, and how temperature changes them.
+  - Use base rates to avoid the most common probabilistic reasoning error.
+keyTerms:
+  - term: Probability distribution
+    def: An assignment of probabilities to every possible outcome, summing to 1.
+  - term: Conditional probability
+    def: The probability of one thing given that another is true, written P(A | B).
+  - term: Logit
+    def: A raw, unnormalized score a model assigns to an option before it is converted into a probability.
+  - term: Softmax
+    def: The function that turns a list of logits into a probability distribution by exponentiating each and dividing by the total.
+  - term: Temperature
+    def: A number that divides the logits before softmax. Low temperature sharpens the distribution; high temperature flattens it.
+  - term: Sampling
+    def: Choosing an outcome at random according to a probability distribution.
+  - term: Base rate
+    def: How common something is before considering specific evidence. Ignoring it is the most common error in probabilistic reasoning.
+sources:
+  - title: The Curious Case of Neural Text Degeneration
+    authors: Holtzman, Buys, Du, Forbes & Choi
+    org: ICLR
+    year: 2020
+    url: https://arxiv.org/abs/1904.09751
+  - title: Language Models (Mostly) Know What They Know
+    authors: Kadavath et al.
+    org: Anthropic
+    year: 2022
+    url: https://arxiv.org/abs/2207.05221
+updated: 2026-10-26
+---
+
+import Softmax from '@/components/interactive/Softmax';
+import QuickCheck from '@/components/quiz/QuickCheck';
+
+A language model never knows what word comes next. It holds beliefs: perhaps "mat" is likely, "floor" plausible, "moon" a long shot. Probability is the mathematics of such beliefs, and it is the native language of every generative AI system. When you understand what it means for a model to output a probability distribution, you understand why the same prompt gives different answers, why a model can be confidently wrong, and what a "temperature" setting actually does.
+
+## Probabilities and distributions
+
+A **probability** is a number between 0 and 1 expressing how likely something is. Zero means impossible, one means certain, and 0.3 means "would happen about 30% of the time in many repetitions."
+
+A **probability distribution** assigns a probability to every possible outcome, and the probabilities must add up to 1. A fair die has the distribution: each face, 1/6. A weather forecast might give: rain 0.3, no rain 0.7.
+
+A language model's output is a distribution over its vocabulary, typically around 100,000 possible tokens (word pieces). For the context "The cat sat on the," it might assign "mat" 0.41, "floor" 0.17, "sofa" 0.12, and tiny probabilities to tens of thousands of others. Every one of those numbers is positive, and together they sum to exactly 1.
+
+## Conditional probability: given what came before
+
+The probability of the next word depends on what came before. We write this as a **conditional probability**:
+
+<Eq>P( next word | previous words )</Eq>
+
+The vertical bar is read "given." P(rain | dark clouds) is the probability of rain given dark clouds, which is higher than P(rain) on an arbitrary day. A language model is a machine for computing P(next token | all previous tokens), for any context it is handed.
+
+There is a beautiful consequence. The probability of an entire sentence can be built from these pieces, one word at a time, by multiplying:
+
+<Eq>P(the cat sat) = P(the) × P(cat | the) × P(sat | the cat)</Eq>
+
+This is called the **chain rule of probability**, and it is why predicting the next token, over and over, is enough to model whole documents. It is the mathematical foundation of every GPT-style model.
+
+## From scores to probabilities: logits and softmax
+
+Inside the model, the final layer does not directly produce probabilities. It produces a raw score for each token, called a **logit**. Logits can be any number, positive or negative. To turn them into a distribution, the model applies the **softmax** function:
+
+1. Exponentiate each logit (compute *e* raised to that power), which makes every value positive and exaggerates differences.
+2. Divide each by the sum of all of them, so they add up to 1.
+
+<Eq>P(token <i>i</i>) = <span class="frac"><span><i>e</i><sup>logit<sub><i>i</i></sub> / <i>T</i></sup></span><span>sum over all tokens <i>j</i> of <i>e</i><sup>logit<sub><i>j</i></sub> / <i>T</i></sup></span></span></Eq>
+
+The *T* is the **temperature**. Before softmax, every logit is divided by it. A low temperature magnifies the differences between logits, so the top choice dominates. A high temperature shrinks them, flattening the distribution toward a uniform guess. Explore it:
+
+<Softmax client:visible />
+
+Notice three things. At temperature near zero, the model always picks the single most likely token, which is called **greedy decoding**: deterministic, but often repetitive. At temperature 1, you sample from the model's actual beliefs. At high temperature, rare tokens become likely, producing creativity and, soon after, nonsense. The **top-p** slider removes the long tail of unlikely tokens before sampling, a technique called nucleus sampling that keeps text varied without letting it derail.
+
+<KeyIdea track="t1">A language model outputs a probability distribution, not an answer. The answer you see is one sample from that distribution, chosen by a decoding strategy someone set.</KeyIdea>
+
+<QuickCheck client:visible item={{
+  kind: 'mc', id: 'temp',
+  prompt: 'You ask the same question twice at temperature 1 and get two different answers. What is the best explanation?',
+  choices: ['The model changed its parameters between runs', 'Each answer is a different random sample from the same probability distribution', 'The model is broken', 'Temperature 1 means the model ignores the prompt'],
+  answer: 1,
+  explain: 'At non-zero temperature, decoding samples from the distribution, so repeated runs can differ even though the model itself is unchanged.'
+}} />
+
+## Base rates: the error everyone makes
+
+Probability is famously counterintuitive. The most important trap is ignoring the **base rate**.
+
+Suppose an AI system that detects a rare disease is 99% accurate: it flags 99% of sick people and wrongly flags only 1% of healthy people. The disease affects 1 in 1,000 people. Someone tests positive. How likely are they to be sick?
+
+Most people say 99%. The real answer is about 9%. In 100,000 people, 100 are sick and 99 of them test positive. Of the 99,900 healthy people, 1% (about 999) also test positive. So of roughly 1,098 positive tests, only 99 are real: about 9%. The rarity of the disease, its base rate, dominates. This reasoning is formalized as **Bayes' theorem**, and it matters every time you read about an AI detector, a classifier, or a screening tool.
+
+<Callout type="policy" title="Policy lens">
+Base rates matter enormously in AI governance. A tool that flags "AI-generated text" with a 1% false positive rate will accuse thousands of innocent students if most essays are human-written. The EU AI Act classifies many such screening uses as high-risk precisely because errors fall on individuals.
+</Callout>
+
+## Probabilities that mean something: calibration
+
+A model that says "70%" should be right about 70% of the time when it says so. That property is called **calibration**. Anthropic researchers reported in 2022 that large pretrained language models are reasonably well calibrated on multiple-choice questions, but that this calibration can degrade after training to be a helpful assistant. OpenAI's GPT-4 technical report showed a similar effect. Calibration is why "how confident is the model?" is a meaningful research question, and it is the same skill this site trains in you with every confidence wager.
+
+## Reading the corpus
+
+| When a document says | It means |
+| --- | --- |
+| "P(y \| x)" or "p<sub>θ</sub>(x)" | The probability of y given x; the second is the probability a model with parameters θ assigns |
+| "logits" | Raw scores before softmax |
+| "greedy decoding" | Always choosing the most probable token (temperature effectively zero) |
+| "top-p" / "nucleus sampling" | Sampling only from the smallest set of tokens whose probabilities add to p |
+| "autoregressive" | Generating one token at a time, each conditioned on everything before it |
+| "well calibrated" | Stated confidence matches actual frequency of being correct |

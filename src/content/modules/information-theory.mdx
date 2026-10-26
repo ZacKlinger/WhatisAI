@@ -1,0 +1,112 @@
+---
+title: "Information: surprise, entropy, and compression"
+track: t1
+order: 7
+summary: Why a language model's training loss is measured in bits, what perplexity means, and the deep equivalence between predicting well and compressing well.
+minutes: 22
+level: 3
+prerequisites: [probability, statistics-for-research]
+objectives:
+  - Define surprise and entropy, and compute surprise in bits for simple cases.
+  - Explain cross-entropy loss and perplexity, the standard measures of language model quality.
+  - Describe why prediction and compression are two sides of the same coin.
+keyTerms:
+  - term: Surprise (information content)
+    def: How unexpected an outcome was, measured as −log₂ of its probability. A coin flip carries 1 bit.
+  - term: Bit
+    def: The amount of information in a choice between two equally likely options.
+  - term: Entropy
+    def: The average surprise of a probability distribution. How unpredictable its outcomes are.
+  - term: Cross-entropy
+    def: The average surprise you experience when outcomes follow one distribution but you predicted with another. The standard training loss for language models.
+  - term: KL divergence
+    def: The extra surprise caused by using the wrong distribution. Cross-entropy minus entropy.
+  - term: Perplexity
+    def: Two to the power of the cross-entropy (in bits). The effective number of equally likely choices the model is guessing among.
+sources:
+  - title: A Mathematical Theory of Communication
+    authors: Claude E. Shannon
+    org: Bell System Technical Journal
+    year: 1948
+    url: https://doi.org/10.1002/j.1538-7305.1948.tb01338.x
+  - title: Language Modeling Is Compression
+    authors: Delétang et al.
+    org: Google DeepMind
+    year: 2023
+    url: https://arxiv.org/abs/2309.10668
+  - title: Prediction and Entropy of Printed English
+    authors: Claude E. Shannon
+    org: Bell System Technical Journal
+    year: 1951
+    url: https://doi.org/10.1002/j.1538-7305.1951.tb01366.x
+updated: 2026-10-26
+---
+
+import Entropy from '@/components/interactive/Entropy';
+import QuickCheck from '@/components/quiz/QuickCheck';
+
+In 1948 a mathematician at Bell Labs named Claude Shannon asked a deceptively simple question: how much information is in a message? His answer founded information theory, made modern communication possible, and, seventy years later, became the exact measure by which every language model is trained. When a paper reports "loss 2.1" or "perplexity 8," it is speaking Shannon's language.
+
+## Surprise
+
+Shannon's insight was that information is surprise. If someone tells you the sun rose this morning, you learn almost nothing; you expected it. If they tell you it snowed in the Sahara, you learn a great deal. The less probable an event, the more information it carries.
+
+He defined the **surprise** of an outcome with probability *p* as:
+
+<Eq>surprise = −log<sub>2</sub>(<i>p</i>) &nbsp; bits</Eq>
+
+A fair coin landing heads has probability 1/2, so its surprise is −log₂(1/2) = **1 bit**. An outcome with probability 1/4 carries 2 bits; 1/8 carries 3 bits. Each halving of probability adds one bit. A certain event (probability 1) carries zero bits: no surprise at all.
+
+<QuickCheck client:visible item={{
+  kind: 'mc', id: 'bits',
+  prompt: 'A model assigned probability 1/16 to the token that actually came next. How many bits of surprise is that?',
+  choices: ['1 bit', '4 bits', '8 bits', '16 bits'],
+  answer: 1,
+  explain: '1/16 = (1/2)^4, so −log₂(1/16) = 4 bits. Four halvings, four bits.'
+}} />
+
+## Entropy: average surprise
+
+The **entropy** of a distribution is its average surprise, weighting each outcome by how often it happens. It measures how unpredictable the source is. A fair coin has entropy 1 bit. A rigged coin that lands heads 99% of the time has entropy of only about 0.08 bits: you are rarely surprised. A fair eight-sided die has entropy 3 bits.
+
+Shannon himself estimated the entropy of written English in 1951, by asking people to guess the next letter of text. He concluded it was roughly 0.6 to 1.3 bits per letter, far below the 4.7 bits you would need if all 26 letters were equally likely. English is highly predictable, and that predictability is what language models learn.
+
+## Cross-entropy: the price of a wrong model
+
+Now suppose the world follows one distribution, but you predict with another. You will be surprised more often than necessary. The average surprise you experience is the **cross-entropy**. It is always at least as large as the true entropy, and the gap between them is called the **KL divergence**: the extra cost of having the wrong model.
+
+Explore it below. Set a "true" distribution, then try to match it with your model. Watch cross-entropy fall toward entropy, and KL divergence fall toward zero, as your prediction approaches the truth.
+
+<Entropy client:visible />
+
+<KeyIdea track="t1">A language model is trained to minimize cross-entropy on real text: the average surprise it feels at each actual next token. Lower loss means the model was less surprised by the world.</KeyIdea>
+
+This is the loss you will see on every training curve. When a paper reports a language model's loss as 1.8, it typically means the model's average surprise at each next token was 1.8 *nats* (the same idea using natural logarithms; one nat is about 1.44 bits). The irreducible part of the loss, which no model can remove, is the true entropy of the text: genuine unpredictability, like which name a novelist chooses for a minor character.
+
+## Perplexity
+
+**Perplexity** translates cross-entropy into an intuitive number: two raised to the cross-entropy in bits (or *e* raised to it in nats). It is the effective number of equally likely options the model is choosing among at each step. A perplexity of 8 means the model is, on average, as uncertain as if it were picking among eight equally likely tokens. Older papers compare models by perplexity on standard text datasets. Lower is better, though perplexity on one dataset says little about usefulness on tasks.
+
+## Prediction is compression
+
+Here is the deepest idea in this module. A good predictor can be turned into a good compressor, and vice versa. If you can predict the next symbol well, you can encode the common outcomes with short codes and the rare ones with long codes, and the average code length approaches your cross-entropy. This is not a metaphor; techniques like arithmetic coding do it exactly.
+
+In 2023, researchers at Google DeepMind demonstrated this directly in a paper titled "Language Modeling Is Compression": a large language model, used as a compressor, compressed images and audio better than standard tools like PNG and FLAC, despite having been trained mostly on text.
+
+Why does this matter for understanding AI? Because it reframes what training does. To compress the internet well, a model must capture whatever regularities make text predictable: grammar, facts, styles, arguments, and the structure of reasoning. Some researchers argue that this is why next-token prediction yields such general capabilities. Others caution that compression of text is not the same as understanding the world. Track III takes up this debate.
+
+<Callout type="corpus" title="From the corpus">
+You will see "bits per byte" or "bits per character" in papers that compare models across languages or tokenizers. Because different tokenizers chop text into different pieces, loss per token is not comparable across models; loss per byte of original text is.
+</Callout>
+
+## Reading the corpus
+
+| When a document says | It means |
+| --- | --- |
+| "cross-entropy loss" or "log loss" | The average surprise (negative log probability) of the actual next tokens |
+| "negative log-likelihood (NLL)" | The same quantity for a single example or summed over a dataset |
+| "nats" | Units of information using natural logarithms (1 nat ≈ 1.44 bits) |
+| "perplexity" | 2 or *e* raised to the cross-entropy: the effective number of choices |
+| "bits per byte" | Loss normalized by raw text length, comparable across tokenizers |
+| "irreducible loss" | The portion of loss that reflects true randomness in the data and cannot be eliminated |
+| "KL penalty" | A training term keeping a model's distribution close to a reference model's (you will meet it in RLHF) |

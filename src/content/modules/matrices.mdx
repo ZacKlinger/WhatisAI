@@ -1,0 +1,127 @@
+---
+title: "Matrices: transformations of space"
+track: t1
+order: 3
+summary: A matrix is a machine that moves every point in space at once. Neural networks are built almost entirely from them, which is why AI runs on graphics chips.
+minutes: 24
+level: 2
+prerequisites: [vectors-and-embeddings]
+objectives:
+  - Read a matrix as a grid of numbers and as a transformation of space.
+  - Multiply a matrix by a vector and explain the result as a set of dot products.
+  - Count the parameters in a weight matrix and connect matrix multiplication to AI hardware.
+keyTerms:
+  - term: Matrix
+    def: A rectangular grid of numbers. A matrix with m rows and n columns transforms n-dimensional vectors into m-dimensional ones.
+  - term: Matrix-vector multiplication
+    def: Each output number is the dot product of one row of the matrix with the input vector.
+  - term: Linear transformation
+    def: A transformation that keeps grid lines straight, parallel, and evenly spaced, and keeps the origin fixed. Every matrix performs one.
+  - term: Determinant
+    def: How much a square matrix scales areas (or volumes). Zero means the transformation collapses space and loses information.
+  - term: Weight matrix
+    def: A matrix of learned parameters inside a neural network layer.
+  - term: GPU
+    def: A graphics processing unit. Designed to do huge numbers of multiplications in parallel, which is exactly what matrix multiplication needs.
+sources:
+  - title: "Essence of linear algebra (video series)"
+    authors: Grant Sanderson
+    org: 3Blue1Brown
+    year: 2016
+    url: https://www.3blue1brown.com/topics/linear-algebra
+  - title: Attention Is All You Need
+    authors: Vaswani et al.
+    org: Google
+    year: 2017
+    url: https://arxiv.org/abs/1706.03762
+updated: 2026-10-26
+---
+
+import MatrixTransform from '@/components/interactive/MatrixTransform';
+import QuickCheck from '@/components/quiz/QuickCheck';
+
+If vectors are the nouns of AI, matrices are the verbs. A matrix takes a vector and transforms it into another vector: rotating it, stretching it, mixing its entries, or projecting it into a space with a different number of dimensions. Nearly all the computation inside a neural network is matrix multiplication. Understanding it demystifies what a network "does" to its inputs, and explains why AI became a story about chips.
+
+## A grid of numbers
+
+A **matrix** is a rectangular grid of numbers. This one has two rows and two columns:
+
+<Eq>[ 2 &nbsp; 0 ]<br/>[ 1 &nbsp; 3 ]</Eq>
+
+On its own, that is just a table. The power comes from what it does to vectors.
+
+## Multiplying a matrix by a vector
+
+To multiply a matrix by a vector, take the dot product of each **row** of the matrix with the vector. Each row produces one number of the output.
+
+<Eq>[ 2 &nbsp; 0 ] · (4, 5) = 2×4 + 0×5 = 8<br/>[ 1 &nbsp; 3 ] · (4, 5) = 1×4 + 3×5 = 19<br/><br/>so the matrix sends (4, 5) to (8, 19)</Eq>
+
+Notice what this means. Each output number is a weighted sum of all the input numbers, and the weights are the entries in that row. A matrix is a bundle of weighted sums, computed all at once. That is exactly what a layer of a neural network computes: each output neuron takes a weighted sum of all the input neurons, and the weights live in a matrix.
+
+<QuickCheck client:visible item={{
+  kind: 'mc', id: 'mv',
+  prompt: 'The matrix with rows [1 1] and [0 2] multiplies the vector (3, 4). What is the result?',
+  choices: ['(7, 8)', '(3, 8)', '(7, 6)', '(4, 6)'],
+  answer: 0,
+  explain: 'First row: 1×3 + 1×4 = 7. Second row: 0×3 + 2×4 = 8. Result: (7, 8).'
+}} />
+
+## A matrix is a transformation of space
+
+There is a second, more visual way to see a matrix. Apply it to *every* point in space at once, and space itself moves. A 2×2 matrix tells you exactly where the two basic arrows go: the first column is where the arrow (1, 0) lands, and the second column is where (0, 1) lands. Everything else follows, because a matrix transformation keeps grid lines straight, parallel, and evenly spaced.
+
+Play with the transformation below. Try the presets, then edit the numbers yourself. Watch especially what happens with "Collapse."
+
+<MatrixTransform client:visible />
+
+Some transformations you can make:
+
+- **Rotation** turns space without stretching it.
+- **Scaling** stretches or shrinks along the axes.
+- **Shear** slants space, like pushing the top of a deck of cards.
+- **Collapse** squashes the whole plane onto a line. The determinant becomes zero, and different input points now land on the same output point. Information has been destroyed; you cannot undo it.
+
+<KeyIdea track="t1">A matrix is a recipe for weighted sums, and equivalently a transformation of space. A neural network layer is a learned transformation: it moves the data into a new arrangement where the next step is easier.</KeyIdea>
+
+## Changing dimensions
+
+Matrices need not be square. A matrix with 3 rows and 2 columns takes 2-dimensional vectors and produces 3-dimensional ones. A matrix with 1,000 rows and 4,096 columns takes a 4,096-dimensional vector to a 1,000-dimensional one.
+
+This is how models move between spaces. The final layer of a language model is a matrix that takes the model's internal vector (a few thousand numbers) and produces one score for every token in its vocabulary (often around 100,000 numbers). The first layer of a transformer works the other way, through an embedding table: each token looks up its own row, a vector of a few thousand numbers.
+
+## Counting parameters
+
+A weight matrix with *m* rows and *n* columns contains *m* × *n* parameters. This simple fact explains where the billions come from.
+
+A single 4,096 × 4,096 matrix holds 4,096 × 4,096 ≈ **16.8 million** parameters. A transformer layer contains several such matrices, and a large model stacks dozens of layers. Multiply it out and you reach tens or hundreds of billions.
+
+<QuickCheck client:visible item={{
+  kind: 'estimate', id: 'params', prompt: 'A weight matrix has 8,192 rows and 8,192 columns. Roughly how many parameters does it hold?',
+  min: 1e5, max: 1e10, log: true, answer: 67108864, tolerance: 2, format: 'sci',
+  explain: '8,192 × 8,192 = 67,108,864, about 6.7 × 10^7: sixty-seven million parameters in one matrix.'
+}} />
+
+## Matrix times matrix
+
+You can also multiply two matrices. The result is a single matrix that performs both transformations in sequence: first one, then the other. This has a surprising consequence. If a network were made only of matrix multiplications, stacking a hundred layers would be no more powerful than one layer, because a hundred transformations composed together are still a single linear transformation. Something non-linear must be inserted between the layers to give depth its power. You will see what that is in the neural networks module.
+
+## Why AI runs on GPUs
+
+Multiplying two large matrices requires an enormous number of small multiplications and additions, but almost all of them are independent of each other, so they can be done at the same time. Graphics processing units (GPUs) were designed to compute millions of pixel colors in parallel for video games, which turns out to be the same kind of work.
+
+That coincidence shaped history. The AlexNet breakthrough of 2012 was trained on two gaming GPUs. Today NVIDIA's data-center chips, Google's TPUs (Tensor Processing Units), and other accelerators are specialized almost entirely for matrix multiplication, and access to them is a strategic asset that governments now regulate. When you read about export controls on AI chips in Track VIII, remember that the thing being controlled is, at bottom, an extraordinarily fast way to multiply matrices.
+
+<Callout type="economy" title="Labor market lens">
+The scarcity of matrix-multiplying hardware has turned AI into a capital-intensive industry. In 2025 and 2026, the largest technology companies each committed tens of billions of dollars per year to data centers full of these chips. Track VII examines what that concentration of capital means for markets and for work.
+</Callout>
+
+## Reading the corpus
+
+| When a document says | It means |
+| --- | --- |
+| *W* or *W*<sub>Q</sub> | A weight matrix (here, the "query" weights in attention) |
+| "linear layer" or "dense layer" | A matrix multiplication, usually plus a bias vector |
+| "projection" | A matrix that maps vectors into a different space, often lower-dimensional |
+| "*d* × *d* matrix" | A square matrix with *d* rows and columns, holding *d*² parameters |
+| "low-rank" | A matrix that collapses space onto fewer dimensions than it could; low-rank structure is exploited by methods like LoRA |
+| "FLOPs" | Floating-point operations: the multiplications and additions that matrix math is made of |

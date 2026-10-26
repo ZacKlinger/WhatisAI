@@ -1,0 +1,129 @@
+---
+title: "Vectors: meaning as geometry"
+track: t1
+order: 2
+summary: How lists of numbers become points in space, and how AI turns words, images, and ideas into positions where distance means difference in meaning.
+minutes: 26
+level: 1
+prerequisites: [functions-and-models]
+objectives:
+  - Treat a vector as both a list of numbers and an arrow in space.
+  - Compute and interpret a dot product and cosine similarity.
+  - Explain what an embedding is and why directions in embedding space can carry meaning.
+keyTerms:
+  - term: Vector
+    def: An ordered list of numbers, which can be pictured as a point or an arrow in space with one dimension per number.
+  - term: Dimension
+    def: One of the numbers in a vector; equivalently, one axis of the space the vector lives in.
+  - term: Dot product
+    def: Multiply two vectors entry by entry and add the results. Large when vectors point the same way.
+  - term: Cosine similarity
+    def: The dot product of two vectors divided by their lengths. Ranges from 1 (same direction) to −1 (opposite).
+  - term: Embedding
+    def: A vector that represents an object (a word, image, or document) so that similar objects get nearby vectors.
+  - term: Embedding space
+    def: The high-dimensional space where a model's embeddings live. Its geometry encodes relationships the model has learned.
+sources:
+  - title: Efficient Estimation of Word Representations in Vector Space
+    authors: Mikolov, Chen, Corrado & Dean
+    org: Google
+    year: 2013
+    url: https://arxiv.org/abs/1301.3781
+  - title: Linguistic Regularities in Continuous Space Word Representations
+    authors: Mikolov, Yih & Zweig
+    org: NAACL
+    year: 2013
+    url: https://aclanthology.org/N13-1090/
+  - title: Language Models are Few-Shot Learners
+    authors: Brown et al.
+    org: OpenAI
+    year: 2020
+    url: https://arxiv.org/abs/2005.14165
+updated: 2026-10-26
+---
+
+import VectorSpace from '@/components/interactive/VectorSpace';
+import QuickCheck from '@/components/quiz/QuickCheck';
+
+Computers only understand numbers. So to work with words, images, or ideas, an AI system must first translate them into numbers, and not just any numbers. It needs a translation in which *meaning* survives: where "king" and "queen" end up close together, and "king" and "banana" far apart. The tool for this is the vector, and once you see how it works, a surprising amount of AI research becomes legible.
+
+## A vector is a list of numbers
+
+A **vector** is an ordered list of numbers. That is all.
+
+<Eq><b>v</b> = (3, 1)</Eq>
+
+You can picture this vector as a point on a map, three steps east and one step north of the origin, or as an arrow from the origin to that point. Both pictures are useful. The arrow picture emphasizes *direction* and *length*.
+
+Each number is one **dimension**. A vector with two numbers lives in a two-dimensional plane, which you can draw. A vector with three numbers lives in three-dimensional space, which you can imagine. A vector with 12,288 numbers lives in a space with 12,288 dimensions, which you cannot picture at all, but which follows exactly the same rules. That is not a hypothetical: 12,288 is the width of the vectors inside the largest GPT-3 model.
+
+<Callout type="insight" title="You already use vectors">
+A color on a screen is a vector of three numbers: red, green, and blue intensity. A location is a vector of latitude and longitude. A recipe could be a vector of ingredient quantities. Any time you describe something with a fixed list of measurements, you have a vector.
+</Callout>
+
+## Length and direction
+
+The **length** of a vector, written with double bars as ‖**v**‖, is its distance from the origin. By Pythagoras' theorem, the length of (3, 4) is √(3² + 4²) = √25 = 5. The same formula extends to any number of dimensions: square each entry, add them, take the square root.
+
+Direction is what remains when you ignore length. The vectors (1, 1) and (5, 5) point in exactly the same direction; one is just longer. For meaning, as you will see, direction usually matters more than length.
+
+## The dot product: how much do two vectors agree?
+
+The single most important operation in all of modern AI is the **dot product**. To compute it, multiply two vectors entry by entry, then add:
+
+<Eq>(3, 1) · (2, 4) = 3×2 + 1×4 = 10</Eq>
+
+The dot product is large and positive when two vectors point in similar directions, near zero when they are perpendicular (unrelated), and negative when they point in opposite directions. To measure direction alone, divide by both lengths. The result is the **cosine similarity**:
+
+<Eq>cosine similarity = <span class="frac"><span><b>a</b> · <b>b</b></span><span>‖<b>a</b>‖ ‖<b>b</b>‖</span></span></Eq>
+
+It always lands between −1 and 1. A value of 1 means "same direction," 0 means "unrelated," −1 means "opposite."
+
+<QuickCheck client:visible item={{
+  kind: 'mc', id: 'dot',
+  prompt: 'What is the dot product of (2, 0) and (0, 5)?',
+  choices: ['10', '7', '0', '2.5'],
+  answer: 2,
+  explain: '2×0 + 0×5 = 0. The vectors are perpendicular: one points purely along the first axis, the other purely along the second. A dot product of zero means no overlap in direction.'
+}} />
+
+Why does this matter so much? Because a neural network, at bottom, is billions of dot products. Every artificial neuron computes a dot product between its inputs and its weights. Every attention head in a transformer computes dot products between words to decide which ones are relevant to each other. When you read that a model "attends" to a word, the underlying arithmetic is a dot product.
+
+## Embeddings: putting meaning into space
+
+Now the key idea. An **embedding** is a vector that represents something, a word, a sentence, an image, a product, chosen so that *similar things get similar vectors*. Explore the toy embedding below. Click a word to see its nearest neighbors, then try the analogy.
+
+<VectorSpace client:visible />
+
+This toy has only two dimensions, hand-placed so you can see them. Real embeddings are learned, and have hundreds or thousands of dimensions. But the striking property you just saw is real. In 2013, researchers at Google trained a simple network called **word2vec** to predict words from their neighbors in text. Nobody told it about gender or royalty. Yet in the learned space, the vector arithmetic *king − man + woman* landed nearest to *queen*, and *Paris − France + Italy* landed near *Rome*.
+
+<KeyIdea track="t1">In a learned embedding space, distance encodes similarity and directions encode relationships. Meaning becomes geometry.</KeyIdea>
+
+## Why directions carry meaning
+
+Why should subtracting vectors capture a relationship? Because a model trained to predict text benefits from organizing its internal space consistently. If "man → woman" and "king → queen" involve the same change in how words are used (the same shifts in which pronouns and contexts appear nearby), it is efficient for the model to represent that change as the same direction.
+
+This idea, that concepts correspond to directions in a model's internal space, has a name in research: the **linear representation hypothesis**. It is a central assumption of interpretability research, which you will study in Track VI. When Anthropic researchers reported finding a "Golden Gate Bridge feature" inside Claude, they meant a direction in its internal space that, when active, corresponds to the bridge. When they amplified that direction, the model began bringing the bridge into every conversation.
+
+<Callout type="caution" title="Two-dimensional pictures mislead">
+High-dimensional spaces behave strangely. In thousands of dimensions, almost all randomly chosen directions are nearly perpendicular to each other, which means a model can fit an enormous number of nearly independent directions into its space. That surplus of room is part of why a model can represent far more concepts than it has dimensions, an idea called superposition that you will meet later.
+</Callout>
+
+## Embeddings everywhere
+
+Embeddings are not only inside language models. They power:
+
+- **Search and retrieval.** Documents and queries are embedded; the system returns documents whose vectors are closest to the query's. This is the core of retrieval-augmented generation (RAG).
+- **Recommendation.** Products and users are embedded so that users sit near products they are likely to want.
+- **Multimodal models.** Systems like OpenAI's CLIP embed images and text into the *same* space, so a photo of a dog lands near the words "a photo of a dog." This shared space underlies image generation and visual search.
+
+## Reading the corpus
+
+| When a document says | It means |
+| --- | --- |
+| "d_model = 4096" or "hidden size 4096" | The vectors flowing through the model have 4,096 numbers each |
+| "embedding" | A learned vector representation of some input |
+| "cosine similarity" | The similarity of two vectors' directions, from −1 to 1 |
+| "linear representation" | A concept that corresponds to a direction in the model's internal space |
+| "the residual stream" | The main vector (one per token position) that flows through a transformer's layers, which you will meet in Track III |
+| "high-dimensional" | Many numbers per vector, typically hundreds to tens of thousands |

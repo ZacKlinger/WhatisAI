@@ -4,7 +4,7 @@ import { getModules, getSignals } from '@/lib/curriculum';
 import { corpus } from '@/data/corpus';
 import { items } from '@/data/items';
 import { tracks } from '@/data/tracks';
-import { figures } from '@/components/figures/registry';
+import { figures, hotspotFigures } from '@/components/figures/registry';
 
 export async function GET() {
   const modules = await getModules();
@@ -37,7 +37,7 @@ export async function GET() {
         case 'match': if (it.pairs.length < 2) errors.push(`${where}: needs at least 2 pairs`); break;
         case 'order': if (it.items.length < 3) errors.push(`${where}: needs at least 3 items`); break;
         case 'estimate': if (it.answer < it.min || it.answer > it.max) errors.push(`${where}: answer outside slider range`); break;
-        case 'hotspot': if (!figures[it.figure.id]) errors.push(`${where}: unknown hotspot figure`); break;
+        case 'hotspot': if (!hotspotFigures.has(it.figure.id)) errors.push(`${where}: figure "${it.figure.id}" has no clickable regions`); break;
       }
     }
   }

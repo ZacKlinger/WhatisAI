@@ -1,0 +1,118 @@
+---
+title: "Optimization: learning as rolling downhill"
+track: t1
+order: 5
+summary: Derivatives as slopes, gradients as compasses, and gradient descent, the single algorithm that trains every neural network in existence.
+minutes: 24
+level: 2
+prerequisites: [functions-and-models]
+objectives:
+  - Interpret a derivative as a slope and a gradient as the direction of steepest increase.
+  - Explain gradient descent and the role of the learning rate.
+  - Describe stochastic gradient descent and why it scales to enormous datasets.
+keyTerms:
+  - term: Derivative
+    def: The slope of a function at a point. How fast the output changes when the input changes a tiny bit.
+  - term: Gradient
+    def: The collection of slopes of a function with respect to each of its inputs. It points in the direction of steepest increase.
+  - term: Gradient descent
+    def: An algorithm that repeatedly nudges parameters a small step in the direction opposite the gradient, reducing the loss.
+  - term: Learning rate
+    def: The size of each gradient descent step. Too small is slow; too large overshoots and can diverge.
+  - term: Local minimum
+    def: A point lower than all nearby points but not necessarily the lowest point overall.
+  - term: Stochastic gradient descent (SGD)
+    def: Gradient descent using the gradient computed on a small random batch of data at each step, instead of the whole dataset.
+  - term: Optimizer
+    def: The specific update rule used in training, such as SGD or Adam.
+sources:
+  - title: "Adam: A Method for Stochastic Optimization"
+    authors: Kingma & Ba
+    org: ICLR
+    year: 2015
+    url: https://arxiv.org/abs/1412.6980
+  - title: Deep Learning (Chapter 4 and 8)
+    authors: Goodfellow, Bengio & Courville
+    org: MIT Press
+    year: 2016
+    url: https://www.deeplearningbook.org/
+updated: 2026-10-26
+---
+
+import GradientDescent from '@/components/interactive/GradientDescent';
+import StaticFigure from '@/components/figures/registry';
+import QuickCheck from '@/components/quiz/QuickCheck';
+
+Imagine standing on a hillside in thick fog. You cannot see the valley, but you can feel the ground beneath your feet. To get down, you take a step in whichever direction slopes most steeply downward, then repeat. That simple strategy, applied to a landscape with billions of dimensions, is how every modern AI system learns. It is called gradient descent.
+
+## The landscape of loss
+
+In the first module, you met the **loss**: a number measuring how wrong a model is. The loss depends on the parameters. Change a parameter, and the loss changes. So we can picture the loss as a landscape: each location is a choice of parameters, and the height at that location is the loss. Training is the search for a low point.
+
+With one parameter, the landscape is a curve. With two, it is a surface like hilly terrain. With a billion, it is a surface in a billion-dimensional space, impossible to picture but governed by the same logic.
+
+## Slopes: the derivative
+
+To walk downhill, you need to know which way is down. The **derivative** gives you that: it is the slope of the loss at your current position. If the slope is positive, increasing the parameter increases the loss, so you should decrease the parameter. If the slope is negative, do the opposite.
+
+You do not need to calculate derivatives by hand to read AI papers. You need to know what they mean: **a derivative says how much the output changes when you nudge the input a tiny amount.** A derivative of 3 means "nudge the input up by a little, and the output goes up by three times that much."
+
+## Many slopes at once: the gradient
+
+A model has many parameters, so there are many slopes: one for each parameter, saying how the loss would change if that parameter alone were nudged. Gather all these slopes into a vector and you have the **gradient**, written ∇L (the upside-down triangle is pronounced "nabla" or "del").
+
+The gradient has a remarkable property: it points in the direction of **steepest increase** of the loss. So its opposite, −∇L, points in the direction of steepest *decrease*. That is the direction to step.
+
+## Gradient descent
+
+The algorithm is short enough to write in one line:
+
+<Eq>new parameters = old parameters − (learning rate × gradient)</Eq>
+
+Repeat thousands or millions of times, and the parameters drift toward a low point in the loss landscape. Try it below. Set a learning rate, press Run, and then experiment: try a very small learning rate, a very large one, and different starting points (click on the curve).
+
+<GradientDescent client:visible />
+
+You will have seen three behaviors:
+
+- **Too small a learning rate:** progress is painfully slow.
+- **Too large a learning rate:** the steps overshoot the valley, bounce around, or fly off entirely ("diverge").
+- **Starting point matters:** gradient descent only finds the bottom of whatever valley it starts in. A low point that is not the lowest overall is a **local minimum**.
+
+<QuickCheck client:visible item={{
+  kind: 'hotspot', id: 'landscape',
+  prompt: 'Gradient descent starts on the slope to the right of hilltop C, with a small learning rate. Where will it end up?',
+  figure: { id: 'landscape' },
+  answer: 'A',
+  explain: 'With small steps, gradient descent settles into the nearest valley: point A. It cannot see that valley B, on the other side of the hill, is lower. A is a local minimum.'
+}} />
+
+<Callout type="insight" title="Why local minima are less scary than they look">
+Early researchers worried that neural networks would get stuck in poor local minima. In practice, very high-dimensional loss landscapes behave differently from the one-dimensional curve above: most points where the slope is zero are saddle points, which descent can escape, and many low points are about equally good. This is one reason huge networks train better than intuition suggests.
+</Callout>
+
+## Stochastic gradient descent
+
+Computing the exact gradient requires measuring the loss on the entire training set, which for a language model means trillions of tokens. That is far too slow to do for every step. Instead, training uses **stochastic gradient descent (SGD)**: at each step, compute the gradient on a small random **batch** of examples, and step in that direction. The batch gradient is a noisy estimate of the true gradient, but it is cheap, and averaged over many steps the noise cancels out. The noise may even help, jostling the parameters out of narrow valleys.
+
+Modern training uses refinements of SGD. The most widely used is **Adam** (2015), which adapts the step size for each parameter separately based on the history of its gradients. When a paper says "we train with AdamW, learning rate 3e-4, batch size 4M tokens," every term in that sentence is now within your reach: the optimizer, the step size (3 × 10⁻⁴), and how many tokens are used to estimate each gradient.
+
+## Learning rate schedules
+
+The learning rate is usually not fixed. Training typically begins with a **warmup**, ramping the rate up from near zero so that early, chaotic steps do not destabilize the model, and ends with a **decay**, shrinking the rate so the model can settle precisely into a low region. Papers often show these schedules in an appendix, and they matter: a poorly tuned learning rate can make a better architecture look worse than a weaker one.
+
+<StaticFigure id="loss-curves" caption="A typical training run. Loss on the training data keeps falling. Loss on held-out data falls, reaches a minimum, and can rise again if training continues too long. Track II explores why." />
+
+<KeyIdea track="t1">Every neural network learns the same way: measure the error, compute which direction each parameter should move to reduce it, take a small step, repeat. The art lies in the landscape and the step size.</KeyIdea>
+
+## Reading the corpus
+
+| When a document says | It means |
+| --- | --- |
+| "∇<sub>θ</sub>L" | The gradient of the loss with respect to the parameters θ |
+| "lr = 3e-4" | A learning rate of 0.0003 |
+| "batch size" | How many examples (or tokens) are used to estimate each gradient step |
+| "AdamW" | The Adam optimizer with a particular form of weight decay (regularization) |
+| "warmup and cosine decay" | The learning rate ramps up at the start, then declines along a cosine-shaped curve |
+| "training diverged" / "loss spike" | The optimization became unstable, often from too high a learning rate |
+| "converged" | Training reached a point where the loss stopped improving meaningfully |

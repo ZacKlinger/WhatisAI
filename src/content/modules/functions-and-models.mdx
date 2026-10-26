@@ -1,0 +1,142 @@
+---
+title: What a model is
+track: t1
+order: 1
+summary: Functions, parameters, and loss. The three ideas underneath every AI system ever built, from a straight line to a trillion-parameter model.
+minutes: 20
+level: 1
+prerequisites: [welcome]
+objectives:
+  - Describe a model as a function with adjustable parameters.
+  - Explain what a loss function measures and why training means minimizing it.
+  - Interpret claims such as "a 70-billion-parameter model" correctly.
+keyTerms:
+  - term: Function
+    def: A rule that turns an input into an output. Same input, same output.
+  - term: Model
+    def: A function with adjustable parameters, chosen so its outputs match data. In AI, the model is the trained artifact itself.
+  - term: Parameters (weights)
+    def: The adjustable numbers inside a model. Training sets their values. Frontier models have hundreds of billions to trillions of them.
+  - term: Loss function
+    def: A single number measuring how wrong a model's outputs are on some data. Lower is better.
+  - term: Training
+    def: The process of adjusting a model's parameters to reduce its loss on training data.
+  - term: Inference
+    def: Using a trained model to produce outputs on new inputs, without changing its parameters.
+sources:
+  - title: Language Models are Few-Shot Learners
+    authors: Brown et al.
+    org: OpenAI
+    year: 2020
+    url: https://arxiv.org/abs/2005.14165
+  - title: "The Llama 3 Herd of Models"
+    authors: Llama Team
+    org: Meta
+    year: 2024
+    url: https://arxiv.org/abs/2407.21783
+updated: 2026-10-26
+---
+
+import LineFit from '@/components/interactive/LineFit';
+import QuickCheck from '@/components/quiz/QuickCheck';
+
+Before neural networks, before transformers, before anything that sounds like AI, there is a much older idea: the model. A model is a compact description of how one thing depends on another. Physicists use models of motion, economists use models of demand, and every AI system you have ever used is, underneath the interface, a model in exactly this sense. Understanding that is the first step to understanding everything else.
+
+## Functions: machines that turn inputs into outputs
+
+A **function** is a rule that takes an input and produces an output. You use them constantly. A recipe turns ingredients into a dish. A tax table turns income into an amount owed. A thermostat turns a temperature reading into "heat on" or "heat off."
+
+Mathematicians write a function like this:
+
+<Eq><i>y</i> = <i>f</i>(<i>x</i>)</Eq>
+
+Read it aloud as "*y* equals *f* of *x*": the output *y* is what you get when you feed the input *x* into the function *f*. Nothing more mysterious than that. The input could be a number, a photo, or a paragraph of text. The output could be a number, a label, or the next word of a sentence.
+
+Every AI system can be described this way:
+
+| System | Input *x* | Output *y* |
+| --- | --- | --- |
+| Spam filter | An email | "spam" or "not spam" |
+| Image classifier | A photograph | "cat," "dog," or one of a thousand labels |
+| Language model | Some text | A probability for every possible next piece of text |
+| Speech recognizer | A sound recording | A transcript |
+
+What makes these functions interesting is that nobody wrote them by hand. Nobody could. There is no rulebook precise enough to say which arrangement of pixels is a cat. Instead, these functions are *learned*.
+
+## Parameters: the knobs inside the machine
+
+To learn a function, you start with a flexible family of functions, each member determined by some adjustable numbers. These numbers are called **parameters**, and in AI they are also called **weights**.
+
+The simplest example is a straight line:
+
+<Eq><i>ŷ</i> = <i>w</i> · <i>x</i> + <i>b</i></Eq>
+
+This model has two parameters. The slope *w* says how steeply the output rises with the input. The intercept *b* says where the line starts. The little hat on *ŷ* (said "y-hat") is a convention meaning "the model's prediction of *y*," as opposed to the true value. Every choice of *w* and *b* gives a different line, a different function. Learning means choosing the right ones.
+
+<Callout type="insight" title="Why the notation matters">
+You will meet ŷ, w, and b in almost every machine learning paper. A hat means "predicted." The letter θ (theta) is often used to stand for all of a model's parameters at once, as in f(x; θ): "the function f applied to x, with parameters θ."
+</Callout>
+
+## Loss: measuring how wrong you are
+
+How do we decide which line is right? We need a way to score any choice of parameters. That score is called the **loss**, and it measures how far the model's predictions are from the truth on a set of examples.
+
+A common choice for numerical predictions is the **mean squared error**: for each example, take the gap between prediction and truth, square it (so that misses in either direction count, and big misses count a lot), then average.
+
+<Eq>loss = average of (<i>ŷ</i> − <i>y</i>)<sup>2</sup> over all examples</Eq>
+
+Try it. Adjust the slope and intercept below and watch the loss. The red lines are the errors. Then press "Let it learn" to watch an algorithm find good parameters on its own.
+
+<LineFit client:visible />
+
+You just did, by hand, what every AI system does at enormous scale. Training is nothing more than this: **search for the parameters that make the loss small**. You will learn how that search works, by following the slope of the loss downhill, in the optimization module.
+
+<KeyIdea track="t1">A model is a function with knobs. Training turns the knobs to minimize a loss. Everything else is detail, though the details are where the magic and the danger live.</KeyIdea>
+
+## From two knobs to a trillion
+
+The line has two parameters. How many does a frontier language model have?
+
+- GPT-3, published by OpenAI in 2020, had **175 billion** parameters.
+- Meta's Llama 3.1, released in 2024 with full technical detail, came in versions with 8 billion, 70 billion, and **405 billion** parameters.
+- Most frontier labs no longer disclose parameter counts, but outside estimates for today's largest models run from hundreds of billions to several trillion.
+
+Those numbers are hard to picture. If you wrote one parameter per second, without sleeping, it would take you over 5,500 years to write down GPT-3. Yet the principle is the same as your two-knob line. Each parameter is a number, and training nudges each one, billions of times, until the model's loss on its training data is low.
+
+<QuickCheck client:visible item={{
+  kind: 'estimate', id: 'gpt3-params',
+  prompt: 'Without scrolling up: about how many parameters did GPT-3 have?',
+  min: 1e6, max: 1e13, log: true, answer: 175e9, tolerance: 3, format: 'sci',
+  explain: 'GPT-3 had 175 billion parameters, about 1.75 × 10^11. On a log scale, being within a factor of 3 is a good estimate.'
+}} />
+
+## Training versus inference
+
+Two words describe the two lives of every model.
+
+**Training** is when the parameters change. The model is shown examples, its loss is computed, and its parameters are adjusted. For a frontier model this takes months on tens of thousands of specialized chips, and costs hundreds of millions of dollars or more.
+
+**Inference** is when the trained model is used. The parameters are frozen. You give it an input, it computes an output. Every time you send a message to an AI assistant, you are running inference. Each run costs a tiny fraction of a cent, but across billions of requests, inference becomes a major cost of its own.
+
+<Callout type="caution">
+A common misconception is that chatbots "learn" from each conversation. A deployed model's parameters do not change when you talk to it. It may use your earlier messages as context within a conversation, and companies may later use conversations as training data for a future model, but inference itself does not update the weights.
+</Callout>
+
+## Generalization: the real goal
+
+There is a trap in "minimize the loss." A model could achieve zero loss by memorizing every training example, like a student who memorizes the answer key. What we actually want is a model that performs well on examples it has **never seen**. This is called **generalization**, and it is the central problem of machine learning. You will study it in Track II. For now, hold onto the distinction: the loss on training data is a means; performance on new data is the end.
+
+<Callout type="history" title="All models are wrong">
+The statistician George Box wrote that "all models are wrong, but some are useful." A model is a simplification. Its value lies not in being true but in predicting well. Language models are a vivid example: they do not contain a rulebook of English or a database of facts, and yet their predictions are often extraordinarily useful.
+</Callout>
+
+## Reading the corpus
+
+| When a document says | It means |
+| --- | --- |
+| "a 70B model" | A model with about 70 billion parameters |
+| "θ" or "the weights" | All of the model's trainable parameters |
+| "we train on X and evaluate on Y" | Parameters were fit to X; performance was measured on separate data Y |
+| "training loss" / "validation loss" | Loss on the data used for fitting, versus loss on held-out data |
+| "inference cost" | The cost of running the trained model to answer requests |
+| "open weights" | The trained parameters themselves are published for download |
