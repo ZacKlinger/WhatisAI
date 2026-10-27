@@ -12922,5 +12922,1837 @@
   "ce5ce5fc43fb0958": {
     "first": "2026-10-26",
     "source": "hn"
+  },
+  "250e5d8f302445e7": {
+    "first": "2026-10-27",
+    "source": "openai"
+  },
+  "f16aefe89a6e3f3b": {
+    "first": "2026-10-27",
+    "source": "openai"
+  },
+  "1a1d4bf2fc111eb8": {
+    "first": "2026-10-27",
+    "source": "openai"
+  },
+  "64d59b55a8fb8666": {
+    "first": "2026-10-27",
+    "source": "openai"
+  },
+  "8f2f08b6e197805b": {
+    "first": "2026-10-27",
+    "source": "openai"
+  },
+  "1758535ac6be3e6b": {
+    "first": "2026-10-27",
+    "source": "openai"
+  },
+  "c6099fc8919f3d54": {
+    "first": "2026-10-27",
+    "source": "openai"
+  },
+  "d17d13a0006a776d": {
+    "first": "2026-10-27",
+    "source": "deepmind"
+  },
+  "34370e88c88d0cd4": {
+    "first": "2026-10-27",
+    "source": "hf-blog"
+  },
+  "ea8e0b180ce620e8": {
+    "first": "2026-10-27",
+    "source": "hf-blog"
+  },
+  "bc1cffd3eb242a78": {
+    "first": "2026-10-27",
+    "source": "hf-blog"
+  },
+  "dcb13ea03342e343": {
+    "first": "2026-10-27",
+    "source": "hf-papers"
+  },
+  "25ff498574289100": {
+    "first": "2026-10-27",
+    "source": "hf-papers"
+  },
+  "bbda5029b2ccc3c4": {
+    "first": "2026-10-27",
+    "source": "hf-papers"
+  },
+  "dbc0521cd2b72976": {
+    "first": "2026-10-27",
+    "source": "hf-papers"
+  },
+  "5a6c08461fb789cc": {
+    "first": "2026-10-27",
+    "source": "hf-papers"
+  },
+  "c225d55aa1c20b9e": {
+    "first": "2026-10-27",
+    "source": "hf-papers"
+  },
+  "b0ed7ab3eca71940": {
+    "first": "2026-10-27",
+    "source": "hf-papers"
+  },
+  "fbeda5545555772f": {
+    "first": "2026-10-27",
+    "source": "hf-papers"
+  },
+  "a7fb4604b310ae01": {
+    "first": "2026-10-27",
+    "source": "hf-papers"
+  },
+  "2a3abdd212a789f6": {
+    "first": "2026-10-27",
+    "source": "hf-papers"
+  },
+  "6f86ef656c6322d0": {
+    "first": "2026-10-27",
+    "source": "hf-papers"
+  },
+  "fa7c36e3ee05a31f": {
+    "first": "2026-10-27",
+    "source": "hf-papers"
+  },
+  "688bb9da28f53992": {
+    "first": "2026-10-27",
+    "source": "hf-papers"
+  },
+  "09521c7e66b51e5b": {
+    "first": "2026-10-27",
+    "source": "hf-papers"
+  },
+  "5fbf07b61746ebcb": {
+    "first": "2026-10-27",
+    "source": "hf-papers"
+  },
+  "55ecec65c1071b6f": {
+    "first": "2026-10-27",
+    "source": "hf-papers"
+  },
+  "0bf7715aa21619a8": {
+    "first": "2026-10-27",
+    "source": "hf-papers"
+  },
+  "0d1f5fbbe0e24522": {
+    "first": "2026-10-27",
+    "source": "hf-papers"
+  },
+  "7d30838ffd4e99d3": {
+    "first": "2026-10-27",
+    "source": "hf-papers"
+  },
+  "31c1a82bc1843646": {
+    "first": "2026-10-27",
+    "source": "hf-papers"
+  },
+  "8cbb5257e6ba951d": {
+    "first": "2026-10-27",
+    "source": "hf-papers"
+  },
+  "ea16aae6f3ce2629": {
+    "first": "2026-10-27",
+    "source": "hf-papers"
+  },
+  "fe7d52829a66499f": {
+    "first": "2026-10-27",
+    "source": "hf-papers"
+  },
+  "18bddb5f2f255e59": {
+    "first": "2026-10-27",
+    "source": "hf-papers"
+  },
+  "65e403ba412b029a": {
+    "first": "2026-10-27",
+    "source": "hf-papers"
+  },
+  "659d4a6c23e905c5": {
+    "first": "2026-10-27",
+    "source": "hf-papers"
+  },
+  "40ba3974a4c5c1ab": {
+    "first": "2026-10-27",
+    "source": "hf-papers"
+  },
+  "181bc2b30a23edbf": {
+    "first": "2026-10-27",
+    "source": "hf-papers"
+  },
+  "5a80235ed7913f13": {
+    "first": "2026-10-27",
+    "source": "hf-papers"
+  },
+  "45b1ac357c2bc842": {
+    "first": "2026-10-27",
+    "source": "hf-papers"
+  },
+  "843d007a5379c696": {
+    "first": "2026-10-27",
+    "source": "hf-papers"
+  },
+  "1f073770cb65bec5": {
+    "first": "2026-10-27",
+    "source": "hf-papers"
+  },
+  "5cecdf24f2f3f5c2": {
+    "first": "2026-10-27",
+    "source": "hf-papers"
+  },
+  "b7d855d794ddc08b": {
+    "first": "2026-10-27",
+    "source": "hf-papers"
+  },
+  "4848e0177b27a7af": {
+    "first": "2026-10-27",
+    "source": "hf-papers"
+  },
+  "697aff00a0b25ac8": {
+    "first": "2026-10-27",
+    "source": "hf-papers"
+  },
+  "1a3ba6740772fb7d": {
+    "first": "2026-10-27",
+    "source": "hf-papers"
+  },
+  "28198522dcb796c1": {
+    "first": "2026-10-27",
+    "source": "hf-papers"
+  },
+  "5cb407530e93304a": {
+    "first": "2026-10-27",
+    "source": "hf-papers"
+  },
+  "88a4f596d4e4c6bb": {
+    "first": "2026-10-27",
+    "source": "hf-papers"
+  },
+  "f98823f24716d83d": {
+    "first": "2026-10-27",
+    "source": "hf-papers"
+  },
+  "d5c7832cddd307c5": {
+    "first": "2026-10-27",
+    "source": "hf-papers"
+  },
+  "7f4d292535fa3429": {
+    "first": "2026-10-27",
+    "source": "hf-papers"
+  },
+  "1f0dadcdd7ba73be": {
+    "first": "2026-10-27",
+    "source": "hf-papers"
+  },
+  "a44fc5b5ba32a003": {
+    "first": "2026-10-27",
+    "source": "hf-papers"
+  },
+  "ddc14b27d2b577a3": {
+    "first": "2026-10-27",
+    "source": "hf-papers"
+  },
+  "845ad916ca3fdedd": {
+    "first": "2026-10-27",
+    "source": "hf-papers"
+  },
+  "4bdfa8f07e752725": {
+    "first": "2026-10-27",
+    "source": "hf-papers"
+  },
+  "ed692854d218c9ab": {
+    "first": "2026-10-27",
+    "source": "hf-papers"
+  },
+  "4a4058ee40147e7b": {
+    "first": "2026-10-27",
+    "source": "hf-papers"
+  },
+  "1d6b725de4c2e94a": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "f20c5e87a5cad5ce": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "9c7401fa07de04d0": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "a67cef0faca7397e": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "3b3fcaf05cb46666": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "c209feffe6926fea": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "9ccccea5977fb420": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "6d704b13a3621823": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "1547ba3899c5a971": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "4914dae87e61353a": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "abf6f554e09a2e7a": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "bc5ffc70ae8914c0": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "129d5baa28fdfedf": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "dedd4304367d41e0": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "f6dc5dac204967c3": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "87946bae48db9780": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "95cb9b2ad1661239": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "ebb49f73ecc60210": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "c6f9af02542a9e9e": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "15bb2f7d2638040c": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "2f976ccec85169f6": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "071d9b4f64c2a7cb": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "b5ff24ae76dc0f13": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "8490aee1a340896e": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "9bd2340e1dc19cf8": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "c52bab71dc79df59": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "a2b5b710e09c58d8": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "dbfe33aafbd12e72": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "6c1f09dc13ffb426": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "1ede77bb2fbadd2c": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "c6d151932d7b913a": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "1130f433c04b0292": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "8bf8d492731f6094": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "3efa11e3e2fec5d1": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "c13e4f45c04084b5": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "29ab235a9f36bf57": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "7e33707432b65b1d": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "6960369390b1b720": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "c86cc6ffb058fe70": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "88981f70e271a868": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "76fb96fdde633419": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "73afe6f9d6cc772f": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "251d57988baea3d2": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "d657e72bc783ccf2": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "d41f4650d8d310da": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "5702843a83e548df": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "066750bd67bbb715": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "40351bb6fbc07a34": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "a97bdf9884263369": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "38ae13846c50c4e7": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "d0ceddbd58292759": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "b6ee6d272d8b0bd4": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "b9e9eb2a22523e14": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "0e48538b38fd9b68": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "0d6ed45894a0e122": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "7ca1d42194cfe688": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "712fea31b83a6bd4": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "6127e73a59d51f36": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "7d7b95d33f73beb9": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "485a4c7b28e06ba0": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "afdd91ddd2bafda1": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "dbcecae9f887420d": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "a169a666929e3ec4": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "14717bda7ed86c2c": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "29bd6261b261be8d": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "98f059a8cb66a1e8": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "06be52b0eda4bf21": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "edea88d9d95a35a2": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "2ae1186a677d5f72": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "4a68a6bf4e174ea0": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "fc3f9d8664cc2614": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "17b0644e36128c64": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "eaf0b5293636222a": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "f1fab3395a72a3d7": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "8718be43400d4af8": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "9e920d5245a74196": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "6dd825b2b6aafe5b": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "7d2177e55b129151": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "c8fd636adc7f9920": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "90a313d3348bea8a": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "8d17ad43d27262d1": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "09cc033e4b237da6": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "54ad36e6b97c6db7": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "bbb4e0d1802406b0": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "574db7557feb69e2": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "bcf7474e13e46441": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "7376985c89e621ae": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "b1b124c8f5ae1582": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "e47ab25c78b088d7": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "934c88a1ba9d8c0b": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "e09d62356b3927b1": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "67c2ee1cffd06b96": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "2c90954e72fb6791": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "4c35903b48d12e76": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "5fa2eb11d82d47fc": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "a54ebbf12f730a71": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "1482531a3dd81877": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "48c8de2fb76989f4": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "d96b270799bddeea": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "41b85cafbe098e0e": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "6975668605922fa0": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "e1c71032dabb74ef": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "9a5ab87958c21061": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "f8504a474746883a": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "6b8342a6b14564a9": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "2a21510d7e448fcd": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "cfcf291e7ccd5d76": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "650c9d9e29e9ba4a": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "1e5c28708802ce43": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "b557f4c785e5ec95": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "1c3543fd7606d966": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "f40f1092979dcdd5": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "f884501033efa865": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "d4b9f551d9d8bd12": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "68690a8b5cedf0c6": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "de579dfb54a0392c": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "6debbb5fbaa91726": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "86050da1ee42f844": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "1f5dd4b678c7dafb": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "c0a3527e70003037": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "00374c0a109623c3": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "6fb8cee7b87dc8a7": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "4c6fd156bbdacfd2": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "f840998d7c6a325d": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "4e25312d6ebf51d4": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "8a2c9a4d005b660a": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "83b655cf27f389ea": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "d85e54e3a209f4f8": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "24bdb1552225568a": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "76f5a168bb1a4f8b": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "8370ccc454f68273": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "2ac65899146b0036": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "44b07a3b4eb7f52b": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "2754a851b59c54fc": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "cbdd0180b684e006": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "69d91d21fe287c8f": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "463cb877ee33ae23": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "61d0fe6ac96d8885": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "9c2c0704c6bde0ca": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "aa0d50c676954ce1": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "a5b673f85a3ae09a": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "2907c5df5f69ed6f": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "c0b3822038142fb2": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "1a4e94b18eb86581": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "84df81dd92464c32": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "666d4232355fd9a7": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "5d0885fc089f9fdc": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "a1ee987b47b5854f": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "7ad3b531c37a29b9": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "e0afeefed2606384": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "8d22e98721d56010": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "1fddd14305493370": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "9806cd658eed8229": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "cf30450659612601": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "7f6a55ce4b88f7f3": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "56bbb35500218b43": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "f0c83a3960b8f527": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "5fb5e6273ff3067f": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "cbb86d4aa0b89278": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "3bed16102d4ca0f8": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "3754384866f9c8c4": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "48ea5131e236a05e": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "0808cae5088dfdbe": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "7731550d0cd0101e": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "c156781cefaee312": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "b0786cd5440b1eac": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "93a3b1674d2cd180": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "04cddc5027643c3e": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "3fdf0d80713ce108": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "e7fd9b73e2bcd62a": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "6afb7f2aa9bb9aec": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "7b267ef7d0a1caab": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "b25d7c2c1cdcff7e": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "a8b5d12e88ca09f5": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "363148baef655cdd": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "5cf91f5e077533e8": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "d4ea0d4b1bec0847": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "78b9e2a17b93c62b": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "62ae58bee34e633f": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "ba4711e52fdd92bf": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "2b1c10bdd39dca4d": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "fcf4d095894ebfd1": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "ccee264aec6df5d4": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "3f078f14f7f7775c": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "ec356c7421384ad7": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "73615e93bfc9ec6f": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "b4606a87afad08d0": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "acb652ae8f3f3581": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "7934d0556cedfb23": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "29b4e2cb6cdce96b": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "ac8763b684f9f516": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "577c183ca9fd192c": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "b018bcdc2c1181d6": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "ab3aaf0f308c85c8": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "f352d33c807ddaa0": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "f5c750eb6d77bf60": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "55f309225dc03908": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "e4b5c7eea93b23e5": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "a8a4098396133942": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "c4f28b354dd69d32": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "d447b84f9bbba186": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "68b5b082706d6bad": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "bf51b462207f7ab7": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "b35c8003f7441bd0": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "9eba0bb2347dcdef": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "bfa4ca34da8568a2": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "fba84cf5dbb36bfa": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "9a2454e37928c9f9": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "351d1209db6a8104": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "fd5636967993697f": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "9ff2c9667efed3f2": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "04fdf56808d36629": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "280e5b1b990bfb9d": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "4bb51360455e62bc": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "2fd5c9d16b914d73": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "67436fdb20f23fa6": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "e0ce0941c5816df6": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "78efe19585ec2f8d": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "82a14c68f0b260cb": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "afc90a17cef94d0e": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "a4b06c0be422dbf9": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "206c3fbee73850fc": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "50aa0d84d84704ea": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "bcb4d4bca645f4e2": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "b1a5f4fbcc0dd32c": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "4b83038dd54beded": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "c37418de61713114": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "d0a47ef285799204": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "c0181bc9f9284127": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "cbb54ec1341ac76e": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "423327a3f5d34c27": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "baa1804e3bdc0f82": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "89871a6bb077d995": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "307f67cec198a2b6": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "d5b0a5518a4bb143": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "531ba60e1d666f3a": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "259517c0b22d0fdb": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "f664c4a79d48cfd6": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "37d65c329ab9f778": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "ec90da50ebf3ef81": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "ad32570641bdb7a9": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "2a2e0cce69a6587b": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "3616cb32c337a569": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "d22212ca2cd838e6": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "047f794949536581": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "cd73802682b30838": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "64415401506df393": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "2db46bdc23776330": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "c849093234e6f90a": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "fb2e027e37201099": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "8ae83932c8a0a891": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "829d16ecf1502f34": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "b7b989f30c1919c4": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "1f2084c00375fe51": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "7dcf884da51bca33": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "89488216f9a45640": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "541b5291ba7d9a72": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "d62b6a07e4aab894": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "2549d143b54758e5": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "f23655cf4545a598": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "970914310c98568f": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "7b79c2d7778eff17": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "9ee976f964f9ceb2": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "aa09a709b931c4a7": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "011372569a2ba554": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "ddaf6041ff506052": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "ea184f0b3afe6989": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "62bff1e96fe54883": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "5fdf4aee0b1280a3": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "9ec7c9cac2a61cb2": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "b4becf8673d2b31b": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "d557620da3b8e549": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "bab14803c7712fbb": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "bf8be02f618a6791": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "f5e008669e2b9971": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "4fb7980e11091543": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "beb9ae52842175ee": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "227bc6921a3fe2a3": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "5ed355d3b0401a99": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "5428929d2d1fe050": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "5f48796af59d61a8": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "3d91ea7c27c82675": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "fc764a335c2b2071": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "ae11329cf8b4ee5e": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "a25ae212507449ae": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "d650c1f671a09af5": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "e7dc98fb3764b348": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "ce3bf52f304459bb": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "358ab15de6f55b71": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "fa2aefb876ef6db8": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "2d64ca4c593023d2": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "837c339a9effae0e": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "95f9027ffa32cb30": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "cdcada8d666cb211": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "9bd910aa04fa637b": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "67e6b21611b3737a": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "80483eee915f16cc": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "0fd0f50a77fa0714": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "7c802d669c222b8a": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "fef7470753d4a81b": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "cd7b915941ee70fd": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "4aa0b26b20d87f24": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "737bcd3d54adc9f3": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "a931af42094d5592": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "7abd84b11410bb78": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "b3beae4a8da569d7": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "b60f78c66f32a9e8": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "3f5f806b58e16f0f": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "7e229b8ab930170e": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "d36b36ce3d8bae18": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "f4d8fba163383bb5": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "c55df390955256c8": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "6a08144553094c90": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "83ee1a79ac4c4d29": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "1588a60fad5ee1fd": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "828188310fa5fba0": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "c0768c2e847fa63c": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "0dcbc03c2c932715": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "aeee9df99d330fc4": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "20c9449be10622d2": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "25f08c956468382a": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "9821102f63cfb82a": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "0d6379db4110033b": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "5f7c74d2339a569e": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "a4ef016351b021b3": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "77893f548775942c": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "1561eaeb4cd3afd2": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "24cc2608195de68e": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "2422efcbfbee371e": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "b5fc5ac7b0de58b6": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "ecb02170869b0ef5": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "1afdd5ab57b3dfca": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "a30847659f137418": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "53faf6114f7f9eae": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "1098de28d16d9ef6": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "2c3349c41f7a7bd4": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "9f814b38a8dacc21": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "0f08dfdee9415f93": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "1944cc4d052129db": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "903029d9b178ee68": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "46f1a516bca199dc": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "f7f498d9c535d045": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "4d02ae954f72f7b5": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "f6f61838db71280f": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "3a895013e9d4068e": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "07c96b99c9f6ce66": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "fd07b95ac76718f8": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "1b7366ddc51e55ce": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "f5d75b5b81191c6d": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "0f6981e9b3417973": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "6b051f9fa3c56c3a": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "7590f850c6e8f1d5": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "9dab724ae397e495": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "7dda498d7d80defc": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "69e79de31c0e441b": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "f1a4fb2ef0c0d2bb": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "193d45c0225dc96f": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "1d3a0587e1003442": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "fb0d39f14a55372b": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "557b382ad93607de": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "9dea82ea72765c1c": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "8f3c87ce02fae533": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "b1d26020ea48fabb": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "164f08f7ff0cbb13": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "2b6f2c87c3520d7e": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "e50cc78e3af699f3": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "92ed7a2565002880": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "0ae2b0eb6bdd431c": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "545344abca8f8e3b": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "7c1e8a2da0b211db": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "c5ddba7b7224256b": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "61708075e58388f4": {
+    "first": "2026-10-27",
+    "source": "arxiv-cl"
+  },
+  "51b6dc021077f16c": {
+    "first": "2026-10-27",
+    "source": "simonw"
+  },
+  "34adadfb171aaca1": {
+    "first": "2026-10-27",
+    "source": "simonw"
+  },
+  "d4fc15392e5cfcdd": {
+    "first": "2026-10-27",
+    "source": "simonw"
+  },
+  "b29e47e67e7a503b": {
+    "first": "2026-10-27",
+    "source": "fedreg"
+  },
+  "9dbb9e5222c01ce0": {
+    "first": "2026-10-27",
+    "source": "techreview"
+  },
+  "c6549f35a055aa19": {
+    "first": "2026-10-27",
+    "source": "techreview"
+  },
+  "abb96e9fdd6f617e": {
+    "first": "2026-10-27",
+    "source": "verge-ai"
+  },
+  "3513fbe8e9520556": {
+    "first": "2026-10-27",
+    "source": "verge-ai"
+  },
+  "0d516a24ee36aa2d": {
+    "first": "2026-10-27",
+    "source": "verge-ai"
+  },
+  "415aa97d276f6d69": {
+    "first": "2026-10-27",
+    "source": "verge-ai"
+  },
+  "bba291662c45fb8c": {
+    "first": "2026-10-27",
+    "source": "verge-ai"
+  },
+  "96b9f45bb2e6d933": {
+    "first": "2026-10-27",
+    "source": "verge-ai"
+  },
+  "2500a6aad8741c76": {
+    "first": "2026-10-27",
+    "source": "verge-ai"
+  },
+  "4a8f41d180d7e408": {
+    "first": "2026-10-27",
+    "source": "verge-ai"
+  },
+  "ae72bdec54e137cc": {
+    "first": "2026-10-27",
+    "source": "wired-ai"
+  },
+  "8923f51bcf388f7b": {
+    "first": "2026-10-27",
+    "source": "wired-ai"
+  },
+  "5b42dab628ea8826": {
+    "first": "2026-10-27",
+    "source": "wired-ai"
+  },
+  "e663e24339fad134": {
+    "first": "2026-10-27",
+    "source": "wired-ai"
+  },
+  "6c51131286ab98d5": {
+    "first": "2026-10-27",
+    "source": "latent-space"
+  },
+  "b021226a019ed94b": {
+    "first": "2026-10-27",
+    "source": "latent-space"
+  },
+  "fc1a2e358b9174b1": {
+    "first": "2026-10-27",
+    "source": "hn"
+  },
+  "eb967c2830c030f6": {
+    "first": "2026-10-27",
+    "source": "hn"
+  },
+  "acb3a24ef951cfe3": {
+    "first": "2026-10-27",
+    "source": "hn"
+  },
+  "8af34d90d669e0eb": {
+    "first": "2026-10-27",
+    "source": "hn"
+  },
+  "022826ad38b2818e": {
+    "first": "2026-10-27",
+    "source": "hn"
   }
 }
