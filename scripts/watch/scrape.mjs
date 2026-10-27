@@ -3,6 +3,8 @@
 // Writes data/watch/{seen.json, inbox/DATE.json, terms.json, trends.json, health.json}.
 import { join } from 'node:path';
 import { AI_RE, DATA, ROOT, assertNoSpend, daysAgo, get, hash, parseFeed, parseLinks, readJSON, stripHtml, today, writeJSON } from './lib.mjs';
+import { addObservation, buildTrends } from '../../src/lib/trends.mjs';
+import { youtubeThumbnail } from './media.mjs';
 
 assertNoSpend();
 
@@ -15,7 +17,7 @@ const date = today();
 async function fetchSource(src) {
   const body = await get(src.url, { accept: src.type === 'rss' ? 'application/rss+xml, application/atom+xml, application/xml, text/xml' : undefined });
   let items = [];
-  if (src.type === 'rss') items = parseFeed(body);
+  if (src.type === 'rss') items = parseFeed(body, { publisher: src.name, previews: src.preview !== false });
   else if (src.type === 'html') items = parseLinks(body, src.url, src.pattern);
   else if (src.type === 'hf-daily') {
     items = JSON.parse(body).map((p) => ({
@@ -55,6 +57,7 @@ async function fetchSource(src) {
       category: src.category,
       weight: src.weight,
       format: src.format ?? 'article',
+      thumbnail: src.preview === false ? undefined : it.thumbnail ?? youtubeThumbnail(it.url, src.name) ?? undefined,
       trendOnly: !!src.trendOnly,
     }));
 }
@@ -95,39 +98,23 @@ for (const it of fresh) {
     if (new RegExp(w.re, 'i').test(textBlob)) counts[w.term] = (counts[w.term] ?? 0) + 1;
   }
 }
-termDays[date] = { ...(termDays[date] ?? {}), ...counts, __items: (termDays[date]?.__items ?? 0) + fresh.length };
+termDays[date] = addObservation(termDays[date] ?? {}, counts, fresh.length, Object.values(health).some((s) => s.ok));
 for (const d of Object.keys(termDays)) if (d < daysAgo(90)) delete termDays[d];
 
-// Trends: compare the last 7 days with the 28 before them, normalized by volume.
-const days = Array.from({ length: 35 }, (_, i) => daysAgo(34 - i));
-const vol = (d) => termDays[d]?.__items ?? 0;
-const recentDays = days.slice(-7);
-const baseDays = days.slice(0, 28);
-const recentVol = recentDays.reduce((s, d) => s + vol(d), 0);
-const baseVol = baseDays.reduce((s, d) => s + vol(d), 0);
-const series = watchlist.map((w) => {
-  const s = days.map((d) => termDays[d]?.[w.term] ?? 0);
-  const recent = s.slice(-7).reduce((a, b) => a + b, 0);
-  const base = s.slice(0, 28).reduce((a, b) => a + b, 0);
-  const recentRate = recent / Math.max(1, recentVol);
-  const baseRate = base / Math.max(1, baseVol);
-  const lift = (recentRate + 0.002) / (baseRate + 0.002);
-  return { term: w.term, modules: w.modules, recent, base, share: recentRate, lift: Number(lift.toFixed(2)), series: s.slice(-28) };
-});
-const trends = {
-  updated: date,
-  windowDays: 7,
-  baselineDays: 28,
-  daysOfHistory: Object.keys(termDays).length,
-  itemsLastWeek: recentVol,
-  rising: series.filter((s) => s.recent >= 3 && s.lift >= 1.4).sort((a, b) => b.lift - a.lift).slice(0, 10),
-  volume: series.filter((s) => s.recent > 0).sort((a, b) => b.recent - a.recent).slice(0, 14),
-  sources: Object.entries(health).map(([id, h]) => ({ id, name: sources.find((s) => s.id === id)?.name, ok: h.ok, count: h.count ?? 0 })),
-};
+const trends = buildTrends(termDays, watchlist, date, Object.entries(health).map(([id, h]) => ({ id, name: sources.find((s) => s.id === id)?.name, ok: h.ok, count: h.count ?? 0 })));
+
+// Preserve earlier discoveries on repeated runs of the same day.
+const inboxPath = join(DATA, 'inbox', `${date}.json`);
+const inbox = new Map((await readJSON(inboxPath, [])).map((it) => [it.id, it]));
+for (const it of fresh.filter((it) => !it.trendOnly)) inbox.set(it.id, it);
+// Refresh publisher metadata even for previously seen articles.
+const media = await readJSON(join(DATA, 'media.json'), {});
+for (const it of all) if (it.thumbnail) media[it.thumbnail.sourceUrl] = { checkedAt: date, thumbnail: it.thumbnail };
 
 await writeJSON(join(DATA, 'seen.json'), seen);
 await writeJSON(join(DATA, 'terms.json'), termDays);
-await writeJSON(join(DATA, 'inbox', `${date}.json`), fresh.filter((it) => !it.trendOnly));
+await writeJSON(inboxPath, [...inbox.values()]);
+await writeJSON(join(DATA, 'media.json'), media);
 await writeJSON(join(DATA, 'trends.json'), trends);
 await writeJSON(join(DATA, 'health.json'), { date, sources: health });
 

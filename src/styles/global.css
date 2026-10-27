@@ -455,6 +455,15 @@ input:focus, textarea:focus, select:focus { outline: none; border-color: var(--f
 .reveal.in { opacity: 1; transform: none; }
 .no-js .reveal { opacity: 1; transform: none; }
 
+/* Publisher previews keep their geometry when absent, loading, or unavailable. */
+.media-preview { min-width: 0; width: 100%; }
+.media-visual { position: relative; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 12px; background: var(--bg-soft); border: 1px solid var(--line); }
+.media-visual img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; background: var(--bg-soft); }
+.media-fallback { height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 4px; padding: 8px; color: var(--fg-2); font-size: .75rem; line-height: 1.25; text-align: center; }
+.media-fallback svg { flex-shrink: 0; }
+.media-publisher { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--fg-3); font-size: .65rem; }
+.media-credit { margin-top: 5px; color: var(--fg-2); font-size: .7rem; line-height: 1.4; overflow-wrap: anywhere; }
+
 /* ---------- misc ---------- */
 .kbd { font-family: var(--font-mono); font-size: 0.75rem; border: 1px solid var(--line-2); border-bottom-width: 2px; border-radius: 5px; padding: 1px 5px; color: var(--fg-2); }
 .empty { text-align: center; padding: 48px 20px; color: var(--fg-2); border: 1px dashed var(--line-2); border-radius: var(--radius-lg); }

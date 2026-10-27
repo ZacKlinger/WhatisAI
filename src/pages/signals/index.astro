@@ -2,6 +2,8 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getSignals } from '@/lib/curriculum';
 import { url } from '@/lib/url';
+import MediaPreview from '@/components/app/MediaPreview';
+import { previewFor } from '@/lib/mediaCatalog';
 
 const signals = await getSignals();
 const kinds = ['research', 'model', 'safety', 'policy', 'economy', 'media', 'trend'] as const;
@@ -37,6 +39,7 @@ for (const s of signals) {
           {list.map((s) => (
             <a href={url(`/signals/${s.id}/`)} class="card hoverable signal-row" data-kind={s.data.kind}>
               <div class="sig-meta">
+                <div class="sig-preview"><MediaPreview client:load thumbnail={previewFor(s.data.thumbnail, s.data.sources[0].url)} publisher={s.data.sources[0].publisher} format={s.data.kind} /></div>
                 <span class="xsmall faint mono">{s.data.date.toISOString().slice(5, 10)}</span>
                 <span class="pill">{label[s.data.kind]}</span>
                 <span class="sig-dots" aria-label={`Significance ${s.data.significance} of 5`}>
@@ -62,7 +65,8 @@ for (const s of signals) {
   .signal-row { display: grid; grid-template-columns: 170px 1fr; gap: 20px; padding: 20px 22px; }
   @media (max-width: 640px) { .signal-row { grid-template-columns: 1fr; gap: 10px; } }
   .sig-meta { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
-  @media (max-width: 640px) { .sig-meta { flex-direction: row; align-items: center; } }
+  .sig-preview { width: 100%; }
+  @media (max-width: 640px) { .sig-meta { flex-direction: row; align-items: center; flex-wrap: wrap; } .sig-preview { width: 120px; } }
   .sig-dots { display: inline-flex; gap: 3px; }
   .sig-dots span { width: 6px; height: 6px; border-radius: 50%; background: var(--line-2); }
   .sig-dots span.on { background: var(--fg); }

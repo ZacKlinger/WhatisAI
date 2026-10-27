@@ -24,7 +24,7 @@ export interface ReviewCard {
 }
 
 export interface CalibrationPoint {
-  /** Stated confidence 0.5..0.99. */
+  /** Stated confidence 0.1..0.99. */
   c: number;
   ok: boolean;
   t: number;

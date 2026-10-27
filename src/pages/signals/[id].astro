@@ -4,6 +4,8 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import Readiness from '@/components/app/Readiness';
 import { getModules, getSignals } from '@/lib/curriculum';
 import { moduleUrl, url } from '@/lib/url';
+import MediaPreview from '@/components/app/MediaPreview';
+import { previewFor } from '@/lib/mediaCatalog';
 
 export async function getStaticPaths() {
   const signals = await getSignals();
@@ -12,6 +14,7 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await render(entry);
 const d = entry.data;
+const preview = previewFor(d.thumbnail, d.sources[0].url);
 const modules = await getModules();
 const titles = Object.fromEntries(modules.map((m) => [m.id, m.data.title]));
 const linked = d.modules.filter((id) => titles[id]);
@@ -29,6 +32,11 @@ const methodNote = { claude: 'Drafted by Claude from these sources.', heuristic:
     </div>
   </header>
   <article class="container-read" style="padding-block:40px 24px">
+    <a href={d.sources[0].url} target="_blank" rel="noopener noreferrer" class="source-preview">
+      <MediaPreview client:load thumbnail={preview} publisher={d.sources[0].publisher} format={d.kind} />
+      <span class="small link">Open original source · {d.sources[0].publisher}</span>
+    </a>
+    {preview?.licenseUrl && <p class="xsmall muted"><a class="link" href={preview.licenseUrl} target="_blank" rel="noopener noreferrer">Publisher-provided image license</a></p>}
     <div class="prose">
       <Content />
     </div>
@@ -54,3 +62,7 @@ const methodNote = { claude: 'Drafted by Claude from these sources.', heuristic:
     </section>
   </article>
 </BaseLayout>
+
+<style>
+  .source-preview { display: grid; gap: 10px; max-width: 480px; margin-bottom: 32px; }
+</style>

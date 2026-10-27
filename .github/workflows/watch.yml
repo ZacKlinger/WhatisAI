@@ -82,6 +82,9 @@ jobs:
       - name: Validate new signals
         run: node scripts/watch/validate-signals.mjs --new
 
+      - name: Refresh attributed media previews
+        run: npm run watch:media
+
       - name: Decide whether to deploy
         id: decide
         run: |

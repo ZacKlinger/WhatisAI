@@ -8,6 +8,8 @@ It is adaptive (an optional placement exam, mastery checks, spaced review, and r
 
 | Area | What it is |
 | --- | --- |
+| **Discovery challenge** | A three-minute, account-free prediction → experiment → takeaway on the homepage. Uses the existing lesson’s seeded polynomial simulation, with text results, keyboard controls, and a credited research caveat. It does not call a model or award mastery. |
+| **Explore** | Four intent-based routes at `/explore/`: understand AI, read research and safety, put AI to work, and anticipate change. Each links three existing lessons and a practical activity; module references are checked at build time. |
 | **The path** | 10 tracks, 53 modules, about 24 hours. Prologue → Foundations (math from zero) → Learning Machines → Language Models → From Model to Assistant → Measuring Minds → Inside the Machine → AI and the Economy → Governing AI → The Frontier (guided readings). |
 | **Interactives** | 20+ instruments: a neural network trained live in the browser, a BPE tokenizer that learns its merges live, an attention explorer, a Chinchilla scaling-law calculator, a real toy model of superposition, an RLHF rater game, and more. |
 | **Assessment** | ~265 items: multiple choice, select-all, matching, ordering, log-scale estimates, and figure hotspots, every one with a confidence wager. |
@@ -27,6 +29,10 @@ npm ci
 npm run dev        # http://localhost:4321/WhatisAI/
 npm run build      # static site in dist/
 ```
+
+Validation: `npm test` runs offline regression tests for the shared discovery simulation, trend history, media extraction/safety, and feed-to-publication metadata preservation. `npm run check`, `npm run validate`, and `npm run build` check types, signals, and the complete site. CI runs these checks.
+
+For browser regressions, install Chromium with `npx playwright install chromium` (or set `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH` to an installed Chromium), then run `npm run test:ui`. The test builds an isolated temporary copy with synthetic publisher previews, intercepts every external request, and checks keyboard prediction and replay, all four lesson routes, no-JavaScript navigation, desktop/mobile layouts, empty and repeated placement, low-confidence scoring, and successful/missing/broken/unsafe/opted-out image states. It does not publish fixtures or change production data. Screenshots go to the system temporary directory under `whatisai-ui-artifacts`, or `UI_ARTIFACT_DIR` when set.
 
 The build runs a curriculum integrity check (`src/pages/curriculum.json.ts`): broken module references, malformed items, or hotspot questions on figures without clickable regions fail the build. While drafting, `CURRICULUM_LENIENT=1 npm run build` downgrades those errors to warnings. CI is always strict.
 

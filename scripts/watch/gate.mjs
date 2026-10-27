@@ -66,7 +66,8 @@ const scored = clusters.map((c) => {
     parts: { authority, corroboration, impact, engagement: Number(engagement.toFixed(2)) },
     categories: [...new Set(ms.map((m) => m.category))],
     format: lead.format,
-    items: ms.map((m) => ({ title: m.title, url: m.url, source: m.sourceName, category: m.category, published: m.published, summary: m.summary, engagement: m.engagement, docType: m.docType })),
+    thumbnail: lead.thumbnail,
+    items: ms.map((m) => ({ title: m.title, url: m.url, source: m.sourceName, category: m.category, published: m.published, summary: m.summary, engagement: m.engagement, docType: m.docType, thumbnail: m.thumbnail })),
   };
 }).sort((a, b) => b.score - a.score);
 

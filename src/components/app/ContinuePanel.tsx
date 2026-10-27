@@ -3,10 +3,10 @@ import { useHydrated, useProgress } from '@/lib/useProgress';
 
 interface M { id: string; title: string; track: string; minutes: number }
 
-export default function ContinuePanel({ modules, base }: { modules: M[]; base: string }) {
+export default function ContinuePanel({ modules, base, returningOnly = false }: { modules: M[]; base: string; returningOnly?: boolean }) {
   const p = useProgress();
   const hydrated = useHydrated();
-  if (!hydrated) return <div style={{ minHeight: 180 }} />;
+  if (!hydrated) return returningOnly ? null : <div style={{ minHeight: 180 }} />;
 
   const done = modules.filter((m) => isDone(p.modules[m.id]?.status));
   const mastered = modules.filter((m) => p.modules[m.id]?.status === 'mastered');
@@ -18,6 +18,7 @@ export default function ContinuePanel({ modules, base }: { modules: M[]; base: s
   const b = brier(p.calibration);
 
   if (fresh) {
+    if (returningOnly) return null;
     return (
       <div className="grid grid-3">
         {[

@@ -1,47 +1,11 @@
 import { useMemo, useState } from 'react';
-import { Axis, HALO, Slider, Widget, linear, palette, path, rng, useWidth } from './chart';
-
-const truth = (x: number) => Math.sin(2.2 * x) * 0.9 + 0.3 * x;
-
-function fitPoly(xs: number[], ys: number[], deg: number, lambda: number): number[] {
-  const k = deg + 1;
-  const A = Array.from({ length: k }, () => Array(k).fill(0));
-  const b = Array(k).fill(0);
-  for (let i = 0; i < xs.length; i++) {
-    const pw = Array.from({ length: k }, (_, j) => xs[i] ** j);
-    for (let r = 0; r < k; r++) {
-      b[r] += pw[r] * ys[i];
-      for (let c = 0; c < k; c++) A[r][c] += pw[r] * pw[c];
-    }
-  }
-  for (let r = 1; r < k; r++) A[r][r] += lambda;
-  // Gaussian elimination with partial pivoting
-  for (let col = 0; col < k; col++) {
-    let piv = col;
-    for (let r = col + 1; r < k; r++) if (Math.abs(A[r][col]) > Math.abs(A[piv][col])) piv = r;
-    [A[col], A[piv]] = [A[piv], A[col]];
-    [b[col], b[piv]] = [b[piv], b[col]];
-    const d = A[col][col] || 1e-12;
-    for (let r = 0; r < k; r++) {
-      if (r === col) continue;
-      const f = A[r][col] / d;
-      for (let c = col; c < k; c++) A[r][c] -= f * A[col][c];
-      b[r] -= f * b[col];
-    }
-  }
-  return b.map((v, i) => v / (A[i][i] || 1e-12));
-}
-
-const evalPoly = (w: number[], x: number) => w.reduce((s, c, j) => s + c * x ** j, 0);
+import { fitPoly, evalPoly, makeGeneralizationData } from '@/lib/generalization.mjs';
+import { Axis, HALO, Slider, Widget, linear, palette, path, useWidth } from './chart';
 
 export default function Overfit() {
   const [deg, setDeg] = useState(3);
   const [reg, setReg] = useState(0);
-  const { train, test } = useMemo(() => {
-    const r = rng(42);
-    const mk = (n: number, off: number) => Array.from({ length: n }, (_, i) => { const x = -1.6 + ((i + off) / n) * 3.2 + r.next() * 0.1; return [x, truth(x) + r.normal() * 0.28] as [number, number]; });
-    return { train: mk(12, 0.2), test: mk(40, 0.5) };
-  }, []);
+  const { train, test } = useMemo(makeGeneralizationData, []);
   const lambda = reg === 0 ? 0 : 10 ** (reg - 6);
   const errs = useMemo(() => Array.from({ length: 12 }, (_, d) => {
     const w = fitPoly(train.map((p) => p[0]), train.map((p) => p[1]), d, lambda);
