@@ -14,7 +14,7 @@ await mkdir(artifacts, { recursive: true });
 let browser, server;
 try {
   for (const dir of ['src', 'scripts', 'data', 'public']) await cp(resolve(dir), join(root, dir), { recursive: true });
-  for (const file of ['astro.config.mjs', 'tsconfig.json', 'package.json']) await cp(resolve(file), join(root, file));
+  for (const file of ['astro.config.mjs', 'tsconfig.json', 'package.json']) await writeFile(join(root, file), await readFile(resolve(file)));
   await symlink(resolve('node_modules'), join(root, 'node_modules'), 'dir');
   const source = 'https://publisher.example.org';
   const thumbnail = (url, sourceUrl) => ({ url, sourceUrl, credit: 'Fixture Creator', alt: 'Synthetic test preview', provenance: 'feed' });
@@ -62,6 +62,40 @@ try {
   page.on('pageerror', (e) => errors.push(e.message));
   const visit = (path) => page.goto(`${base}/WhatisAI/${path}`, { waitUntil: 'networkidle' });
   const shot = (name) => page.screenshot({ path: join(artifacts, name + '.png') });
+  // Public account, metadata, sharing, and small-screen navigation.
+  await visit('account/');
+  await page.getByText('Account sign-in is coming soon.', { exact: false }).waitFor();
+  assert(await page.getByRole('button', { name: 'Continue with Google' }).isDisabled());
+  assert.equal(await page.locator('meta[name="robots"]').getAttribute('content'), 'noindex,follow');
+  await shot('account-desktop');
+  await page.evaluate(() => {
+    Object.defineProperty(navigator, 'share', { value: undefined, configurable: true });
+    Object.defineProperty(navigator, 'clipboard', { value: { writeText: async (text) => { window.__shared = text; } }, configurable: true });
+  });
+  await page.getByRole('button', { name: 'Share this page' }).click();
+  assert.equal(await page.evaluate(() => window.__shared), 'https://zacklinger.github.io/WhatisAI/');
+  await visit('learn/welcome/?private=never-share');
+  await page.evaluate(() => {
+    Object.defineProperty(navigator, 'share', { value: undefined, configurable: true });
+    Object.defineProperty(navigator, 'clipboard', { value: { writeText: async () => { throw new Error('blocked'); } }, configurable: true });
+  });
+  await page.getByRole('button', { name: 'Share this page' }).click();
+  assert.equal(await page.getByLabel('Link to share').inputValue(), 'https://zacklinger.github.io/WhatisAI/learn/welcome/');
+  assert.equal(await page.locator('meta[property="og:url"]').getAttribute('content'), 'https://zacklinger.github.io/WhatisAI/learn/welcome/');
+  assert.equal((await context.request.get(`${base}/WhatisAI/social-card.png`)).status(), 200);
+  const sitemap = await (await context.request.get(`${base}/WhatisAI/sitemap.xml`)).text();
+  assert(sitemap.includes('/learn/welcome/'));
+  assert(!sitemap.includes('/account/'));
+  for (const width of [320, 390, 768, 1280]) {
+    await page.setViewportSize({ width, height: 850 });
+    await visit('account/');
+    assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), `Account overflow at ${width}`);
+    assert(await page.locator('.account-link').isVisible());
+    if (width === 390) await shot('account-mobile');
+  }
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  await page.evaluate(() => localStorage.removeItem('whatisai:progress:v1'));
+  console.log('PASS guest account state, private-page noindex, share privacy/fallback, social image, sitemap and responsive account navigation');
   // A first-time visitor can predict, experiment, find a useful next step, and replay.
   await visit('');
   const challenge = page.getByRole('region', { name: 'Three-minute discovery challenge' });
@@ -115,6 +149,69 @@ try {
   assert.equal(await page.getByText(/× usual share/).count(), 0);
   await shot('trend-history');
   console.log('PASS insufficient-baseline UI');
+
+  // Goals work before a first lesson, survive reloads/backups, and remain editable.
+  await page.setViewportSize({ width: 320, height: 844 });
+  await visit('path/');
+  assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), 'path goal link overflow');
+  await page.getByRole('link', { name: 'Set a learning goal', exact: true }).click();
+  await page.getByRole('region', { name: 'Your goals', exact: true }).waitFor();
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  await visit('progress/');
+  const goalsPanel = page.getByRole('region', { name: 'Your goals', exact: true });
+  await goalsPanel.getByRole('button', { name: 'Add a goal' }).click();
+  await goalsPanel.getByLabel('Target date', { exact: true }).fill('2099-01-01');
+  await goalsPanel.getByRole('button', { name: 'Save goal', exact: true }).click();
+  await goalsPanel.getByText('Goal saved.', { exact: true }).waitFor();
+  const goalBackup = await page.evaluate(() => localStorage.getItem('whatisai:progress:v1'));
+  assert.equal(JSON.parse(goalBackup).goals.length, 1);
+  assert.deepEqual(JSON.parse(goalBackup).activity, {});
+  await page.reload({ waitUntil: 'networkidle' });
+  await goalsPanel.getByRole('heading', { name: 'Conversational in AI', exact: true }).waitFor();
+  await shot('goals-desktop');
+  await visit('');
+  await page.getByRole('link', { name: /Your learning goal/ }).click();
+  await goalsPanel.getByRole('button', { name: 'Edit Conversational in AI goal' }).click();
+  await goalsPanel.getByLabel('I want to…').selectOption('mastery');
+  await goalsPanel.getByLabel('Target date', { exact: true }).fill('2099-02-01');
+  await goalsPanel.getByRole('button', { name: 'Save changes' }).click();
+  await goalsPanel.getByRole('heading', { name: 'Master the full path' }).waitFor();
+  const editedGoal = await page.evaluate(() => JSON.parse(localStorage.getItem('whatisai:progress:v1')).goals[0]);
+  assert.equal(editedGoal.id, JSON.parse(goalBackup).goals[0].id);
+  assert.equal(editedGoal.targetDate, '2099-02-01');
+  await goalsPanel.getByRole('button', { name: 'Add a goal' }).click();
+  await goalsPanel.getByLabel('Target date', { exact: true }).fill('2099-01-01');
+  await goalsPanel.getByRole('button', { name: 'Save goal', exact: true }).click();
+  for (const width of [390, 320]) {
+    await page.setViewportSize({ width, height: 844 });
+    await goalsPanel.scrollIntoViewIfNeeded();
+    assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `goal overflow at ${width}`);
+    await shot(`goals-${width}`);
+  }
+  await page.emulateMedia({ colorScheme: 'dark' });
+  await goalsPanel.getByRole('button', { name: 'Edit Conversational in AI goal' }).click();
+  await shot('goals-editor-dark-mobile');
+  await goalsPanel.getByRole('button', { name: 'Cancel', exact: true }).click();
+  await page.emulateMedia({ colorScheme: 'light' });
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  page.once('dialog', (dialog) => dialog.accept());
+  await goalsPanel.getByRole('button', { name: 'Remove Conversational in AI goal' }).click();
+  assert.equal(await goalsPanel.getByRole('article').count(), 1);
+  await page.locator('input[type="file"]').setInputFiles({ name: 'goal-backup.json', mimeType: 'application/json', buffer: Buffer.from(goalBackup) });
+  await goalsPanel.getByRole('heading', { name: 'Conversational in AI', exact: true }).waitFor();
+  const overdueGoal = JSON.parse(goalBackup);
+  overdueGoal.goals[0].targetDate = '2000-01-01';
+  await page.locator('input[type="file"]').setInputFiles({ name: 'overdue.json', mimeType: 'application/json', buffer: Buffer.from(JSON.stringify(overdueGoal)) });
+  await goalsPanel.getByText('Target date passed', { exact: true }).waitFor();
+  await shot('goals-overdue');
+  const curriculum = await (await context.request.get(`${base}/WhatisAI/curriculum.json`)).json();
+  overdueGoal.modules = Object.fromEntries(curriculum.modules.map((m) => [m.id, { status: 'mastered', updatedAt: 1, score: 1 }]));
+  await page.locator('input[type="file"]').setInputFiles({ name: 'achieved.json', mimeType: 'application/json', buffer: Buffer.from(JSON.stringify(overdueGoal)) });
+  await goalsPanel.getByText('Goal met', { exact: true }).waitFor();
+  assert.equal(await goalsPanel.getByRole('progressbar').getAttribute('value'), '8');
+  await shot('goals-achieved');
+  await page.evaluate(() => localStorage.removeItem('whatisai:progress:v1'));
+  console.log('PASS goal creation, edit, multiple goals, reload, homepage link, import, removal, overdue/achieved states, and mobile layouts');
 
   // Skip all tracks, then take a real assessment, then skip again on a retake.
   await visit('placement/');

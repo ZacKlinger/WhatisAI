@@ -1,3 +1,5 @@
+import { parseProgress, GUEST_KEY, SCOPE_KEY, progressKey } from './progress-data.mjs';
+import { validGoal, localDate, MAX_GOALS } from './goals.mjs';
 /**
  * Learner progress. Everything the app remembers about a learner flows
  * through this store. Persistence is delegated to an adapter so the
@@ -39,6 +41,14 @@ export interface PlacementResult {
   brier: number;
 }
 
+export interface LearningGoal {
+  id: string;
+  kind: 'conversational' | 'mastery';
+  targetDate: string;
+  createdAt: number;
+  updatedAt: number;
+}
+
 export interface State {
   v: 1;
   modules: Record<string, ModuleProgress>;
@@ -47,6 +57,7 @@ export interface State {
   placement?: PlacementResult;
   activity: Record<string, number>;
   lastModule?: string;
+  goals?: LearningGoal[];
 }
 
 export interface StorageAdapter {
@@ -55,13 +66,15 @@ export interface StorageAdapter {
   clear(): void;
 }
 
-const KEY = 'whatisai:progress:v1';
+let owner: string | null = null;
+let KEY = GUEST_KEY;
+try { owner = globalThis.localStorage?.getItem(SCOPE_KEY) ?? null; KEY = progressKey(owner); } catch {}
 
 export const localAdapter: StorageAdapter = {
   load() {
     try {
       const raw = globalThis.localStorage?.getItem(KEY);
-      return raw ? (JSON.parse(raw) as State) : null;
+      return raw ? (parseProgress(raw) as State) : null;
     } catch {
       return null;
     }
@@ -93,25 +106,54 @@ function ensureLoaded() {
   if (loaded || typeof window === 'undefined') return;
   loaded = true;
   const s = adapter.load();
-  if (s && s.v === 1) state = { ...empty(), ...s };
-  window.addEventListener('storage', (e) => {
-    if (e.key !== KEY) return;
-    const next = adapter.load();
-    state = next ? { ...empty(), ...next } : empty();
-    emit();
-  });
+  state = s && s.v === 1 ? { ...empty(), ...s } : empty();
 }
+
+// One listener for the lifetime of the page; account changes never reuse old state.
+if (typeof window !== 'undefined') window.addEventListener('storage', (event) => {
+  if (event.key === SCOPE_KEY || event.key === null) {
+    owner = event.newValue;
+    KEY = progressKey(owner);
+  } else if (event.key !== KEY) return;
+  loaded = false;
+  ensureLoaded();
+  emit();
+});
+
+export function setProgressOwner(uid: string | null) {
+  if (owner && owner !== uid) {
+    try { localStorage.removeItem(progressKey(owner)); } catch {}
+  }
+  owner = uid;
+  KEY = progressKey(uid);
+  try {
+    if (uid) localStorage.setItem(SCOPE_KEY, uid);
+    else localStorage.removeItem(SCOPE_KEY);
+  } catch {}
+  state = empty();
+  loaded = false;
+  ensureLoaded();
+  emit();
+}
+
+export function copyGuestProgress() {
+  const raw = localStorage.getItem(GUEST_KEY);
+  if (!raw) throw new Error('No guest progress was found on this device.');
+  importProgress(raw);
+}
+
+export const getProgressOwner = () => owner;
 
 function emit() {
   for (const l of listeners) l();
 }
 
-function commit(mutator: (draft: State) => void) {
+function commit(mutator: (draft: State) => void, learningActivity = true) {
   ensureLoaded();
   const draft: State = structuredClone(state);
   mutator(draft);
   const day = new Date().toISOString().slice(0, 10);
-  draft.activity[day] = (draft.activity[day] ?? 0) + 1;
+  if (learningActivity) draft.activity[day] = (draft.activity[day] ?? 0) + 1;
   state = draft;
   adapter.save(state);
   emit();
@@ -166,6 +208,22 @@ export function markStarted(id: string) {
 
 export function isDone(status?: ModuleStatus) {
   return status === 'completed' || status === 'mastered' || status === 'placed';
+}
+
+export function saveGoal(kind: LearningGoal['kind'], targetDate: string, id?: string) {
+  const goals = getState().goals ?? [];
+  const previous = id ? goals.find((g) => g.id === id) : undefined;
+  if (id && !previous) throw new Error('This goal is no longer available.');
+  if (!previous && goals.length >= MAX_GOALS) throw new Error(`You can keep up to ${MAX_GOALS} goals. Remove one to add another.`);
+  const now = Date.now();
+  const goal: LearningGoal = { id: previous?.id ?? crypto.randomUUID(), kind, targetDate, createdAt: previous?.createdAt ?? now, updatedAt: now };
+  if (!validGoal(goal)) throw new Error('Choose a goal and a valid target date.');
+  if (targetDate < localDate() && targetDate !== previous?.targetDate) throw new Error('Choose today or a future target date.');
+  commit((d) => { d.goals = previous ? (d.goals ?? []).map((g) => g.id === id ? goal : g) : [...(d.goals ?? []), goal]; }, false);
+}
+
+export function removeGoal(id: string) {
+  commit((d) => { d.goals = (d.goals ?? []).filter((g) => g.id !== id); }, false);
 }
 
 export function recordCalibration(c: number, ok: boolean, src: CalibrationPoint['src']) {
@@ -237,8 +295,7 @@ export function exportProgress(): string {
 }
 
 export function importProgress(json: string) {
-  const parsed = JSON.parse(json) as State;
-  if (parsed?.v !== 1) throw new Error('Unrecognized progress file');
+  const parsed = parseProgress(json) as State;
   state = { ...empty(), ...parsed };
   adapter.save(state);
   emit();

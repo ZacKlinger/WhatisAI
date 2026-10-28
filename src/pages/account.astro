@@ -1,0 +1,13 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Account from '@/components/app/Account';
+---
+<BaseLayout title="Your account" description="Sign in to WhatisAI to keep a private copy of your learning progress." noindex>
+  <section class="container section account-page">
+    <div class="eyebrow">Keep the discoveries going</div>
+    <h1>Your learning. Your pace.</h1>
+    <p class="lead">A place to return to, wherever curiosity takes you.</p>
+    <Account client:load />
+    <noscript><p>Sign-in needs JavaScript. You can still browse and read all lessons.</p></noscript>
+  </section>
+</BaseLayout>

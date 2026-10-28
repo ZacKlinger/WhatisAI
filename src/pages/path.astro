@@ -15,9 +15,10 @@ const levelLabel = ['', 'Foundational', 'Introductory', 'Intermediate', 'Advance
   <section class="container" style="padding-top:clamp(48px,8vw,96px)">
     <h1 style="max-width:18ch">Ten tracks. One climb.</h1>
     <p class="lead" style="margin-top:16px;max-width:60ch">Go in order, or place out of what you already know.</p>
-    <div class="row" style="margin-top:24px">
+    <div class="row" style="margin-top:24px;flex-wrap:wrap">
       <a class="btn btn-primary" href={moduleUrl(modules[0].id)}>Start</a>
       <a class="btn btn-ghost" href={url('/placement/')}>Placement exam</a>
+      <a class="btn btn-ghost" href={url('/progress/#goals')}>Set a learning goal</a>
     </div>
   </section>
 

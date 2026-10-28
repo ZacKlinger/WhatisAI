@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<defs><radialGradient id="glow"><stop stop-color="#b6bbff"/><stop offset="1" stop-color="#f8f8fc"/></radialGradient><linearGradient id="r"><stop stop-color="#7869dc"/><stop offset="1" stop-color="#acc8e9"/></linearGradient></defs>
+<rect width="1200" height="630" fill="#f8f8fc"/><circle cx="1080" cy="310" r="450" fill="url(#glow)"/>
+<text x="82" y="108" font-family="Arial,sans-serif" font-size="30" font-weight="700" fill="#25242a">WhatisAI</text>
+<text x="78" y="256" font-family="Arial,sans-serif" font-size="76" font-weight="700" letter-spacing="-3" fill="#17171b">Understand AI.</text>
+<text x="82" y="339" font-family="Arial,sans-serif" font-size="50" letter-spacing="-1" fill="#55516d">One discovery at a time.</text>
+<text x="84" y="447" font-family="Arial,sans-serif" font-size="24" fill="#595962">Explore. Experiment. Follow the evidence.</text>
+<rect x="82" y="496" width="241" height="49" rx="24" fill="#1b1b21"/><text x="109" y="528" font-family="Arial,sans-serif" font-size="20" fill="white">Free to explore</text>
+<g stroke="url(#r)" stroke-width="2" fill="none" opacity=".7"><path d="M886 150 1050 238 932 390 1114 450M886 150 932 390M1050 238 1114 450M932 390 836 494"/><circle cx="886" cy="150" r="24"/><circle cx="1050" cy="238" r="40"/><circle cx="932" cy="390" r="32"/><circle cx="1114" cy="450" r="21"/><circle cx="836" cy="494" r="13"/></g>
+</svg>
