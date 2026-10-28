@@ -1,0 +1,36 @@
+---
+import { url } from '@/lib/url';
+---
+<div id="analytics-controls" hidden>
+  <div class="container analytics-settings"><button type="button" class="btn btn-ghost btn-sm" id="analytics-settings">Analytics preferences</button><span class="xsmall muted" id="analytics-status" role="status"></span></div>
+  <section id="analytics-banner" class="analytics-banner card" aria-label="Optional analytics" hidden>
+    <h2 class="h4" tabindex="-1">Help improve WhatisAI</h2>
+    <p class="small muted">Allow anonymous visitor and activity statistics through PostHog? We don’t send your name, answers, or scores, or record your screen. Your choice won’t affect learning. <a class="link" href={url('/privacy/')}>Privacy details</a></p>
+    <div class="row"><button type="button" class="btn btn-secondary btn-sm" id="analytics-decline">Decline analytics</button><button type="button" class="btn btn-secondary btn-sm" id="analytics-accept">Allow analytics</button></div>
+  </section>
+</div>
+<style>
+  .analytics-settings { padding-block: 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+  .analytics-banner { position: fixed; z-index: 100; inset: auto 16px 16px; margin-inline: auto; max-width: 600px; max-height: 70dvh; overflow: auto; padding: 22px; background: var(--bg); box-shadow: 0 6px 40px #0003; }
+  .analytics-banner p { margin-block: 12px 16px; }
+  [hidden] { display: none !important; }
+</style>
+<script>
+  import { analyticsAvailable, analyticsChoice, initializeAnalytics, setAnalyticsChoice } from '@/lib/analytics';
+  initializeAnalytics();
+  const controls = document.getElementById('analytics-controls')!;
+  const banner = document.getElementById('analytics-banner')!;
+  const status = document.getElementById('analytics-status')!;
+  const settings = document.getElementById('analytics-settings')!;
+  const render = () => {
+    controls.hidden = !analyticsAvailable();
+    banner.hidden = analyticsChoice() !== null;
+    status.textContent = analyticsChoice() === 'accepted' ? 'Analytics allowed' : 'Analytics off';
+  };
+  render();
+  window.addEventListener('analytics-choice', render);
+  settings.addEventListener('click', () => { banner.hidden = false; banner.querySelector('h2')?.focus(); });
+  for (const choice of ['accept', 'decline'] as const) document.getElementById(`analytics-${choice}`)?.addEventListener('click', () => {
+    setAnalyticsChoice(choice === 'accept' ? 'accepted' : 'declined'); settings.focus();
+  });
+</script>

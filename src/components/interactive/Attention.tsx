@@ -13,7 +13,7 @@ type HeadName = 'coreference' | 'previous' | 'first';
 
 function weights(head: HeadName, tokens: string[], q: number, variant: 'tired' | 'wide'): number[] {
   const n = q + 1; // causal: a token only attends to itself and earlier tokens
-  let raw = Array.from({ length: tokens.length }, (_, i) => (i < n ? 0.05 : 0));
+  let raw: number[] = Array.from({ length: tokens.length }, (_, i) => (i < n ? 0.05 : 0));
   if (head === 'previous') raw = raw.map((v, i) => (i === q - 1 ? 3 : i === q ? 0.6 : v));
   if (head === 'first') raw = raw.map((v, i) => (i === 0 ? 3 : i < n ? 0.15 : 0));
   if (head === 'coreference') {

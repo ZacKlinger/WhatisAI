@@ -1,3 +1,4 @@
+import { trackAnalytics } from '@/lib/analytics';
 import { useState } from 'react';
 import type { Item } from '@/lib/items';
 import { itemKey } from '@/lib/items';
@@ -43,6 +44,7 @@ export default function MasteryCheck({ moduleId, items, nextHref, nextTitle }: P
     setModuleStatus(moduleId, score >= PASS ? 'mastered' : 'completed', score);
     enrollReview(items.map((it) => itemKey(moduleId, it.id)));
     setPhase('done');
+    trackAnalytics('mastery_completed', { module_id: moduleId });
   }
 
   if (phase === 'intro') {
@@ -57,7 +59,7 @@ export default function MasteryCheck({ moduleId, items, nextHref, nextTitle }: P
           {status === 'placed' && <span className="pill" style={{ color: 'var(--c4)' }}>Placed out</span>}
         </div>
         <p className="muted" style={{ margin: '0 0 16px' }}>Wager your confidence on each answer.</p>
-        <button type="button" className="btn btn-primary" onClick={() => { setPhase('run'); setIdx(0); setResults([]); setAttempt((a) => a + 1); }}>
+        <button type="button" className="btn btn-primary" onClick={() => { trackAnalytics('mastery_started', { module_id: moduleId }); setPhase('run'); setIdx(0); setResults([]); setAttempt((a) => a + 1); }}>
           {status === 'mastered' ? 'Retake' : 'Start'}
         </button>
       </div>

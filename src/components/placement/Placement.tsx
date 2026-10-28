@@ -1,3 +1,4 @@
+import { trackAnalytics } from '@/lib/analytics';
 import { useMemo, useState } from 'react';
 import type { Item } from '@/lib/items';
 import { brier, recordCalibration, savePlacement, type CalibrationPoint, type ModuleStatus } from '@/lib/progress';
@@ -133,6 +134,7 @@ export default function Placement({ tracks, modules, bank, base }: Props) {
     const misconceptions = [...new Set(l.filter((e) => !e.correct && (e.confidence ?? 0) >= 0.9).map((e) => e.module))];
     savePlacement({ takenAt: Date.now(), placed, probed: [...new Set(l.map((e) => e.module))], misconceptions, brier: brier(points) });
     setPhase('results');
+    if (l.length) trackAnalytics('placement_completed');
   }
 
   /* ---------- views ---------- */
@@ -159,7 +161,7 @@ export default function Placement({ tracks, modules, bank, base }: Props) {
             ))}
           </div>
           <div className="row" style={{ marginTop: 32 }}>
-            <button type="button" className="btn btn-primary btn-lg" onClick={() => setPhase('assess')}>Begin</button>
+            <button type="button" className="btn btn-primary btn-lg" onClick={() => { trackAnalytics('placement_started'); setPhase('assess'); }}>Begin</button>
             <a className="btn btn-lg" href={`${base}/path/`} style={{ background: 'color-mix(in srgb, var(--bg) 60%, transparent)' }}>Skip</a>
           </div>
           <p className="small" style={{ marginTop: 18, opacity: 0.75 }}>"I don't know" costs nothing. A lucky guess gets a second question.</p>
