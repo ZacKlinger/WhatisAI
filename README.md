@@ -22,6 +22,10 @@ It is adaptive (an optional placement exam, mastery checks, spaced review, and r
 
 Progress is stored in the browser (`localStorage`) behind a `StorageAdapter` interface (`src/lib/progress.ts`), so it can later be swapped for an account-backed store when WhatisAI becomes a public product. Learners can export and import their progress from `/progress/`.
 
+## Visitor analytics
+
+Optional PostHog analytics counts visits and learning interactions after visitor consent. The configured project uses the capped Free plan. See [docs/ANALYTICS.md](docs/ANALYTICS.md) for dashboard links, events, privacy controls, testing, and the no-cost setup.
+
 ## Running locally
 
 ```bash

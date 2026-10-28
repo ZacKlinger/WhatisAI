@@ -1,5 +1,6 @@
 ---
 import '@/styles/global.css';
+import Analytics from '@/components/app/Analytics.astro';
 import Logo from '@/components/ui/Logo.astro';
 import { url } from '@/lib/url';
 
@@ -139,6 +140,8 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
         </footer>
       )
     }
+
+    <Analytics />
 
     <script>
       const root = document.documentElement;

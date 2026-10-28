@@ -28,6 +28,8 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci --no-audit --no-fund
+      - run: npm run test:analytics:unit
+      - run: npm run check
       - run: npm run validate
       - run: npm run build
       - uses: actions/configure-pages@v5

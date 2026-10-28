@@ -119,7 +119,7 @@ export function Axis({ scale, orient, at, length, ticks, format = (v) => String(
 
 export function Widget({ title, kicker, children, note }: { title: string; kicker?: string; children: ReactNode; note?: ReactNode }) {
   return (
-    <div className="widget not-prose">
+    <div className="widget not-prose" data-analytics-widget={title}>
       <div className="widget-head">
         <div className="widget-title">{title}</div>
         {kicker && <div className="widget-kicker">{kicker}</div>}
