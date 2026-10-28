@@ -1,66 +1,24 @@
 {
-  "updated": "2026-10-27",
+  "updated": "2026-10-28",
   "windowDays": 7,
   "baselineDays": 28,
-  "daysOfHistory": 2,
-  "recentObservedDays": 2,
+  "daysOfHistory": 3,
+  "recentObservedDays": 3,
   "baselineObservedDays": 0,
   "comparisonReady": false,
-  "itemsLastWeek": 511,
+  "itemsLastWeek": 1382,
   "rising": [],
   "volume": [
-    {
-      "term": "Evaluations",
-      "modules": [
-        "benchmarks",
-        "evaluation-science"
-      ],
-      "recent": 131,
-      "base": 0,
-      "share": 0.2563600782778865,
-      "lift": null,
-      "series": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        14,
-        117
-      ]
-    },
     {
       "term": "Agents",
       "modules": [
         "agents-and-tools"
       ],
-      "recent": 130,
+      "recent": 304,
       "base": 0,
-      "share": 0.25440313111545987,
+      "share": 0.2199710564399421,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -87,7 +45,49 @@
         0,
         0,
         20,
-        110
+        110,
+        174
+      ]
+    },
+    {
+      "term": "Evaluations",
+      "modules": [
+        "benchmarks",
+        "evaluation-science"
+      ],
+      "recent": 264,
+      "base": 0,
+      "share": 0.191027496382055,
+      "lift": null,
+      "series": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        14,
+        117,
+        133
       ]
     },
     {
@@ -95,12 +95,11 @@
       "modules": [
         "multimodality"
       ],
-      "recent": 58,
+      "recent": 153,
       "base": 0,
-      "share": 0.11350293542074363,
+      "share": 0.11070911722141824,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -127,249 +126,8 @@
         0,
         0,
         6,
-        52
-      ]
-    },
-    {
-      "term": "Alignment",
-      "modules": [
-        "alignment-problem",
-        "deception-and-scheming"
-      ],
-      "recent": 31,
-      "base": 0,
-      "share": 0.060665362035225046,
-      "lift": null,
-      "series": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        2,
-        29
-      ]
-    },
-    {
-      "term": "Open-weight models",
-      "modules": [
-        "ai-supply-chain"
-      ],
-      "recent": 30,
-      "base": 0,
-      "share": 0.05870841487279843,
-      "lift": null,
-      "series": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        29
-      ]
-    },
-    {
-      "term": "Model releases",
-      "modules": [
-        "system-cards"
-      ],
-      "recent": 27,
-      "base": 0,
-      "share": 0.05283757338551859,
-      "lift": null,
-      "series": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        2,
-        25
-      ]
-    },
-    {
-      "term": "AI for science",
-      "modules": [
-        "measuring-progress"
-      ],
-      "recent": 19,
-      "base": 0,
-      "share": 0.03718199608610567,
-      "lift": null,
-      "series": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        2,
-        17
-      ]
-    },
-    {
-      "term": "Reasoning models",
-      "modules": [
-        "reasoning-models"
-      ],
-      "recent": 18,
-      "base": 0,
-      "share": 0.03522504892367906,
-      "lift": null,
-      "series": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        17
-      ]
-    },
-    {
-      "term": "Hallucination",
-      "modules": [
-        "pretraining",
-        "benchmarks"
-      ],
-      "recent": 16,
-      "base": 0,
-      "share": 0.03131115459882583,
-      "lift": null,
-      "series": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        15
+        52,
+        95
       ]
     },
     {
@@ -377,12 +135,11 @@
       "modules": [
         "multimodality"
       ],
-      "recent": 13,
+      "recent": 59,
       "base": 0,
-      "share": 0.025440313111545987,
+      "share": 0.0426917510853835,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -409,61 +166,20 @@
         0,
         0,
         8,
-        5
+        5,
+        46
       ]
     },
     {
-      "term": "US AI policy",
+      "term": "Open-weight models",
       "modules": [
-        "us-ai-policy"
+        "ai-supply-chain"
       ],
-      "recent": 11,
+      "recent": 58,
       "base": 0,
-      "share": 0.021526418786692758,
+      "share": 0.041968162083936326,
       "lift": null,
       "series": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        11
-      ]
-    },
-    {
-      "term": "Interpretability",
-      "modules": [
-        "interpretability-foundations",
-        "sparse-autoencoders"
-      ],
-      "recent": 9,
-      "base": 0,
-      "share": 0.01761252446183953,
-      "lift": null,
-      "series": [
-        0,
         0,
         0,
         0,
@@ -490,7 +206,129 @@
         0,
         0,
         1,
-        8
+        29,
+        28
+      ]
+    },
+    {
+      "term": "Alignment",
+      "modules": [
+        "alignment-problem",
+        "deception-and-scheming"
+      ],
+      "recent": 56,
+      "base": 0,
+      "share": 0.04052098408104197,
+      "lift": null,
+      "series": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        29,
+        25
+      ]
+    },
+    {
+      "term": "AI for science",
+      "modules": [
+        "measuring-progress"
+      ],
+      "recent": 49,
+      "base": 0,
+      "share": 0.03545586107091172,
+      "lift": null,
+      "series": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        17,
+        30
+      ]
+    },
+    {
+      "term": "Model releases",
+      "modules": [
+        "system-cards"
+      ],
+      "recent": 44,
+      "base": 0,
+      "share": 0.03183791606367583,
+      "lift": null,
+      "series": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        25,
+        17
       ]
     },
     {
@@ -499,9 +337,90 @@
         "agents-and-tools",
         "evidence-on-work"
       ],
-      "recent": 9,
+      "recent": 35,
       "base": 0,
-      "share": 0.01761252446183953,
+      "share": 0.02532561505065123,
+      "lift": null,
+      "series": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        8,
+        26
+      ]
+    },
+    {
+      "term": "Interpretability",
+      "modules": [
+        "interpretability-foundations",
+        "sparse-autoencoders"
+      ],
+      "recent": 34,
+      "base": 0,
+      "share": 0.024602026049204053,
+      "lift": null,
+      "series": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        8,
+        25
+      ]
+    },
+    {
+      "term": "US AI policy",
+      "modules": [
+        "us-ai-policy"
+      ],
+      "recent": 34,
+      "base": 0,
+      "share": 0.024602026049204053,
       "lift": null,
       "series": [
         0,
@@ -530,8 +449,49 @@
         0,
         0,
         0,
+        11,
+        23
+      ]
+    },
+    {
+      "term": "Copyright and data",
+      "modules": [
+        "data",
+        "governance-landscape"
+      ],
+      "recent": 34,
+      "base": 0,
+      "share": 0.024602026049204053,
+      "lift": null,
+      "series": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
         1,
-        8
+        6,
+        27
       ]
     },
     {
@@ -539,9 +499,9 @@
       "modules": [
         "dangerous-capabilities"
       ],
-      "recent": 8,
+      "recent": 29,
       "base": 0,
-      "share": 0.015655577299412915,
+      "share": 0.020984081041968163,
       "lift": null,
       "series": [
         0,
@@ -569,9 +529,49 @@
         0,
         0,
         0,
+        1,
+        7,
+        21
+      ]
+    },
+    {
+      "term": "Reasoning models",
+      "modules": [
+        "reasoning-models"
+      ],
+      "recent": 28,
+      "base": 0,
+      "share": 0.020260492040520984,
+      "lift": null,
+      "series": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
         0,
         1,
-        7
+        17,
+        10
       ]
     }
   ],
@@ -580,7 +580,7 @@
       "id": "anthropic-news",
       "name": "Anthropic",
       "ok": true,
-      "count": 21
+      "count": 20
     },
     {
       "id": "anthropic-research",
@@ -592,7 +592,7 @@
       "id": "openai",
       "name": "OpenAI",
       "ok": true,
-      "count": 1326
+      "count": 1333
     },
     {
       "id": "deepmind",
@@ -616,7 +616,7 @@
       "id": "hf-blog",
       "name": "Hugging Face",
       "ok": true,
-      "count": 890
+      "count": 891
     },
     {
       "id": "hf-papers",
@@ -628,19 +628,19 @@
       "id": "arxiv-cl",
       "name": "arXiv cs.CL",
       "ok": true,
-      "count": 374
+      "count": 176
     },
     {
       "id": "arxiv-lg",
       "name": "arXiv cs.LG",
       "ok": true,
-      "count": 321
+      "count": 437
     },
     {
       "id": "arxiv-ai",
       "name": "arXiv cs.AI",
       "ok": true,
-      "count": 321
+      "count": 407
     },
     {
       "id": "metr",
@@ -742,7 +742,7 @@
       "id": "hn",
       "name": "Hacker News",
       "ok": true,
-      "count": 5
+      "count": 6
     }
   ]
 }

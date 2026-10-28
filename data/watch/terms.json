@@ -46,5 +46,32 @@
     "State AI laws": 1,
     "Data centers and energy": 2,
     "__items": 458
+  },
+  "2026-10-28": {
+    "US AI policy": 23,
+    "Agents": 174,
+    "Model releases": 17,
+    "Chips and compute": 15,
+    "Multimodal and video": 95,
+    "Open-weight models": 28,
+    "Evaluations": 133,
+    "Reasoning models": 10,
+    "AI for science": 30,
+    "Alignment": 25,
+    "Copyright and data": 27,
+    "Robotics": 46,
+    "Scaling": 2,
+    "China and AI": 4,
+    "Coding assistants": 26,
+    "Interpretability": 25,
+    "Hallucination": 11,
+    "Security and jailbreaks": 21,
+    "Dangerous capabilities": 1,
+    "Jobs and labor": 7,
+    "International governance": 1,
+    "AI safety": 2,
+    "Data centers and energy": 2,
+    "__items": 871,
+    "__observed": true
   }
 }

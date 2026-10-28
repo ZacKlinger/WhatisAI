@@ -1,1 +1,1423 @@
-{}
+{
+  "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/i7iotPkcMbMubxRzAdriO5wsIsowROonBvjLNnmPbOaRgEb1k4LKTBqay5VrcPpZi0R4il_bYCCsPYQ0Gy_-XbAw66azAGEfE-E6_9Izz5apP0BMJVE=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/beyond-tree-cover-mapping-the-worlds-forest-types/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/Et3g0tNB_bC00f6cP94Y40QbqshCvf7_fg_gRVfZQoeVSc3Hn9g6jIenf1udZdACY4x-wpY_5tyy_LznFSlu0yhGCqfxKos6QFRRj4lad_hQHOBV8Q=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/beyond-tree-cover-mapping-the-worlds-forest-types/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/accelerating-antimicrobial-discovery/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/Xgnc_DxAUS2Fs9H2rokxsYwPnnM_KOkPyPtKm7V2C_sjZ7YS4N1-D6lD8wjYIRQoKaiSwHUXB7qmw77m6FCfHLZenWdNymO7B_JLChlB6ied6emR=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/accelerating-antimicrobial-discovery/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/on-device-ai-scam-detection-mddi/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/5PC4h7MzjC0ojOxiK-nPcRz0b6kUybKnCBjLL3nsb9T9qt7-2ciORJPnrObeFaYbAMqPxIhH4Wq9HD-U73lCivpFBcK8gABvhXXDo2lzUUSk9olsZQ=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/on-device-ai-scam-detection-mddi/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/introducing-synthid-bio/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/wNhpZFcXYLXFb6alIt0H5NRvEoso2ONZDhPKz6MYEcGltHPbDeHddzkvv5GXl3abW1PZ5ci1Y9lKoYOIjMuHLxATXfWp88-Al6eEmDENrpejIFeimw=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/introducing-synthid-bio/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/advancing-private-ai-compute-with-secure-server-side-memory/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/CsJavGl89SJwjdXVDdaKtAEpLbqHa_nzOW89VTThwA8rgYr9Gf3CSiUWk18i5thA57k8zhwdwmvf3F2yagtJ-P1ag-9ppxsPXcUe99DRY9asIRP2yA=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/advancing-private-ai-compute-with-secure-server-side-memory/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/alphagenome-atlas-a-predictive-map-of-every-possible-dna-letter-change-in-the-human-genome/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/vOjFcTcdX2GCEB9yk-tJ7GAfyhTAMo-zW7scq3TrT9qk1mYw5qE0BdUqI8XQclMuUchZr7pYUFdVt3ZzrXc1NGFFJOqi7kIUX_QuAXZR7lkVzxjk=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/alphagenome-atlas-a-predictive-map-of-every-possible-dna-letter-change-in-the-human-genome/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/introducing-weathernext-3-our-most-advanced-and-accurate-global-weather-ai-model/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/I3SASQw4etgOOVbcWS0lr7J14HFqWcee_ln6M0TBOWlvVg2XYCi3kpz4eAi81cAkyq47YvgU1FLzAlaiCNMLcsx9sFA3ufURiSg76Yz8hVm1-u_fYEY=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/introducing-weathernext-3-our-most-advanced-and-accurate-global-weather-ai-model/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/piloting-the-worlds-first-double-blind-ai-evaluations/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/fHN8sOK3p7BTKR4s-3lpYYnq5IEadmVKnqssJO4OmfL6remdC7E8voV-IEue8NPviKWUR7WtCtNTfsKZpld6y2jjwVhNAiqYL9-9EQzj5OURGXCCuug=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/piloting-the-worlds-first-double-blind-ai-evaluations/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/from-atari-to-eve-online-building-on-15-years-of-ai-research-in-games/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/ymmK0Dgovn-_MGlnQJffYxKdTe5LAnkAZr-GNnIjiFzsGOAAmOmUDuVACbNgIy-tqrJhGBdaQ_PaElc8EKRKRWtYg4eWx8HVcaVzdYy7hg7Q_8k=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/from-atari-to-eve-online-building-on-15-years-of-ai-research-in-games/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/putting-sign-language-ai-into-users-hands/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/8RcynTx1ujudyw8Fs05Pv8WJahe2FQ3z1Y7gNHm-xvOTJLdMp9hNDsIIoQbJsnav6evNLgY1iT9B9ercsyIn0U1N51pzScvSfe6IHk2SjDJx-MaVzQ=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/putting-sign-language-ai-into-users-hands/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/weathernext-ai-model-achieves-breakthrough-in-forecasting-cyclones/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/Mj8GyJnsjROScr1hYl7PL_QCAaLGukliPCTMUlpKiQtZuVkmh2ouydYh80ibejg9vWgKkg2dYPx2jCJOOohKid5P-dLzwvIyB4-fZjWXYIx0ImZd=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/weathernext-ai-model-achieves-breakthrough-in-forecasting-cyclones/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/VZ5KwQMxv9xBcQnYipsQB2EUj3oX1yvFYLktIamY8V2a76Y6ctEEuaLF59TuPdnaVn6OAMINDilqnuhju1O-AXc7QlOVmcogjskrWxS7xVQ1mc5S7g=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/introducing-gemini-3-5-flash-cyber/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/esSD0-kSrZ8K07XxNkSKL3OGlcx1Cf3M-qiQut0q_vArHMiK2L1CpUIGVkjuQrhu_m0g8UMVflVQpDp7VFAJSubDdCjSXsPJPDeK-PUtaPbqA8W1=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/introducing-gemini-3-5-flash-cyber/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/our-approach-to-bioresilience/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/ZRyQg91pjea8kXXaGSlnZIJF90-VwnKHSBxo22e2RedCvCCszsurR8W9NHw80e1V6HtWXccbU1MI27Rtjjf963rD673XgkWK7cZe_1ekfruPgdHHVEc=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/our-approach-to-bioresilience/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/empowering-indias-next-generation-of-innovators-with-atl-saathi/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/0BYvIo8ObViyRtRGOYajXHdEGUFX6cKMTQ6lxys98kN0sB6H7rrTo1pdW8M4kCUGnBnidJWbIr6VvcxGKDEDD4YxOVqYRlyxj_a48uqNw_AytF7c-A=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/empowering-indias-next-generation-of-innovators-with-atl-saathi/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/unlocking-uk-house-building-with-ai-accelerated-planning/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/kc7RMwXGDfJAoCsgs6pUuONGMXePGbvF_q_i8i-bWBBakQ91O8VYPk8cyHfpOD1uF-lw8Mk6pd2JpXofi5n4qNoNziPol46lBMmZuxoG9NKl16CW=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/unlocking-uk-house-building-with-ai-accelerated-planning/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/securing-the-future-of-ai-agents/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/X6w_t9eA7TLFiq3JMp1kXlon25qi9N6O0AxPyp7j0qOIu8oz-QDsaOP-oKz7FIuqlA3W1evDbeLYssDJM_fjkqeyscPO_fHJd0xeD0IoDlHkiUQW1w=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/securing-the-future-of-ai-agents/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/investing-in-multi-agent-ai-safety-research/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/YgqOl-h3mEKPbpttnT89PtoHDKTc1-2fbhwRgDauUPtagZVWiw0lr1IGgRUDZDqb9Ib4nhaU93T0mJSE8FFbhkDRiaT53BGLnLVdpqliTP8v5kvmwu8=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/investing-in-multi-agent-ai-safety-research/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/measuring-the-impact-of-learning-with-ai-in-sierra-leone-and-beyond/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/5g2RQPPxqVGuOzfaYj1-8r_6B-Ytp79c9mpWXzBIrk2vUhtxZmA7bMywH41h-8b0EJAdW_K4l7kqHZlfS-QTFk8kFB5MA2bgxZ4hxbuAiOuDIn3ohA=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/measuring-the-impact-of-learning-with-ai-in-sierra-leone-and-beyond/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/fast-tracking-genetic-leads-to-reverse-cellular-aging/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/Xyt_1kwd_q4W4dKV0YND9MzHJF0UOGAYyZjfKEVQK0LoE2HC7i29ZnIG32Sd8RR1qj5iXEzbexg20aePXF5vLjYUB5vO_zdoqAZhKrSV4VVyce5VT1s=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/fast-tracking-genetic-leads-to-reverse-cellular-aging/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/strengthening-singapores-ai-future-a-new-national-partnership/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/Woiv_MqlJsgv6bSWD505JCSu936VdLLtR0y7Ev1wPWDmuhFK1SYxkpyU4N2vhSpSMl22NAtbxuZ1yFMHIcDFwABNZIgRtX0ccRXxWiBaHETRXUQEZQ=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/strengthening-singapores-ai-future-a-new-national-partnership/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/finding-the-molecular-switches-behind-new-infectious-diseases/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/N1YiCxjf6dUaR3FRHJhNIw6EiWvYEIUrcRZqQJXAJK96qNIio-YlutelO-JQBcmWugKOGF4Cc5n_ugnggILDFXvfud-hTAb3qAQVED2NWcR9TW6azQ=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/finding-the-molecular-switches-behind-new-infectious-diseases/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/opening-new-paths-in-aging-research/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/B7CCW8x-V6U0PvCuF6-9V6Cm50m5gRG8SigI6yTMQYs-S7HpY_cKeGn8uLZrJom_0Wuok-iltNFic4I8Eel7riB7Dytm2k1_pytxTtvk-vrEIxw9pg=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/opening-new-paths-in-aging-research/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/accelerating-discovery-of-liver-disease-mechanisms/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/BviYtfKhFkYTOW9MCZSU9GB3fFLNEupgc1ZynnxKJDiZqNVBaCN-1vtpF1H5e9vXubypNvruDDTrEMwuUEEHPiO4DeohPfocpIXVR7hdcolcP5WX3K4=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/accelerating-discovery-of-liver-disease-mechanisms/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/uniting-biological-toolkits-for-a-new-approach-to-als/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/fR4KAfFp4Ns7W90QSrwVipuPprhWP4kEnH-hYbP07bEryUBVGjCAm4yEgo6MRBZAhf6Hp6TTzA-z9EKXm7doG9A-hHTbL1IVeIcjtVg_8cI06LYf=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/uniting-biological-toolkits-for-a-new-approach-to-als/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/uncovering-repurposed-medicines-to-fight-liver-fibrosis/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/WjgQH7IbetdRNwoNAOp7_2JAoHaEckFl7ph9ffhCEtEiGWqzonO9MtqdjOl3n_ZEIAb3uVQ3z-Hq3whlg3ob9lcx6vDOF5lb3MyTE1rIoAeX6peAhOM=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/uncovering-repurposed-medicines-to-fight-liver-fibrosis/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/how-weathernext-helped-the-national-hurricane-center-better-predict-hurricane-melissas-historic-landfall-in-jamaica/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/iLgzjfK9faS-SQePs9fq0zjKGOVGpcyS0J0wQ3SS7llJjJhzz214LUtuy82bJIjweaMRiRWcLMDhPxdP1Z2VitCvWEQyMpY8xLFekP2RG255e2td=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/how-weathernext-helped-the-national-hurricane-center-better-predict-hurricane-melissas-historic-landfall-in-jamaica/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/co-scientist-a-multi-agent-ai-partner-to-accelerate-research/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/8kFWTjhROuwZK6kVFk-ol13YlKLABvppqzVl9LIhYyY3NP4Z8Y0i2ubSuVIfgmknluXTgYmTMAzRR21CxJPbgSK5m37ARzv26S8TPX5QhNWG6wq11Q=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/co-scientist-a-multi-agent-ai-partner-to-accelerate-research/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/alphaevolve-impact/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/UNlyTVoqkmAoTzbbF4QRoPXr-X-QBkXeVpcHxIjte0y5mn_f6ZYHVsynQswOhGLJx-7hnbwt1NcTOQDQoCbum3-l8wPPP5dC6kw0tGmBQAw60nEHog=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/alphaevolve-impact/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/ai-co-clinician/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/z2sN_eil5tgap-Ji1W_4l1xnbfLRghzxdXzyCMdnKFVW1xTfgm0o8bpg9pNwE4RcHTR2QGEGhGx7LFn7Q6bg-LEPBW20d4Djo3Erii8PBYYrWz36=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/ai-co-clinician/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/announcing-our-partnership-with-the-republic-of-korea/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/3q6uiTEWOv5PKJQYWgYLxCgohyndMqdWTFiwFDbxSzk-tW0HeannPdF7kvqR2hmE_tvSeryfw4IvG7gwuZ11rBgIYGvapEQvHO9RRJXw4JCqyme6uA=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/announcing-our-partnership-with-the-republic-of-korea/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/decoupled-diloco/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/1-K_kcmoX-fIzTJ13T0-uF4gylS2tK00ZVvx87B2WSayzUS2fxDoDDXFq5hOhxptrBeG8AbjG_URN5OOTpGMqad9zILjMsTdAHWroiDKpziBQjzErw=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/decoupled-diloco/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/partnering-with-industry-leaders-to-accelerate-ai-transformation/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/t9KvGjgjHJMLDqzAzXuDUOXFI4IlnMiYLhRmxohCRvB1qGSr8-8-TDEI24qk8ilY4OzRB2et5dSlWOjMs6lm-R718xmtQwdiGBxOO7VjxBfMq4a3yoI=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/partnering-with-industry-leaders-to-accelerate-ai-transformation/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/gemini-3-1-flash-tts-the-next-generation-of-expressive-ai-speech/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/O9K0a0MXOACPhUzvThQiyTaWdZ95b_hS-foyHQcYMiCQCB5HKoBXYGyEjnsqcQEjHYjwfNVyqg4Ipk0G-fLiP9hd6JfbD9S-jx7ndLgImfZankCY-9I=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/gemini-3-1-flash-tts-the-next-generation-of-expressive-ai-speech/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/gemini-robotics-er-1-6/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/bQ5TgF2iHJq48mxL5ZVxz3KGmIhOj7c62H7WEWrHqIWGrMexTYoqtrAhF8z12ESUeAj4miWZrHKF-SpMkXG3VVqNtzfJDBULlkMZZw06k05QLuHCww=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/gemini-robotics-er-1-6/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/gemma-4-byte-for-byte-the-most-capable-open-models/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/dP82fYfjynerdo1ze8VAz5F-miu-ghwM9mrzzQoi_FDYVcG4lLTtb7id7b_IKbFVDuv9q765JG_dEWRJK8cFDrxfCeMpzjzvlj3kwqyZWA6zqt_ecw=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/gemma-4-byte-for-byte-the-most-capable-open-models/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/ai-pointer/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/6ktOlNMbk7CGwt_Oyi8aCEfeSX1B2DJUnrMF5X9bmzo0MdX9AHqW3iCCGo4RUFX2_8eN_4U3Sam_3tnc8Q0uLK6dMmcC3j5aiAyFMe9AhwYaYF59KA=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/ai-pointer/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/gemini-3-1-flash-live-making-audio-ai-more-natural-and-reliable/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/X3xXSd8ns-IojsGTjvadPFyaBWT5bBGhubcQd_WSiIgQ9bESUPceaHtfOxwgYzwv3P-Gtz2r3sWs-1XFB5X72HuTMbVz30hqJCKOxBaQdq1Oq6895A=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/gemini-3-1-flash-live-making-audio-ai-more-natural-and-reliable/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/protecting-people-from-harmful-manipulation/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/IH7SOCSd4lrXu8YVkyRw45zg4Jc__pHM0SJlbDssVL3_5XjYGVYE1jt8DCiPgM9JGdwmdO_gYnQ4-QIo2l9Rz04l7KK4jAbsdAyWLriTV-iOC2_Y3bI=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/protecting-people-from-harmful-manipulation/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/lyria-3-pro-create-longer-tracks-in-more/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/jcDZxU6wx4tQ5XBOVae89SPyssJfB24ifHGOA_pGrzdRp9SgP6q2vnx5rr6yeyr_nuFh6b3qHDQzqZFDB3ey-inIlXC2aEEXzUhr_Vy_9AuE7dPuSRs=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/lyria-3-pro-create-longer-tracks-in-more/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/measuring-progress-toward-agi-a-cognitive-framework/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/kOpPqSCIuZr9xSaOZM-eZl314VHQ80Nmv-PfUJgzGOaHU0KY08nNAahjcjoNWT4T_xy5DH6TfOCXwhgR6POERmrPoXnpCsN8J2LJPgoM01rO3nAWPg=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/measuring-progress-toward-agi-a-cognitive-framework/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/10-years-of-alphago/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/kKeug1hkQnNyG362692WROTmFRkJUTgZ3TnYbLZPTIbjvYL9np0UqAGJS0uxRhZLq_LSBOroG486f9RRLv0mKESv1RP-6JfEdI3SMXsEyeVTaXlnOEg=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/10-years-of-alphago/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/gemini-3-1-flash-lite-built-for-intelligence-at-scale/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/L943nW-XsLGjzWrBOj8x7RhlajW6yigzhd8q45ia33L0uNyClu_XT600bTZevv5c2end6MZ5dFKekGXGMjfxIsYCdlqYlcnyNEmAy4Gd0B6Ovd6Z=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/gemini-3-1-flash-lite-built-for-intelligence-at-scale/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/nano-banana-2-combining-pro-capabilities-with-lightning-fast-speed/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/uzAd6nlnEh3lSFyE5Ay-1tvY6xesJLBuPucsK64LfxUwhMk5odcsyH-pAaIKRDVh1PniKOsihrha1qqspCc2f3CgPv61TSgTReKWdUlPiavUkH3R8lM=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/nano-banana-2-combining-pro-capabilities-with-lightning-fast-speed/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/gemini-3-1-pro-a-smarter-model-for-your-most-complex-tasks/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/bZ8aFD7yMP8ue-XfAwrEMPDLgVua4ThZvdZu9mFYcsQTk0QVfc_kd2ygbXCCmTOR6dTvw6FhCkzc55j7-rUW_cYHnsOzmPHrzzJqDLTCCrhnCrOQkg=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/gemini-3-1-pro-a-smarter-model-for-your-most-complex-tasks/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/a-new-way-to-express-yourself-gemini-can-now-create-music/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/WaabCY2Z_smMKiEvzihBKsLEg8g8pNqP_TIy1il9bQGD1zbwwoyAjwawnHB5WRpqyeozc4kiNDFTJY1UTbvoia-FwMM8rI9LPVmt3ESbzKAcDf5j=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/a-new-way-to-express-yourself-gemini-can-now-create-music/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/accelerating-discovery-in-india-through-ai-powered-science-and-education/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/YElycD2T8J2GDnFczuvtRJbPHGUMWPZiT-sLhQdv0ngl9hX0-Y4-KsOWaQxpUuwBCLrjW0FnWncfwgVP6TySgyUPjqyqd7x4czAJbGrRvTlhiV87sA=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/accelerating-discovery-in-india-through-ai-powered-science-and-education/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/gemini-3-deep-think-advancing-science-research-and-engineering/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/RlrY06Cc3MLbXna5gqMdx9jpY1yDikXD5v5qOFSgfDsnXOR71u3s1_dh6hWimLrEybCkyGyqazG6UF2DWrK4F52tVpdaf9amz5R-ZgJQ7uogoSuo-g=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/gemini-3-deep-think-advancing-science-research-and-engineering/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/accelerating-mathematical-and-scientific-discovery-with-gemini-deep-think/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/bbLVCxqhbnzzj_eIy29oKJigrlL6m4ewSwfCK-sNKVI0l1StFklsEADVPHXtTw9YorgOeIiQmM8vzmM3LBRyKu0pQeMHK4pzA_r4oIVjB_5dj8DU=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/accelerating-mathematical-and-scientific-discovery-with-gemini-deep-think/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/project-genie-experimenting-with-infinite-interactive-worlds/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/g1e5YBOfHlTTVhsysCBrfpB_kVz2HZf2MUyvKmA_GkGPil0NridDLi-Iy5qz3EbmG_dB7OhzqEWUHsZMRTkb4bjtUPeFovOGi6zG1di9UTHFGDXLw7A=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/project-genie-experimenting-with-infinite-interactive-worlds/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/d4rt-teaching-ai-to-see-the-world-in-four-dimensions/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/ozG6v7VcBOV2eYZ8TnGTAe1Z-7EjkNiBPHxdQEG1wy_F5QwRN_4IJ_jJYMNQiOMHEWyNMZg3tmC00bzGQX0IYfXHMVuoQS6OLptEV-H6CUpIOnWOaQ=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/d4rt-teaching-ai-to-see-the-world-in-four-dimensions/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/veo-3-1-ingredients-to-video-more-consistency-creativity-and-control/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/PfhcT9uJ6J5kHhhqYkeW2gP7Ae-Oj74cyXy7rK9urd9IrVCTZcyF8poHTklbLZXYH4TTNJ22N-NgABm9hA_0AybulGLtmTQSA85OqKyWdThLc-S095s=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/veo-3-1-ingredients-to-video-more-consistency-creativity-and-control/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/googles-year-in-review-8-areas-with-research-breakthroughs-in-2025/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/CKYdTuHZvo3suDXuWRQfFRfWZdWC3ahrFgIB7eTfGc1zJTcfwiFGNR9WEKRZHrpf8thov-uMXgW1fMYCcIot1NqvvmwBkZFhu7azK0sIlzr0tlBZ9A=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/googles-year-in-review-8-areas-with-research-breakthroughs-in-2025/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/gemini-3-flash-frontier-intelligence-built-for-speed/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/6RPdrvGOHnyvo4twPwkjLRiZ37xYNnjBm6YyAp3Q52T-hJcOSNLzS7ErxFMV64G4Ir4yMLpKCxJ9amMQaNq01GpSwusn1i7JM1UVwQ47FqPuOCRUYg=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/gemini-3-flash-frontier-intelligence-built-for-speed/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/gemma-scope-2-helping-the-ai-safety-community-deepen-understanding-of-complex-language-model-behavior/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/6xaDTQdD_X-XOnyaiOJyIeZrXSldI98ijQCzxNqtmlQvsl-Qy6B3qUQIbCnkY2Cfa2AV4hNwo7UV2wzZ6mG1O5q0tfBfYSGZhOH1Cpp7AKfApuY1=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/gemma-scope-2-helping-the-ai-safety-community-deepen-understanding-of-complex-language-model-behavior/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/improved-gemini-audio-models-for-powerful-voice-experiences/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/cJcAt2SxY4kjrZw_0k3hRQXJo81A-BhMUGWVnNVR0Uy8-ieIlWZyID9gRpioFGH1P9ODTf5rd3--9jJ9vUOnAM969Sprqbj0Sg6-RW87Ll_XPJw-_g=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/improved-gemini-audio-models-for-powerful-voice-experiences/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/deepening-our-partnership-with-the-uk-ai-security-institute/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/AMN7wwGsZm8pTcW-nitk9SkxhXFSiFV4aM44e4NzZlbm0MgdLCUYrhsW312j9DpOvtiBv9COlSOTf90tsFp0FuBQ_ggpm-ft4IZrtPo95uC8B73mgw=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/deepening-our-partnership-with-the-uk-ai-security-institute/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/strengthening-our-partnership-with-the-uk-government-to-support-prosperity-and-security-in-the-ai-era/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/9ovdV4CyNmELMyuOSj2ZpyzRnJymh1gWQpzYVfd0oDzN82i8p08x_JRnArOWGge9IxvraD6ZRxYWD3pKNB0hhhueSmVHHn1xY4iXAOi2v7b0IYb8iw=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/strengthening-our-partnership-with-the-uk-government-to-support-prosperity-and-security-in-the-ai-era/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/facts-benchmark-suite-systematically-evaluating-the-factuality-of-large-language-models/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/eEfDhwb-u99oZnuvwc3STyyWrtN-4LnaqKBXCTP6Zy7yZGEJ-ryNjOOYaWJ3Lc8JmRXVH9DA-EqSb7k61rXtDeG0wB6Tj0ho0mAax8QWUHDkpyUjig=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/facts-benchmark-suite-systematically-evaluating-the-factuality-of-large-language-models/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/engineering-more-resilient-crops-for-a-warming-climate/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/SmNXY162ZZ5ADiU59tS5YPlCdCd7A7G8ubHeSH8CAyniaPAUUEvrNUm_u7ve1S7QGpNjajkmrQWzSz-ZTG58RNRVVl8GEFcajpTK7rA6VCFnMdC0=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/engineering-more-resilient-crops-for-a-warming-climate/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/alphafold-five-years-of-impact/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/ilVw2lFf7j4sXdrcpi5lAe9Hl3ZjGXdj92fjgmtmTkIKIW69XiTfosSpaGmTqJif6_yjlQAVdMFBfxfLRMC9oYqEWFvX0lY6f9J7tMm7SNzTysGbng=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/alphafold-five-years-of-impact/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/revealing-a-key-protein-behind-heart-disease/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/RwD4LRoI4MaL8yOjRgJoH9cjv4T54vy4V7ZNnToTVaVksw4pCKyRwoz1RbCwweWxot6Q2vLEZdSk-29k79pNqutMiBrRHd6IbvKepvWQvjpWxIenFg=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/revealing-a-key-protein-behind-heart-disease/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://deepmind.google/blog/google-deepmind-supports-us-department-of-energy-on-genesis/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/Aij3S61tCOKUv_-lxFEBAvGZBWAlGh2E0gGRyol8p0L53KFkhgEEDcuw2rg9JzpdH40kwy_e_PkjaHdvbInPj55lDIKx6cd9xzzmRAy9eUapVkKJrw=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/google-deepmind-supports-us-department-of-energy-on-genesis/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://blog.google/products-and-platforms/products/education/ai-quests-polar-peaks/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/social_sharing_updated.max-600x600.format-webp.webp",
+      "sourceUrl": "https://blog.google/products-and-platforms/products/education/ai-quests-polar-peaks/",
+      "credit": "Ronit Levavi Morad",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://blog.google/company-news/inside-google/around-the-globe/google-asia/e-conomy-sea-report-2026/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/e-Conomy_SEA_hero.max-600x600.format-webp.webp",
+      "sourceUrl": "https://blog.google/company-news/inside-google/around-the-globe/google-asia/e-conomy-sea-report-2026/",
+      "credit": "Nitin Gajria",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-4-argon__blog-header__27.max-600x600.format-webp.webp",
+      "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/",
+      "credit": "Koray Kavukcuoglu",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://blog.google/innovation-and-ai/technology/ai/playground-experimental-gaming-platform/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/THUMBNAIL_BLOG.max-600x600.format-webp.webp",
+      "sourceUrl": "https://blog.google/innovation-and-ai/technology/ai/playground-experimental-gaming-platform/",
+      "credit": "Maryam Karimzadehgan",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-september-2026/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/September_AI_Recap_hero.max-600x600.format-webp.webp",
+      "sourceUrl": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-september-2026/",
+      "credit": "Blog Team",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://blog.google/innovation-and-ai/technology/ai/winner-future-vision-xprize/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/futurevisionxprize_social.max-600x600.format-webp.webp",
+      "sourceUrl": "https://blog.google/innovation-and-ai/technology/ai/winner-future-vision-xprize/",
+      "credit": "Google AI",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://blog.google/innovation-and-ai/technology/research/google-beam-expansion/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Google_Beam_hero.max-600x600.format-webp.webp",
+      "sourceUrl": "https://blog.google/innovation-and-ai/technology/research/google-beam-expansion/",
+      "credit": "Aaron Luber",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://blog.google/innovation-and-ai/technology/ai/expanding-ai-economy-research-bench/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/AI__Economy_team_hero.max-600x600.format-webp.webp",
+      "sourceUrl": "https://blog.google/innovation-and-ai/technology/ai/expanding-ai-economy-research-bench/",
+      "credit": "Google AI",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://blog.google/innovation-and-ai/technology/ai/google-flow-fashion-week/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Blog_Header_V2.max-600x600.format-webp.webp",
+      "sourceUrl": "https://blog.google/innovation-and-ai/technology/ai/google-flow-fashion-week/",
+      "credit": "Yeawon Choi",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://blog.google/innovation-and-ai/technology/ai/google-un-data-commons-platform/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/data-commons.max-600x600.format-webp.webp",
+      "sourceUrl": "https://blog.google/innovation-and-ai/technology/ai/google-un-data-commons-platform/",
+      "credit": "Prem Ramaswami",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://blog.google/innovation-and-ai/technology/ai/ai-for-societal-impact/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/Health_Header.gif",
+      "sourceUrl": "https://blog.google/innovation-and-ai/technology/ai/ai-for-societal-impact/",
+      "credit": "Google AI",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://blog.google/innovation-and-ai/technology/ai/ai-applications-science-people/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/SocialShare_hD2gcAw.max-600x600.format-webp.webp",
+      "sourceUrl": "https://blog.google/innovation-and-ai/technology/ai/ai-applications-science-people/",
+      "credit": "James Manyika",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://blog.google/innovation-and-ai/technology/ai/ai-for-every-language/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/AI_languages_blog_social.max-600x600.format-webp.webp",
+      "sourceUrl": "https://blog.google/innovation-and-ai/technology/ai/ai-for-every-language/",
+      "credit": "James Manyika",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://blog.google/innovation-and-ai/technology/ai/ai-economy-atlas-september-2026/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/ATLAS-hero.max-600x600.format-webp.webp",
+      "sourceUrl": "https://blog.google/innovation-and-ai/technology/ai/ai-economy-atlas-september-2026/",
+      "credit": "Google AI",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://blog.google/innovation-and-ai/technology/ai/dialogues-christina-koch/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Dialogues_Christina-Koch_social.max-600x600.format-webp.webp",
+      "sourceUrl": "https://blog.google/innovation-and-ai/technology/ai/dialogues-christina-koch/",
+      "credit": "Google AI",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://blog.google/innovation-and-ai/technology/developers-tools/devfest2026/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/DevFest.max-600x600.format-webp.webp",
+      "sourceUrl": "https://blog.google/innovation-and-ai/technology/developers-tools/devfest2026/",
+      "credit": "Google AI",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://blog.google/products-and-platforms/products/search/running-race-training-tips/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Search_Race_Running_Tips.max-600x600.format-webp.webp",
+      "sourceUrl": "https://blog.google/products-and-platforms/products/search/running-race-training-tips/",
+      "credit": "Peter Schottenfels",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://blog.google/products-and-platforms/products/search/football-features-google-search/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Football_on_Search_blog_header.max-600x600.format-webp.webp",
+      "sourceUrl": "https://blog.google/products-and-platforms/products/search/football-features-google-search/",
+      "credit": "Denise Ho",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://blog.google/innovation-and-ai/technology/ai/love-rendered-film/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/LOVE_RENDERED_HERO_BLOG_SANS_LO.max-600x600.format-webp.webp",
+      "sourceUrl": "https://blog.google/innovation-and-ai/technology/ai/love-rendered-film/",
+      "credit": "Michael Chang",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://blog.google/innovation-and-ai/technology/safety-security/fairwind-program/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-3-8__fairwind-program__b.max-600x600.format-webp.webp",
+      "sourceUrl": "https://blog.google/innovation-and-ai/technology/safety-security/fairwind-program/",
+      "credit": "Four Flynn",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://www.wired.com/story/macmillan-staff-say-the-publisher-threw-a-party-for-a-workplace-ai-assistant-that-was-later-killed/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://media.wired.com/photos/6ad92ed7649bdf60df6fd555/master/pass/culture_macmillon_failed_ai_project.jpg",
+      "sourceUrl": "https://www.wired.com/story/macmillan-staff-say-the-publisher-threw-a-party-for-a-workplace-ai-assistant-that-was-later-killed/",
+      "credit": "Adam Morgan",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://www.wired.com/story/ai-emergency-alerts-coming-humans-not-ready/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://media.wired.com/photos/6ae1120223d445186a16d911/master/pass/ai-weather-alerts-emergency.jpg",
+      "sourceUrl": "https://www.wired.com/story/ai-emergency-alerts-coming-humans-not-ready/",
+      "credit": "Jake Bittle",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://www.wired.com/story/geoffrey-vos-uk-judge-ai-legal-profession-challenges/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://media.wired.com/photos/6ae127707e979e34b6579966/master/pass/Business_Should%20AI%20Decide%20Your%20Court%20Case_%20ThisJudgeSaysYes.gif",
+      "sourceUrl": "https://www.wired.com/story/geoffrey-vos-uk-judge-ai-legal-profession-challenges/",
+      "credit": "Joel Khalili",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://www.wired.com/story/anthropic-says-it-will-revolutionize-biology-some-day/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://media.wired.com/photos/6ae0b0627e979e34b657973e/master/pass/102726-Anthropic%20Bio.jpg",
+      "sourceUrl": "https://www.wired.com/story/anthropic-says-it-will-revolutionize-biology-some-day/",
+      "credit": "Emily Mullin",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://www.wired.com/story/uk-home-office-may-face-investigation-over-use-of-openai-tools/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://media.wired.com/photos/6ada70c6eb086323489423af/master/pass/GettyImages-2275955534.jpg",
+      "sourceUrl": "https://www.wired.com/story/uk-home-office-may-face-investigation-over-use-of-openai-tools/",
+      "credit": "Isabella Ward",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://www.wired.com/story/ai-agents-are-medias-new-favorite-audience/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://media.wired.com/photos/6adfd6269b54dbfcc0225ffd/master/pass/business_ai_agents_media_audience.jpg",
+      "sourceUrl": "https://www.wired.com/story/ai-agents-are-medias-new-favorite-audience/",
+      "credit": "Kate Taylor",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://www.wired.com/story/i-tested-every-major-ai-agent-for-a-day-heres-the-best-one/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://media.wired.com/photos/6adbdf82eed013bcc79da54f/master/pass/gear-ai-agent-best.jpg",
+      "sourceUrl": "https://www.wired.com/story/i-tested-every-major-ai-agent-for-a-day-heres-the-best-one/",
+      "credit": "Reece Rogers",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://www.wired.com/story/anthropic-prospectus-leaves-out-some-numbers/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://media.wired.com/photos/6adf8a425d1e509438fb58ec/master/pass/Anthropic3.jpg",
+      "sourceUrl": "https://www.wired.com/story/anthropic-prospectus-leaves-out-some-numbers/",
+      "credit": "Lauren Goode, Caroline Haskins, Kate Taylor",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://www.wired.com/story/the-anthropic-ipo-is-also-a-doomsday-primer/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://media.wired.com/photos/6adf6d7844b1eb496ab79957/master/pass/Business_The%20Anthropic%20IPO%20Is%20Also%20a%20Doomsday%20Primer_v1.jpg",
+      "sourceUrl": "https://www.wired.com/story/the-anthropic-ipo-is-also-a-doomsday-primer/",
+      "credit": "Brian Barrett",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://www.wired.com/story/anthropic-ipo-filings-reveal-finances-risks-strategy/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://media.wired.com/photos/6adf6c00ca47359863df5ba5/master/pass/102626-Anthropic%20IPO.jpg",
+      "sourceUrl": "https://www.wired.com/story/anthropic-ipo-filings-reveal-finances-risks-strategy/",
+      "credit": "Joel Khalili, Kate Taylor",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://www.dwarkesh.com/p/pretraining-progress-is-mostly-data": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://substackcdn.com/image/fetch/$s_!4VW0!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc5b7bfa0-c68c-4e38-a34b-f24075e27863_1220x1020.png",
+      "sourceUrl": "https://www.dwarkesh.com/p/pretraining-progress-is-mostly-data",
+      "credit": "Dwarkesh Patel",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://www.dwarkesh.com/p/openai-huggingface": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://substack-post-media.s3.amazonaws.com/public/images/30186662-5010-4c83-a672-e33c53deeaa3_1080x669.webp",
+      "sourceUrl": "https://www.dwarkesh.com/p/openai-huggingface",
+      "credit": "Dwarkesh Patel",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://www.dwarkesh.com/p/why-compute-might-get-10x-more-expensive": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://substack-post-media.s3.amazonaws.com/public/images/840fa1ee-6b94-4cf1-9959-d8d45a3879d7_1179x1174.webp",
+      "sourceUrl": "https://www.dwarkesh.com/p/why-compute-might-get-10x-more-expensive",
+      "credit": "Dwarkesh Patel",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://www.dwarkesh.com/p/blog-prize-winners": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://substack-post-media.s3.amazonaws.com/public/images/38961b9e-fc04-435d-a44b-7e72b0819d86_554x554.jpeg",
+      "sourceUrl": "https://www.dwarkesh.com/p/blog-prize-winners",
+      "credit": "Dwarkesh Patel",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://latent.space/p/opus55/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/f111395b-ddfb-4ddc-969e-2424a5d05eb7/chatgpt.png?t=1793127236",
+      "sourceUrl": "https://latent.space/p/opus55/",
+      "credit": "swyx .ai",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://latent.space/p/how_anthropic_ships_the_1_llm_in_the_world_safely_separating_the_brain_from_the_hands/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://i.ytimg.com/vi/MRQTlwcW-aQ/maxresdefault.jpg",
+      "sourceUrl": "https://latent.space/p/how_anthropic_ships_the_1_llm_in_the_world_safely_separating_the_brain_from_the_hands/",
+      "credit": "Latent.Space",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://latent.space/p/offline-coding/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/425b6203-2bf9-4c0a-9545-27f2704fa9aa/himilayas-no-wifi-1280x720.png?t=1793103846",
+      "sourceUrl": "https://latent.space/p/offline-coding/",
+      "credit": "Rittika Jindal",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://latent.space/p/ainews-anthropic-s1/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/f056ab0b-c9ca-46f2-8fb1-08d5f2f6b891/image.png?t=1793085208",
+      "sourceUrl": "https://latent.space/p/ainews-anthropic-s1/",
+      "credit": "swyx .ai",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://latent.space/p/ainews-kimi-31/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/996d69ac-2a1f-4064-a383-641eebc365b8/SCR-20261024-bbmb.jpeg?t=1792826292",
+      "sourceUrl": "https://latent.space/p/ainews-kimi-31/",
+      "credit": "swyx .ai",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://latent.space/p/ai-is-getting-good-at-math/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/bd3e76aa-5e3c-4cbf-b175-c20919ca2b9d/Math_Feature_Image-selection3.png?t=1792768487",
+      "sourceUrl": "https://latent.space/p/ai-is-getting-good-at-math/",
+      "credit": "Ankit Maloo",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://latent.space/p/modal-d/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://i.ytimg.com/vi/IiZ9yd2Do8I/maxresdefault.jpg",
+      "sourceUrl": "https://latent.space/p/modal-d/",
+      "credit": "Latent.Space",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://latent.space/p/moshi/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://i.ytimg.com/vi/DWHyPWnzGAI/maxresdefault.jpg",
+      "sourceUrl": "https://latent.space/p/moshi/",
+      "credit": "Latent.Space",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://latent.space/p/ainews-openais-patch-the-planet-program/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/5a7cc52e-dafa-4a65-9058-78c63afa808c/2f193200-5a32-4d16-8cef-d36ab44b0848_1440x1290.png?t=1792734787",
+      "sourceUrl": "https://latent.space/p/ainews-openais-patch-the-planet-program/",
+      "credit": "Latent Space",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://latent.space/p/claude-mods/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/755e017f-7da5-4a38-a7fd-d5a505003fe9/c61f4d99-31a9-4e4c-aa02-65e5b5db1799_1280x720.png?t=1792620904",
+      "sourceUrl": "https://latent.space/p/claude-mods/",
+      "credit": "Dan McAteer",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://latent.space/p/ainews-deepseek-deepinfer-open-source/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/0ec35ae9-34c4-4317-964f-b6b0837dc76f/07a949cd-f727-48e2-9bd4-c4d110bf94e9_1326x1362.jpg?t=1792620904",
+      "sourceUrl": "https://latent.space/p/ainews-deepseek-deepinfer-open-source/",
+      "credit": "Latent Space",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://latent.space/p/tenex/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://i.ytimg.com/vi/Vki6cklFqxo/maxresdefault.jpg",
+      "sourceUrl": "https://latent.space/p/tenex/",
+      "credit": "Latent.Space",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://latent.space/p/sfcompute2/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://i.ytimg.com/vi/EAtLq9_vrE0/maxresdefault.jpg",
+      "sourceUrl": "https://latent.space/p/sfcompute2/",
+      "credit": "Latent.Space",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://latent.space/p/ainews-not-much-happened-today-f09/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/053b0f63-876a-48bd-800f-71b2311de1a1/HVBPHSjWcAAHoHt.jpg?t=1792734787",
+      "sourceUrl": "https://latent.space/p/ainews-not-much-happened-today-f09/",
+      "credit": "Latent Space",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://latent.space/p/ainews-high-taste-testers-ep-1/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/9b0d458d-a214-4d84-bce6-07595841df3b/maxresdefault.jpg?t=1792620904",
+      "sourceUrl": "https://latent.space/p/ainews-high-taste-testers-ep-1/",
+      "credit": "Latent Space",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://latent.space/p/ainews-agents-disprove-polysemanticity/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/5e0b1def-e5f9-48c8-8d59-8002dccb0d0e/50483d29-b6d4-485b-b93a-5b6a14e29ce6_2028x1228.jpg?t=1792734787",
+      "sourceUrl": "https://latent.space/p/ainews-agents-disprove-polysemanticity/",
+      "credit": "Latent Space",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://latent.space/p/ainews-modals-1b-arr-16b-series-d/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/bc958328-b9af-466d-aa7d-1f22e8442036/maxresdefault.jpg?t=1792734787",
+      "sourceUrl": "https://latent.space/p/ainews-modals-1b-arr-16b-series-d/",
+      "credit": "Latent Space",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://latent.space/p/crossing-the-threshold/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/674fa42e-8e63-4be1-89a6-f9e5777adb88/4aa91ce4-8821-4844-aa0f-56d4bd3c8d7e_1280x720.jpg?t=1792620905",
+      "sourceUrl": "https://latent.space/p/crossing-the-threshold/",
+      "credit": "Richard MacManus",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://www.youtube.com/shorts/bRQEWPA832A": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://i3.ytimg.com/vi/bRQEWPA832A/hqdefault.jpg",
+      "sourceUrl": "https://www.youtube.com/shorts/bRQEWPA832A",
+      "credit": "3Blue1Brown",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://www.youtube.com/watch?v=Nbwv5wHQoj0": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://i3.ytimg.com/vi/Nbwv5wHQoj0/hqdefault.jpg",
+      "sourceUrl": "https://www.youtube.com/watch?v=Nbwv5wHQoj0",
+      "credit": "3Blue1Brown",
+      "alt": "",
+      "provenance": "feed"
+    }
+  },
+  "https://www.anthropic.com/research/alignment-assessment-ukaisi": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://www-cdn.anthropic.com/images/4zrzovbb/website/97d61b79f99af31d2596eced7533e6d5e3ef7731-2000x1125.jpg",
+      "sourceUrl": "https://www.anthropic.com/research/alignment-assessment-ukaisi",
+      "credit": "Anthropic",
+      "alt": "Anthropic logo",
+      "provenance": "opengraph"
+    }
+  },
+  "https://www.aisi.gov.uk/": {
+    "checkedAt": "2026-10-28"
+  },
+  "https://www.anthropic.com/research/employment-at-anthropic": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://www-cdn.anthropic.com/images/4zrzovbb/website/e6c18d30f931ae76d4b600558f5a11377306f1d9-2000x1125.jpg",
+      "sourceUrl": "https://www.anthropic.com/research/employment-at-anthropic",
+      "credit": "Anthropic",
+      "alt": "Anthropic logo",
+      "provenance": "opengraph"
+    }
+  },
+  "https://digitaleconomy.stanford.edu/news/canariesaug26/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://digitaleconomy.stanford.edu/app/uploads/2026/08/CanAug26update.png",
+      "sourceUrl": "https://digitaleconomy.stanford.edu/news/canariesaug26/",
+      "credit": "Stanford Digital Economy Lab",
+      "alt": "",
+      "provenance": "opengraph"
+    }
+  },
+  "https://digitaleconomy.stanford.edu/publication/canaries-in-the-coal-mine-six-facts-about-the-recent-employment-effects-of-artificial-intelligence/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://digitaleconomy.stanford.edu/app/uploads/2025/10/CanarySquare.jpg",
+      "sourceUrl": "https://digitaleconomy.stanford.edu/publication/canaries-in-the-coal-mine-six-facts-about-the-recent-employment-effects-of-artificial-intelligence/",
+      "credit": "Stanford Digital Economy Lab",
+      "alt": "",
+      "provenance": "opengraph"
+    }
+  },
+  "https://www.winstontaylor.com/insights/ai-act-rules-on-high-risk-ai-delayed-as-ai-digital-omnibus-agreed": {
+    "checkedAt": "2026-10-28"
+  },
+  "https://www.gibsondunn.com/eu-ai-act-omnibus-agreement-postponed-high-risk-deadlines-and-other-key-changes/": {
+    "checkedAt": "2026-10-28"
+  },
+  "https://www.joneswalker.com/en/insights/blogs/ai-law-blog/yes-august-2-still-matters-the-eu-approved-a-high-risk-ai-delay-but-most-trans.html": {
+    "checkedAt": "2026-10-28"
+  },
+  "https://www.un.org/global-dialogue-ai-governance/en": {
+    "checkedAt": "2026-10-28"
+  },
+  "https://www.un.org/independent-international-scientific-panel-ai/en/faq": {
+    "checkedAt": "2026-10-28"
+  },
+  "https://openai.com/index/introducing-gpt-6-1-terra": {
+    "checkedAt": "2026-10-28"
+  },
+  "https://deepmind.google/blog/gemini-4-carbon-our-next-frontier-model/": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/gemini_carbon_102726_social_share.png",
+      "sourceUrl": "https://deepmind.google/blog/gemini-4-carbon-our-next-frontier-model/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "opengraph"
+    }
+  },
+  "https://www.federalregister.gov/documents/2026/10/28/2026-21943/health-data-technology-and-interoperability-onc-deregulatory-actions-to-unleash-prosperity": {
+    "checkedAt": "2026-10-28"
+  },
+  "https://openai.com/index/greptile-code-review-codex-astra": {
+    "checkedAt": "2026-10-28"
+  },
+  "https://openai.com/index/gpt-6-1-sol-coderabbit-code-security": {
+    "checkedAt": "2026-10-28"
+  },
+  "https://openai.com/index/anima": {
+    "checkedAt": "2026-10-28"
+  },
+  "https://huggingface.co/papers/2610.32046": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2610.32046/gradient.png",
+      "sourceUrl": "https://huggingface.co/papers/2610.32046",
+      "credit": "Hugging Face Daily Papers",
+      "alt": "",
+      "provenance": "opengraph"
+    }
+  },
+  "https://www.anthropic.com/research/agents-judgment-calls": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://www-cdn.anthropic.com/images/4zrzovbb/website/b3aee146e4ef35b394b2b626d5eaf5faaee741aa-1200x630.jpg",
+      "sourceUrl": "https://www.anthropic.com/research/agents-judgment-calls",
+      "credit": "Anthropic Research",
+      "alt": "Collage of a vintage lithograph of a schooner heeling in a stormy sea, layered over an aged paper folder and a blue-tinted handwritten ship passenger list.",
+      "provenance": "opengraph"
+    }
+  },
+  "https://openai.com/index/legora-agentic-operating-system-for-legal-work": {
+    "checkedAt": "2026-10-28"
+  },
+  "https://openai.com/index/oracle-apps-in-chatgpt": {
+    "checkedAt": "2026-10-28"
+  },
+  "https://openai.com/index/grupo-boticario": {
+    "checkedAt": "2026-10-28"
+  },
+  "https://openai.com/index/localiza-generative-ai": {
+    "checkedAt": "2026-10-28"
+  },
+  "https://huggingface.co/papers/2610.30418": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2610.30418/gradient.png",
+      "sourceUrl": "https://huggingface.co/papers/2610.30418",
+      "credit": "Hugging Face Daily Papers",
+      "alt": "",
+      "provenance": "opengraph"
+    }
+  },
+  "https://huggingface.co/papers/2610.34491": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2610.34491/gradient.png",
+      "sourceUrl": "https://huggingface.co/papers/2610.34491",
+      "credit": "Hugging Face Daily Papers",
+      "alt": "",
+      "provenance": "opengraph"
+    }
+  },
+  "https://huggingface.co/papers/2610.33024": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2610.33024/gradient.png",
+      "sourceUrl": "https://huggingface.co/papers/2610.33024",
+      "credit": "Hugging Face Daily Papers",
+      "alt": "",
+      "provenance": "opengraph"
+    }
+  },
+  "https://huggingface.co/papers/2610.18683": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2610.18683/gradient.png",
+      "sourceUrl": "https://huggingface.co/papers/2610.18683",
+      "credit": "Hugging Face Daily Papers",
+      "alt": "",
+      "provenance": "opengraph"
+    }
+  },
+  "https://huggingface.co/papers/2610.37585": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2610.37585/gradient.png",
+      "sourceUrl": "https://huggingface.co/papers/2610.37585",
+      "credit": "Hugging Face Daily Papers",
+      "alt": "",
+      "provenance": "opengraph"
+    }
+  },
+  "https://huggingface.co/papers/2610.37624": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2610.37624/gradient.png",
+      "sourceUrl": "https://huggingface.co/papers/2610.37624",
+      "credit": "Hugging Face Daily Papers",
+      "alt": "",
+      "provenance": "opengraph"
+    }
+  },
+  "https://huggingface.co/papers/2610.33718": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2610.33718/gradient.png",
+      "sourceUrl": "https://huggingface.co/papers/2610.33718",
+      "credit": "Hugging Face Daily Papers",
+      "alt": "",
+      "provenance": "opengraph"
+    }
+  },
+  "https://huggingface.co/papers/2610.34241": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2610.34241/gradient.png",
+      "sourceUrl": "https://huggingface.co/papers/2610.34241",
+      "credit": "Hugging Face Daily Papers",
+      "alt": "",
+      "provenance": "opengraph"
+    }
+  },
+  "https://huggingface.co/papers/2610.36082": {
+    "checkedAt": "2026-10-28",
+    "thumbnail": {
+      "url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2610.36082/gradient.png",
+      "sourceUrl": "https://huggingface.co/papers/2610.36082",
+      "credit": "Hugging Face Daily Papers",
+      "alt": "",
+      "provenance": "opengraph"
+    }
+  },
+  "https://cohere.com/blog/concerning-behaviour-popular-open-weight-ai-model": {
+    "checkedAt": "2026-10-28"
+  },
+  "https://latent.space/p/ainews-anthropic-ends-coding-interviews-hunger-beats-tenure/": {
+    "checkedAt": "2026-10-28"
+  },
+  "https://www.brangus.io/survival-llm": {
+    "checkedAt": "2026-10-28"
+  },
+  "https://religionnews.com/2026/10/26/in-a-first-a-humanist-granted-a-religious-exemption-from-using-ai/": {
+    "checkedAt": "2026-10-28"
+  },
+  "https://surgehq.ai/blog/dayjob-tax": {
+    "checkedAt": "2026-10-28"
+  },
+  "https://oioannou.com/blog/ai-promised-less-work/": {
+    "checkedAt": "2026-10-28"
+  },
+  "https://j11g.com/the-mythical-man-month-in-the-age-of-ai": {
+    "checkedAt": "2026-10-28"
+  },
+  "https://spectrum.ieee.org/wikipedia-wikiproject-ai-writing-cleanup": {
+    "checkedAt": "2026-10-28"
+  },
+  "https://blog.adrq.dev/here-be-monsters-what-do-you-still-need-to-know-when-agents-do-the-work": {
+    "checkedAt": "2026-10-28"
+  },
+  "https://stanforddaily.com/2026/10/27/professors-books-pirated-to-train-claude/": {
+    "checkedAt": "2026-10-28"
+  },
+  "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm": {
+    "checkedAt": "2026-10-28"
+  },
+  "https://www.brown.edu/news/2026-10-26/ai-data-workers": {
+    "checkedAt": "2026-10-28"
+  }
+}
