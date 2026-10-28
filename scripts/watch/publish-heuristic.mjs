@@ -5,6 +5,7 @@
 import { writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { DATA, ROOT, assertNoSpend, readJSON, today } from './lib.mjs';
+import { mediaFrontmatter } from './media.mjs';
 
 assertNoSpend();
 
@@ -40,7 +41,7 @@ date: ${date}
 kind: ${kindOf(c)}
 significance: ${sig}
 summary: ${yaml(summary)}
-sources:
+${mediaFrontmatter(lead.thumbnail)}sources:
 ${c.items.slice(0, 5).map((i) => `  - title: ${yaml(i.title)}\n    url: ${i.url}\n    publisher: ${yaml(i.source)}`).join('\n')}
 modules: [${modules.join(', ')}]
 tags: []

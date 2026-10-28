@@ -1,0 +1,43 @@
+.discovery { padding: clamp(18px, 2.4vw, 30px); border: 1px solid var(--line-2); border-radius: var(--radius-lg); background: var(--bg-elev); box-shadow: var(--shadow); }
+.discovery-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.discovery, .discovery-title { scroll-margin-top: calc(var(--nav-h) + 24px); }
+.discovery-steps { display: flex; list-style: none; margin: 20px 0 24px; padding: 0; gap: 12px; }
+.discovery-steps li { flex: 1; padding-top: 8px; border-top: 3px solid var(--line); font-size: .72rem; color: var(--fg-2); }
+.discovery-steps li[aria-current] { border-color: var(--c1); color: var(--fg); font-weight: 600; }
+.discovery-title { font-size: clamp(1.5rem, 2.2vw, 1.9rem); line-height: 1.2; letter-spacing: -.035em; margin-bottom: 14px; }
+.discovery-choices { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 10px; border: 0; padding: 0; margin: 20px 0 10px; min-width: 0; }
+.discovery-choice { display: flex; flex-direction: column; gap: 8px; padding: 12px; min-width: 0; border: 1px solid var(--line-2); border-radius: 14px; cursor: pointer; }
+.discovery-choice:hover, .discovery-choice:focus-within { border-color: var(--fg-2); }
+.discovery-choice.is-selected { border-color: var(--c1); background: color-mix(in srgb, var(--c1) 6%, var(--bg)); }
+.discovery-choice-title { display: flex; align-items: center; gap: 9px; font-size: .9rem; }
+.discovery input[type='radio'], .discovery input[type='checkbox'] { accent-color: var(--c1); width: 18px; height: 18px; flex-shrink: 0; }
+.discovery-choice > .small { flex: 1; line-height: 1.4; }
+.discovery-chart { width: 100%; display: block; background: var(--bg-soft); border-radius: 10px; }
+.discovery-axis { stroke: var(--line-2); stroke-dasharray: 3 4; }
+.discovery-curve { stroke: var(--c1); stroke-width: 2.5; fill: none; }
+.discovery-training { fill: var(--fg); }
+.discovery-new { fill: none; stroke: var(--fg-2); stroke-width: 1.5; }
+.discovery-unsure { display: flex; align-items: center; gap: 10px; min-height: 44px; font-size: .85rem; line-height: 1.4; cursor: pointer; grid-column: 1 / -1; }
+.discovery-main { width: 100%; margin-top: 18px; min-height: 44px; height: auto; padding: 12px; white-space: normal; text-align: center; }
+.discovery-results { width: 100%; border-collapse: collapse; font-size: .8rem; margin-block: 20px; font-variant-numeric: tabular-nums; }
+.discovery-results caption { text-align: left; color: var(--fg-2); font-size: .75rem; padding-bottom: 8px; }
+.discovery-results th, .discovery-results td { padding: 9px 5px; text-align: right; border-bottom: 1px solid var(--line); }
+.discovery-results th:first-child { text-align: left; padding-left: 0; }
+.discovery-results thead th { font-weight: 500; color: var(--fg-2); }
+.discovery-experiment { padding: 16px; border-radius: 14px; background: var(--bg-soft); }
+.discovery-experiment .discovery-chart { margin-block: 8px; max-height: 190px; }
+.discovery-slider-label { display: flex; align-items: center; justify-content: space-between; font-size: .85rem; }
+.discovery-slider-label output { font-variant-numeric: tabular-nums; color: var(--fg-2); }
+.discovery input[type='range'] { min-height: 44px; }
+.discovery-error { margin: 4px 0 12px; font-variant-numeric: tabular-nums; }
+.discovery .chip-row { margin-top: 20px; }
+.discovery .chip { min-height: 44px; height: auto; }
+.discovery-takeaway { margin-top: 16px; padding: 18px; border-left: 3px solid var(--c1); background: var(--bg-soft); border-radius: 0 12px 12px 0; }
+.discovery-takeaway h3 { font-size: 1.15rem; }
+.discovery-takeaway p { margin-top: 12px; }
+.discovery-next { display: block; padding-block: 14px; }
+.discovery-source { border-top: 1px solid var(--line); padding-block: 14px; font-size: .85rem; }
+.discovery-source summary { cursor: pointer; min-height: 44px; padding-block: 10px; }
+.discovery-source p { margin-top: 12px; }
+.discovery-note { margin: 20px 0 0; padding-top: 14px; border-top: 1px solid var(--line); color: var(--fg-2); font-size: .72rem; line-height: 1.5; }
+@media (max-width: 370px) { .discovery-choices { grid-template-columns: 1fr; } .discovery-choice .discovery-chart { max-height: 130px; } .discovery-results { font-size: .72rem; } .discovery-experiment { padding: 12px; } }

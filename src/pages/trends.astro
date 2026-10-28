@@ -1,11 +1,18 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import trends from '../../data/watch/trends.json';
+import snapshot from '../../data/watch/trends.json';
+import termDays from '../../data/watch/terms.json';
+import watchlist from '../../scripts/watch/watchlist.json';
+import { buildTrends } from '@/lib/trends.mjs';
+import { previewFor } from '@/lib/mediaCatalog';
+import MediaPreview from '@/components/app/MediaPreview';
 import { getModules } from '@/lib/curriculum';
 import { moduleUrl } from '@/lib/url';
 
-interface TermSeries { term: string; modules: string[]; recent: number; base: number; share: number; lift: number; series: number[] }
-interface Story { id: string; title: string; url: string; score: number; categories: string[]; format?: string; sources: string[]; parts?: Record<string, number> }
+interface Story { id: string; title: string; url: string; score: number; categories: string[]; format?: string; sources: string[]; parts?: Record<string, number>; thumbnail?: unknown }
+
+// Recompute from observations so legacy snapshots cannot publish unsupported lifts.
+const trends = buildTrends(termDays, watchlist.terms, snapshot.updated, snapshot.sources);
 
 const modules = await getModules();
 const titles = Object.fromEntries(modules.map((m) => [m.id, m.data.title]));
@@ -25,8 +32,8 @@ for (const [path, mod] of recentDigests) {
 }
 radar.sort((a, b) => b.score - a.score);
 const top = radar.slice(0, 14);
-const rising = trends.rising as TermSeries[];
-const volume = trends.volume as TermSeries[];
+const rising = trends.rising;
+const volume = trends.volume;
 const maxVol = Math.max(1, ...volume.map((v) => v.recent));
 const hasData = !!trends.updated;
 
@@ -43,7 +50,7 @@ const catLabel: Record<string, string> = { lab: 'Lab', research: 'Research', pol
       <div class="eyebrow" style="color:var(--fg)">Trend radar{hasData ? ` · updated ${trends.updated}` : ''}</div>
       <h1 style="margin-top:10px;max-width:18ch">What the field is talking about.</h1>
       <p class="lead" style="margin-top:16px;max-width:52ch;color:var(--fg);opacity:.8">
-        A topic is rising when its share of this week's coverage beats the previous four.
+        Follow topics in our sources. Comparisons become available after a full week and four preceding weeks of observations.
       </p>
     </div>
   </section>
@@ -52,7 +59,7 @@ const catLabel: Record<string, string> = { lab: 'Lab', research: 'Research', pol
     <section class="container section-tight">
       <div class="empty" style="text-align:left;padding:32px">
         <div class="h3" style="color:var(--fg)">Warming up.</div>
-        <p style="margin:10px 0 0">The radar needs a few days of scraping. It fills in on its own.</p>
+        <p style="margin:10px 0 0">The radar needs daily observations before it can compare weeks. It fills in on its own.</p>
       </div>
     </section>
   )}
@@ -62,8 +69,13 @@ const catLabel: Record<string, string> = { lab: 'Lab', research: 'Research', pol
       <div class="grid grid-2" style="align-items:start">
         <div>
           <h2 class="h3">Rising this week</h2>
-          <p class="small muted" style="margin:6px 0 16px">Last 7 days vs. the 28 before · {trends.itemsLastWeek} items</p>
-          {rising.length === 0 && <div class="empty small">Nothing rising sharply ({trends.daysOfHistory} days of history).</div>}
+          <p class="small muted" style="margin:6px 0 16px">{trends.comparisonReady ? `Last 7 days vs. the 28 before · ${trends.itemsLastWeek} items` : 'Building a reliable comparison'}</p>
+          {!trends.comparisonReady ? (
+            <div class="empty small" style="text-align:left">
+              <strong>Collecting history</strong>
+              <p style="margin:8px 0 0">{trends.recentObservedDays} of 7 recent days and {trends.baselineObservedDays} of 28 baseline days observed. Comparisons need both complete windows with recorded items.</p>
+            </div>
+          ) : rising.length === 0 && <div class="empty small">Nothing rising sharply in this comparison.</div>}
           <div class="grid" style="gap:10px">
             {rising.map((t) => (
               <div class="card trend-card">
@@ -79,8 +91,9 @@ const catLabel: Record<string, string> = { lab: 'Lab', research: 'Research', pol
         </div>
         <div>
           <h2 class="h3">Volume by topic</h2>
-          <p class="small muted" style="margin:6px 0 16px">Mentions, last 7 days</p>
+          <p class="small muted" style="margin:6px 0 16px">Mentions collected on {trends.recentObservedDays} of the last 7 days</p>
           <div class="card" style="display:grid;gap:10px">
+            {volume.length === 0 && <p class="small muted">No topic mentions recorded in this window.</p>}
             {volume.map((t) => (
               <div class="vol-row">
                 <span class="small">{t.term}</span>
@@ -101,9 +114,7 @@ const catLabel: Record<string, string> = { lab: 'Lab', research: 'Research', pol
       <div class="grid" style="gap:10px">
         {top.map((s) => (
           <a class="card hoverable radar-row" href={s.url} target="_blank" rel="noopener">
-            <div class="radar-score" aria-label={`Significance score ${s.score}`}>
-              <span style={`width:${Math.round(s.score * 100)}%`}></span>
-            </div>
+            <MediaPreview client:load thumbnail={previewFor(s.thumbnail, s.url)} publisher={s.sources[0] ?? 'Original source'} format={s.format} />
             <div style="min-width:0">
               <div style="font-weight:550">{s.title}</div>
               <div class="xsmall muted" style="margin-top:4px">
@@ -134,7 +145,6 @@ const catLabel: Record<string, string> = { lab: 'Lab', research: 'Research', pol
   .trend-card { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 16px 18px; }
   .vol-row { display: grid; grid-template-columns: 170px 1fr 34px; gap: 12px; align-items: center; }
   @media (max-width: 520px) { .vol-row { grid-template-columns: 120px 1fr 28px; } }
-  .radar-row { display: grid; grid-template-columns: 64px 1fr; gap: 16px; align-items: center; padding: 16px 20px; }
-  .radar-score { height: 6px; border-radius: 6px; background: var(--bg-muted); overflow: hidden; }
-  .radar-score span { display: block; height: 100%; background: var(--fg); border-radius: 6px; }
+  .radar-row { display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: 16px; align-items: center; padding: 16px 20px; }
+  @media (max-width: 520px) { .radar-row { grid-template-columns: 100px minmax(0, 1fr); gap: 12px; padding: 14px; } }
 </style>

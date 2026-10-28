@@ -45,6 +45,8 @@ method: claude
 
 Then a body of 150 to 350 words in three short parts, using bold lead-ins: **What happened.** **Why it matters.** **How to read it.** The last part tells the reader what to look for in the original document and which ideas from the linked modules they need. Use 1 to 4 module ids, only from the existing module files. Write plainly and precisely, for an intelligent non-specialist. Use no em dashes. Do not invent quotes.
 
+If the selected primary source's candidate item includes `thumbnail`, you may copy that object unchanged as optional `thumbnail` frontmatter. It contains a publisher-designated preview URL, attribution, and provenance. Its `sourceUrl` must match the primary source URL. Never invent image URLs, credits, or licenses; omit the field when unavailable. The media enrichment step can find a publisher preview later.
+
 ## Constraints
 
 - Only create files in `src/content/signals/`. Do not modify any other file. Do not run git commands; the workflow commits for you.

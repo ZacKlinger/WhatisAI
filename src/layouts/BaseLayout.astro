@@ -21,6 +21,7 @@ const {
 
 const fullTitle = title ? `${title} · WhatisAI` : 'WhatisAI · A path to mastery of AI';
 const nav = [
+  { href: '/explore/', label: 'Explore', key: 'explore' },
   { href: '/path/', label: 'Path', key: 'path' },
   { href: '/placement/', label: 'Placement', key: 'placement' },
   { href: '/signals/', label: 'Signals', key: 'signals' },
@@ -81,7 +82,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
             <svg class="ico-light" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"></path></svg>
             <svg class="ico-dark" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"></path></svg>
           </button>
-          <a href={url('/path/')} class="btn btn-primary btn-sm nav-cta" id="nav-cta">Start</a>
+          <a href={url('/explore/')} class="btn btn-primary btn-sm nav-cta" id="nav-cta">Start</a>
           <button class="icon-btn nav-menu-btn" id="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 8h16M4 16h16"></path></svg>
           </button>
@@ -111,6 +112,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
             <div>
               <h4>Learn</h4>
               <ul>
+                <li><a href={url('/explore/')}>Find your direction</a></li>
                 <li><a href={url('/path/')}>The path</a></li>
                 <li><a href={url('/placement/')}>Placement exam</a></li>
                 <li><a href={url('/review/')}>Review queue</a></li>

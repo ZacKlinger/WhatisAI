@@ -1,0 +1,51 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { journeys } from '@/data/journeys';
+import { getModules } from '@/lib/curriculum';
+import { moduleUrl, url } from '@/lib/url';
+const modules = await getModules();
+const byId = Object.fromEntries(modules.map((m) => [m.id, m]));
+for (const j of journeys) for (const s of j.steps) if (!byId[s.module]) throw new Error(`Journey ${j.id}: missing module ${s.module}`);
+---
+
+<BaseLayout title="Find your direction" description="Four ways into AI: understand how it works, read research and safety publications, use it effectively, and anticipate change in your field." active="explore">
+  <header class="container explore-header">
+    <div class="eyebrow">Your curiosity is a good starting point</div>
+    <h1>What do you want<br />to make sense of?</h1>
+    <p class="lead">Four routes into the same ideas. Start with the question you care about, then follow it as far as you like.</p>
+    <nav class="chip-row" aria-label="Choose a learning direction">{journeys.map((j) => <a class="chip" href={`#${j.id}`}>{j.title}</a>)}</nav>
+    <p class="small muted">These are suggested reading routes, not a test of your level. Some lessons go deeper; their background links are there when you need them.</p>
+  </header>
+
+  <div class="container explore-routes">
+    {journeys.map((j, i) => <section id={j.id} class="journey" aria-labelledby={`title-${j.id}`}>
+      <div class="journey-intro"><div class="eyebrow">0{i + 1} · {j.title}</div><h2 id={`title-${j.id}`}>{j.question}</h2><p class="muted">{j.introduction}</p><div class="journey-task"><h3 class="h4">Something to try</h3><p class="small">{j.activity}</p></div></div>
+      <div><ol class="journey-steps">{j.steps.map((s, n) => { const m = byId[s.module]; return <li><a href={moduleUrl(s.module)}><span class="mono journey-number">{n + 1}</span><div><div class="xsmall muted">{n === 0 ? 'Start here' : 'Then explore'} · {m.data.minutes} min</div><h3 class="h4">{m.data.title}</h3><p class="small muted">{s.why}</p></div><span aria-hidden="true">→</span></a></li>; })}</ol><p class="xsmall muted journey-time">{j.steps.reduce((n, s) => n + byId[s.module].data.minutes, 0)} minutes of suggested lessons. Read one now, or work through the route at your own pace.</p></div>
+    </section>)}
+  </div>
+
+  <section class="container explore-footer"><h2 class="h3">Keep following the thread.</h2><div class="row"><a class="btn btn-primary" href={url('/#discovery')}>Try the discovery challenge</a><a class="btn btn-ghost" href={url('/path/')}>See the full curriculum</a><a class="link small" href={url('/library/')}>Browse the research library</a></div></section>
+</BaseLayout>
+
+<style>
+  .explore-header { padding-block: clamp(48px, 7vw, 88px) 24px; }
+  .explore-header h1 { margin-top: 16px; }
+  .explore-header .lead { max-width: 52ch; margin-top: 20px; }
+  .explore-header nav { margin-block: 28px 18px; }
+  .explore-header > .small { max-width: 70ch; }
+  .journey { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(24px, 6vw, 80px); padding-block: 52px; border-top: 1px solid var(--line-2); scroll-margin-top: calc(var(--nav-h) + 24px); }
+  .journey h2 { margin-top: 12px; font-size: clamp(1.8rem, 3vw, 2.5rem); }
+  .journey-intro > p { margin-top: 18px; }
+  .journey-task { border-left: 3px solid var(--c1); padding-left: 20px; margin-top: 26px; }
+  .journey-task p { color: var(--fg-2); margin: 8px 0 0; }
+  .journey-steps { list-style: none; margin: 0; padding: 0; }
+  .journey-steps a { display: grid; grid-template-columns: 26px 1fr 20px; gap: 14px; padding: 20px 8px; border-bottom: 1px solid var(--line); border-radius: 10px; }
+  .journey-steps a:hover { background: var(--bg-soft); }
+  .journey-steps h3 { margin-top: 5px; }
+  .journey-steps p { margin: 7px 0 0; }
+  .journey-number { color: var(--fg-3); }
+  .journey-time { margin: 18px 8px 0; }
+  .explore-footer { padding-block: 28px 64px; }
+  .explore-footer .row { margin-top: 18px; }
+  @media (max-width: 760px) { .journey { grid-template-columns: 1fr; } }
+</style>

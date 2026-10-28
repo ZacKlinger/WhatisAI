@@ -1,10 +1,13 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import HeroDemo from '@/components/app/HeroDemo';
+import DiscoveryChallenge from '@/components/app/DiscoveryChallenge';
 import ContinuePanel from '@/components/app/ContinuePanel';
+import MediaPreview from '@/components/app/MediaPreview';
+import { previewFor } from '@/lib/mediaCatalog';
 import { getModules, getSignals } from '@/lib/curriculum';
 import { tracks } from '@/data/tracks';
 import { corpus } from '@/data/corpus';
+import { journeys } from '@/data/journeys';
 import { url } from '@/lib/url';
 
 const modules = await getModules();
@@ -16,38 +19,54 @@ const featured = ['scaling-mono', 'alignment-faking', 'eu-ai-act', 'canaries'].m
 const kindLabel: Record<string, string> = { research: 'Research', model: 'Model', policy: 'Policy', economy: 'Economy', safety: 'Safety', media: 'Media', trend: 'Trend' };
 ---
 
-<BaseLayout>
-  <section class="hero aura aura-hero">
+<BaseLayout description="Explore how AI learns, try a three-minute discovery challenge, and find your way into research, practical use, and the changes ahead.">
+  <section class="hero">
     <div class="container hero-inner">
       <div class="hero-copy">
-        <h1 class="display reveal">Understand AI,<br />all the way to the frontier.</h1>
-        <p class="lead reveal" style="margin-top:22px;max-width:40ch;color:var(--fg);opacity:.8">
-          From first principles to reading frontier papers and AI policy the day they come out.
+        <div class="eyebrow">For anyone who’s AI curious</div>
+        <h1 class="display">Understand AI.<br /><span class="hero-emphasis">One discovery<br />at a time.</span></h1>
+        <p class="lead" style="margin-top:22px;max-width:35ch">
+          Explore how it works, put it to use, and make sense of the claims shaping your world.
         </p>
-        <div class="row reveal" style="margin-top:30px">
-          <a href={url('/path/')} class="btn btn-primary btn-lg">Start the path</a>
-          <a href={url('/placement/')} class="btn btn-lg" style="background:color-mix(in srgb,var(--bg) 60%,transparent);backdrop-filter:blur(10px)">Placement exam</a>
+        <div class="row" style="margin-top:28px">
+          <a href="#discovery" class="btn btn-primary btn-lg">Try the 3-minute challenge</a>
+          <a href="#choose-path" class="link small">Find your way in</a>
         </div>
+        <p class="hero-invitation small">Start with a prediction. Change something. See what happens.</p>
+        <div class="hero-proof"><span>Learn by experimenting</span><span>Follow the evidence</span><span>Build your own view</span></div>
       </div>
-      <div class="hero-card reveal">
-        <HeroDemo client:load />
+      <div id="discovery" class="hero-lab">
+        <DiscoveryChallenge client:load base={base} />
+        <noscript><p class="small">The interactive challenge needs JavaScript. You can still <a class="link" href={url('/learn/generalization/')}>read the explanation of learning versus memorizing</a> or explore the routes below.</p></noscript>
       </div>
     </div>
   </section>
 
-  <section class="container section-tight">
-    <ContinuePanel client:load base={base} modules={modules.map((m) => ({ id: m.id, title: m.data.title, track: m.data.track, minutes: m.data.minutes }))} />
+  <section class="container continue-section">
+    <ContinuePanel client:load returningOnly base={base} modules={modules.map((m) => ({ id: m.id, title: m.data.title, track: m.data.track, minutes: m.data.minutes }))} />
+  </section>
+
+  <section class="container section-tight intent-section" id="choose-path" aria-labelledby="intent-title">
+    <div class="section-head"><div><div class="eyebrow">Follow your curiosity</div><h2 id="intent-title" style="margin-top:8px">What brought you here?</h2></div><p class="small muted" style="max-width:36ch">Pick the question on your mind. You can change direction whenever you like.</p></div>
+    <div class="intent-grid">
+      {journeys.map((j, i) => <a href={url(`/explore/#${j.id}`)} class="intent-link">
+        <span class="intent-index mono">0{i + 1}</span>
+        <div><span class="eyebrow">{j.title}</span><h3>{j.question}</h3><p class="small muted">{j.promise}</p></div>
+        <span class="intent-arrow" aria-hidden="true">→</span>
+      </a>)}
+    </div>
+    <div class="intent-foot small"><span class="muted">Prefer a complete course?</span><a class="link" href={url('/path/')}>Browse the full learning path</a><a class="link" href={url('/placement/')}>Optional placement check</a></div>
   </section>
 
   <section class="container section-tight">
     <div class="section-head" style="margin-bottom:28px">
-      <h2>What matters now</h2>
+      <div><div class="eyebrow">Connect the ideas to the world</div><h2 style="margin-top:8px">What matters now</h2></div>
       <a class="arrow-link" href={url('/signals/')}>All signals</a>
     </div>
     <div class="grid grid-3">
       {signals.map((s, i) => (
         <a href={url(`/signals/${s.id}/`)} class={`card hoverable signal-card reveal`} style={`transition-delay:${i * 60}ms`}>
-          <div class={`signal-aura aura aura-t${['t6', 't8', 't7', 't3', 't5'][i % 5].slice(1)}`}></div>
+          <MediaPreview client:load thumbnail={previewFor(s.data.thumbnail, s.data.sources[0].url)} publisher={s.data.sources[0].publisher} format={s.data.kind} />
           <div class="row xsmall muted" style="gap:8px;margin-top:16px">
             <span class="pill">{kindLabel[s.data.kind]}</span>
             <span>{s.data.date.toISOString().slice(0, 10)}</span>
@@ -114,8 +133,8 @@ const kindLabel: Record<string, string> = { research: 'Research', model: 'Model'
             <div class="xsmall" style="opacity:.65;margin-top:6px">Anthropic Economic Index, Feb 2025</div>
           </div>
           <div class="stat">
-            <div class="stat-n">−19%</div>
-            <div class="small">Speed change for expert developers using AI. They believed they were 20% faster.</div>
+            <div class="stat-n">19%</div>
+            <div class="small">Longer completion time for experienced developers using AI in METR's trial. They believed they were 20% faster.</div>
             <div class="xsmall" style="opacity:.65;margin-top:6px">METR, Jul 2025</div>
           </div>
         </div>
@@ -126,14 +145,29 @@ const kindLabel: Record<string, string> = { research: 'Research', model: 'Model'
 </BaseLayout>
 
 <style>
-  .hero { min-height: min(86vh, 860px); display: flex; align-items: center; border-bottom: 1px solid var(--line); }
-  .hero-inner { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: clamp(32px, 5vw, 72px); align-items: center; padding-block: clamp(64px, 10vw, 120px); }
-  .hero-card { background: color-mix(in srgb, var(--bg) 58%, transparent); backdrop-filter: blur(24px) saturate(1.4); -webkit-backdrop-filter: blur(24px) saturate(1.4); border: 1px solid color-mix(in srgb, var(--fg) 8%, transparent); border-radius: var(--radius-lg); padding: clamp(22px, 3vw, 34px); box-shadow: var(--shadow-lg); }
-  @media (max-width: 900px) { .hero-inner { grid-template-columns: 1fr; } .hero { min-height: auto; } }
+  .hero { border-bottom: 1px solid var(--line); background: radial-gradient(ellipse at 86% 26%, color-mix(in srgb, var(--c1) 9%, transparent), transparent 60%), var(--bg); }
+  .hero-inner { display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); gap: clamp(28px, 4vw, 60px); align-items: start; padding-block: clamp(44px, 6vw, 84px); }
+  .continue-section:has(.card) { padding-block: 32px; }
+  .hero-copy { padding-top: 26px; }
+  .hero-copy h1 { font-size: clamp(2.7rem, 5.1vw, 4.7rem); margin-top: 18px; }
+  .hero-emphasis { font-family: var(--font-serif); font-weight: 400; }
+  .hero-invitation { margin-top: 22px; color: var(--fg-2); }
+  .hero-proof { display: flex; gap: 9px 18px; flex-wrap: wrap; margin-top: 36px; font-size: .76rem; color: var(--fg-2); }
+  .hero-proof span { border-top: 1px solid var(--line-2); padding-top: 10px; }
+  .hero-lab, .intent-section { scroll-margin-top: calc(var(--nav-h) + 24px); min-width: 0; }
+  .intent-grid { display: grid; grid-template-columns: 1fr 1fr; column-gap: 48px; margin-top: 24px; }
+  .intent-link { display: grid; grid-template-columns: 28px 1fr 22px; gap: 16px; padding: 26px 4px; border-bottom: 1px solid var(--line-2); }
+  .intent-link:hover h3 { text-decoration: underline; text-underline-offset: 5px; }
+  .intent-index { color: var(--fg-3); font-size: .8rem; padding-top: 3px; }
+  .intent-link h3 { margin-top: 9px; font-size: 1.4rem; }
+  .intent-link p { margin: 10px 0 0; }
+  .intent-arrow { align-self: center; font-size: 1.4rem; }
+  .intent-foot { display: flex; flex-wrap: wrap; gap: 12px 22px; margin-top: 24px; }
+  @media (max-width: 900px) { .hero-inner { grid-template-columns: 1fr; } .hero-copy { padding-top: 0; } .hero-copy h1 { max-width: 14ch; } .hero-proof { margin-top: 22px; } }
+  @media (max-width: 680px) { .intent-grid { grid-template-columns: 1fr; } .intent-link { gap: 12px; } .hero-proof { display: none; } }
   .section-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; flex-wrap: wrap; }
   .signal-card { display: flex; flex-direction: column; padding: 14px; }
   .signal-card h3, .signal-card .row { padding-inline: 8px; }
-  .signal-aura { height: 140px; border-radius: 14px; }
   .clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
   .grid-track { grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); }
   @media (min-width: 1100px) { .grid-track { grid-template-columns: repeat(5, 1fr); } }

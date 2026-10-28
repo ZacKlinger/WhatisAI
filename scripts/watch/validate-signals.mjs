@@ -5,6 +5,8 @@
 import { readdir, readFile, rm } from 'node:fs/promises';
 import { join } from 'node:path';
 import { DATA, ROOT, assertNoSpend, readJSON, today, writeJSON } from './lib.mjs';
+import { parse } from 'yaml';
+import { sourceThumbnail } from '../../src/lib/media.mjs';
 
 assertNoSpend();
 
@@ -26,6 +28,10 @@ for (const f of (await readdir(dir)).filter((x) => x.endsWith('.md'))) {
   if (!fm) errs.push('missing frontmatter');
   else {
     const y = fm[1];
+    try {
+      const metadata = parse(y);
+      if (metadata?.thumbnail !== undefined && !sourceThumbnail(metadata.thumbnail, metadata.sources?.[0]?.url)) errs.push('thumbnail: invalid URL, attribution, or primary source');
+    } catch { errs.push('invalid YAML'); }
     const get = (k) => y.match(new RegExp(`^${k}:\\s*(.+)$`, 'm'))?.[1]?.trim();
     if (!get('title')) errs.push('title');
     if (!/^\d{4}-\d{2}-\d{2}$/.test(get('date') ?? '')) errs.push('date');

@@ -1,5 +1,13 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
+import { normalizeThumbnail } from './lib/media.mjs';
+
+const thumbnail = z.object({
+  url: z.string(), sourceUrl: z.string(), credit: z.string(),
+  alt: z.string().default(''),
+  provenance: z.enum(['feed', 'opengraph', 'youtube', 'editor']),
+  licenseUrl: z.string().optional(),
+}).refine((value) => normalizeThumbnail(value) !== null, 'Thumbnail requires public HTTPS URLs and attribution');
 
 const source = z.object({
   title: z.string(),
@@ -39,6 +47,7 @@ const signals = defineCollection({
     modules: z.array(z.string()).default([]),
     tags: z.array(z.string()).default([]),
     method: z.enum(['claude', 'heuristic', 'editor']).default('editor'),
+    thumbnail: thumbnail.optional(),
   }),
 });
 

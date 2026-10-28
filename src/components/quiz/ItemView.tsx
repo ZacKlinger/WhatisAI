@@ -1,6 +1,7 @@
 import { useMemo, useState, type ReactNode } from 'react';
 import { seededShuffle, type Item } from '@/lib/items';
 import { Figure } from '@/components/figures/registry';
+import { CONFIDENCES } from '@/lib/confidence';
 
 export interface ItemResult {
   correct: boolean;
@@ -23,7 +24,7 @@ interface Props {
 }
 
 const KEYS = 'ABCDEFGHIJ';
-export const CONFIDENCES = [0.5, 0.7, 0.9, 0.99];
+export { CONFIDENCES } from '@/lib/confidence';
 
 function fmt(v: number, f?: string, unit?: string) {
   let s: string;
@@ -313,11 +314,11 @@ export default function ItemView({ item, seed = item.id, wager = false, explain 
         <div style={{ marginTop: 18 }}>
           {wager ? (
             <div style={{ opacity: complete ? 1 : 0.45, transition: 'opacity .3s' }}>
-              <div className="small muted" style={{ marginBottom: 8 }}>How sure are you?</div>
+              <div className="small muted" style={{ marginBottom: 8 }}>How likely is your whole answer to be correct?</div>
               <div className="chip-row">
                 {CONFIDENCES.map((c) => (
                   <button key={c} type="button" className="chip" disabled={!complete} onClick={() => submit(c)}>
-                    {c === 0.5 ? 'Guessing · 50%' : c === 0.99 ? 'Certain · 99%' : `${Math.round(c * 100)}%`}
+                    {c === 0.99 ? 'Certain · 99%' : `${Math.round(c * 100)}%`}
                   </button>
                 ))}
               </div>
@@ -337,7 +338,7 @@ export default function ItemView({ item, seed = item.id, wager = false, explain 
                 <span style={{ fontWeight: 400 }} className="muted">
                   {' '}You wagered {Math.round(confidence * 100)}%.
                   {!result.correct && confidence >= 0.9 ? ' A confident miss.' : ''}
-                  {result.correct && confidence <= 0.5 ? ' You knew more than you thought.' : ''}
+                  {result.correct && confidence <= 0.5 ? ' A correct answer at lower confidence.' : ''}
                 </span>
               )}
             </strong>

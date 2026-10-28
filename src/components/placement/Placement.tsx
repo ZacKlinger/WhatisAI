@@ -67,7 +67,7 @@ export default function Placement({ tracks, modules, bank, base }: Props) {
     return ordered[search.attempt % ordered.length];
   }, [search, bank, byTrack]);
 
-  function advance(s: Search, outcome: 'pass' | 'fail' | 'retry') {
+  function advance(s: Search, outcome: 'pass' | 'fail' | 'retry', entries = log) {
     setProbeN((n) => n + 1);
     let next: Search = { ...s, first: false, attempt: 0 };
     if (outcome === 'retry') next = { ...s, attempt: s.attempt + 1, first: false };
@@ -83,7 +83,7 @@ export default function Placement({ tracks, modules, bank, base }: Props) {
           setPhase('between');
           setSearch(null);
         } else {
-          finish(f, log);
+          finish(f, entries);
         }
         return;
       }
@@ -118,8 +118,9 @@ export default function Placement({ tracks, modules, bank, base }: Props) {
   function dontKnow() {
     if (!search) return;
     const mod = byTrack[search.trackId][search.mid];
-    setLog((l) => [...l, { module: mod.id, correct: false, confidence: null, track: search.trackId }]);
-    advance(search, 'fail');
+    const entries = [...log, { module: mod.id, correct: false, confidence: null, track: search.trackId }];
+    setLog(entries);
+    advance(search, 'fail', entries);
   }
 
   function nextTrack() {
@@ -132,7 +133,8 @@ export default function Placement({ tracks, modules, bank, base }: Props) {
   function finish(f: Record<string, number>, l: LogEntry[]) {
     const placed = Object.entries(f).flatMap(([tid, n]) => byTrack[tid].slice(0, n).map((m) => m.id));
     const misconceptions = [...new Set(l.filter((e) => !e.correct && (e.confidence ?? 0) >= 0.9).map((e) => e.module))];
-    savePlacement({ takenAt: Date.now(), placed, probed: [...new Set(l.map((e) => e.module))], misconceptions, brier: brier(points) });
+    // Skipping testing is not a new assessment and must not overwrite a prior one.
+    if (l.length) savePlacement({ takenAt: Date.now(), placed, probed: [...new Set(l.map((e) => e.module))], misconceptions, brier: brier(points) });
     setPhase('results');
     if (l.length) trackAnalytics('placement_completed');
   }
@@ -265,12 +267,13 @@ export default function Placement({ tracks, modules, bank, base }: Props) {
   const firstOpen = modules.find((m) => !placedIds.includes(m.id));
   const override: Record<string, ModuleStatus> = Object.fromEntries(placedIds.map((id) => [id, 'placed' as ModuleStatus]));
   const minutes = Math.max(1, Math.round((Date.now() - startedAt) / 60000));
-  const acc = log.length ? log.filter((e) => e.correct).length / log.length : 0;
+  const acc = log.length ? log.filter((e) => e.correct).length / log.length : null;
 
   return (
     <div className="pl-wrap pl-results">
       <div className="eyebrow">Your placement</div>
-      <h1 style={{ marginTop: 8 }}>{placedIds.length ? `You place past ${placedIds.length} module${placedIds.length > 1 ? 's' : ''}.` : 'Your path begins at the beginning.'}</h1>
+      <h1 style={{ marginTop: 8 }}>{acc === null ? 'Choose where to begin.' : placedIds.length ? `You place past ${placedIds.length} module${placedIds.length > 1 ? 's' : ''}.` : 'Your path begins at the beginning.'}</h1>
+      {acc === null && <p className="lead" style={{ marginTop: 12 }}>Unassessed: you skipped testing. Explore the path or return for a placement check whenever you like.</p>}
       {placedIds.length > 0 && (
         <p className="lead" style={{ marginTop: 12 }}>About {Math.round(saved / 60 * 10) / 10} hours saved. Placed modules glow below.</p>
       )}
@@ -281,7 +284,7 @@ export default function Placement({ tracks, modules, bank, base }: Props) {
         <div className="card">
           <div className="xsmall faint">Questions answered</div>
           <div className="display" style={{ fontSize: '2.6rem' }}>{log.length}</div>
-          <div className="small muted">{Math.round(acc * 100)}% correct, in about {minutes} minute{minutes > 1 ? 's' : ''}</div>
+          <div className="small muted">{acc === null ? 'Unassessed — no questions answered.' : `${Math.round(acc * 100)}% correct, in about ${minutes} minute${minutes > 1 ? 's' : ''}`}</div>
         </div>
         <div className="card">
           <div className="xsmall faint">Your calibration</div>
@@ -296,7 +299,7 @@ export default function Placement({ tracks, modules, bank, base }: Props) {
                 return <li key={id} style={{ marginBottom: 6 }}><a className="link" href={`${base}/learn/${id}/`}>{m.title}</a></li>;
               })}
             </ul>
-          ) : <div className="small muted" style={{ marginTop: 8 }}>None.</div>}
+          ) : <div className="small muted" style={{ marginTop: 8 }}>{acc === null ? 'Not assessed.' : 'None.'}</div>}
           {misconceptions.length > 0 && <div className="xsmall muted" style={{ marginTop: 8 }}>90%+ sure and wrong. Read these first.</div>}
         </div>
       </div>

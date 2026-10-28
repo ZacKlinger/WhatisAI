@@ -5,6 +5,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { XMLParser } from 'fast-xml-parser';
+import { feedThumbnail } from './media.mjs';
 
 export const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 export const DATA = join(ROOT, 'data', 'watch');
@@ -85,7 +86,7 @@ export const stripHtml = (s) =>
     .trim();
 
 /** Parse RSS 2.0, Atom, or RDF into a common shape. */
-export function parseFeed(body) {
+export function parseFeed(body, { publisher = '', previews = true } = {}) {
   const doc = xml.parse(body);
   const channel = doc.rss?.channel ?? doc['rdf:RDF'] ?? null;
   const atom = doc.feed ?? null;
@@ -96,9 +97,12 @@ export function parseFeed(body) {
       const alt = it.link.find((l) => (l['@rel'] ?? 'alternate') === 'alternate') ?? it.link[0];
       link = alt?.['@href'] ?? text(alt);
     } else if (it.link && typeof it.link === 'object' && it.link['@href']) link = it.link['@href'];
+    const url = link || text(it.guid) || text(it.id);
+    const thumbnail = previews ? feedThumbnail(it, url, publisher) : null;
     return {
       title: stripHtml(text(it.title)),
-      url: link || text(it.guid) || text(it.id),
+      url,
+      ...(thumbnail ? { thumbnail } : {}),
       published: text(it.pubDate) || text(it.published) || text(it.updated) || text(it['dc:date']) || '',
       summary: stripHtml(text(it.description) || text(it.summary) || text(it['content:encoded']) || text(it.content)).slice(0, 600),
     };
