@@ -16,6 +16,8 @@ try {
   for (const dir of ['src', 'scripts', 'data', 'public']) await cp(resolve(dir), join(root, dir), { recursive: true });
   for (const file of ['astro.config.mjs', 'tsconfig.json', 'package.json']) await cp(resolve(file), join(root, file));
   await symlink(resolve('node_modules'), join(root, 'node_modules'), 'dir');
+  // Publisher previews have separate UI coverage; keep consent network assertions isolated.
+  await writeFile(join(root, 'data/watch/media.json'), '{}');
   // Exercise delivery in headless Chrome; production retains the SDK bot filter.
   const analyticsPath = join(root, 'src/lib/analytics.ts');
   await writeFile(analyticsPath, (await readFile(analyticsPath, 'utf8')).replace('api_host: host,', 'api_host: host, opt_out_useragent_filter: true,'));
@@ -70,7 +72,7 @@ try {
   const a = await setup();
   await a.visit('?secret=never-send#private');
   await a.page.getByRole('button',{name:'Allow analytics',exact:true}).waitFor();
-  assert.equal(a.requests.length,0,'no external analytics request before consent');
+  assert.equal(a.requests.length,0,`no external analytics request before consent: ${JSON.stringify(a.requests)}`);
   assert(await a.page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
   await a.page.screenshot({path:join(tmpdir(),'whatisai-analytics-consent.png')});
   await a.page.getByRole('button',{name:'Decline analytics',exact:true}).click();
