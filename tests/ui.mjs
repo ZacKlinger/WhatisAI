@@ -139,7 +139,7 @@ try {
   for (const direction of directions) {
     await page.goto(base + direction, { waitUntil: 'networkidle' });
     const route = page.locator(new URL(base + direction).hash);
-    assert.equal(await route.locator('.journey-steps a').count(), 3);
+    assert.equal(await route.locator('.journey-steps a').count(), new URL(base + direction).hash === '#use' ? 4 : 3);
     for (const link of await route.locator('.journey-steps a').all()) {
       assert.equal((await context.request.get(base + await link.getAttribute('href'))).status(), 200);
     }
@@ -232,12 +232,14 @@ try {
   await page.getByRole('button', { name: 'Retake', exact: true }).click();
   await rateAllNew(); await page.getByRole('radio', { name: 'Some familiarity', exact: true }).first().click();
   await page.getByRole('button', { name: 'Start', exact: true }).click();
+  // Four prologue modules now start the search at history; step down to welcome.
+  await page.getByRole('button', { name: /I don.t know/ }).click();
   await page.getByRole('button', { name: /Is this impressive/ }).click();
   await page.getByRole('button', { name: '25%', exact: true }).click();
   await page.getByRole('button', { name: 'Continue', exact: true }).click();
   await page.getByText(/0% correct, in about/).waitFor();
   const assessed = (await stored()).placement;
-  assert.deepEqual(assessed.probed, ['welcome']);
+  assert.deepEqual(assessed.probed, ['history-of-ai', 'welcome']);
   assert.equal((await stored()).calibration.at(-1).c, 0.25);
   assert.equal((await stored()).modules.welcome.status, 'mastered');
   await page.getByRole('button', { name: 'Retake', exact: true }).click();
@@ -248,8 +250,9 @@ try {
   await rateAllNew(); await page.getByRole('radio', { name: 'Some familiarity', exact: true }).first().click();
   await page.getByRole('button', { name: 'Start', exact: true }).click();
   await page.getByRole('button', { name: "I don't know", exact: true }).click();
+  await page.getByRole('button', { name: "I don't know", exact: true }).click();
   await page.getByText(/0% correct, in about/).waitFor();
-  assert.deepEqual((await stored()).placement.probed, ['welcome']);
+  assert.deepEqual((await stored()).placement.probed, ['history-of-ai', 'welcome']);
   console.log('PASS empty, assessed-zero, retake, low-confidence, and final-dont-know persistence');
 
   for (const name of fixtures) {
@@ -301,6 +304,7 @@ try {
   await visit(''); await challenge.scrollIntoViewIfNeeded(); await shot('discovery-dark-mobile');
   // The existing lesson still uses the same shared simulation.
   await visit('learn/generalization/');
+  await page.locator('#supporting-notes summary').click();
   const lessonSlider = page.getByRole('slider', { name: 'Model complexity (degree)' });
   await lessonSlider.scrollIntoViewIfNeeded();
   await page.waitForFunction(() => !document.querySelector('input[aria-label="Model complexity (degree)"]')?.closest('astro-island')?.hasAttribute('ssr'));
@@ -315,8 +319,47 @@ try {
   assert(await fallback.isVisible());
   assert.match(await fallback.innerText(), /The interactive challenge needs JavaScript/);
   await staticPage.locator('.intent-link').first().click();
-  assert.equal(await staticPage.locator('.journey-steps a').count(), 12);
+  assert.equal(await staticPage.locator('.journey-steps a').count(), 13);
+  await staticPage.goto(`${base}/WhatisAI/learn/attention/`);
+  assert.equal(await staticPage.locator('.resource-card').count(), 2);
+  assert(await staticPage.getByRole('link', { name: 'Watch at source' }).isVisible());
+  assert.equal(await staticPage.locator('.video-slot iframe').count(), 0);
+  await staticPage.locator('#supporting-notes summary').click();
+  assert(await staticPage.getByRole('heading', { name: 'Attention as a soft lookup' }).isVisible());
   await noJS.close();
+  // Curated instruction is primary; external video connections require a click.
+  await page.emulateMedia({ colorScheme: 'light' });
+  const beforeVideoRequests = requests.length;
+  await visit('learn/attention/');
+  assert.equal(await page.locator('.resource-card').count(), 2);
+  assert.equal(await page.locator('.video-slot iframe').count(), 0);
+  assert(!requests.slice(beforeVideoRequests).some((u) => /youtube|ytimg/.test(u)));
+  assert.equal(await page.locator('#supporting-notes').getAttribute('open'), null);
+  const beforeVideoProgress = await page.evaluate(() => localStorage.getItem('whatisai:progress:v1'));
+  await page.getByRole('button', { name: /Load video here/ }).focus();
+  await page.keyboard.press('Enter');
+  const frame = page.locator('.video-slot iframe');
+  await frame.waitFor();
+  assert.equal(await frame.getAttribute('src'), 'https://www.youtube-nocookie.com/embed/eMlx5fFNoYc');
+  assert.equal(await page.evaluate(() => localStorage.getItem('whatisai:progress:v1')), beforeVideoProgress);
+  assert(await page.getByRole('link', { name: 'Watch at source' }).isVisible());
+  await visit('learn/attention/#attention-as-a-soft-lookup');
+  assert(await page.locator('#supporting-notes').evaluate((d) => d.open));
+  assert(await page.getByRole('heading', { name: 'Attention as a soft lookup' }).isVisible());
+  for (const width of [320, 390, 1280]) {
+    await page.setViewportSize({ width, height: 900 });
+    for (const id of ['attention', 'ai-fluency', 'reading-a-policy-document']) {
+      await visit(`learn/${id}/`);
+      assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), `${id} overflow at ${width}`);
+      await page.locator('#learn-with').scrollIntoViewIfNeeded();
+      if (width !== 320) await shot(`curated-${id}-${width}`);
+    }
+  }
+  await visit('learn/ai-fluency/');
+  assert.equal(await page.locator('.resource-card').count(), 6);
+  assert.equal(await page.locator('.fluency-practice li').count(), 4);
+  assert.equal(await page.locator('.resource-card a').filter({ hasText: 'Source license' }).count(), 6);
+  console.log('PASS external-led lessons, keyboard video opt-in, reading fallbacks, unchanged mastery, 4D sequence, old anchors, and responsive layouts');
   console.log('PASS mobile navigation, dark theme render, existing shared lesson, and no-JavaScript routes');
   assert.deepEqual(errors, []);
   console.log(`PASS desktop/mobile layouts; no page errors. Screenshots: ${artifacts}`);

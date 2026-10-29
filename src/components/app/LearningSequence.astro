@@ -1,0 +1,85 @@
+---
+import { getLearningPlan } from '@/lib/learning-media';
+interface Props { moduleId: string }
+const plan = getLearningPlan(Astro.props.moduleId);
+---
+<section class="learning-sequence" id="learn-with" aria-labelledby="learning-heading">
+  <div class="eyebrow">Watch · Read · Explore</div>
+  <h2 id="learning-heading">Learn with the people behind the ideas.</h2>
+  <p class="muted">Start with these selections, in order. Use the focus prompts as you go, then return to put the ideas to work.</p>
+  <p class="study-time small"><strong>{plan.externalMinutes} min with external material</strong> · {plan.practiceMinutes} min to reflect and check</p>
+  <p class="xsmall muted">Times are suggested study budgets, including pauses and exploration, rather than full video runtimes. Supporting notes are extra.</p>
+  <ol class="resource-sequence">
+    {plan.steps.map((step, index) => (
+      <li class="resource-card">
+        <div class="resource-meta"><span class="resource-number mono">{String(index + 1).padStart(2, '0')}</span><span>{step.kind} · {step.minutes} min study</span></div>
+        <h3 class="h3"><a href={step.url} target="_blank" rel="noopener noreferrer">{step.title}<span class="external-mark" aria-label="opens in a new tab"> ↗</span></a></h3>
+        <p class="resource-credit small">{step.creator}</p>
+        {step.youtubeId && (
+          <div class="video-slot" data-video={step.youtubeId} data-title={step.title}>
+            <button type="button" class="video-load" hidden>
+              <span class="play-symbol" aria-hidden="true">▶</span><span>Load video here</span>
+              <span class="xsmall">Connects to YouTube only when selected</span>
+            </button>
+          </div>
+        )}
+        <p class="resource-focus"><strong>Your focus</strong>{step.focus}</p>
+        <p class="small muted">{step.note}</p>
+        <div class="resource-actions">
+          <a class="btn btn-ghost" href={step.url} target="_blank" rel="noopener noreferrer">{step.kind.startsWith('video') ? 'Watch at source' : step.kind === 'interactive' || step.kind === 'data explorer' ? 'Open & explore' : 'Read at source'} ↗</a>
+          {step.alternativeUrl && <a class="link small" href={step.alternativeUrl} target="_blank" rel="noopener noreferrer">{step.youtubeId ? 'Reading alternative' : 'Alternative source format'} ↗</a>}
+          {step.licenseUrl && <a class="link xsmall" href={step.licenseUrl} target="_blank" rel="noopener noreferrer">Source license: CC BY-NC-SA 4.0</a>}
+        </div>
+      </li>
+    ))}
+  </ol>
+  <section id="bring-it-back" class="reflection card card-soft" aria-labelledby="reflection-heading">
+    <div class="eyebrow">Make it yours</div>
+    <h2 class="h3" id="reflection-heading">Close the source. Explain what you learned.</h2>
+    <p>{plan.reflection}</p>
+    <p class="small muted">Use your own notebook. Open the supporting notes for a worked explanation or local simulation, then try the mastery check.</p>
+    <div class="row"><a class="link small" href="#supporting-notes">Supporting notes & simulations</a><a class="link small" href="#mastery">Go to mastery check →</a></div>
+  </section>
+</section>
+<style>
+  .learning-sequence { margin-block: 40px; scroll-margin-top: 100px; }
+  .learning-sequence > h2 { margin-top: 12px; font-size: clamp(1.8rem, 4vw, 2.5rem); }
+  .learning-sequence > p { margin-top: 14px; }
+  .study-time { padding-block: 12px; border-block: 1px solid var(--line); }
+  .resource-sequence { list-style: none; padding: 0; margin: 28px 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .resource-card { min-width: 0; border: 1px solid var(--line-2); border-radius: 16px; padding: clamp(18px, 4vw, 30px); background: var(--bg); overflow-wrap: anywhere; }
+  .resource-meta { display: flex; align-items: center; gap: 12px; color: var(--fg-2); font-size: .82rem; text-transform: uppercase; letter-spacing: .06em; }
+  .resource-number { background: var(--bg-soft); padding: 7px 10px; border-radius: 8px; }
+  .resource-card h3 { margin-top: 18px; }
+  .resource-card h3 a:hover { text-decoration: underline; }
+  .external-mark { color: var(--fg-3); }
+  .resource-credit { color: var(--fg-2); margin: 8px 0 18px; }
+  .resource-focus { border-left: 3px solid var(--c1); padding-left: 16px; margin-block: 22px 14px; }
+  .resource-focus strong { display: block; margin-bottom: 6px; }
+  .resource-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 20px; }
+  .video-load { width: 100%; min-height: 180px; aspect-ratio: 16 / 9; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 20px; border: 1px solid var(--line-2); border-radius: 10px; background: linear-gradient(135deg, var(--bg-soft), var(--bg)); color: var(--fg); cursor: pointer; font: inherit; }
+  .video-load[hidden] { display: none; }
+  .play-symbol { display: grid; place-items: center; width: 52px; height: 52px; border: 1px solid var(--fg-3); border-radius: 50%; }
+  .video-slot :global(iframe) { width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: 10px; }
+  .reflection { scroll-margin-top: 100px; }
+  .reflection h2 { margin-top: 12px; }
+  .reflection p { margin-block: 16px; }
+</style>
+<script>
+  document.querySelectorAll<HTMLElement>('.video-slot').forEach((slot) => {
+    const button = slot.querySelector<HTMLButtonElement>('button');
+    const id = slot.dataset.video;
+    if (!button || !id || !/^[\w-]{11}$/.test(id)) return;
+    button.hidden = false;
+    button.addEventListener('click', () => {
+      const iframe = document.createElement('iframe');
+      iframe.src = `https://www.youtube-nocookie.com/embed/${id}`;
+      iframe.title = slot.dataset.title ?? 'Lesson video';
+      iframe.allow = 'encrypted-media; picture-in-picture; fullscreen';
+      iframe.allowFullscreen = true;
+      iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+      slot.replaceChildren(iframe);
+      iframe.focus();
+    }, { once: true });
+  });
+</script>

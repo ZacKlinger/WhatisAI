@@ -1,0 +1,886 @@
+{
+  "welcome": {
+    "steps": [
+      {
+        "resource": "brief",
+        "minutes": 10,
+        "focus": "Watch the full short introduction. Sketch the journey from a prompt to a prediction."
+      },
+      {
+        "resource": "4d",
+        "minutes": 12,
+        "focus": "Watch the framework introduction and read its takeaways. Notice the human decisions before and after generation."
+      }
+    ],
+    "practiceMinutes": 6,
+    "reflection": "What can you now explain about AI, and which claim would you still need evidence to judge?"
+  },
+  "history-of-ai": {
+    "steps": [
+      {
+        "resource": "bitter",
+        "minutes": 12,
+        "focus": "Read the two-page argument. Mark one historical example and one extrapolation."
+      },
+      {
+        "resource": "karpathy",
+        "minutes": 14,
+        "focus": "Use the chapters on training and assistants to connect scaling with the move from predictors to chatbots."
+      }
+    ],
+    "practiceMinutes": 6,
+    "reflection": "Place symbolic rules, deep learning, transformers, and chat assistants on a timeline. What changed at each transition?"
+  },
+  "reading-the-corpus": {
+    "steps": [
+      {
+        "resource": "read-paper",
+        "minutes": 10,
+        "focus": "Read the three-pass method. Decide what you need from each pass before opening the next source."
+      },
+      {
+        "resource": "system-card",
+        "minutes": 16,
+        "focus": "Scan the headings, then read one evaluation and its limitations. Identify who ran it."
+      }
+    ],
+    "practiceMinutes": 6,
+    "reflection": "Write the claim, evidence, and limits of one result. Which part needs a deeper pass?"
+  },
+  "functions-and-models": {
+    "steps": [
+      {
+        "resource": "regression",
+        "minutes": 14,
+        "focus": "Follow how changing a line changes prediction error. Identify inputs, adjustable parameters, and loss."
+      },
+      {
+        "resource": "neurons",
+        "minutes": 12,
+        "focus": "Watch the opening and the explanation of weights and biases. Map them to the line-fitting example."
+      }
+    ],
+    "practiceMinutes": 6,
+    "reflection": "Explain the difference between an input, a parameter, and an output using one prediction."
+  },
+  "vectors-and-embeddings": {
+    "steps": [
+      {
+        "resource": "vectors",
+        "minutes": 12,
+        "focus": "Watch the full chapter. Draw vector addition and scaling before the animation reveals the result."
+      },
+      {
+        "resource": "transformers",
+        "minutes": 14,
+        "focus": "Use the embeddings portion of the chapter. Compare geometric direction with a list of coordinates."
+      }
+    ],
+    "practiceMinutes": 6,
+    "reflection": "Why can nearby vectors be useful for meaning without proving that a model understands a word?"
+  },
+  "matrices": {
+    "steps": [
+      {
+        "resource": "matrices",
+        "minutes": 14,
+        "focus": "Watch the full chapter, pausing to predict where the two basis vectors land."
+      },
+      {
+        "resource": "explainer",
+        "minutes": 10,
+        "focus": "Follow an embedding into the attention projections. Identify where matrices change the representation."
+      }
+    ],
+    "practiceMinutes": 6,
+    "reflection": "Explain why a matrix can be both a table of parameters and a transformation."
+  },
+  "probability": {
+    "steps": [
+      {
+        "resource": "bayes",
+        "minutes": 18,
+        "focus": "Watch the geometric explanation, pausing at the prior and updated probability."
+      },
+      {
+        "resource": "probability",
+        "minutes": 10,
+        "focus": "Run Chance Events and Expectation. Compare a small sample with repeated trials."
+      }
+    ],
+    "practiceMinutes": 6,
+    "reflection": "Give an example where ignoring the base rate makes an apparently convincing result misleading."
+  },
+  "optimization": {
+    "steps": [
+      {
+        "resource": "gradient",
+        "minutes": 18,
+        "focus": "Watch the chapter. Pause to predict the next step on a loss surface."
+      },
+      {
+        "resource": "playground",
+        "minutes": 10,
+        "focus": "Hold the data and architecture fixed. Compare a small and a large learning rate."
+      }
+    ],
+    "practiceMinutes": 6,
+    "reflection": "What did you change, what happened to loss, and why is a steeper step not always a better step?"
+  },
+  "information-theory": {
+    "steps": [
+      {
+        "resource": "entropy",
+        "minutes": 18,
+        "focus": "Study the coding diagrams and the sections on entropy and cross-entropy."
+      },
+      {
+        "resource": "explainer",
+        "minutes": 8,
+        "focus": "Inspect next-token probabilities. Compare a predictable continuation with an ambiguous one."
+      }
+    ],
+    "practiceMinutes": 6,
+    "reflection": "Which prediction would be more surprising to get wrong, and how does that affect loss?"
+  },
+  "statistics-for-research": {
+    "steps": [
+      {
+        "resource": "statistics",
+        "minutes": 18,
+        "focus": "Explore interval estimation and bootstrap resampling. Repeat the experiment instead of inspecting one interval."
+      },
+      {
+        "resource": "errors",
+        "minutes": 12,
+        "focus": "Read the abstract and the discussion of uncertainty for evaluation averages."
+      }
+    ],
+    "practiceMinutes": 6,
+    "reflection": "What information would you request before treating a two-point benchmark difference as meaningful?"
+  },
+  "neural-networks": {
+    "steps": [
+      {
+        "resource": "neurons",
+        "minutes": 22,
+        "focus": "Watch the full chapter. Follow one digit from pixels through activations to the output."
+      },
+      {
+        "resource": "playground",
+        "minutes": 12,
+        "focus": "Try a curved decision boundary with and without a hidden layer. Keep the dataset fixed."
+      }
+    ],
+    "practiceMinutes": 6,
+    "reflection": "Explain what adding a layer changes and what remains learned from examples."
+  },
+  "backpropagation": {
+    "steps": [
+      {
+        "resource": "backprop",
+        "minutes": 16,
+        "focus": "Watch the full intuitive explanation. Distinguish the forward prediction from the backward assignment of influence."
+      },
+      {
+        "resource": "gradient",
+        "minutes": 10,
+        "focus": "Revisit the gradient and cost discussion. Connect each derivative to an adjustable weight."
+      }
+    ],
+    "practiceMinutes": 6,
+    "reflection": "Draw a three-node computation and explain which direction values and gradients travel."
+  },
+  "generalization": {
+    "steps": [
+      {
+        "resource": "playground",
+        "minutes": 18,
+        "focus": "Add noise, compare training and test loss, then change regularization while holding other settings fixed."
+      },
+      {
+        "resource": "neurons",
+        "minutes": 10,
+        "focus": "Revisit the digit-recognition example. Imagine a test set with a different handwriting style."
+      }
+    ],
+    "practiceMinutes": 6,
+    "reflection": "What would convince you a model learned a useful rule rather than the quirks of its training set?"
+  },
+  "representations": {
+    "steps": [
+      {
+        "resource": "features",
+        "minutes": 18,
+        "focus": "Follow the progression from early visual features to later structures in the illustrations."
+      },
+      {
+        "resource": "transformers",
+        "minutes": 12,
+        "focus": "Revisit embeddings. Compare image features with representations of words in context."
+      }
+    ],
+    "practiceMinutes": 6,
+    "reflection": "How could a useful representation help a new task, and why might it still encode unwanted correlations?"
+  },
+  "data": {
+    "steps": [
+      {
+        "resource": "fineweb",
+        "minutes": 18,
+        "focus": "Read the overview and inspect the filtering and deduplication comparisons. Skip implementation detail on the first pass."
+      },
+      {
+        "resource": "karpathy",
+        "minutes": 12,
+        "focus": "Use the training-data portion. Separate collecting examples from changing model parameters."
+      }
+    ],
+    "practiceMinutes": 6,
+    "reflection": "Design a small dataset checklist: source, quality, duplication, coverage, and a held-out test."
+  },
+  "compute": {
+    "steps": [
+      {
+        "resource": "epoch",
+        "minutes": 16,
+        "focus": "Inspect training-compute and hardware trends. Record the units, dates, and sample coverage."
+      },
+      {
+        "resource": "energy",
+        "minutes": 12,
+        "focus": "Read the summary charts on electricity demand and the constraints around data centers."
+      }
+    ],
+    "practiceMinutes": 6,
+    "reflection": "Explain why FLOP, FLOP/s, electricity, and money measure different things."
+  },
+  "tokens": {
+    "steps": [
+      {
+        "resource": "bpe",
+        "minutes": 18,
+        "focus": "Watch or read the BPE example. Work through two merge steps yourself; code is optional."
+      },
+      {
+        "resource": "explainer",
+        "minutes": 8,
+        "focus": "Try a common word, an unusual word, and text in another language. Compare token splits."
+      }
+    ],
+    "practiceMinutes": 6,
+    "reflection": "Why is a word count a weak proxy for context use across languages?"
+  },
+  "attention": {
+    "steps": [
+      {
+        "resource": "attention",
+        "minutes": 30,
+        "focus": "Watch the full chapter. Pause at queries, keys, values, and masking to redraw the information flow."
+      },
+      {
+        "resource": "explainer",
+        "minutes": 10,
+        "focus": "Inspect one token’s attention and compare it with another token in the same input."
+      }
+    ],
+    "practiceMinutes": 6,
+    "reflection": "Explain what the weights combine and why a causal model must hide future tokens."
+  },
+  "transformer": {
+    "steps": [
+      {
+        "resource": "transformers",
+        "minutes": 30,
+        "focus": "Watch the full chapter. Trace embeddings through blocks to next-token probabilities."
+      },
+      {
+        "resource": "explainer",
+        "minutes": 12,
+        "focus": "Follow one generated token through attention, the MLP, and the output distribution."
+      }
+    ],
+    "practiceMinutes": 6,
+    "reflection": "What jobs do attention and MLP layers perform, and where does the residual stream fit?"
+  },
+  "pretraining": {
+    "steps": [
+      {
+        "resource": "karpathy",
+        "minutes": 18,
+        "focus": "Study the pretraining and base-model portions. Stop before the assistant discussion, then predict what additional training is needed."
+      },
+      {
+        "resource": "gpt3",
+        "minutes": 12,
+        "focus": "Read the abstract and the examples contrasting zero-shot, one-shot, and few-shot evaluation."
+      }
+    ],
+    "practiceMinutes": 6,
+    "reflection": "Explain how a prompt can change behavior without changing the trained weights."
+  },
+  "inference": {
+    "steps": [
+      {
+        "resource": "explainer",
+        "minutes": 16,
+        "focus": "Keep a prompt fixed and vary temperature and sampling. Compare distributions as well as generated text."
+      },
+      {
+        "resource": "karpathy",
+        "minutes": 12,
+        "focus": "Use the inference portion to distinguish loading weights from repeatedly generating tokens."
+      }
+    ],
+    "practiceMinutes": 6,
+    "reflection": "Describe one quality, latency, and cost tradeoff; use the local notes for KV-cache details."
+  },
+  "scaling-laws": {
+    "steps": [
+      {
+        "resource": "chinchilla",
+        "minutes": 18,
+        "focus": "Read the abstract and inspect the compute-budget comparisons. Track both parameters and tokens."
+      },
+      {
+        "resource": "scaling",
+        "minutes": 14,
+        "focus": "Compare its loss curves and allocation recommendation with Chinchilla. Check what each holds fixed."
+      }
+    ],
+    "practiceMinutes": 6,
+    "reflection": "What assumption would make a compute-optimal training recipe unsuitable for a deployment?"
+  },
+  "multimodality": {
+    "steps": [
+      {
+        "resource": "clip",
+        "minutes": 18,
+        "focus": "Read the introduction and inspect the image-text training diagram."
+      },
+      {
+        "resource": "transformers",
+        "minutes": 12,
+        "focus": "Revisit the explanation of non-text inputs. Map patches or other input units to the token-processing idea."
+      }
+    ],
+    "practiceMinutes": 6,
+    "reflection": "Explain what matching images and captions teaches, and why it does not verify every visual claim."
+  },
+  "fine-tuning": {
+    "steps": [
+      {
+        "resource": "instruct",
+        "minutes": 18,
+        "focus": "Study the training-stage figure and compare supervised demonstrations with preference comparisons."
+      },
+      {
+        "resource": "description",
+        "minutes": 12,
+        "focus": "Watch the official lesson and examine the distinction between the desired output and how the assistant should work."
+      }
+    ],
+    "practiceMinutes": 10,
+    "reflection": "Compare changing a prompt with changing model weights. Which would you try first for a specific workflow?"
+  },
+  "rlhf": {
+    "steps": [
+      {
+        "resource": "rlhf",
+        "minutes": 18,
+        "focus": "Follow the three training-stage diagrams. Identify what humans label and what the reward model predicts."
+      },
+      {
+        "resource": "instruct",
+        "minutes": 12,
+        "focus": "Inspect the human-preference evaluation and limitations. Separate preference from factual accuracy."
+      }
+    ],
+    "practiceMinutes": 6,
+    "reflection": "How could optimizing a preference score produce a pleasing but unreliable answer?"
+  },
+  "constitutional-ai": {
+    "steps": [
+      {
+        "resource": "constitutional",
+        "minutes": 16,
+        "focus": "Read the overview and follow the paper link for the critique/revision and preference-training stages."
+      },
+      {
+        "resource": "diligence",
+        "minutes": 12,
+        "focus": "Study the official lesson’s treatment of responsibility throughout AI-assisted work."
+      }
+    ],
+    "practiceMinutes": 10,
+    "reflection": "Who chooses the principles, who tests their effects, and who is responsible for deploying the result?"
+  },
+  "reasoning-models": {
+    "steps": [
+      {
+        "resource": "r1",
+        "minutes": 22,
+        "focus": "Read the training overview and compare the R1-Zero and R1 setups. Inspect one reasoning example critically."
+      },
+      {
+        "resource": "discernment",
+        "minutes": 12,
+        "focus": "Study the official evaluation lesson. Apply it to a convincing explanation whose answer you can independently check."
+      }
+    ],
+    "practiceMinutes": 10,
+    "reflection": "What evidence beyond a long explanation would make you trust the answer?"
+  },
+  "agents-and-tools": {
+    "steps": [
+      {
+        "resource": "agents",
+        "minutes": 18,
+        "focus": "Study the workflow and agent diagrams. Trace where tools execute and where a person can intervene."
+      },
+      {
+        "resource": "delegation",
+        "minutes": 12,
+        "focus": "Watch the official lesson. Decide which parts of a multi-step task to retain, share, or delegate."
+      }
+    ],
+    "practiceMinutes": 10,
+    "reflection": "Define an agent’s permitted actions, a stop condition, and the evidence you need before allowing it to act."
+  },
+  "benchmarks": {
+    "steps": [
+      {
+        "resource": "swe",
+        "minutes": 18,
+        "focus": "Read the task definition and inspect a worked issue. Identify what counts as success and what the benchmark excludes."
+      },
+      {
+        "resource": "system-card",
+        "minutes": 12,
+        "focus": "Inspect one capability table and its evaluation setup. Look for prompts, tools, baselines, and limitations."
+      }
+    ],
+    "practiceMinutes": 6,
+    "reflection": "Write two questions a leaderboard score alone cannot answer."
+  },
+  "evaluation-science": {
+    "steps": [
+      {
+        "resource": "errors",
+        "minutes": 20,
+        "focus": "Study the worked uncertainty examples and the distinction between independent and related observations."
+      },
+      {
+        "resource": "discernment",
+        "minutes": 12,
+        "focus": "Watch the official lesson. Decide how you will judge the product, the process, and the assistant’s behavior."
+      }
+    ],
+    "practiceMinutes": 10,
+    "reflection": "Design a fair comparison on fresh cases, including checking time and errors that an average score could hide."
+  },
+  "dangerous-capabilities": {
+    "steps": [
+      {
+        "resource": "risks",
+        "minutes": 20,
+        "focus": "Read the threat-model and evaluation framework sections. Separate capability from likelihood of harm."
+      },
+      {
+        "resource": "system-card",
+        "minutes": 12,
+        "focus": "Study one safety evaluation, including elicitation methods and what was not tested."
+      }
+    ],
+    "practiceMinutes": 6,
+    "reflection": "What would a failed test establish, and what could it still miss?"
+  },
+  "system-cards": {
+    "steps": [
+      {
+        "resource": "system-card",
+        "minutes": 22,
+        "focus": "Read the contents, one capability result, one mitigation, and their limitations. Keep measured findings separate from judgments."
+      },
+      {
+        "resource": "rsp",
+        "minutes": 12,
+        "focus": "Identify the policy that translates evaluations into decisions. Note its date and version."
+      }
+    ],
+    "practiceMinutes": 6,
+    "reflection": "Which claim is measured, which is a deployment judgment, and which would need independent verification?"
+  },
+  "measuring-progress": {
+    "steps": [
+      {
+        "resource": "horizon",
+        "minutes": 20,
+        "focus": "Read the task-duration definition and main trend figure. Check success rate and the range of tasks tested."
+      },
+      {
+        "resource": "epoch",
+        "minutes": 12,
+        "focus": "Compare the capability trend with compute trends. Record any mismatch in periods and coverage."
+      }
+    ],
+    "practiceMinutes": 6,
+    "reflection": "What assumptions separate the measured trend from a prediction about an entire occupation?"
+  },
+  "interpretability-foundations": {
+    "steps": [
+      {
+        "resource": "features",
+        "minutes": 18,
+        "focus": "Compare feature visualization with attribution and inspect the visual examples."
+      },
+      {
+        "resource": "toy",
+        "minutes": 16,
+        "focus": "Read the summary and study one toy-model diagram showing more features than dimensions."
+      }
+    ],
+    "practiceMinutes": 6,
+    "reflection": "Why is an understandable picture insufficient evidence of a causal mechanism?"
+  },
+  "sparse-autoencoders": {
+    "steps": [
+      {
+        "resource": "mapping",
+        "minutes": 14,
+        "focus": "Inspect the feature examples and intervention described in the overview."
+      },
+      {
+        "resource": "sae",
+        "minutes": 22,
+        "focus": "Study the dictionary-learning setup and a causal intervention. Read the limitations before generalizing."
+      }
+    ],
+    "practiceMinutes": 6,
+    "reflection": "What information can reconstruction lose, and how could that affect an interpretation?"
+  },
+  "alignment-problem": {
+    "steps": [
+      {
+        "resource": "gaming",
+        "minutes": 18,
+        "focus": "Study three animated cases. Write the intended goal and the rewarded behavior for each."
+      },
+      {
+        "resource": "control",
+        "minutes": 16,
+        "focus": "Read the threat model and protocol comparison. Separate preventing harm from changing a model’s goals."
+      }
+    ],
+    "practiceMinutes": 6,
+    "reflection": "Propose a better evaluation for one gaming example, then identify a way it could still fail."
+  },
+  "deception-and-scheming": {
+    "steps": [
+      {
+        "resource": "faking-blog",
+        "minutes": 16,
+        "focus": "Trace the experimental setup and the conditions the model was told about."
+      },
+      {
+        "resource": "scheming",
+        "minutes": 20,
+        "focus": "Read the setup and limitations. Compare prompted incentives with observed real-world prevalence."
+      }
+    ],
+    "practiceMinutes": 6,
+    "reflection": "Which conclusion follows from these experiments, and which stronger claim remains unsupported?"
+  },
+  "scalable-oversight": {
+    "steps": [
+      {
+        "resource": "weak",
+        "minutes": 18,
+        "focus": "Read the weak-supervisor setup and inspect the main comparison."
+      },
+      {
+        "resource": "control",
+        "minutes": 18,
+        "focus": "Study the trusted-monitor and untrusted-model protocol and its assumptions."
+      }
+    ],
+    "practiceMinutes": 6,
+    "reflection": "Explain how eliciting a capability differs from making deployment safe despite possible subversion."
+  },
+  "general-purpose-technology": {
+    "steps": [
+      {
+        "resource": "jcurve",
+        "minutes": 18,
+        "focus": "Read the abstract and introduction; inspect the role of complementary investment in the argument."
+      },
+      {
+        "resource": "work",
+        "minutes": 14,
+        "focus": "Study the setting and differences across worker experience."
+      }
+    ],
+    "practiceMinutes": 6,
+    "reflection": "Why might useful task-level assistance take time to appear in economy-wide productivity?"
+  },
+  "measuring-exposure": {
+    "steps": [
+      {
+        "resource": "exposure",
+        "minutes": 20,
+        "focus": "Read the task-rating rubric and compare direct model use with additional software."
+      },
+      {
+        "resource": "delegation",
+        "minutes": 12,
+        "focus": "Use the official lesson to distinguish technical feasibility from a sensible division of responsibility."
+      }
+    ],
+    "practiceMinutes": 10,
+    "reflection": "Choose one occupation and list tasks. Which are exposed, which are worth delegating, and what evidence separates the two?"
+  },
+  "evidence-on-work": {
+    "steps": [
+      {
+        "resource": "work",
+        "minutes": 18,
+        "focus": "Study the research design, outcome measure, and differences across workers."
+      },
+      {
+        "resource": "metr-work",
+        "minutes": 18,
+        "focus": "Read the randomized trial design and compare perceived with measured speed."
+      }
+    ],
+    "practiceMinutes": 10,
+    "reflection": "Which differences in tasks and participants could explain the results? Include correction time in your own trial."
+  },
+  "ai-supply-chain": {
+    "steps": [
+      {
+        "resource": "energy",
+        "minutes": 18,
+        "focus": "Study electricity and data-center charts. Follow the chain from compute demand to infrastructure constraints."
+      },
+      {
+        "resource": "epoch",
+        "minutes": 14,
+        "focus": "Inspect hardware and training-cost trends; distinguish estimated costs from disclosed spending."
+      }
+    ],
+    "practiceMinutes": 6,
+    "reflection": "Name a bottleneck and explain why improving chips alone might not remove it."
+  },
+  "governance-landscape": {
+    "steps": [
+      {
+        "resource": "nist",
+        "minutes": 18,
+        "focus": "Open the framework and study Govern, Map, Measure, and Manage."
+      },
+      {
+        "resource": "oecd",
+        "minutes": 14,
+        "focus": "Compare values and recommendations with operational risk-management actions."
+      }
+    ],
+    "practiceMinutes": 6,
+    "reflection": "Classify one instrument as a principle, voluntary process, or enforceable requirement, and explain the distinction."
+  },
+  "eu-ai-act": {
+    "steps": [
+      {
+        "resource": "eu",
+        "minutes": 20,
+        "focus": "Read risk categories, general-purpose model rules, and the current implementation timeline. Follow the legal-text link for one obligation."
+      },
+      {
+        "resource": "code",
+        "minutes": 16,
+        "focus": "Compare the transparency, copyright, and safety/security chapters."
+      }
+    ],
+    "practiceMinutes": 6,
+    "reflection": "For one example, identify the regulated actor, duty, trigger, and relevant date using the official text."
+  },
+  "us-ai-policy": {
+    "steps": [
+      {
+        "resource": "us-plan",
+        "minutes": 18,
+        "focus": "Study the three pillars and distinguish proposed actions from existing statutory requirements."
+      },
+      {
+        "resource": "sb53",
+        "minutes": 16,
+        "focus": "Read the official state guidance and follow its statutory references. Compare its covered actors with federal strategy."
+      }
+    ],
+    "practiceMinutes": 6,
+    "reflection": "Explain why a national strategy and a state reporting duty are different kinds of governance."
+  },
+  "international-governance": {
+    "steps": [
+      {
+        "resource": "oecd",
+        "minutes": 16,
+        "focus": "Read the principles and the policy recommendations. Identify what countries agree to and what requires domestic action."
+      },
+      {
+        "resource": "eu",
+        "minutes": 18,
+        "focus": "Contrast the EU legal framework with international principles. Identify cross-border coverage."
+      }
+    ],
+    "practiceMinutes": 6,
+    "reflection": "What can international agreement accomplish, and what enforcement decisions remain jurisdiction-specific?"
+  },
+  "safety-frameworks": {
+    "steps": [
+      {
+        "resource": "rsp",
+        "minutes": 20,
+        "focus": "Read the current policy and note its version, thresholds, responsibilities, and qualifications."
+      },
+      {
+        "resource": "risks",
+        "minutes": 16,
+        "focus": "Compare the evaluation framework with the evidence a deployment decision would need."
+      }
+    ],
+    "practiceMinutes": 6,
+    "reflection": "Turn one policy statement into an if-then commitment. What would let an outside observer check compliance?"
+  },
+  "reading-policy": {
+    "steps": [
+      {
+        "resource": "eu",
+        "minutes": 18,
+        "focus": "Follow the legal text. Locate definitions, obligations, scope, and application dates for one provision."
+      },
+      {
+        "resource": "nist",
+        "minutes": 14,
+        "focus": "Compare the language of a voluntary framework with the legal obligation you selected."
+      }
+    ],
+    "practiceMinutes": 6,
+    "reflection": "Write an actor–trigger–duty–deadline–enforcer summary, using exact provision references from the source."
+  },
+  "reading-a-scaling-paper": {
+    "steps": [
+      {
+        "resource": "chinchilla",
+        "minutes": 28,
+        "focus": "Read in three passes. Reconstruct an IsoFLOP comparison and compare the three estimation approaches."
+      },
+      {
+        "resource": "scaling",
+        "minutes": 18,
+        "focus": "Study the allocation result. Identify the assumption or experimental coverage behind a disagreement."
+      }
+    ],
+    "practiceMinutes": 6,
+    "reflection": "Write a qualified statement of Chinchilla’s result and one experiment that could challenge its generality."
+  },
+  "reading-an-interpretability-paper": {
+    "steps": [
+      {
+        "resource": "sae",
+        "minutes": 30,
+        "focus": "Read the setup, feature examples, interventions, and limitations. Distinguish correlational from causal evidence."
+      },
+      {
+        "resource": "mapping",
+        "minutes": 14,
+        "focus": "Compare the accessible summary with the technical claims. Find one qualification a reader could overlook."
+      }
+    ],
+    "practiceMinutes": 6,
+    "reflection": "Choose a feature claim and explain the evidence needed before calling it a complete explanation of behavior."
+  },
+  "reading-an-alignment-paper": {
+    "steps": [
+      {
+        "resource": "faking",
+        "minutes": 30,
+        "focus": "Reconstruct the experiment, conditions, and measurements. Read the limitations and one ablation."
+      },
+      {
+        "resource": "faking-blog",
+        "minutes": 14,
+        "focus": "Compare the public explanation with the paper. Track which statements describe a result versus a possibility."
+      }
+    ],
+    "practiceMinutes": 6,
+    "reflection": "Write the strongest supported conclusion and a counter-experiment that would change your view."
+  },
+  "reading-a-policy-document": {
+    "steps": [
+      {
+        "resource": "code",
+        "minutes": 28,
+        "focus": "Open the Safety and Security chapter. Trace one commitment back to its legal basis."
+      },
+      {
+        "resource": "sb53",
+        "minutes": 18,
+        "focus": "Compare a covered developer’s duties with the Code’s commitments using the linked statutory references."
+      }
+    ],
+    "practiceMinutes": 6,
+    "reflection": "Identify a meaningful overlap and a meaningful gap, with a citation for each."
+  },
+  "forming-a-view": {
+    "steps": [
+      {
+        "resource": "forecast",
+        "minutes": 20,
+        "focus": "Read the survey questions and uncertainty ranges. Distinguish an elicited belief from measured capability."
+      },
+      {
+        "resource": "epoch",
+        "minutes": 14,
+        "focus": "Select a relevant trend and examine coverage, uncertainty, and extrapolation."
+      }
+    ],
+    "practiceMinutes": 6,
+    "reflection": "Make one dated prediction, state your confidence, and specify evidence that would make you revise it."
+  },
+  "ai-fluency": {
+    "steps": [
+      {
+        "resource": "4d",
+        "minutes": 10,
+        "focus": "Watch the framework video and read the takeaways. Keep one real task in mind throughout."
+      },
+      {
+        "resource": "delegation",
+        "minutes": 12,
+        "focus": "Watch the lesson and sketch a division of work before involving an assistant."
+      },
+      {
+        "resource": "description",
+        "minutes": 12,
+        "focus": "Study the official lesson, then draft a brief with output requirements, working method, and interaction expectations."
+      },
+      {
+        "resource": "discernment",
+        "minutes": 12,
+        "focus": "Study the official lesson and decide how to check results and the process that produced them."
+      },
+      {
+        "resource": "loop",
+        "minutes": 10,
+        "focus": "Study how evaluation leads to a revised description. Try one revision on your task."
+      },
+      {
+        "resource": "diligence",
+        "minutes": 12,
+        "focus": "Read or watch the lesson before deciding what information to provide and how the result may be used."
+      }
+    ],
+    "practiceMinutes": 16,
+    "reflection": "Keep a short record of your task, the division of work, your first brief, the error you found, your revision, and your final decision about use."
+  }
+}

@@ -1,0 +1,36 @@
+---
+import { moduleUrl } from '@/lib/url';
+const contexts: Record<string, string> = {
+  'ai-fluency': 'Use the community-event scenario in the notes, or bring a small task of your own.',
+  'agents-and-tools': 'Before letting an assistant use tools, separate drafting a proposed action from permission to execute it.',
+  'evaluation-science': 'Use fresh examples to compare a workflow with and without AI. Count the time spent checking and correcting it.',
+  'evidence-on-work': 'Test a task from your own work before generalizing a productivity study to your situation.',
+  'fine-tuning': 'Try a clearer brief and a few representative examples before deciding that a workflow needs model training.',
+  'reasoning-models': 'Choose a problem whose answer you can check independently, even when the model gives a convincing explanation.',
+  'measuring-exposure': 'Pick a specific task within an occupation and decide whether assistance would actually be useful.',
+  'constitutional-ai': 'Compare a system’s stated principles with its behavior on a small set of examples.',
+};
+const context = contexts[Astro.props.moduleId];
+const course = 'https://academy.claude.com/courses/ai-fluency-framework-foundations/';
+const prompts = [
+  { name: 'Delegation', slug: 'a-closer-look-at-delegation', prompt: 'Which decisions will you retain? Define the assistant’s scope and when it should return to you.' },
+  { name: 'Description', slug: 'a-closer-look-at-description', prompt: 'Write a brief with the necessary context, output requirements, and working boundaries. Include what to do when information is missing.' },
+  { name: 'Discernment', slug: 'a-closer-look-at-discernment', prompt: 'Check a concrete result against independent evidence. Use what failed to revise the brief and test again.' },
+  { name: 'Diligence', slug: 'a-closer-look-at-diligence', prompt: 'Decide what information is appropriate to share, how to acknowledge AI’s contribution, and who is responsible before anyone relies on the result.' },
+];
+---
+{context && <section class="fluency-practice card" aria-labelledby="fluency-practice-title">
+  <div class="eyebrow">Put AI to work · 4D practice</div>
+  <h2 class="h3" id="fluency-practice-title">Make the human decisions explicit.</h2>
+  <p>{context}</p>
+  <ol>{prompts.map((p) => <li><h3 class="h4"><a class="link" href={course + p.slug} target="_blank" rel="noopener noreferrer">{p.name} ↗</a></h3><p>{p.prompt}</p></li>)}</ol>
+  <p class="small muted">Return to Description after Discernment; reconsider Delegation when the task or risks change. Diligence applies throughout.</p>
+  <p class="xsmall muted">Framework: <a class="link" href="https://aifluencyframework.org/">Rick Dakan & Joseph Feller</a>. Official instruction: Dakan, Feller & Anthropic. These are independent WhatisAI practice prompts. <a class="link" href={moduleUrl('ai-fluency')}>Start the guided 4D lesson →</a></p>
+</section>}
+<style>
+  .fluency-practice { margin-block: 32px; background: var(--bg-soft); }
+  .fluency-practice h2 { margin-top: 12px; }
+  .fluency-practice p { margin-top: 14px; }
+  .fluency-practice ol { padding-left: 1.4em; display: grid; gap: 20px; margin-block: 24px; }
+  .fluency-practice li p { margin-top: 6px; }
+</style>

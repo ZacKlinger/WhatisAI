@@ -5,12 +5,14 @@ import { corpus } from '@/data/corpus';
 import { items } from '@/data/items';
 import { tracks } from '@/data/tracks';
 import { goalTypes } from '@/lib/goals.mjs';
+import { learningResources, learningPlans } from '@/lib/learning-media';
+import { validateLearningMedia } from '@/lib/learning-validation.mjs';
 import { figures, hotspotFigures } from '@/components/figures/registry';
 
 export async function GET() {
   const modules = await getModules();
   const ids = new Set(modules.map((m) => m.id));
-  const errors: string[] = [];
+  const errors: string[] = validateLearningMedia(learningResources, learningPlans, [...ids]);
   const warnings: string[] = [];
   for (const goal of goalTypes) {
     for (const id of goal.modules ?? []) if (!ids.has(id)) errors.push(`goal ${goal.id}: unknown module "${id}"`);
@@ -56,6 +58,8 @@ export async function GET() {
 
   const body = {
     generated: new Date().toISOString(),
+    learningResources,
+    learningPlans,
     tracks: tracks.map((t) => ({ id: t.id, title: t.title, modules: modules.filter((m) => m.data.track === t.id).map((m) => m.id) })),
     modules: modules.map((m) => ({ id: m.id, title: m.data.title, track: m.data.track, summary: m.data.summary, prerequisites: m.data.prerequisites, keyTerms: m.data.keyTerms.map((k) => k.term) })),
   };

@@ -8,6 +8,8 @@ import { mdxComponents } from '@/components/mdx';
 import ModuleStatus from '@/components/app/ModuleStatus';
 import MasteryCheck from '@/components/quiz/MasteryCheck';
 import { moduleUrl, url } from '@/lib/url';
+import LearningSequence from '@/components/app/LearningSequence.astro';
+import FluencyPractice from '@/components/app/FluencyPractice.astro';
 
 export async function getStaticPaths() {
   const modules = await getModules();
@@ -18,7 +20,7 @@ export async function getStaticPaths() {
 }
 
 const { entry, prev, next } = Astro.props;
-const { Content, headings } = await render(entry);
+const { Content } = await render(entry);
 const d = entry.data;
 const track = trackById[d.track];
 const modules = await getModules();
@@ -27,7 +29,6 @@ const inTrack = modules.filter((m) => m.data.track === d.track);
 const position = inTrack.findIndex((m) => m.id === entry.id) + 1;
 const signals = (await getSignals()).filter((s) => s.data.modules.includes(entry.id)).slice(0, 4);
 const unlocks = modules.filter((m) => m.data.prerequisites.includes(entry.id));
-const toc = headings.filter((h) => h.depth === 2);
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const levelLabel = ['', 'Foundational', 'Introductory', 'Intermediate', 'Advanced', 'Frontier'][d.level];
 ---
@@ -51,13 +52,13 @@ const levelLabel = ['', 'Foundational', 'Introductory', 'Intermediate', 'Advance
 
   <div class="module-grid container">
     <aside class="module-side hide-sm">
-      {toc.length > 0 && (
         <nav class="toc" aria-label="On this page">
           <div class="xsmall faint" style="margin-bottom:8px;padding-left:12px">On this page</div>
-          {toc.map((h) => <a href={`#${h.slug}`} data-slug={h.slug}>{h.text}</a>)}
-          <a href="#mastery">Mastery check</a>
+          <a href="#learn-with" data-slug="learn-with">Curated learning sequence</a>
+          <a href="#bring-it-back" data-slug="bring-it-back">Put it into words</a>
+          <a href="#supporting-notes" data-slug="supporting-notes">Notes & simulations</a>
+          <a href="#mastery" data-slug="mastery">Mastery check</a>
         </nav>
-      )}
     </aside>
 
     <article class="module-main">
@@ -72,9 +73,12 @@ const levelLabel = ['', 'Foundational', 'Introductory', 'Intermediate', 'Advance
         </ul>
       </section>
 
-      <div class="prose">
-        <Content components={mdxComponents} />
-      </div>
+      <LearningSequence moduleId={entry.id} />
+      <FluencyPractice moduleId={entry.id} />
+      <details class="supporting-notes" id="supporting-notes">
+        <summary><strong>Supporting notes & simulations</strong><span class="small muted">Open for a worked explanation, extra context, or hands-on practice.</span></summary>
+        <div class="prose"><Content components={mdxComponents} /></div>
+      </details>
 
       {d.keyTerms.length > 0 && (
         <section style="margin-top:64px">
@@ -152,6 +156,10 @@ const levelLabel = ['', 'Foundational', 'Introductory', 'Intermediate', 'Advance
   .module-grid { display: grid; grid-template-columns: 220px minmax(0, var(--read)) 1fr; gap: 48px; }
   .module-side { padding-top: 40px; }
   .module-main { min-width: 0; padding-bottom: 40px; }
+  .supporting-notes { margin-top: 32px; padding: 22px; border: 1px solid var(--line-2); border-radius: 12px; scroll-margin-top: 100px; }
+  .supporting-notes summary { cursor: pointer; }
+  .supporting-notes summary span { display: block; margin-top: 8px; }
+  .supporting-notes[open] summary { margin-bottom: 28px; }
   @media (max-width: 1100px) { .module-grid { grid-template-columns: minmax(0, 1fr); max-width: calc(var(--read) + 2 * var(--gutter)); } .module-side { display: none; } }
   .objectives { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; }
   .objectives li::marker { color: var(--fg-3); }
@@ -168,6 +176,16 @@ const levelLabel = ['', 'Foundational', 'Introductory', 'Intermediate', 'Advance
 </style>
 
 <script>
+  // Preserve old heading deep links when their content is inside closed notes.
+  const revealNotes = () => {
+    let id = '';
+    try { id = decodeURIComponent(location.hash.slice(1)); } catch { return; }
+    const target = document.getElementById(id);
+    const notes = target?.closest('details');
+    if (notes) { notes.open = true; target?.scrollIntoView(); }
+  };
+  window.addEventListener('hashchange', revealNotes);
+  revealNotes();
   const bar = document.getElementById('read-bar');
   const main = document.querySelector('.module-main') as HTMLElement | null;
   const onScroll = () => {

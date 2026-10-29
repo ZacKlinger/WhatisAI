@@ -14,7 +14,7 @@ for (const j of journeys) for (const s of j.steps) if (!byId[s.module]) throw ne
     <h1>What do you want<br />to make sense of?</h1>
     <p class="lead">Four routes into the same ideas. Start with the question you care about, then follow it as far as you like.</p>
     <nav class="chip-row" aria-label="Choose a learning direction">{journeys.map((j) => <a class="chip" href={`#${j.id}`}>{j.title}</a>)}</nav>
-    <p class="small muted">These are suggested reading routes, not a test of your level. Some lessons go deeper; their background links are there when you need them.</p>
+    <p class="small muted">Each route combines curated outside material with focused practice. Some lessons go deeper; supporting notes and simulations are there when you need them.</p>
   </header>
 
   <div class="container explore-routes">

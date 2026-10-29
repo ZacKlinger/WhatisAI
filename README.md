@@ -9,8 +9,8 @@ It is adaptive (an optional placement exam, mastery checks, spaced review, and r
 | Area | What it is |
 | --- | --- |
 | **Discovery challenge** | A three-minute, account-free prediction → experiment → takeaway on the homepage. Uses the existing lesson’s seeded polynomial simulation, with text results, keyboard controls, and a credited research caveat. It does not call a model or award mastery. |
-| **Explore** | Four intent-based routes at `/explore/`: understand AI, read research and safety, put AI to work, and anticipate change. Each links three existing lessons and a practical activity; module references are checked at build time. |
-| **The path** | 10 tracks, 53 modules, about 24 hours. Prologue → Foundations (math from zero) → Learning Machines → Language Models → From Model to Assistant → Measuring Minds → Inside the Machine → AI and the Economy → Governing AI → The Frontier (guided readings). |
+| **Explore** | Four intent-based routes at `/explore/`: understand AI, read research and safety, put AI to work, and anticipate change. Each links a sequence of lessons and a practical activity; the practical-use route begins with the 4D framework; module references are checked at build time. |
+| **The path** | 10 tracks, 54 modules. Study times include curated external material and local reflection/checks. Prologue → Foundations (math from zero) → Learning Machines → Language Models → From Model to Assistant → Measuring Minds → Inside the Machine → AI and the Economy → Governing AI → The Frontier (guided readings). |
 | **Interactives** | 20+ instruments: a neural network trained live in the browser, a BPE tokenizer that learns its merges live, an attention explorer, a Chinchilla scaling-law calculator, a real toy model of superposition, an RLHF rater game, and more. |
 | **Assessment** | ~265 items: multiple choice, select-all, matching, ordering, log-scale estimates, and figure hotspots, every one with a confidence wager. |
 | **Placement exam** | Optional. Binary-searches each track for the edge of your knowledge (about 3 questions per track), with confidence wagers, an "I don't know" option, and a constellation results map. |
@@ -54,9 +54,15 @@ To use a custom domain, set `SITE_URL` and `SITE_BASE=/` in the deploy workflow'
 
 See [docs/WATCHER.md](docs/WATCHER.md) for how it works and how to turn on the Claude editor. In short: it scrapes ~28 public sources every morning for free, scores stories for significance, and publishes only when one clears the bar. **It is designed so that it can never spend money.**
 
+## Curated instruction
+
+Every lesson begins with an ordered external learning sequence from `src/data/learning-paths.json`, resolved against the credited catalog in `src/data/learning-resources.json`. At least 70% of suggested core study time goes to external selections. Videos load only on request; direct links and reading alternatives remain available. Existing MDX explanations and simulations are expandable support. Lesson, path, goal, and route time estimates use the curated plan.
+
+Practical AI use starts with the official AI Fluency course by Rick Dakan, Joseph Feller, and Anthropic, then reinforces the 4Ds in applied lessons. See [docs/CURATED-LEARNING.md](docs/CURATED-LEARNING.md) for curation, attribution, licensing boundaries, and validation.
+
 ## Adding content
 
-- **A module:** add `src/content/modules/<id>.mdx` with the frontmatter schema in `src/content.config.ts`, and its mastery items in `src/data/items/t<N>.ts`. Run `python3 scripts/quote-frontmatter.py` if any frontmatter value contains a colon.
+- **A module:** add an explicit curated plan and matching resource entries as described above, then add `src/content/modules/<id>.mdx` with the frontmatter schema in `src/content.config.ts`, and its mastery items in `src/data/items/t<N>.ts`. Run `python3 scripts/quote-frontmatter.py` if any frontmatter value contains a colon.
 - **A signal:** add `src/content/signals/YYYY-MM-DD-slug.md` (see existing files), then `npm run validate`.
 - **A library document:** add an entry to `src/data/corpus.ts`, listing the module ids it requires.
 - **A figure for hotspot questions:** add it to `src/components/figures/registry.tsx` and to `hotspotFigures`.
