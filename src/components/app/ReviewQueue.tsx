@@ -1,3 +1,4 @@
+import { trackAnalytics } from '@/lib/analytics';
 import { useMemo, useState } from 'react';
 import type { Item } from '@/lib/items';
 import { dueReviews, getState, gradeReview, recordCalibration } from '@/lib/progress';
@@ -23,7 +24,7 @@ export default function ReviewQueue({ bank, titles, base }: Props) {
   const due = dueReviews().filter((k) => lookup.has(k));
   const upcoming = deck.filter(([, c]) => c.due > Date.now()).sort((a, b) => a[1].due - b[1].due);
 
-  const begin = (keys: string[]) => { setSession(keys.slice(0, 20)); setIdx(0); setCorrect(0); };
+  const begin = (keys: string[]) => { trackAnalytics('review_started'); setSession(keys.slice(0, 20)); setIdx(0); setCorrect(0); };
 
   if (session && idx < session.length) {
     const key = session[idx];
@@ -37,7 +38,7 @@ export default function ReviewQueue({ bank, titles, base }: Props) {
         </div>
         <ItemView key={key + idx} item={item} seed={key + getState().review[key]?.reps} wager
           onResult={(r) => { gradeReview(key, r.correct, r.confidence ?? 0.7); recordCalibration(r.confidence ?? 0.7, r.correct, 'review'); if (r.correct) setCorrect((c) => c + 1); }}
-          onNext={() => setIdx((i) => i + 1)} nextLabel={idx + 1 < session.length ? 'Next card' : 'Finish'} />
+          onNext={() => { if (idx + 1 === session.length) trackAnalytics('review_completed'); setIdx((i) => i + 1); }} nextLabel={idx + 1 < session.length ? 'Next card' : 'Finish'} />
       </div>
     );
   }

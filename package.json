@@ -17,7 +17,9 @@
     "watch:media": "node scripts/watch/enrich-media.mjs",
     "watch:publish-heuristic": "node scripts/watch/publish-heuristic.mjs",
     "watch:validate": "node scripts/watch/validate-signals.mjs",
-    "test:rules": "node tests/firestore.rules.mjs"
+    "test:rules": "node tests/firestore.rules.mjs",
+    "test:analytics": "node tests/analytics-ui.mjs",
+    "test:analytics:unit": "node --test tests/analytics.test.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "4.3.14",
@@ -27,6 +29,7 @@
     "@fontsource/jetbrains-mono": "5.3.0",
     "astro": "5.18.2",
     "firebase": "^13.1.0",
+    "posthog-js": "1.440.0",
     "react": "19.2.9",
     "react-dom": "19.2.9"
   },

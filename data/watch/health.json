@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-27",
+  "date": "2026-10-29",
   "sources": {
     "anthropic-news": {
       "ok": true,
@@ -11,7 +11,7 @@
     },
     "openai": {
       "ok": true,
-      "count": 1326
+      "count": 1335
     },
     "deepmind": {
       "ok": true,
@@ -27,7 +27,7 @@
     },
     "hf-blog": {
       "ok": true,
-      "count": 890
+      "count": 894
     },
     "hf-papers": {
       "ok": true,
@@ -35,15 +35,15 @@
     },
     "arxiv-cl": {
       "ok": true,
-      "count": 374
+      "count": 0
     },
     "arxiv-lg": {
       "ok": true,
-      "count": 321
+      "count": 0
     },
     "arxiv-ai": {
       "ok": true,
-      "count": 321
+      "count": 407
     },
     "metr": {
       "ok": true,
@@ -66,8 +66,8 @@
       "count": 25
     },
     "eu-digital": {
-      "ok": false,
-      "error": "HTTP 403"
+      "ok": true,
+      "count": 0
     },
     "uk-aisi": {
       "ok": true,
@@ -111,7 +111,7 @@
     },
     "hn": {
       "ok": true,
-      "count": 5
+      "count": 4
     }
   }
 }

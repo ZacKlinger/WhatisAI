@@ -25,6 +25,10 @@ Progress saves automatically in the browser, separately for guests and each Goog
 
 Public pages include share controls, canonical URLs, Open Graph/Twitter previews, a sitemap at `/sitemap.xml`, and privacy information. Sharing never includes account details or progress.
 
+## Visitor analytics
+
+Optional PostHog analytics counts visits and learning interactions after visitor consent. The configured project uses the capped Free plan. See [docs/ANALYTICS.md](docs/ANALYTICS.md) for dashboard links, events, privacy controls, testing, and the no-cost setup.
+
 ## Running locally
 
 ```bash

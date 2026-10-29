@@ -89,13 +89,15 @@ jobs:
         id: decide
         run: |
           NEW=$(git status --porcelain src/content/signals | wc -l | tr -d ' ')
+          MEDIA=$(git status --porcelain data/watch/media.json | wc -l | tr -d ' ')
           DOW=$(date -u +%u)
-          if [ "$NEW" -gt 0 ] || [ "$DOW" = "7" ] || [ "${{ inputs.deploy }}" = "true" ]; then
+          if [ "$NEW" -gt 0 ] || [ "$MEDIA" -gt 0 ] || [ "$DOW" = "7" ] || [ "${{ inputs.deploy }}" = "true" ]; then
             echo "deploy=true" >> "$GITHUB_OUTPUT"
           else
             echo "deploy=false" >> "$GITHUB_OUTPUT"
           fi
           echo "New signals: $NEW"
+          echo "Media catalog changed: $MEDIA"
 
       - name: Commit watcher data and signals
         run: |

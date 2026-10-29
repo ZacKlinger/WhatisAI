@@ -1,5 +1,6 @@
 import { useEffect, useId, useMemo, useRef, useState } from 'react';
 import { evalPoly, runGeneralization } from '@/lib/generalization.mjs';
+import { trackAnalytics } from '@/lib/analytics';
 import '@/styles/discovery.css';
 
 const models = [
@@ -76,7 +77,7 @@ export default function DiscoveryChallenge({ base }: { base: string }) {
           <label className="discovery-unsure"><input type="radio" name={name} value="unsure" checked={prediction === 'unsure'} onChange={() => setPrediction('unsure')} /> I’d want to test them first</label>
         </fieldset>
         <p className="xsmall muted">The filled dots are training examples. Error is average squared error; lower is better.</p>
-        <button className="btn btn-primary discovery-main" type="button" disabled={!prediction} onClick={() => setStep(1)}>Reveal 40 new examples</button>
+        <button className="btn btn-primary discovery-main" type="button" disabled={!prediction} onClick={() => { setStep(1); trackAnalytics('discovery_started'); }}>Reveal 40 new examples</button>
       </>}
 
       {step === 1 && <>
@@ -94,7 +95,7 @@ export default function DiscoveryChallenge({ base }: { base: string }) {
           <p className="small discovery-error" aria-live="polite">New-example error: <strong>{number(experiment.newError)}</strong></p>
           <p className="xsmall muted">Some predictions can go outside the chart; the error includes them. These same examples are reused while you explore, so they serve as validation data, not a fresh final test.</p>
         </div>
-        <button className="btn btn-primary discovery-main" type="button" onClick={() => setStep(2)}>What does this mean for me?</button>
+        <button className="btn btn-primary discovery-main" type="button" onClick={() => { setStep(2); trackAnalytics('discovery_completed'); }}>What does this mean for me?</button>
       </>}
 
       {step === 2 && <>

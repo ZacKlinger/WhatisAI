@@ -14,7 +14,7 @@ Every morning at 11:17 UTC, `.github/workflows/watch.yml` reads the field and de
    - Without it, a stricter **heuristic publisher** writes an extractive signal (titles, excerpts, links, no unverified prose) only for stories scoring at least 0.8.
 5. **Validate** (`scripts/watch/validate-signals.mjs --new`). Malformed signals, or signals linking to modules that do not exist, are deleted and their stories recorded as rejected, so they are never re-proposed.
 6. **Media previews** (`npm run watch:media`). Preserves feed thumbnails through the digest, candidates, and heuristic publisher. Backfills previews for recent digests and existing signals into `data/watch/media.json`. Missing or unavailable previews use an intentional source card.
-7. **Commit and deploy.** Watcher data and any new signals are committed to `main`. The site redeploys only when a signal was published, or on Sundays to refresh the trend radar.
+7. **Commit and deploy.** Watcher data and any new signals are committed to `main`. The site redeploys when a signal is published or the media catalog changes, and on Sundays to refresh the trend radar. Every deployment also refreshes preview metadata before building, so direct code deployments can populate an empty catalog.
 
 ## Media attribution and retrieval
 

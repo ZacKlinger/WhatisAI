@@ -18,12 +18,13 @@ try {
   await symlink(resolve('node_modules'), join(root, 'node_modules'), 'dir');
   const source = 'https://publisher.example.org';
   const thumbnail = (url, sourceUrl) => ({ url, sourceUrl, credit: 'Fixture Creator', alt: 'Synthetic test preview', provenance: 'feed' });
-  const fixtures = ['success', 'broken', 'missing', 'unsafe', 'optout'];
+  const fixtures = ['success', 'cached', 'broken', 'missing', 'unsafe', 'optout'];
   const cache = {};
   for (const name of fixtures) {
     const sourceUrl = `${name === 'optout' ? 'https://disabled.example.org' : source}/${name}`;
     const thumb = ['success', 'broken', 'optout'].includes(name) ? `thumbnail: ${JSON.stringify(thumbnail(`${source}/${name}.png`, sourceUrl))}\n` : '';
     await writeFile(join(root, `src/content/signals/2026-10-28-fixture-${name}.md`), `---\ntitle: Preview fixture ${name}\ndate: 2026-10-28\nkind: media\nsignificance: 3\nsummary: Synthetic publisher preview used only in an isolated regression build.\nsources:\n  - title: Fixture source\n    url: ${sourceUrl}\n    publisher: Fixture Publisher\nmodules: []\ntags: []\nmethod: editor\n${thumb}---\nThis synthetic source exercises attributed preview rendering and fallback states. It is created only in a temporary test checkout and is never published.\n`);
+    if (name === 'cached') cache[sourceUrl] = { checkedAt: '2026-10-28', thumbnail: thumbnail(`${source}/success.png`, sourceUrl) };
     if (name === 'unsafe') cache[sourceUrl] = { checkedAt: '2026-10-28', thumbnail: thumbnail('javascript:alert(1)', sourceUrl) };
   }
   await writeFile(join(root, 'data/watch/media.json'), JSON.stringify(cache));
@@ -255,12 +256,12 @@ try {
     await visit(`signals/2026-10-28-fixture-${name}/`);
     const preview = page.locator('.source-preview .media-preview');
     await preview.scrollIntoViewIfNeeded();
-    if (name === 'success') {
+    if (name === 'success' || name === 'cached') {
       await page.waitForFunction(() => document.querySelector('.source-preview img')?.naturalWidth > 0);
       assert.match(await preview.innerText(), /Preview: Fixture Creator/);
       assert.equal(await preview.locator('img').getAttribute('referrerpolicy'), 'no-referrer');
     } else await preview.locator('img').waitFor({ state: 'detached' });
-    assert.equal(await preview.getAttribute('data-preview-state'), name === 'success' ? 'image' : 'fallback');
+    assert.equal(await preview.getAttribute('data-preview-state'), ['success', 'cached'].includes(name) ? 'image' : 'fallback');
     await shot(`preview-${name}`);
   }
   assert(!requests.some((url) => url.includes('optout.png') || url.startsWith('javascript:')));
@@ -272,7 +273,7 @@ try {
   await page.reload({ waitUntil: 'networkidle' });
   await page.locator('.source-preview').scrollIntoViewIfNeeded();
   await page.waitForFunction(() => document.querySelector('.source-preview img')?.naturalWidth > 0);
-  console.log('PASS attributed, missing, broken, unsafe, opted-out, and retried previews');
+  console.log('PASS attributed, cached, missing, broken, unsafe, opted-out, and retried previews');
 
   for (const width of [1440, 900, 390, 320]) {
     await page.setViewportSize({ width, height: width === 390 ? 844 : 1000 });
