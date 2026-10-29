@@ -18,3 +18,8 @@
 .share-control { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin: 0 0 30px; }
 .share-control input { width: min(100%, 480px); padding: 10px; color: var(--fg); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; }
 @media (max-width: 420px) { .nav-right { gap: 2px !important; } .nav-right .nav-cta { display: none; } }
+
+.account-confirm { width:min(32rem,calc(100% - 2rem)); padding:1.5rem; border:1px solid var(--line); border-radius:1.25rem; background:var(--bg-elev); color:var(--fg); margin:auto; }
+.account-confirm::backdrop { background:rgb(0 0 0 / .65); }
+.account-confirm h2 { font-size:1.3rem; margin:0 0 1rem; }
+.account-confirm p { margin-bottom:1.5rem; }
