@@ -186,6 +186,11 @@
         "resource": "gradient",
         "minutes": 10,
         "focus": "Revisit the gradient and cost discussion. Connect each derivative to an adjustable weight."
+      },
+      {
+        "resource": "karpathy-micrograd",
+        "minutes": 26,
+        "focus": "Watch 00:32:10–00:52:52: the first manual backpropagation example and one optimization step. Trace one branch of the graph on paper. Use the illustrated reading if the Python notation gets in the way."
       }
     ],
     "practiceMinutes": 6,
@@ -202,6 +207,11 @@
         "resource": "neurons",
         "minutes": 10,
         "focus": "Revisit the digit-recognition example. Imagine a test set with a different handwriting style."
+      },
+      {
+        "resource": "karpathy-recipe",
+        "minutes": 12,
+        "focus": "Read sections 3 and 4 on fitting the training set and improving validation performance. Explain why deliberately fitting a small training set can diagnose a model, while success on fresh examples remains a separate test."
       }
     ],
     "practiceMinutes": 6,
@@ -231,9 +241,9 @@
         "focus": "Read the overview and inspect the filtering and deduplication comparisons. Skip implementation detail on the first pass."
       },
       {
-        "resource": "karpathy",
+        "resource": "karpathy-deep-dive",
         "minutes": 12,
-        "focus": "Use the training-data portion. Separate collecting examples from changing model parameters."
+        "focus": "Watch 00:01:00–00:07:47 for the data-collection and filtering walkthrough. Compare it with FineWeb: what is removed, what is retained, and whose language is represented?"
       }
     ],
     "practiceMinutes": 6,
@@ -257,6 +267,11 @@
   },
   "tokens": {
     "steps": [
+      {
+        "resource": "karpathy-tokenizer",
+        "minutes": 18,
+        "focus": "Watch 00:05:50–00:14:56 for tokenization examples, then 00:23:50–00:27:02 for the BPE walkthrough. Predict a split before it appears; explain why characters, words, and tokens are different units. Stop before the coding implementation."
+      },
       {
         "resource": "bpe",
         "minutes": 18,
@@ -295,6 +310,11 @@
         "focus": "Watch the full chapter. Trace embeddings through blocks to next-token probabilities."
       },
       {
+        "resource": "karpathy-build-gpt",
+        "minutes": 30,
+        "focus": "Watch 01:19:11–01:42:39 as attention heads, feedforward layers, residual connections, and normalization become a working transformer. Match each block to the preceding visual explanation. If you do not know Python/PyTorch, trace the blocks in the reading alternative instead."
+      },
+      {
         "resource": "explainer",
         "minutes": 12,
         "focus": "Follow one generated token through attention, the MLP, and the output distribution."
@@ -306,9 +326,9 @@
   "pretraining": {
     "steps": [
       {
-        "resource": "karpathy",
-        "minutes": 18,
-        "focus": "Study the pretraining and base-model portions. Stop before the assistant discussion, then predict what additional training is needed."
+        "resource": "karpathy-deep-dive",
+        "minutes": 34,
+        "focus": "Watch 00:31:09–00:59:23: the GPT-2 training example and base-model generation. Distinguish learning weights from prompting a fixed model; stop at the transition to post-training."
       },
       {
         "resource": "gpt3",
@@ -327,9 +347,9 @@
         "focus": "Keep a prompt fixed and vary temperature and sampling. Compare distributions as well as generated text."
       },
       {
-        "resource": "karpathy",
-        "minutes": 12,
-        "focus": "Use the inference portion to distinguish loading weights from repeatedly generating tokens."
+        "resource": "karpathy-deep-dive",
+        "minutes": 10,
+        "focus": "Watch 00:26:01–00:31:09 on inference. Sketch the repeated next-token loop, then explain how sampling changes the continuation without retraining the weights."
       }
     ],
     "practiceMinutes": 6,
@@ -370,6 +390,11 @@
   "fine-tuning": {
     "steps": [
       {
+        "resource": "karpathy-deep-dive",
+        "minutes": 26,
+        "focus": "Watch 00:59:23–01:20:32, from the transition out of pretraining through conversation-based post-training. Identify what changes in the dataset, the model weights, and the user-facing behavior; compare with the paper next."
+      },
+      {
         "resource": "instruct",
         "minutes": 18,
         "focus": "Study the training-stage figure and compare supervised demonstrations with preference comparisons."
@@ -385,6 +410,11 @@
   },
   "rlhf": {
     "steps": [
+      {
+        "resource": "karpathy-deep-dive",
+        "minutes": 26,
+        "focus": "Watch 02:48:26–03:09:39 on RLHF. Explain how human comparisons become a training signal, then use the diagrams and paper below to distinguish a learned preference score from truth."
+      },
       {
         "resource": "rlhf",
         "minutes": 18,
@@ -418,6 +448,11 @@
   "reasoning-models": {
     "steps": [
       {
+        "resource": "karpathy-deep-dive",
+        "minutes": 32,
+        "focus": "Watch 02:14:42–02:42:07, from reinforcement learning to the DeepSeek-R1 example. Identify what can be checked by a verifier and why success on those tasks may not transfer to an open-ended judgment."
+      },
+      {
         "resource": "r1",
         "minutes": 22,
         "focus": "Read the training overview and compare the R1-Zero and R1 setups. Inspect one reasoning example critically."
@@ -433,6 +468,11 @@
   },
   "agents-and-tools": {
     "steps": [
+      {
+        "resource": "karpathy-use",
+        "minutes": 24,
+        "focus": "Watch 00:31:00–00:50:57 for search and deep-research demonstrations. Separate what the model generates from what a tool retrieves. Use the 4Ds below to decide what to delegate, what evidence to request, and what to verify before acting."
+      },
       {
         "resource": "agents",
         "minutes": 18,
@@ -641,6 +681,11 @@
   },
   "evidence-on-work": {
     "steps": [
+      {
+        "resource": "karpathy-use",
+        "minutes": 14,
+        "focus": "Watch 00:59:00–01:09:00 for code-interpreter and data-analysis demonstrations. Identify one possible time saver and one checking cost. Treat the demonstration as a hypothesis, then compare it with the controlled studies below."
+      },
       {
         "resource": "work",
         "minutes": 18,

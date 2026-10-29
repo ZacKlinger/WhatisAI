@@ -16,6 +16,14 @@ The main lesson experience is an ordered sequence of external teaching, followed
 
 The catalog was checked against publisher pages, official course pages, research landing pages, and/or indexed publisher metadata. These checks establish source identity and topic fit; they do not certify uninterrupted playback, complete accessibility, every interactive control, or every geographic access condition. NBER landing pages were indexed but rejected direct automated fetching; public paper links are supplied as alternatives. The large Scaling Monosemanticity page exceeded the reader's size limit; its lab overview and publication identity were checked. The MLU visualization's text was not exposed to the reader. External-source functionality should be periodically rechecked by an editor; no scheduled monitor is created by this change.
 
+## Karpathy selections: 2026-10-29
+
+Karpathy now contributes seven distinct resources across thirteen lessons: the original introduction, five additional videos, and a training guide. 3Blue1Brown remains the visual foundation, and the six official 4D lessons remain the practical-use starting point. Karpathy's workflow demonstrations feed into the existing 4D practice and empirical workplace studies rather than replacing them.
+
+Sources were checked against [his website](https://karpathy.ai/), the [Zero to Hero syllabus](https://karpathy.ai/zero-to-hero.html), the original YouTube video descriptions, and [his training guide](https://karpathy.github.io/2019/04/25/recipe/). Assigned time ranges match the creator's chapter boundaries, and study budgets allow for pauses. The selections span data preparation, base models, inference, tokenization, backpropagation, transformer blocks, supervised fine-tuning, RLHF, reasoning, tool use, and generalization.
+
+The full lectures run roughly two to three and a half hours; only the specified excerpts are assigned. Python/PyTorch prerequisites are explicit for the transformer construction excerpt. Reading alternatives remain available, with their scope identified where they do not reproduce the video. Product demonstrations are labeled as historical examples. Metadata and chapter checks do not certify playback or captions in every region. Videos remain at the creator's source with the existing opt-in player; no video or transcript is copied into the repository.
+
 ## The 4Ds and licensing
 
 Practical-use instruction begins with the official **AI Fluency: Framework and foundations** course:

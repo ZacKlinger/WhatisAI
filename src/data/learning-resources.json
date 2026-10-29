@@ -539,5 +539,63 @@
     "url": "https://oag.ca.gov/sb53",
     "note": "Official implementation guidance with statutory references. Check the source for current requirements.",
     "reviewed": "2026-10-29"
+  },
+  "karpathy-deep-dive": {
+    "title": "Deep Dive into LLMs like ChatGPT",
+    "creator": "Andrej Karpathy",
+    "kind": "video",
+    "url": "https://www.youtube.com/watch?v=7xTGNNLPyMI",
+    "note": "General-audience lecture from 2025 (3h 31m). Watch only the time range in Your focus; study time includes pauses. Model examples are historical. The reading alternative is an overview; use this lesson’s other readings for the assigned topic.",
+    "reviewed": "2026-10-29",
+    "youtubeId": "7xTGNNLPyMI",
+    "alternativeUrl": "https://huggingface.co/learn/llm-course/chapter1/4"
+  },
+  "karpathy-use": {
+    "title": "How I use LLMs",
+    "creator": "Andrej Karpathy",
+    "kind": "video",
+    "url": "https://www.youtube.com/watch?v=EWvNQjAaOHw",
+    "note": "Practical demonstrations from 2025 (2h 11m). Watch the assigned time range. Interfaces, prices, and model names may have changed; evaluate the workflow, not the product ranking. The reading alternative explains tool workflows rather than reproducing the demonstration.",
+    "reviewed": "2026-10-29",
+    "youtubeId": "EWvNQjAaOHw",
+    "alternativeUrl": "https://www.anthropic.com/research/building-effective-agents"
+  },
+  "karpathy-tokenizer": {
+    "title": "Let's build the GPT Tokenizer",
+    "creator": "Andrej Karpathy",
+    "kind": "video",
+    "url": "https://www.youtube.com/watch?v=zduSFxRajkE",
+    "note": "A 2024 Zero to Hero lecture (2h 13m). The assigned visual examples do not require coding. The full implementation uses Python; the reading alternative includes a worked BPE example.",
+    "reviewed": "2026-10-29",
+    "youtubeId": "zduSFxRajkE",
+    "alternativeUrl": "https://huggingface.co/learn/llm-course/chapter6/5"
+  },
+  "karpathy-micrograd": {
+    "title": "The spelled-out intro to neural networks and backpropagation: building micrograd",
+    "creator": "Andrej Karpathy",
+    "kind": "video",
+    "url": "https://www.youtube.com/watch?v=VMj-3S1tku0",
+    "note": "A 2022 Zero to Hero lecture (2h 25m). The assigned excerpt traces a small calculation by hand; basic derivatives help. The full build requires Python. Follow on paper or use the illustrated reading alternative.",
+    "reviewed": "2026-10-29",
+    "youtubeId": "VMj-3S1tku0",
+    "alternativeUrl": "https://cs231n.github.io/optimization-2/"
+  },
+  "karpathy-build-gpt": {
+    "title": "Let's build GPT: from scratch, in code, spelled out.",
+    "creator": "Andrej Karpathy",
+    "kind": "video",
+    "url": "https://www.youtube.com/watch?v=kCc8FmEb1nY",
+    "note": "A 2023 Zero to Hero lecture (1h 56m). The assigned construction walkthrough assumes familiarity with Python, tensors, and PyTorch. If those are new, use the illustrated reading alternative to trace the same blocks; completing the full coding project is optional.",
+    "reviewed": "2026-10-29",
+    "youtubeId": "kCc8FmEb1nY",
+    "alternativeUrl": "https://www.3blue1brown.com/lessons/gpt/"
+  },
+  "karpathy-recipe": {
+    "title": "A Recipe for Training Neural Networks",
+    "creator": "Andrej Karpathy",
+    "kind": "article",
+    "url": "https://karpathy.github.io/2019/04/25/recipe/",
+    "note": "A 2019 engineering guide. Focus on diagnosing training and validation behavior; its architecture and optimizer examples are historical.",
+    "reviewed": "2026-10-29"
   }
 }
