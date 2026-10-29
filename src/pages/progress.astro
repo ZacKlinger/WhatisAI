@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import ProgressDashboard from '@/components/app/ProgressDashboard';
+import GoalPlanner from '@/components/app/GoalPlanner';
 import Constellation from '@/components/interactive/Constellation';
 import { getModules, moduleSummary } from '@/lib/curriculum';
 import { tracks } from '@/data/tracks';
@@ -9,11 +10,14 @@ const modules = await getModules();
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
-<BaseLayout title="Your progress" description="Your progress through the path, your calibration record, and your learning activity.">
+<BaseLayout title="Your progress" description="Set learning goals and target dates, track your progress through the path, and review your learning activity.">
   <section class="container" style="padding-top:clamp(48px,8vw,96px)">
     <h1>Your progress</h1>
+    <p class="lead" style="margin-top:16px">Set your destination. Build toward it, one lesson at a time.</p>
   </section>
   <section class="container section-tight">
+    <GoalPlanner client:load modules={modules.map(moduleSummary)} base={base} />
+    <noscript><p>Enable JavaScript to set goals and view saved progress. You can still browse every lesson on <a href={`${base}/path/`}>the path</a>.</p></noscript>
     <div class="card" style="padding:clamp(10px,2vw,22px);margin-bottom:20px">
       <Constellation client:load modules={modules.map(moduleSummary)} tracks={tracks.map((t) => ({ id: t.id, numeral: t.numeral, title: t.title }))} base={base} compact />
     </div>

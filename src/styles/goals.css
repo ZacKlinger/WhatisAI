@@ -1,0 +1,28 @@
+.goal-planner { scroll-margin-top: calc(var(--nav-h) + 20px); margin-bottom: 20px; }
+.goal-heading { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px; }
+.goal-heading h2 { margin-top: 6px; }
+.goal-heading p { margin: 6px 0 0; }
+.goal-empty, .goal-form { padding: clamp(16px, 3vw, 24px); border-radius: var(--radius); margin-top: 18px; }
+.goal-empty p { margin: 0; }
+.goal-empty p + p { margin-top: 8px; max-width: 65ch; }
+.goal-fields { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 16px; }
+.goal-fields label { display: grid; gap: 6px; font-size: .9rem; min-width: 0; }
+.goal-fields input[type='date'] { min-width: 0; width: 100%; border: 1px solid var(--line-2); background: var(--bg); border-radius: var(--radius-sm); padding: 10px 12px; }
+.goal-fields input:focus-visible, .goal-fields select:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.goal-list { display: grid; gap: 24px; }
+.goal-card { padding-top: 24px; border-top: 1px solid var(--line); margin-top: 20px; min-width: 0; }
+.goal-card p { max-width: 80ch; }
+.goal-progress-label { display: flex; justify-content: space-between; gap: 12px; margin: 20px 0 8px; }
+.goal-progress { display: block; width: 100%; height: 8px; border: 0; border-radius: 6px; overflow: hidden; background: var(--bg-muted); accent-color: var(--c3); }
+.goal-progress::-webkit-progress-bar { background: var(--bg-muted); border-radius: 6px; }
+.goal-progress::-webkit-progress-value { background: var(--c3); border-radius: 6px; }
+.goal-progress::-moz-progress-bar { background: var(--c3); border-radius: 6px; }
+.goal-actions { flex-wrap: wrap; }
+.goal-actions a { max-width: 100%; }
+.goal-details { margin-top: 18px; }
+.goal-details summary { cursor: pointer; }
+.goal-details li { margin: 6px 0; }
+.goal-footnote { margin: 24px 0 0; }
+.goal-notice:empty, .goal-error:empty { display: none; }
+.goal-error { color: var(--bad); margin-bottom: 12px; }
+@media (max-width: 560px) { .goal-fields { grid-template-columns: minmax(0, 1fr); } }

@@ -15,12 +15,15 @@ It is adaptive (an optional placement exam, mastery checks, spaced review, and r
 | **Assessment** | ~265 items: multiple choice, select-all, matching, ordering, log-scale estimates, and figure hotspots, every one with a confidence wager. |
 | **Placement exam** | Optional. Binary-searches each track for the edge of your knowledge (about 3 questions per track), with confidence wagers, an "I don't know" option, and a constellation results map. |
 | **Spaced review** | SM-2-style scheduling of every mastery item, plus a calibration record scored with the Brier score. |
+| **Learning goals** | Set conversational or full-path mastery goals with target dates from Your progress. See verified lessons, a next lesson, and a weekly reading-time estimate. Edit dates as plans change; goals are included in progress exports and account cloud saves. |
 | **Research library** | ~40 landmark documents, each listing the modules that make it readable. Documents unlock as you progress. |
 | **Signals** | Significant developments, written by the watcher (or an editor) and linked to the modules that explain them. RSS at `/signals.xml`. |
 | **Trend radar** | Rising topics, weekly volume, and an "On the radar" list of notable articles and media from the daily scrape. |
 | **Method** | The research basis: backward design from the corpus, labor-market evidence, and learning science, with citations. |
 
-Progress is stored in the browser (`localStorage`) behind a `StorageAdapter` interface (`src/lib/progress.ts`), so it can later be swapped for an account-backed store when WhatisAI becomes a public product. Learners can export and import their progress from `/progress/`.
+Progress saves automatically in the browser, separately for guests and each Google account. Optional Firebase Authentication and Firestore add Google login, private cloud save/restore, and self-service deletion. Cloud saves are manual. See [docs/PUBLIC-LAUNCH.md](docs/PUBLIC-LAUNCH.md) for the free Spark setup, database rules, build variables, and launch checks. Without Firebase configuration, the site stays fully usable for guests.
+
+Public pages include share controls, canonical URLs, Open Graph/Twitter previews, a sitemap at `/sitemap.xml`, and privacy information. Sharing never includes account details or progress.
 
 ## Visitor analytics
 

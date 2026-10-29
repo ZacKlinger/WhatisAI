@@ -4,6 +4,7 @@ import { getModules, getSignals } from '@/lib/curriculum';
 import { corpus } from '@/data/corpus';
 import { items } from '@/data/items';
 import { tracks } from '@/data/tracks';
+import { goalTypes } from '@/lib/goals.mjs';
 import { figures, hotspotFigures } from '@/components/figures/registry';
 
 export async function GET() {
@@ -11,6 +12,9 @@ export async function GET() {
   const ids = new Set(modules.map((m) => m.id));
   const errors: string[] = [];
   const warnings: string[] = [];
+  for (const goal of goalTypes) {
+    for (const id of goal.modules ?? []) if (!ids.has(id)) errors.push(`goal ${goal.id}: unknown module "${id}"`);
+  }
 
   for (const m of modules) {
     for (const p of m.data.prerequisites) if (!ids.has(p)) errors.push(`${m.id}: unknown prerequisite "${p}"`);
