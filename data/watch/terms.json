@@ -73,5 +73,28 @@
     "Data centers and energy": 2,
     "__items": 871,
     "__observed": true
+  },
+  "2026-10-29": {
+    "Agents": 15,
+    "Alignment": 2,
+    "Open-weight models": 3,
+    "Multimodal and video": 6,
+    "Model releases": 6,
+    "Evaluations": 9,
+    "System cards": 1,
+    "EU AI Act": 1,
+    "Copyright and data": 1,
+    "Robotics": 3,
+    "Chips and compute": 2,
+    "Coding assistants": 2,
+    "Hallucination": 1,
+    "Reasoning models": 1,
+    "US AI policy": 1,
+    "Dangerous capabilities": 3,
+    "Jobs and labor": 1,
+    "State AI laws": 1,
+    "China and AI": 1,
+    "__items": 55,
+    "__observed": true
   }
 }

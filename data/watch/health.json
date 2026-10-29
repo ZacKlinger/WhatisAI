@@ -1,9 +1,9 @@
 {
-  "date": "2026-10-28",
+  "date": "2026-10-29",
   "sources": {
     "anthropic-news": {
       "ok": true,
-      "count": 20
+      "count": 21
     },
     "anthropic-research": {
       "ok": true,
@@ -11,7 +11,7 @@
     },
     "openai": {
       "ok": true,
-      "count": 1333
+      "count": 1335
     },
     "deepmind": {
       "ok": true,
@@ -27,7 +27,7 @@
     },
     "hf-blog": {
       "ok": true,
-      "count": 891
+      "count": 894
     },
     "hf-papers": {
       "ok": true,
@@ -35,11 +35,11 @@
     },
     "arxiv-cl": {
       "ok": true,
-      "count": 176
+      "count": 0
     },
     "arxiv-lg": {
       "ok": true,
-      "count": 437
+      "count": 0
     },
     "arxiv-ai": {
       "ok": true,
@@ -66,8 +66,8 @@
       "count": 25
     },
     "eu-digital": {
-      "ok": false,
-      "error": "HTTP 403"
+      "ok": true,
+      "count": 0
     },
     "uk-aisi": {
       "ok": true,
@@ -111,7 +111,7 @@
     },
     "hn": {
       "ok": true,
-      "count": 6
+      "count": 4
     }
   }
 }
