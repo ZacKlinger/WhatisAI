@@ -35,7 +35,7 @@ export function normalizeThumbnail(value) {
 /** A thumbnail must describe the source being linked, never another cluster member.
  * @param {unknown} explicit
  * @param {string} sourceUrl
- * @param {Record<string, {thumbnail?: unknown}>} cache
+ * @param {Record<string, {checkedAt?: string, thumbnail?: unknown}>} cache
  */
 export function sourceThumbnail(explicit, sourceUrl, cache = {}) {
   const key = publicHttpsUrl(sourceUrl);
