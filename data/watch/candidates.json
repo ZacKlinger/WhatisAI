@@ -1,42 +1,7 @@
 {
-  "date": "2026-10-29",
+  "date": "2026-10-30",
   "threshold": 0.58,
   "candidates": [
-    {
-      "id": "1758535ac6be3e6b",
-      "title": "Introducing GPT-6.1 Terra",
-      "url": "https://openai.com/index/introducing-gpt-6-1-terra",
-      "score": 0.72,
-      "parts": {
-        "authority": 1,
-        "corroboration": 0.4,
-        "impact": 1,
-        "engagement": 0
-      },
-      "categories": [
-        "lab",
-        "newsletter"
-      ],
-      "format": "article",
-      "items": [
-        {
-          "title": "Introducing GPT-6.1 Terra",
-          "url": "https://openai.com/index/introducing-gpt-6-1-terra",
-          "source": "OpenAI",
-          "category": "lab",
-          "published": "Mon, 26 Oct 2026 00:00:00 GMT",
-          "summary": "Bringing fast and capable computer use to everyone"
-        },
-        {
-          "title": "GPT-6.1 Terra",
-          "url": "https://simonwillison.net/2026/Oct/26/gpt-61-terra/",
-          "source": "Simon Willison",
-          "category": "newsletter",
-          "published": "2026-10-26T23:53:07+00:00",
-          "summary": "GPT-6.1 Terra It's always interesting to note which aspects of a new model are emphasized in the release announcement. In the case of GPT-6.1 Terra, OpenAI went with visual reasoning and computer use: We’re introducing GPT-6.1 Terra , a fast, efficient model that combines detailed visual reasoning and precise computer use alongside clearer, more natural writing. A significant step up from GPT‑5.6 Terra, it excels at the communication and computer-based tasks that fill the workday, from drafting proposals and interpreting technical drawings to filling out forms and editing videos. Terra sits in"
-        }
-      ]
-    },
     {
       "id": "b0da25ea6c1a2967",
       "title": "Gemini 4 Carbon: Our next frontier model",
@@ -77,6 +42,33 @@
       ]
     },
     {
+      "id": "ef8985fb234bd54c",
+      "title": "Accreditation, Innovation, and Modernization: The Secretary's Recognition of Accrediting Agencies; Institutional Eligibility Under the Higher Education Act of 1965, as Amended; Student Assistance General Provisions",
+      "url": "https://www.federalregister.gov/documents/2026/10/30/2026-22174/accreditation-innovation-and-modernization-the-secretarys-recognition-of-accrediting-agencies",
+      "score": 0.62,
+      "parts": {
+        "authority": 0.9,
+        "corroboration": 0,
+        "impact": 1,
+        "engagement": 0
+      },
+      "categories": [
+        "policy"
+      ],
+      "format": "article",
+      "items": [
+        {
+          "title": "Accreditation, Innovation, and Modernization: The Secretary's Recognition of Accrediting Agencies; Institutional Eligibility Under the Higher Education Act of 1965, as Amended; Student Assistance General Provisions",
+          "url": "https://www.federalregister.gov/documents/2026/10/30/2026-22174/accreditation-innovation-and-modernization-the-secretarys-recognition-of-accrediting-agencies",
+          "source": "US Federal Register",
+          "category": "policy",
+          "published": "2026-10-30",
+          "summary": "The Department revises the existing accrediting agency recognition regulations to implement the directives set forth in Executive Order 14279, Reforming Accreditation to Strengthen Higher Education, and other Administration priorities, align the regulations more closely with statute, and reduce regulatory burden.",
+          "docType": "Rule"
+        }
+      ]
+    },
+    {
       "id": "d2b977a4934945fd",
       "title": "Health Data, Technology, and Interoperability: ONC Deregulatory Actions To Unleash Prosperity",
       "url": "https://www.federalregister.gov/documents/2026/10/28/2026-21943/health-data-technology-and-interoperability-onc-deregulatory-actions-to-unleash-prosperity",
@@ -100,84 +92,6 @@
           "published": "2026-10-28",
           "summary": "This final rule focuses on deregulatory actions identified in HHS regulations regarding health information technology standards, implementation specifications, and certification criteria and regarding certification programs for health information technology. This final rule reduces burden, offers flexibility to both developers and providers, and supports innovation through the removal and revision of certain certification criteria and regulatory provisions.",
           "docType": "Rule"
-        }
-      ]
-    },
-    {
-      "id": "250e5d8f302445e7",
-      "title": "Greptile takes bug detection beyond code review with GPT-6 Astra",
-      "url": "https://openai.com/index/greptile-code-review-codex-astra",
-      "score": 0.62,
-      "parts": {
-        "authority": 1,
-        "corroboration": 0,
-        "impact": 1,
-        "engagement": 0
-      },
-      "categories": [
-        "lab"
-      ],
-      "format": "article",
-      "items": [
-        {
-          "title": "Greptile takes bug detection beyond code review with GPT-6 Astra",
-          "url": "https://openai.com/index/greptile-code-review-codex-astra",
-          "source": "OpenAI",
-          "category": "lab",
-          "published": "Mon, 26 Oct 2026 22:00:00 GMT",
-          "summary": "How Greptile uses GPT-6 Astra to test user workflows, Daybreak to strengthen security, and Codex to reduce rework."
-        }
-      ]
-    },
-    {
-      "id": "1a1d4bf2fc111eb8",
-      "title": "GPT-6.1 Sol helps CodeRabbit strengthen security across complex codebases",
-      "url": "https://openai.com/index/gpt-6-1-sol-coderabbit-code-security",
-      "score": 0.62,
-      "parts": {
-        "authority": 1,
-        "corroboration": 0,
-        "impact": 1,
-        "engagement": 0
-      },
-      "categories": [
-        "lab"
-      ],
-      "format": "article",
-      "items": [
-        {
-          "title": "GPT-6.1 Sol helps CodeRabbit strengthen security across complex codebases",
-          "url": "https://openai.com/index/gpt-6-1-sol-coderabbit-code-security",
-          "source": "OpenAI",
-          "category": "lab",
-          "published": "Mon, 26 Oct 2026 13:45:00 GMT",
-          "summary": "CodeRabbit uses GPT-6.1 Sol to investigate security risks across complex codebases. Its security agent helps developers review findings and proposed fixes."
-        }
-      ]
-    },
-    {
-      "id": "c6099fc8919f3d54",
-      "title": "Anima helps clinics cut call waits by 75% with GPT-6 and GPT-Live",
-      "url": "https://openai.com/index/anima",
-      "score": 0.62,
-      "parts": {
-        "authority": 1,
-        "corroboration": 0,
-        "impact": 1,
-        "engagement": 0
-      },
-      "categories": [
-        "lab"
-      ],
-      "format": "article",
-      "items": [
-        {
-          "title": "Anima helps clinics cut call waits by 75% with GPT-6 and GPT-Live",
-          "url": "https://openai.com/index/anima",
-          "source": "OpenAI",
-          "category": "lab",
-          "published": "Fri, 23 Oct 2026 00:00:00 GMT",
-          "summary": "Anima expands what care teams can do with OpenAI models, giving them more capacity to respond to patients."
         }
       ]
     }

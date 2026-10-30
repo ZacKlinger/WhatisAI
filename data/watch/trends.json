@@ -1,12 +1,12 @@
 {
-  "updated": "2026-10-29",
+  "updated": "2026-10-30",
   "windowDays": 7,
   "baselineDays": 28,
-  "daysOfHistory": 4,
-  "recentObservedDays": 4,
+  "daysOfHistory": 5,
+  "recentObservedDays": 5,
   "baselineObservedDays": 0,
   "comparisonReady": false,
-  "itemsLastWeek": 1437,
+  "itemsLastWeek": 2593,
   "rising": [],
   "volume": [
     {
@@ -14,12 +14,11 @@
       "modules": [
         "agents-and-tools"
       ],
-      "recent": 319,
+      "recent": 543,
       "base": 0,
-      "share": 0.2219902574808629,
+      "share": 0.2094099498650212,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -46,7 +45,8 @@
         20,
         110,
         174,
-        15
+        15,
+        224
       ]
     },
     {
@@ -55,12 +55,11 @@
         "benchmarks",
         "evaluation-science"
       ],
-      "recent": 273,
+      "recent": 477,
       "base": 0,
-      "share": 0.18997912317327767,
+      "share": 0.1839568067875048,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -87,7 +86,8 @@
         14,
         117,
         133,
-        9
+        9,
+        204
       ]
     },
     {
@@ -95,12 +95,11 @@
       "modules": [
         "multimodality"
       ],
-      "recent": 159,
+      "recent": 272,
       "base": 0,
-      "share": 0.11064718162839249,
+      "share": 0.10489780177400694,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -127,7 +126,8 @@
         6,
         52,
         95,
-        6
+        6,
+        113
       ]
     },
     {
@@ -135,12 +135,11 @@
       "modules": [
         "multimodality"
       ],
-      "recent": 62,
+      "recent": 108,
       "base": 0,
-      "share": 0.04314544189283229,
+      "share": 0.04165059776320864,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -167,47 +166,8 @@
         8,
         5,
         46,
-        3
-      ]
-    },
-    {
-      "term": "Open-weight models",
-      "modules": [
-        "ai-supply-chain"
-      ],
-      "recent": 61,
-      "base": 0,
-      "share": 0.04244954766875435,
-      "lift": null,
-      "series": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        29,
-        28,
-        3
+        3,
+        46
       ]
     },
     {
@@ -216,12 +176,11 @@
         "alignment-problem",
         "deception-and-scheming"
       ],
-      "recent": 58,
+      "recent": 105,
       "base": 0,
-      "share": 0.04036186499652053,
+      "share": 0.04049363671423062,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -248,47 +207,8 @@
         2,
         29,
         25,
-        2
-      ]
-    },
-    {
-      "term": "Model releases",
-      "modules": [
-        "system-cards"
-      ],
-      "recent": 50,
-      "base": 0,
-      "share": 0.03479471120389701,
-      "lift": null,
-      "series": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
         2,
-        25,
-        17,
-        6
+        47
       ]
     },
     {
@@ -296,12 +216,11 @@
       "modules": [
         "measuring-progress"
       ],
-      "recent": 49,
+      "recent": 98,
       "base": 0,
-      "share": 0.03409881697981907,
+      "share": 0.037794060933281914,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -328,21 +247,20 @@
         2,
         17,
         30,
-        0
+        0,
+        49
       ]
     },
     {
-      "term": "Coding assistants",
+      "term": "Open-weight models",
       "modules": [
-        "agents-and-tools",
-        "evidence-on-work"
+        "ai-supply-chain"
       ],
-      "recent": 37,
+      "recent": 87,
       "base": 0,
-      "share": 0.025748086290883786,
+      "share": 0.03355187042036251,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -367,9 +285,10 @@
         0,
         0,
         1,
-        8,
-        26,
-        2
+        29,
+        28,
+        3,
+        26
       ]
     },
     {
@@ -377,12 +296,11 @@
       "modules": [
         "us-ai-policy"
       ],
-      "recent": 35,
+      "recent": 71,
       "base": 0,
-      "share": 0.024356297842727904,
+      "share": 0.027381411492479753,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -409,18 +327,18 @@
         0,
         11,
         23,
-        1
+        1,
+        36
       ]
     },
     {
-      "term": "Copyright and data",
+      "term": "Model releases",
       "modules": [
-        "data",
-        "governance-landscape"
+        "system-cards"
       ],
-      "recent": 35,
+      "recent": 71,
       "base": 0,
-      "share": 0.024356297842727904,
+      "share": 0.027381411492479753,
       "lift": null,
       "series": [
         0,
@@ -446,11 +364,11 @@
         0,
         0,
         0,
-        0,
-        1,
+        2,
+        25,
+        17,
         6,
-        27,
-        1
+        21
       ]
     },
     {
@@ -459,12 +377,11 @@
         "interpretability-foundations",
         "sparse-autoencoders"
       ],
-      "recent": 34,
+      "recent": 70,
       "base": 0,
-      "share": 0.023660403618649965,
+      "share": 0.02699575780948708,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -491,20 +408,21 @@
         1,
         8,
         25,
-        0
+        0,
+        36
       ]
     },
     {
-      "term": "Reasoning models",
+      "term": "Coding assistants",
       "modules": [
-        "reasoning-models"
+        "agents-and-tools",
+        "evidence-on-work"
       ],
-      "recent": 29,
+      "recent": 64,
       "base": 0,
-      "share": 0.020180932498260265,
+      "share": 0.024681835711531045,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -529,9 +447,10 @@
         0,
         0,
         1,
-        17,
-        10,
-        1
+        8,
+        26,
+        2,
+        27
       ]
     },
     {
@@ -539,12 +458,11 @@
       "modules": [
         "dangerous-capabilities"
       ],
-      "recent": 29,
+      "recent": 64,
       "base": 0,
-      "share": 0.020180932498260265,
+      "share": 0.024681835711531045,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -571,7 +489,90 @@
         1,
         7,
         21,
-        0
+        0,
+        35
+      ]
+    },
+    {
+      "term": "Copyright and data",
+      "modules": [
+        "data",
+        "governance-landscape"
+      ],
+      "recent": 62,
+      "base": 0,
+      "share": 0.0239105283455457,
+      "lift": null,
+      "series": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        6,
+        27,
+        1,
+        27
+      ]
+    },
+    {
+      "term": "Chips and compute",
+      "modules": [
+        "compute",
+        "ai-supply-chain"
+      ],
+      "recent": 47,
+      "base": 0,
+      "share": 0.018125723100655612,
+      "lift": null,
+      "series": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        4,
+        15,
+        2,
+        24
       ]
     }
   ],
@@ -592,7 +593,7 @@
       "id": "openai",
       "name": "OpenAI",
       "ok": true,
-      "count": 1335
+      "count": 1339
     },
     {
       "id": "deepmind",
@@ -628,19 +629,19 @@
       "id": "arxiv-cl",
       "name": "arXiv cs.CL",
       "ok": true,
-      "count": 0
+      "count": 279
     },
     {
       "id": "arxiv-lg",
       "name": "arXiv cs.LG",
       "ok": true,
-      "count": 0
+      "count": 608
     },
     {
       "id": "arxiv-ai",
       "name": "arXiv cs.AI",
       "ok": true,
-      "count": 407
+      "count": 605
     },
     {
       "id": "metr",
