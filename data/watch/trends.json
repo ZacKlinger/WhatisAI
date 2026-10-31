@@ -1,12 +1,12 @@
 {
-  "updated": "2026-10-30",
+  "updated": "2026-10-31",
   "windowDays": 7,
   "baselineDays": 28,
-  "daysOfHistory": 5,
-  "recentObservedDays": 5,
+  "daysOfHistory": 6,
+  "recentObservedDays": 6,
   "baselineObservedDays": 0,
   "comparisonReady": false,
-  "itemsLastWeek": 2593,
+  "itemsLastWeek": 2616,
   "rising": [],
   "volume": [
     {
@@ -14,12 +14,11 @@
       "modules": [
         "agents-and-tools"
       ],
-      "recent": 543,
+      "recent": 549,
       "base": 0,
-      "share": 0.2094099498650212,
+      "share": 0.2098623853211009,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -46,7 +45,8 @@
         110,
         174,
         15,
-        224
+        224,
+        6
       ]
     },
     {
@@ -55,12 +55,11 @@
         "benchmarks",
         "evaluation-science"
       ],
-      "recent": 477,
+      "recent": 478,
       "base": 0,
-      "share": 0.1839568067875048,
+      "share": 0.1827217125382263,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -87,7 +86,8 @@
         117,
         133,
         9,
-        204
+        204,
+        1
       ]
     },
     {
@@ -97,10 +97,9 @@
       ],
       "recent": 272,
       "base": 0,
-      "share": 0.10489780177400694,
+      "share": 0.10397553516819572,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -127,7 +126,8 @@
         52,
         95,
         6,
-        113
+        113,
+        0
       ]
     },
     {
@@ -135,12 +135,11 @@
       "modules": [
         "multimodality"
       ],
-      "recent": 108,
+      "recent": 109,
       "base": 0,
-      "share": 0.04165059776320864,
+      "share": 0.041666666666666664,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -167,7 +166,8 @@
         5,
         46,
         3,
-        46
+        46,
+        1
       ]
     },
     {
@@ -178,10 +178,9 @@
       ],
       "recent": 105,
       "base": 0,
-      "share": 0.04049363671423062,
+      "share": 0.040137614678899085,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -208,7 +207,8 @@
         29,
         25,
         2,
-        47
+        47,
+        0
       ]
     },
     {
@@ -218,10 +218,9 @@
       ],
       "recent": 98,
       "base": 0,
-      "share": 0.037794060933281914,
+      "share": 0.03746177370030581,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -248,7 +247,8 @@
         17,
         30,
         0,
-        49
+        49,
+        0
       ]
     },
     {
@@ -256,12 +256,11 @@
       "modules": [
         "ai-supply-chain"
       ],
-      "recent": 87,
+      "recent": 88,
       "base": 0,
-      "share": 0.03355187042036251,
+      "share": 0.03363914373088685,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -288,47 +287,8 @@
         29,
         28,
         3,
-        26
-      ]
-    },
-    {
-      "term": "US AI policy",
-      "modules": [
-        "us-ai-policy"
-      ],
-      "recent": 71,
-      "base": 0,
-      "share": 0.027381411492479753,
-      "lift": null,
-      "series": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        11,
-        23,
-        1,
-        36
+        26,
+        1
       ]
     },
     {
@@ -336,12 +296,11 @@
       "modules": [
         "system-cards"
       ],
-      "recent": 71,
+      "recent": 72,
       "base": 0,
-      "share": 0.027381411492479753,
+      "share": 0.027522935779816515,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -368,7 +327,48 @@
         25,
         17,
         6,
-        21
+        21,
+        1
+      ]
+    },
+    {
+      "term": "US AI policy",
+      "modules": [
+        "us-ai-policy"
+      ],
+      "recent": 71,
+      "base": 0,
+      "share": 0.027140672782874617,
+      "lift": null,
+      "series": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        11,
+        23,
+        1,
+        36,
+        0
       ]
     },
     {
@@ -379,10 +379,9 @@
       ],
       "recent": 70,
       "base": 0,
-      "share": 0.02699575780948708,
+      "share": 0.026758409785932722,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -409,7 +408,8 @@
         8,
         25,
         0,
-        36
+        36,
+        0
       ]
     },
     {
@@ -420,10 +420,9 @@
       ],
       "recent": 64,
       "base": 0,
-      "share": 0.024681835711531045,
+      "share": 0.024464831804281346,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -450,7 +449,8 @@
         8,
         26,
         2,
-        27
+        27,
+        0
       ]
     },
     {
@@ -460,10 +460,9 @@
       ],
       "recent": 64,
       "base": 0,
-      "share": 0.024681835711531045,
+      "share": 0.024464831804281346,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -490,7 +489,8 @@
         7,
         21,
         0,
-        35
+        35,
+        0
       ]
     },
     {
@@ -499,12 +499,11 @@
         "data",
         "governance-landscape"
       ],
-      "recent": 62,
+      "recent": 63,
       "base": 0,
-      "share": 0.0239105283455457,
+      "share": 0.02408256880733945,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -531,7 +530,8 @@
         6,
         27,
         1,
-        27
+        27,
+        1
       ]
     },
     {
@@ -540,12 +540,11 @@
         "compute",
         "ai-supply-chain"
       ],
-      "recent": 47,
+      "recent": 49,
       "base": 0,
-      "share": 0.018125723100655612,
+      "share": 0.018730886850152905,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -572,7 +571,8 @@
         4,
         15,
         2,
-        24
+        24,
+        2
       ]
     }
   ],
@@ -593,7 +593,7 @@
       "id": "openai",
       "name": "OpenAI",
       "ok": true,
-      "count": 1339
+      "count": 1341
     },
     {
       "id": "deepmind",
@@ -629,13 +629,13 @@
       "id": "arxiv-cl",
       "name": "arXiv cs.CL",
       "ok": true,
-      "count": 279
+      "count": 0
     },
     {
       "id": "arxiv-lg",
       "name": "arXiv cs.LG",
       "ok": true,
-      "count": 608
+      "count": 0
     },
     {
       "id": "arxiv-ai",
@@ -743,7 +743,7 @@
       "id": "hn",
       "name": "Hacker News",
       "ok": true,
-      "count": 4
+      "count": 5
     }
   ]
 }

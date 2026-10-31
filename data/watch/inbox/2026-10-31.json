@@ -1,0 +1,379 @@
+[
+  {
+    "title": "Making it easier for websites to express AI training preferences",
+    "url": "https://openai.com/index/helping-websites-express-ai-training-preferences",
+    "published": "Fri, 30 Oct 2026 09:30:00 GMT",
+    "summary": "OpenAI will honor a shared robots.txt signal to help website operators communicate their AI training preferences to participating providers.",
+    "id": "25cc4c9bb2e3e7e5",
+    "source": "openai",
+    "sourceName": "OpenAI",
+    "category": "lab",
+    "weight": 1,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Fair use benefits everyone",
+    "url": "https://openai.com/index/fair-use-benefits-everyone",
+    "published": "Fri, 30 Oct 2026 00:00:00 GMT",
+    "summary": "OpenAI shares excerpts from court briefs by creators, academics, accessibility advocates, and legal experts, among others, on how fair use supports AI training and innovation.",
+    "id": "d2282bcce1625c64",
+    "source": "openai",
+    "sourceName": "OpenAI",
+    "category": "lab",
+    "weight": 1,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "nemotron-halloween",
+    "url": "https://huggingface.co/blog/nvidia/nemotron-halloween",
+    "published": "Fri, 30 Oct 2026 17:57:24 GMT",
+    "summary": "",
+    "id": "b2263e9f84127c76",
+    "source": "hf-blog",
+    "sourceName": "Hugging Face",
+    "category": "lab",
+    "weight": 0.6,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "EPSBench: Benchmarking LLM Agents for Earnings Forecasting",
+    "url": "https://huggingface.co/papers/2610.38293",
+    "published": "2026-10-28T01:24:11.000Z",
+    "summary": "Quarterly earnings forecasting requires an agent to connect financial evidence to the income-statement line items that produce a company's reported earnings. We introduce EPSBench, a benchmark for studying this ability across 149 firm-quarters from 86 US companies. Agents read a fixed collection of filings, earnings-call transcripts, and news, then estimate company-specific income-statement drivers with cited evidence. A shared accounting calculator converts these estimates into GAAP diluted earnings per share (EPS), providing a common basis for comparing forecast assumptions. We evaluate six ",
+    "engagement": {
+      "upvotes": 2
+    },
+    "id": "47ebc38e1dc2b569",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Weaken to Strengthen: Weakening-Induced On-Policy Self-Distillation for Large Reasoning Models",
+    "url": "https://huggingface.co/papers/2610.38681",
+    "published": "2026-10-27T20:00:00.000Z",
+    "summary": "Self-distillation offers a way to improve reasoning models when a suitable external teacher is unavailable. However, common approaches rely on privileged information to construct a stronger self-teacher, limiting their use when only unlabeled prompts are available. In this paper, we introduce Weakening-Induced On-Policy Self-Distillation (WISD), which instead constructs a weaker counterpart of the original model and uses the contrast between the two as a training signal without requiring privileged information. We explore two ways to construct the weaker model: low-bit quantization and magnitu",
+    "engagement": {
+      "upvotes": 2
+    },
+    "id": "e24c981d2eb7ec81",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Unlocking Any-Order Generation in Pretrained Autoregressive Image Models",
+    "url": "https://huggingface.co/papers/2610.39293",
+    "published": "2026-10-28T20:00:00.000Z",
+    "summary": "Autoregressive (AR) image generators are powerful in principle but inflexible in practice: training with a fixed raster-scan order hardcodes a single factorization of the image distribution into the model, leaving it unable to inpaint, outpaint, or edit at inference time. Existing solutions, including the modern discrete-diffusion family, train from scratch on a mixture of token orderings, paying roughly 3x the compute of standard raster-scan training; discrete diffusion further sacrifices compatibility with the AR inference ecosystem (KV caching, vLLM) by construction. We argue that this cost",
+    "engagement": {
+      "upvotes": 2
+    },
+    "id": "b7d877ad207ec6b3",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "dbreunig/nesformer",
+    "url": "https://simonwillison.net/2026/Oct/30/nesformer/",
+    "published": "2026-10-30T21:59:22+00:00",
+    "summary": "dbreunig/nesformer Inspired by qwenputer by Divyansh Agrawal, Drew Breunig baked a working emulator for a Nintendo Entertainment System 6502 CPU into the weights of Qwen3.5-4B. You can now play NES ROMs such as Super Mario Bros (very slowly) running inside Qwen! In a comment on Hacker News Drew reveals the Opus 5.5 prompts he used to build this system: Read this article and any relevant source code: https://divagr.com/blog/qwenputer. Then explore if you could emulate the chip and ram in a Nintendo Entertainment System (as people do today with FPGAs in MISTRs) using this technique. If so, what ",
+    "id": "1649c5dd07045357",
+    "source": "simonw",
+    "sourceName": "Simon Willison",
+    "category": "newsletter",
+    "weight": 0.5,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Apple Intelligence is finally coming to China with iOS 27.3",
+    "url": "https://www.theverge.com/tech/1023974/apple-intelligence-china-ios-27-3",
+    "published": "2026-10-30T18:32:53-04:00",
+    "summary": "Apple will launch Apple Intelligence in China with iOS 27.3, the company announced on its Chinese newsroom website, as reported by MacRumors. The Apple Intelligence features will be available first in an iOS 27.3 beta that's set to launch on November 4th, with a full iOS 27.3 release scheduled for December. This launch doesn't bring [&#8230;]",
+    "id": "011fdc062b2b84be",
+    "source": "verge-ai",
+    "sourceName": "The Verge",
+    "category": "media",
+    "weight": 0.45,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Sam Altman says it’s better for RAM to be in a data center than on your desk",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1023820/sam-altman-ram-shortage-cloud-servers",
+    "published": "2026-10-30T16:48:43-04:00",
+    "summary": "Asked about supply chain shortages, like the ongoing RAM shortage, OpenAI CEO Sam Altman said in an interview that it's \"terrible\" to have RAM in personal PCs instead of data centers. During his appearance on the Cheeky Pint podcast, where he also commented on AI's impact on math, Altman said: \"A lot of people want [&#8230;]",
+    "id": "e6a83342c0c51d1e",
+    "source": "verge-ai",
+    "sourceName": "The Verge",
+    "category": "media",
+    "weight": 0.45,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "The biggest names in AI are backing a new way to opt out of scraping",
+    "url": "https://www.theverge.com/tech/1023763/openai-google-microsoft-ai-scraping-standard-opt-out",
+    "published": "2026-10-30T16:26:10-04:00",
+    "summary": "OpenAI, Google, Microsoft, and Anthropic say they will adopt a new standard that publishers can use to opt out of being scraped by AI, as reported earlier by Search Engine Roundtable. With this control, publishers can apply their AI training preferences across multiple AI companies, instead of setting them individually. The shared \"policy token\" signal [&#8230;]",
+    "id": "25a528e218b1080c",
+    "source": "verge-ai",
+    "sourceName": "The Verge",
+    "category": "media",
+    "weight": 0.45,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Google&#8217;s satellite AI server transmits its first response to Earth",
+    "url": "https://www.theverge.com/tech/1023528/google-project-suncatcher-ai-satellite-transmission",
+    "published": "2026-10-30T14:21:38-04:00",
+    "summary": "Google's AI chip-equipped satellite has generated its first response from space. In a blog post on Friday, Google says it successfully booted up the satellite's Tensor Processing Units (TPUs), allowing the on-board Gemma 4 model to follow through on a prompt to create a haiku about being in space: Blue marble below Data streams in [&#8230;]",
+    "id": "c4dbacf8aa2b8b7f",
+    "source": "verge-ai",
+    "sourceName": "The Verge",
+    "category": "media",
+    "weight": 0.45,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Starbucks wants to use AI to show you a ‘personalized digital menu’ at the drive-thru",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1023440/starbucks-ai-personalized-menu-drive-thru",
+    "published": "2026-10-30T13:38:04-04:00",
+    "summary": "Starbucks could eventually show you a personalized digital menu when you pull up to the drive-thru. During an earnings call on Thursday, Starbucks CEO Brian Niccol said the company is going to explore \"experiences that recognize participating customers as they arrive, present personalized digital menus, and make payment more effortless,\" as spotted earlier by More [&#8230;]",
+    "id": "0de3f9697e499aed",
+    "source": "verge-ai",
+    "sourceName": "The Verge",
+    "category": "media",
+    "weight": 0.45,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Spooky New Infostealer Malware Uses AI to ‘Autodox’ Victims",
+    "url": "https://www.wired.com/story/kernel-panic-volta-autodoxer-ai-infostealer-malware/",
+    "thumbnail": {
+      "url": "https://media.wired.com/photos/6ae4e9f503c2c36f4cfc913c/master/pass/KernelPanic_10312026_v1.jpg",
+      "sourceUrl": "https://www.wired.com/story/kernel-panic-volta-autodoxer-ai-infostealer-malware/",
+      "credit": "Lily Hay Newman, Matt Burgess",
+      "alt": "",
+      "provenance": "feed"
+    },
+    "published": "Sat, 31 Oct 2026 12:00:00 +0000",
+    "summary": "Named “Volta-Autodoxer,” the recently uncovered malware uses AI tools to collect troves of data about victims, from login credentials and credit card numbers to Discord sessions and UberEats receipts.",
+    "id": "bc2326c848ae38f0",
+    "source": "wired-ai",
+    "sourceName": "WIRED",
+    "category": "media",
+    "weight": 0.45,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Meta’s Muse Could Upend All Kinds of Businesses. It Hasn’t Yet",
+    "url": "https://www.wired.com/story/metas-muse-could-upend-all-kinds-of-businesses-it-hasnt-yet/",
+    "thumbnail": {
+      "url": "https://media.wired.com/photos/6ae513e3393ae92e17e66a04/master/pass/Business_Everyone%E2%80%99s%20Questioning%20Meta%E2%80%99s%20Hype%20About%20Muse%20Meta%20Says%20Muse%20Is%20Already%20a%20Big%20Shopper_v1.jpg",
+      "sourceUrl": "https://www.wired.com/story/metas-muse-could-upend-all-kinds-of-businesses-it-hasnt-yet/",
+      "credit": "Paresh Dave",
+      "alt": "",
+      "provenance": "feed"
+    },
+    "published": "Sat, 31 Oct 2026 10:30:00 +0000",
+    "summary": "Companies have spent the past several weeks trying to reassure investors that Muse and other AI agents pose more of an opportunity than a threat.",
+    "id": "2ec3abacf294146d",
+    "source": "wired-ai",
+    "sourceName": "WIRED",
+    "category": "media",
+    "weight": 0.45,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "An AI Agent Injected Drugs Into a Live Mouse’s Brain",
+    "url": "https://www.wired.com/story/an-ai-agent-did-brain-surgery-on-live-mouse/",
+    "thumbnail": {
+      "url": "https://media.wired.com/photos/6ae4d6bbd55a0e2bc0a8d990/master/pass/103026-AI%20Mouse%2002.jpg",
+      "sourceUrl": "https://www.wired.com/story/an-ai-agent-did-brain-surgery-on-live-mouse/",
+      "credit": "Emily Mullin",
+      "alt": "",
+      "provenance": "feed"
+    },
+    "published": "Sat, 31 Oct 2026 10:00:00 +0000",
+    "summary": "A biotech startup let an agent choose a gene therapy and successfully inject the treatment, offering a startling glimpse of the future of research labs.",
+    "id": "44be6d9cd9ecf4d0",
+    "source": "wired-ai",
+    "sourceName": "WIRED",
+    "category": "media",
+    "weight": 0.45,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "How a Contractor’s Claude Agent Got Into the Pentagon",
+    "url": "https://www.wired.com/story/uncanny-valley-podcast-how-a-contractors-claude-agent-got-into-the-pentagon/",
+    "thumbnail": {
+      "url": "https://media.wired.com/photos/6ae29474af20331957eab922/master/pass/business-Uncanny-Valley-anthropic-ipo.jpg",
+      "sourceUrl": "https://www.wired.com/story/uncanny-valley-podcast-how-a-contractors-claude-agent-got-into-the-pentagon/",
+      "credit": "Brian Barrett, Zoë Schiffer, Leah Feiger",
+      "alt": "",
+      "provenance": "feed"
+    },
+    "published": "Fri, 30 Oct 2026 21:19:26 +0000",
+    "summary": "This week on Uncanny Valley, we also discuss Anthropic’s IPO filing and the volunteers gearing up to counter ICE at the midterms.",
+    "id": "a7904f9e100d0cfb",
+    "source": "wired-ai",
+    "sourceName": "WIRED",
+    "category": "media",
+    "weight": 0.45,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Agents Prompt People: Using Agents for Long-Horizon Financial Work",
+    "url": "https://latent.space/p/arca/",
+    "thumbnail": {
+      "url": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/23b0d4d4-a114-4491-bfb4-7b14f5c6adb8/arca-feature.png?t=1793122840",
+      "sourceUrl": "https://latent.space/p/arca/",
+      "credit": "Richard MacManus",
+      "alt": "",
+      "provenance": "feed"
+    },
+    "published": "Sat, 31 Oct 2026 16:05:00 GMT",
+    "summary": "Arca's head of AI discusses persistent memory, the benefits of a custom harness, and agentic workflows that span days.",
+    "id": "9350ae34d964b422",
+    "source": "latent-space",
+    "sourceName": "Latent Space",
+    "category": "media",
+    "weight": 0.5,
+    "format": "podcast",
+    "trendOnly": false
+  },
+  {
+    "title": "Using Agents for Long-Horizon Financial Work — Aman Singh, Arca",
+    "url": "https://latent.space/p/using_agents_for_long-horizon_financial_work_aman_singh_arca/",
+    "thumbnail": {
+      "url": "https://i.ytimg.com/vi/KM3VQZKjpiY/maxresdefault.jpg",
+      "sourceUrl": "https://latent.space/p/using_agents_for_long-horizon_financial_work_aman_singh_arca/",
+      "credit": "Latent.Space",
+      "alt": "",
+      "provenance": "feed"
+    },
+    "published": "Sat, 31 Oct 2026 16:00:00 GMT",
+    "summary": "Arca head of AI Aman Singh joins Latent Space head of editorial Richard MacManus at AI Engineer New York, to discuss how Arca is building an AI-native wealth management firm. Singh explains Arca's architecture, which includes a custom harness and persi...",
+    "id": "7a04085ea38de003",
+    "source": "latent-space",
+    "sourceName": "Latent Space",
+    "category": "media",
+    "weight": 0.5,
+    "format": "podcast",
+    "trendOnly": false
+  },
+  {
+    "title": "[AINews] Google admits AI Mode hurts Search revenue; -15% $500B drop worst since 2004 IPO. AI Bear Market coming?",
+    "url": "https://latent.space/p/ainews-google-admits-ai-mode-hurts-search-revenue-15-500b-drop-worst-since-2004-ipo-ai-bear-market-c/",
+    "thumbnail": {
+      "url": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/f13715b2-ed2d-4a14-bbf6-85f184b4b202/SCR-20261030-svzc.png?t=1793423031",
+      "sourceUrl": "https://latent.space/p/ainews-google-admits-ai-mode-hurts-search-revenue-15-500b-drop-worst-since-2004-ipo-ai-bear-market-c/",
+      "credit": "swyx .ai",
+      "alt": "",
+      "provenance": "feed"
+    },
+    "published": "Sat, 31 Oct 2026 05:00:48 GMT",
+    "summary": "It turns out you cannot have your cake AND eat it",
+    "id": "3d38f84a4091d337",
+    "source": "latent-space",
+    "sourceName": "Latent Space",
+    "category": "media",
+    "weight": 0.5,
+    "format": "podcast",
+    "trendOnly": false
+  },
+  {
+    "title": "Cisco gives engineer unlimited AI tokens to rewrite legacy code",
+    "url": "https://fortune.com/2026/10/30/cisco-president-jeetu-patel-gen-z-27-year-old-unlimited-ai-tokens-rewrite-legacy-code-entry-level-jobs/",
+    "discussion": "https://news.ycombinator.com/item?id=50304122",
+    "published": "2026-10-30T14:08:20Z",
+    "summary": "",
+    "engagement": {
+      "points": 251,
+      "comments": 294
+    },
+    "id": "5d1e722469ff2de9",
+    "source": "hn",
+    "sourceName": "Hacker News",
+    "category": "community",
+    "weight": 0.35,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "We Took over ChatGPT Accounts",
+    "url": "https://www.parameter.ai/labs/we-found-a-gap-at-openai",
+    "discussion": "https://news.ycombinator.com/item?id=50314699",
+    "published": "2026-10-31T10:30:11Z",
+    "summary": "",
+    "engagement": {
+      "points": 177,
+      "comments": 85
+    },
+    "id": "381223935ae368b9",
+    "source": "hn",
+    "sourceName": "Hacker News",
+    "category": "community",
+    "weight": 0.35,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "AI, Lean, and the Future of Formal Verification, with Lean Creator Leo de Moura",
+    "url": "https://thedataexchange.media/leo-de-moura-lean-aws/",
+    "discussion": "https://news.ycombinator.com/item?id=50290652",
+    "published": "2026-10-29T15:29:48Z",
+    "summary": "",
+    "engagement": {
+      "points": 121,
+      "comments": 29
+    },
+    "id": "54a7e21cbe6d5ade",
+    "source": "hn",
+    "sourceName": "Hacker News",
+    "category": "community",
+    "weight": 0.35,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Malware uses LLMs to rank victims by how much they're worth",
+    "url": "https://blog.talosintelligence.com/appraisal-by-ai-model-driven-victim-prioritization-in-the-volta-infostealer/",
+    "discussion": "https://news.ycombinator.com/item?id=50316531",
+    "published": "2026-10-31T14:29:03Z",
+    "summary": "",
+    "engagement": {
+      "points": 16,
+      "comments": 0
+    },
+    "id": "5be14df72cefaec0",
+    "source": "hn",
+    "sourceName": "Hacker News",
+    "category": "community",
+    "weight": 0.35,
+    "format": "article",
+    "trendOnly": false
+  }
+]

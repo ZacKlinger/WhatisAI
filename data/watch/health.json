@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-30",
+  "date": "2026-10-31",
   "sources": {
     "anthropic-news": {
       "ok": true,
@@ -11,7 +11,7 @@
     },
     "openai": {
       "ok": true,
-      "count": 1339
+      "count": 1341
     },
     "deepmind": {
       "ok": true,
@@ -35,11 +35,11 @@
     },
     "arxiv-cl": {
       "ok": true,
-      "count": 279
+      "count": 0
     },
     "arxiv-lg": {
       "ok": true,
-      "count": 608
+      "count": 0
     },
     "arxiv-ai": {
       "ok": true,
@@ -111,7 +111,7 @@
     },
     "hn": {
       "ok": true,
-      "count": 4
+      "count": 5
     }
   }
 }

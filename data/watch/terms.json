@@ -124,5 +124,20 @@
     "EU AI Act": 1,
     "__items": 1156,
     "__observed": true
+  },
+  "2026-10-31": {
+    "Robotics": 1,
+    "Copyright and data": 1,
+    "Agents": 6,
+    "Evaluations": 1,
+    "Reasoning models": 1,
+    "Open-weight models": 1,
+    "Chips and compute": 2,
+    "China and AI": 1,
+    "Model releases": 1,
+    "Data centers and energy": 1,
+    "State AI laws": 1,
+    "__items": 23,
+    "__observed": true
   }
 }
