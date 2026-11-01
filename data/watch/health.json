@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-31",
+  "date": "2026-11-01",
   "sources": {
     "anthropic-news": {
       "ok": true,
@@ -43,7 +43,7 @@
     },
     "arxiv-ai": {
       "ok": true,
-      "count": 605
+      "count": 0
     },
     "metr": {
       "ok": true,
@@ -111,7 +111,7 @@
     },
     "hn": {
       "ok": true,
-      "count": 5
+      "count": 3
     }
   }
 }

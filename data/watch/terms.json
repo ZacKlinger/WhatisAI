@@ -139,5 +139,11 @@
     "State AI laws": 1,
     "__items": 23,
     "__observed": true
+  },
+  "2026-11-01": {
+    "Agents": 2,
+    "Model releases": 1,
+    "__items": 8,
+    "__observed": true
   }
 }
