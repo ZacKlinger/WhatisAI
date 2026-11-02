@@ -1,12 +1,12 @@
 {
-  "updated": "2026-11-01",
+  "updated": "2026-11-02",
   "windowDays": 7,
   "baselineDays": 28,
-  "daysOfHistory": 7,
+  "daysOfHistory": 8,
   "recentObservedDays": 7,
-  "baselineObservedDays": 0,
+  "baselineObservedDays": 1,
   "comparisonReady": false,
-  "itemsLastWeek": 2624,
+  "itemsLastWeek": 3201,
   "rising": [],
   "volume": [
     {
@@ -14,12 +14,11 @@
       "modules": [
         "agents-and-tools"
       ],
-      "recent": 551,
-      "base": 0,
-      "share": 0.20998475609756098,
+      "recent": 673,
+      "base": 20,
+      "share": 0.21024679787566386,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -46,7 +45,8 @@
         15,
         224,
         6,
-        2
+        2,
+        142
       ]
     },
     {
@@ -55,12 +55,11 @@
         "benchmarks",
         "evaluation-science"
       ],
-      "recent": 478,
-      "base": 0,
-      "share": 0.18216463414634146,
+      "recent": 572,
+      "base": 14,
+      "share": 0.17869415807560138,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -87,7 +86,8 @@
         9,
         204,
         1,
-        0
+        0,
+        108
       ]
     },
     {
@@ -95,12 +95,11 @@
       "modules": [
         "multimodality"
       ],
-      "recent": 272,
-      "base": 0,
-      "share": 0.10365853658536585,
+      "recent": 315,
+      "base": 6,
+      "share": 0.09840674789128398,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -127,88 +126,8 @@
         6,
         113,
         0,
-        0
-      ]
-    },
-    {
-      "term": "Robotics",
-      "modules": [
-        "multimodality"
-      ],
-      "recent": 109,
-      "base": 0,
-      "share": 0.041539634146341466,
-      "lift": null,
-      "series": [
         0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        8,
-        5,
-        46,
-        3,
-        46,
-        1,
-        0
-      ]
-    },
-    {
-      "term": "Alignment",
-      "modules": [
-        "alignment-problem",
-        "deception-and-scheming"
-      ],
-      "recent": 105,
-      "base": 0,
-      "share": 0.040015243902439025,
-      "lift": null,
-      "series": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        2,
-        29,
-        25,
-        2,
-        47,
-        0,
-        0
+        49
       ]
     },
     {
@@ -216,12 +135,11 @@
       "modules": [
         "measuring-progress"
       ],
-      "recent": 98,
-      "base": 0,
-      "share": 0.037347560975609755,
+      "recent": 137,
+      "base": 2,
+      "share": 0.04279912527335208,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -248,7 +166,89 @@
         0,
         49,
         0,
-        0
+        0,
+        41
+      ]
+    },
+    {
+      "term": "Robotics",
+      "modules": [
+        "multimodality"
+      ],
+      "recent": 125,
+      "base": 8,
+      "share": 0.03905029678225554,
+      "lift": null,
+      "series": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        8,
+        5,
+        46,
+        3,
+        46,
+        1,
+        0,
+        24
+      ]
+    },
+    {
+      "term": "Alignment",
+      "modules": [
+        "alignment-problem",
+        "deception-and-scheming"
+      ],
+      "recent": 122,
+      "base": 2,
+      "share": 0.03811308965948141,
+      "lift": null,
+      "series": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        29,
+        25,
+        2,
+        47,
+        0,
+        0,
+        19
       ]
     },
     {
@@ -256,12 +256,11 @@
       "modules": [
         "ai-supply-chain"
       ],
-      "recent": 88,
-      "base": 0,
-      "share": 0.03353658536585366,
+      "recent": 99,
+      "base": 1,
+      "share": 0.030927835051546393,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -288,7 +287,49 @@
         3,
         26,
         1,
-        0
+        0,
+        12
+      ]
+    },
+    {
+      "term": "Interpretability",
+      "modules": [
+        "interpretability-foundations",
+        "sparse-autoencoders"
+      ],
+      "recent": 93,
+      "base": 1,
+      "share": 0.029053420805998126,
+      "lift": null,
+      "series": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        8,
+        25,
+        0,
+        36,
+        0,
+        0,
+        24
       ]
     },
     {
@@ -296,12 +337,11 @@
       "modules": [
         "system-cards"
       ],
-      "recent": 73,
-      "base": 0,
-      "share": 0.027820121951219513,
+      "recent": 91,
+      "base": 2,
+      "share": 0.028428616057482037,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -328,7 +368,8 @@
         6,
         21,
         1,
-        1
+        1,
+        20
       ]
     },
     {
@@ -336,12 +377,11 @@
       "modules": [
         "us-ai-policy"
       ],
-      "recent": 71,
+      "recent": 89,
       "base": 0,
-      "share": 0.027057926829268292,
+      "share": 0.027803811308965948,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -368,89 +408,8 @@
         1,
         36,
         0,
-        0
-      ]
-    },
-    {
-      "term": "Interpretability",
-      "modules": [
-        "interpretability-foundations",
-        "sparse-autoencoders"
-      ],
-      "recent": 70,
-      "base": 0,
-      "share": 0.026676829268292682,
-      "lift": null,
-      "series": [
         0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        8,
-        25,
-        0,
-        36,
-        0,
-        0
-      ]
-    },
-    {
-      "term": "Coding assistants",
-      "modules": [
-        "agents-and-tools",
-        "evidence-on-work"
-      ],
-      "recent": 64,
-      "base": 0,
-      "share": 0.024390243902439025,
-      "lift": null,
-      "series": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        8,
-        26,
-        2,
-        27,
-        0,
-        0
+        18
       ]
     },
     {
@@ -458,12 +417,11 @@
       "modules": [
         "dangerous-capabilities"
       ],
-      "recent": 64,
-      "base": 0,
-      "share": 0.024390243902439025,
+      "recent": 81,
+      "base": 1,
+      "share": 0.02530459231490159,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -490,7 +448,8 @@
         0,
         35,
         0,
-        0
+        0,
+        18
       ]
     },
     {
@@ -499,12 +458,11 @@
         "data",
         "governance-landscape"
       ],
-      "recent": 63,
-      "base": 0,
-      "share": 0.024009146341463415,
+      "recent": 80,
+      "base": 1,
+      "share": 0.02499218994064355,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -531,18 +489,19 @@
         1,
         27,
         1,
-        0
+        0,
+        18
       ]
     },
     {
-      "term": "Chips and compute",
+      "term": "Coding assistants",
       "modules": [
-        "compute",
-        "ai-supply-chain"
+        "agents-and-tools",
+        "evidence-on-work"
       ],
-      "recent": 49,
-      "base": 0,
-      "share": 0.018673780487804877,
+      "recent": 73,
+      "base": 1,
+      "share": 0.02280537332083724,
       "lift": null,
       "series": [
         0,
@@ -565,14 +524,54 @@
         0,
         0,
         0,
+        1,
+        8,
+        26,
+        2,
+        27,
         0,
-        2,
-        4,
-        15,
-        2,
-        24,
-        2,
-        0
+        0,
+        10
+      ]
+    },
+    {
+      "term": "Reasoning models",
+      "modules": [
+        "reasoning-models"
+      ],
+      "recent": 63,
+      "base": 1,
+      "share": 0.019681349578256794,
+      "lift": null,
+      "series": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        17,
+        10,
+        1,
+        16,
+        1,
+        0,
+        18
       ]
     }
   ],
@@ -593,7 +592,7 @@
       "id": "openai",
       "name": "OpenAI",
       "ok": true,
-      "count": 1341
+      "count": 1344
     },
     {
       "id": "deepmind",
@@ -629,19 +628,19 @@
       "id": "arxiv-cl",
       "name": "arXiv cs.CL",
       "ok": true,
-      "count": 0
+      "count": 138
     },
     {
       "id": "arxiv-lg",
       "name": "arXiv cs.LG",
       "ok": true,
-      "count": 0
+      "count": 337
     },
     {
       "id": "arxiv-ai",
       "name": "arXiv cs.AI",
       "ok": true,
-      "count": 0
+      "count": 297
     },
     {
       "id": "metr",
@@ -689,7 +688,7 @@
       "id": "nist",
       "name": "NIST",
       "ok": true,
-      "count": 8
+      "count": 7
     },
     {
       "id": "nber",
@@ -743,7 +742,7 @@
       "id": "hn",
       "name": "Hacker News",
       "ok": true,
-      "count": 3
+      "count": 5
     }
   ]
 }

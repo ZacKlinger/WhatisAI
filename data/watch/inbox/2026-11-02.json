@@ -1,0 +1,998 @@
+[
+  {
+    "title": "Introducing the Grid Protectors Program",
+    "url": "https://openai.com/index/grid-protectors-program",
+    "published": "Mon, 02 Nov 2026 15:00:00 GMT",
+    "summary": "OpenAI’s Grid Protectors Program will work with utilities to help future compute campuses support grid reliability and protect consumer electricity costs.",
+    "id": "19244c7aa2063fd3",
+    "source": "openai",
+    "sourceName": "OpenAI",
+    "category": "lab",
+    "weight": 1,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "LifeVal",
+    "url": "https://openai.com/index/lifeval",
+    "published": "Mon, 02 Nov 2026 09:00:00 GMT",
+    "summary": "Introducing LifeVal, a benchmark measuring how well AI helps people complete everyday tasks, from finding childcare to managing finances and government paperwork.",
+    "id": "ed4b58253682640f",
+    "source": "openai",
+    "sourceName": "OpenAI",
+    "category": "lab",
+    "weight": 1,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Qodo builds context into AI code review with Codex",
+    "url": "https://openai.com/index/qodo-codex-plugin",
+    "published": "Mon, 02 Nov 2026 00:00:00 GMT",
+    "summary": "Qodo brings company knowledge and coding standards into Codex, helping developers catch P0 issues across repositories before opening a pull request.",
+    "id": "598c6194c0d34c23",
+    "source": "openai",
+    "sourceName": "OpenAI",
+    "category": "lab",
+    "weight": 1,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Speeding up planning decisions with AI",
+    "url": "https://deepmind.google/blog/speeding-up-planning-decisions-with-ai/",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/AnSfPLyNIwSu1XsT_WUP3aYfQrc9jo8lwlotms7NmryT7RhWXnwdF4_zzYBMlJOcNT1U_ZbDMCM7AzpnFDPeYKJDardybJGlm447xeEXo1eQqgjCEg=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/speeding-up-planning-decisions-with-ai/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    },
+    "published": "Fri, 30 Oct 2026 14:18:30 +0000",
+    "summary": "Google DeepMind and UK government work together to reduce planning assessment times",
+    "id": "094c331a98fae894",
+    "source": "deepmind",
+    "sourceName": "Google DeepMind",
+    "category": "lab",
+    "weight": 0.95,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "The latest AI news we announced in October 2026",
+    "url": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-october-2026/",
+    "thumbnail": {
+      "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Oct_AI_Recap_social.max-600x600.format-webp.webp",
+      "sourceUrl": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-october-2026/",
+      "credit": "Blog Team",
+      "alt": "",
+      "provenance": "feed"
+    },
+    "published": "Mon, 02 Nov 2026 17:45:00 +0000",
+    "summary": "Here are Google’s latest AI updates from October 2026",
+    "id": "b810030289ed799f",
+    "source": "google-ai",
+    "sourceName": "Google AI",
+    "category": "lab",
+    "weight": 0.8,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "SOMA: A Benchmark for Fine-Grained Egocentric Behavior and Body-Motion Understanding",
+    "url": "https://huggingface.co/papers/2610.36384",
+    "published": "2026-10-25T20:00:00.000Z",
+    "summary": "Perceiving human body motion is critical for multimodal systems that understand and assist people. Yet current evaluations of Multimodal Large Language Models (MLLMs) largely focus on objects, scenes, and coarse actions, leaving their ability to reason about the body itself poorly assessed. This is especially challenging from the egocentric perspective, in which the body is only partially visible and motion must be inferred from occluded and temporally distributed cues. We introduce SOMA, a benchmark for fine-grained body-motion understanding from egocentric video, comprising 1,632 human-verif",
+    "engagement": {
+      "upvotes": 4
+    },
+    "id": "f57b1dbee87ff734",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "GEPA-Curator: Curated Learning for Self Improving Agents",
+    "url": "https://huggingface.co/papers/2610.37651",
+    "published": "2026-10-26T20:00:00.000Z",
+    "summary": "Large Language Models (LLMs) are increasingly used in multi-turn agentic workloads that require sustained interaction with complex environments. Existing reflective prompt optimizers such as GEPA learn from failed rollouts, but agentic failures can also come from prompt weaknesses, harness limitations, stochastic execution, or noisy judges. We argue that such failures may not provide useful learning signal, and may even be harmful; and thus it is essential to curate which tasks are provided to the prompt optimizer for better performance. We introduce GEPA-Curator, a framework that augments the",
+    "engagement": {
+      "upvotes": 2
+    },
+    "id": "0ab17d3655febf39",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "AuditFL: A Contract-Backed Clearing Layer for Open Federated Learning",
+    "url": "https://huggingface.co/papers/2610.41278",
+    "published": "2026-10-29T20:00:00.000Z",
+    "summary": "Federated learning (FL) keeps raw data local, but most deployments still rely on a trusted coordinator for client admission, checkpoint distribution, update collection, aggregation, and rewards. This paper presents AuditFL, a contract-backed clearing layer for auditable FL in open settings. AuditFL keeps training and aggregation off chain, stores model artifacts in an assumed reliable off-chain artifact store, and records only content identifiers and economic state on chain. Clients reserve update tickets with deposits, publish update identifiers, and later claim refunds or rewards; the task c",
+    "engagement": {
+      "upvotes": 1
+    },
+    "id": "f13338e734c40804",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Follow the Gradient: Tracing Safety Degradation Back to Training Data",
+    "url": "https://huggingface.co/papers/2610.37481",
+    "published": "2026-10-26T20:00:00.000Z",
+    "summary": "Fine-tuning Large Language Models (LLMs) on instruction data can quietly erode their safety, even when no training example looks harmful. Because this safety-degrading data looks benign, standard content filters struggle to catch it. We tackle this problem by developing SimpleLoRIF, a scalable gradient embedding method that identifies fine-tuning examples whose gradients align with unsafe behavior. By simplifying a low-rank attribution method and restricting backpropagation to the final four transformer blocks, SimpleLoRIF can embed datasets on the order of a million examples, boosting gradien",
+    "engagement": {
+      "upvotes": 21
+    },
+    "id": "92d72bc56ae65413",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "rTaste: Do Research Agents Have Taste? Evaluating Early Stage Research Judgment",
+    "url": "https://huggingface.co/papers/2610.40488",
+    "published": "2026-10-29T13:15:53.000Z",
+    "summary": "Do research agents have taste, the judgment of which experiments are worth running before their outcomes are known? We give six frontier models seven recent NLP papers. Each model, working as a research agent alone or as a team, proposes minimum viable experiments (MVEs), forecasts whether each will pass a threshold it sets and ranks them. A separate executor then attempts every MVE, including those ranked last, and three model auditors judge the results. Of 415 MVEs, 194 are judged sound, valuable and new, but fewer than half of these (73) are also judged beyond the seed paper and non obvious",
+    "engagement": {
+      "upvotes": 2
+    },
+    "id": "cad45e618f3d89d1",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "OSWAM: An Effective World Action Model with One-Step Action Generation",
+    "url": "https://huggingface.co/papers/2610.35850",
+    "published": "2026-10-25T20:00:00.000Z",
+    "summary": "Direct-policy World Action Models (WAM) have demonstrated the benefits of decoupling action generation from explicit future visual prediction for efficient inference in autonomous driving and embodied control. However, they still require tens of denoising steps to achieve competitive action quality, incurring substantial latency and hindering real-time deployment. Simply reducing the number of denoising steps will collapse the nonlinear multi-step denoising trajectory into coarse updates, substantially degrading action quality. To reduce the denoising steps while enabling real-time action gene",
+    "engagement": {
+      "upvotes": 23
+    },
+    "id": "eb44dd639d4f5ddd",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Think Twice: The Metis-1.6 Technical Report",
+    "url": "https://huggingface.co/papers/2610.37903",
+    "published": "2026-10-26T20:00:00.000Z",
+    "summary": "Metis is a bet that better data, better training methods and new architectures can buy what a bigger parameter count cannot, at a fraction of the cost. Metis-1.6 is its latest step: two language models built from scratch by a single researcher, Praxis (2.94B parameters, 0.46B active per pass) and Logos (10.23B parameters, 1.18B active per pass). Both run a hybrid Mamba-2 and attention mixture-of-experts stack twice for every token, so each token gets a second look. Each was trained on 1.02T tokens in total: 804.76B of pretraining, 18B of context extension to 131,072 tokens, and 200B of supervi",
+    "engagement": {
+      "upvotes": 3
+    },
+    "id": "44c9a2fc6c040e18",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "TurnTurk-GPT: Text-Based Turn-Taking Prediction for Turkish",
+    "url": "https://huggingface.co/papers/2610.42010",
+    "published": "2026-10-29T20:00:00.000Z",
+    "summary": "This paper presents TurnTurk-GPT, a text-based turn-taking predictor for Turkish obtained by fine-tuning a Turkish GPT-2 model with the TurnGPT objective on synthetic and real dialogue, and evaluates it on real Turkish conversation against rule baselines, a zero-shot Turkish language model and a widely used multilingual end-of-turn detector. Evaluation uses word-level decision points on unpunctuated, lower-cased text approximating the output of streaming speech recognisers, recording-disjoint and speaker-disjoint folds, nested threshold selection and paired cluster bootstrap tests. TurnTurk-GP",
+    "engagement": {
+      "upvotes": 0
+    },
+    "id": "09ae9ccd31717e22",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "When Requirements Interact: Scaling Long-Horizon Coding via Interdependent Specifications",
+    "url": "https://huggingface.co/papers/2610.40256",
+    "published": "2026-10-28T20:00:00.000Z",
+    "summary": "To succeed in real-world long-horizon software development, coding agents must satisfy multi-dimensional task specifications, such as interface compatibility and error handling, and do so without breaking existing dependencies. However, current works lack specification in both quantity and diversity, often emphasizing primary goals while ignoring complex constraints. Synthesizing tasks to bridge this gap presents two challenges: naively adding specifications risks reducing tasks to trivial checklists rather than compelling joint reasoning, and verifying these subtle interactions risks overlook",
+    "engagement": {
+      "upvotes": 7
+    },
+    "id": "8ad3be969fce747c",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Learning Quality-Controllable Robot Policies with Iterative Hindsight Relabeling",
+    "url": "https://huggingface.co/papers/2610.37393",
+    "published": "2026-10-26T20:00:00.000Z",
+    "summary": "Robot policy evaluation often relies on a binary success signal for task completion. In real-world deployment, however, desired execution behaviors are also defined by quality attributes such as execution speed and motion smoothness, which need to be dynamically controlled according to task requirements. To address this, we introduce Quality-Controllable Policy (QCP), a robot policy that enables inference-time control over both individual quality attributes and their combinations. To extend the controllable quality range beyond initial demonstrations, we further propose an iterative hindsight ",
+    "engagement": {
+      "upvotes": 6
+    },
+    "id": "eb345b73f71c4909",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Supervising the Visible State: Separating Representation from View Selection in Streaming Video",
+    "url": "https://huggingface.co/papers/2610.34926",
+    "published": "2026-10-25T20:00:00.000Z",
+    "summary": "An action seen once and the same action seen three times receive the same action-recognition label, so that supervision does not require a model to count. Answers shared across histories that differ in event order, accumulation, or relations leave those distinctions unconstrained; we call this state under-specification. Visible-State Supervision (ViSS) addresses it by training on source-grounded probes of event identity, order, accumulation, relation change, and answer sufficiency; under the same recent-frame interface it improves OVO-Bench over a strict-matched generic temporal supervision ba",
+    "engagement": {
+      "upvotes": 5
+    },
+    "id": "b0e2183967c76e1d",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Venus-DefakerOne2: A Vision-Forensics Foundation Model with Broader Coverage",
+    "url": "https://huggingface.co/papers/2610.37918",
+    "published": "2026-10-26T20:00:00.000Z",
+    "summary": "Real-world forgery is inherently heterogeneous: it manifests not only as digital manipulation but also as physical spoofing, and is carried not only by images but also by videos. Despite substantial progress, a unified anti-forgery foundation model covering such a broad threat spectrum remains absent. In this paper, we present Venus-DefakerOne2, which substantially extends the forensic capability boundary along both the forgery-form and media-type dimensions. Trained on tens of millions of open-source and in-house samples, it incorporates two key designs. Tide-Style-Tuning alternates LoRA and ",
+    "engagement": {
+      "upvotes": 20
+    },
+    "id": "804aa4226dc4ad2f",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "MemSteer: Turning User Histories into Supervision for Agent Memory Optimization",
+    "url": "https://huggingface.co/papers/2610.39276",
+    "published": "2026-10-28T23:28:49.000Z",
+    "summary": "An effective agent memory system should adapt to a user's history and task requirements. Human-annotated supervision can guide this adaptation by providing feedback for evaluating and improving memory designs. Yet suitable labels are rarely available for new user histories, and manually constructing QA pairs and supporting evidence is costly. We introduce MemSteer, which turns unlabeled user histories into question-answer (QA) supervision with supporting evidence for memory-design optimization. MemSteer constructs an evidence-grounded answer plan that specifies how facts across related records",
+    "engagement": {
+      "upvotes": 5
+    },
+    "id": "8093aa31e8381b5a",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "VoxLock: Target-Speaker Extraction for Voice Agents Without an Enrollment Step",
+    "url": "https://huggingface.co/papers/2610.40727",
+    "published": "2026-10-29T06:16:03.000Z",
+    "summary": "A voice agent's speech recognizer transcribes everyone near the microphone, including people other than the caller. I fine-tuned a public causal target-speaker extraction model (REAL-TSE, 27M parameters) on one GPU to work from a voice sample cut from the call itself, and released it as VoxLock. I score it by what a recognizer writes on real recordings. On Krisp's 265-recording benchmark it reaches 4.95% WER against 23.21% unprocessed and lets 9 background words into the transcript over 85 minutes of background-only speech. Its WER is not significantly different from Krisp's best filters and i",
+    "engagement": {
+      "upvotes": 4
+    },
+    "id": "a50855526ed49a16",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "SciGame: Let Agents Play the Scientific Discovery Games in the Real and Counterfactual World",
+    "url": "https://huggingface.co/papers/2610.37919",
+    "published": "2026-10-27T16:02:47.000Z",
+    "summary": "Large language model agents are increasingly used for scientific discovery. However, existing benchmarks mix law inference with programming, score data fitting instead of prediction on unseen inputs, and do not separate empirical evidence from pretrained priors. We introduce SciGame, a controlled benchmark that converts scientific literature into structured scientific cards. Each card yields a pair of Original and dimensionally consistent Counterfactual environments with the same task interface. SciGame contains a Historical collection of canonical laws and a live Temporal collection curated f",
+    "engagement": {
+      "upvotes": 4
+    },
+    "id": "81f317c3090387c1",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "No Channels Left Behind: Understanding Diffusion Acceleration through Residual Gates",
+    "url": "https://huggingface.co/papers/2610.40914",
+    "published": "2026-10-29T15:35:11.000Z",
+    "summary": "Training acceleration methods for diffusion transformers, such as REPA and dispersive regularization, are commonly explained by additional supervision, spatial-structure priors, or improved feature geometry. We revisit this view and uncover a striking internal change: the AdaLN-Zero residual gate α, which directly controls how conditioned updates enter the residual stream, is substantially reorganized by these methods. This observation motivates our hypothesis that acceleration arises, at least in part, from reshaping the residual gating pathway rather than solely from the feature structures e",
+    "engagement": {
+      "upvotes": 18
+    },
+    "id": "2ac65ca10a13a8cc",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "REA: A Routed Embodied Agent Runtime for Asynchronous Brain-Cerebellum Control",
+    "url": "https://huggingface.co/papers/2610.42053",
+    "published": "2026-10-30T13:18:13.000Z",
+    "summary": "Foundation models are becoming remarkably reliable at high-level reasoning, yet they remain too slow and costly to serve as fine-grained controllers. Conversely, fast policies like VLAs and whole-body controllers offer more efficient reflexes, but struggle to generalize. While pairing a deliberative brain (foundation models) with a reactive cerebellum (fast policies) seems natural for embodied systems, two obstacles remain: methods are built and scored on incompatible stacks, and their asynchronous coordination is difficult. For example, an agent that calls the VLA in the agentic loop can stal",
+    "engagement": {
+      "upvotes": 43
+    },
+    "id": "7d6ca3e8110725cf",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "GLOW-FM: Efficient Generative Low-Light Image Enhancement with One-Step Latent Flow Matching",
+    "url": "https://huggingface.co/papers/2610.31222",
+    "published": "2026-10-22T09:08:15.000Z",
+    "summary": "Low-light image enhancement (LLIE) aims to recover well-exposed and perceptually faithful images from severely degraded observations. Recent diffusion-based generative methods achieve strong perceptual quality by leveraging powerful image priors, but their iterative sampling incurs substantial computational cost, limiting practical deployment. Despite recent efficiency gains in generative LLIE, high-quality enhancement with a single function evaluation and low overall computation remains challenging, particularly under diverse real-world low-light conditions. We introduce GLOW-FM, a one-step l",
+    "engagement": {
+      "upvotes": 10
+    },
+    "id": "f43bd3517061fae7",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Latent Reasoning in Continuous Space for Unified Multimodal Models",
+    "url": "https://huggingface.co/papers/2610.42149",
+    "published": "2026-10-29T20:00:00.000Z",
+    "summary": "Unified Multimodal Models (UMMs) achieve remarkable success on diverse multimodal understanding and generation tasks, yet they still struggle to effectively leverage language-based chain-of-thought reasoning for image generation. As a result, existing reasoning-augmented UMMs often fail to inherit the test-time scaling and fine-grained controllability observed in large language models. We attribute this failure to a fundamental modality mismatch: reasoning is performed in a discrete token space, whereas image generation operates in a continuous space. To bridge this gap, we introduce a Latent ",
+    "engagement": {
+      "upvotes": 24
+    },
+    "id": "bb09e058628988a6",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "TernScope: Model-Hardware Co-Design for Efficient Ternary Endoscopic Segmentation",
+    "url": "https://huggingface.co/papers/2610.29617",
+    "published": "2026-10-21T07:56:23.000Z",
+    "summary": "Edge medical segmentation must reconcile small model size, high accuracy, and fast inference. TernScope addresses this tradeoff through model--hardware co-design, learning a compact segmentation network whose low-bit operators also simplify hardware execution. Split-channel large-kernel blocks preserve spatial context with limited computation, while branch fusion removes redundant inference paths. Ternary Progressive Quantization-aware Training (TPQ) then adapts the fused network from deep to shallow layers, through the decoder, and finally to the input and prediction layers. All 25 convolutio",
+    "engagement": {
+      "upvotes": 2
+    },
+    "id": "a7bd84543c1b0d94",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "SketchDirector: Complex Scene Sketching via Agentic Layout Reasoning and Detail Refinement",
+    "url": "https://huggingface.co/papers/2610.41260",
+    "published": "2026-10-30T01:05:12.000Z",
+    "summary": "Existing sketch generation methods often rely on image guidance and are largely limited to individual objects or simplified scenes, leaving text-guided complex scene sketching underexplored. We present SketchDirector, an agentic framework that mimics the human sketching workflow for automatic multi-concept scene sketching. Given a scene-level text prompt, SketchDirector first employs a large language model~(LLM) to decompose the scene into multiple draft assets, where each is represented by a set of Bézier curves. Then, an agentic reasoning loop iteratively plans and executes their spatial arr",
+    "engagement": {
+      "upvotes": 1
+    },
+    "id": "2f0e101584fa26ff",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "ReLift: Dense 3D Tracking as Lifted Trajectory Repair",
+    "url": "https://huggingface.co/papers/2610.42136",
+    "published": "2026-10-30T13:58:33.000Z",
+    "summary": "Dense 3D tracking from monocular video requires establishing point correspondences over time, estimating their depth, and inferring their trajectories during occlusion. Existing methods typically learn these tasks jointly, a demanding objective given the scarcity of 4D supervision. We show that strong pretrained 2D trackers and 3D geometry models provide an effective foundation: lifted trajectories, with occluded segments simply interpolated, already rival dedicated 3D trackers using the same geometry. However, lifted trajectories inherit correspondence and depth errors, and under occlusion, t",
+    "engagement": {
+      "upvotes": 21
+    },
+    "id": "cadfe6e3a5b5b970",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "HALO: Human-Grounded Granular Evaluation of Proactive Agents",
+    "url": "https://huggingface.co/papers/2610.39086",
+    "published": "2026-10-28T20:00:00.000Z",
+    "summary": "Proactive agents must decide whether, when, and how far to assist without an explicit request. Existing evaluations often rely on automated scores or binary verdicts, offering limited human diagnosis of evidence use and intervention quality. To address these gaps, we introduce HALO, Human-Grounded GrAnular EvaLuation of PrOactive Agents. HALO-Arena covers 4 proactive need types, Dependency, Blockage, Risk, and Opportunity, across 10 everyday domains and 50 personal environments. Scenarios require agents to retrieve evidence from structured databases or unstructured documents before judging whe",
+    "engagement": {
+      "upvotes": 6
+    },
+    "id": "8188e62d153589ff",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Apriel Voice 27B Preview: An Open Model for Speech, Reasoning, and Tool Use",
+    "url": "https://huggingface.co/papers/2610.40738",
+    "published": "2026-10-28T20:00:00.000Z",
+    "summary": "A capable voice assistant must do more than recognize words; it must understand requests, reason over context, sustain conversations, and act through tools. We present Apriel Voice 27B Preview, an open speech-language model that unifies these capabilities within a shared reasoning backbone while retaining text and image input modalities. Built on the post-trained Gemma 4 26B-A4B checkpoint, Apriel Voice directly processes speech and generates both responses and tool calls without requiring a separate dialogue model. We introduce a two-stage training procedure to adapt the model to speech. The ",
+    "engagement": {
+      "upvotes": 33
+    },
+    "id": "eb44481387680a8d",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Probing Spatial State Representations in Visual Foundation Models",
+    "url": "https://huggingface.co/papers/2610.40636",
+    "published": "2026-10-29T13:58:16.000Z",
+    "summary": "An observer sees only part of the surrounding world, yet must keep track of what lies beyond the current view. Spatial perception therefore involves more than recognizing individual images: it calls for a persistent spatial state that is updated under self-motion and used to guide action. Do visual foundation models provide representations that support such a state? We study this question through four levels of spatial capability---spatial structure, object persistence, predictive spatial update, and actionability---using frozen-feature probes on ten representations under streaming egocentric ",
+    "engagement": {
+      "upvotes": 15
+    },
+    "id": "b8ad57709badfd5b",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "On the Origin and Evolution of Training-Inference Mismatch in LLM Reinforcement Learning",
+    "url": "https://huggingface.co/papers/2610.40945",
+    "published": "2026-10-28T20:00:00.000Z",
+    "summary": "On-policy reinforcement learning for large language models assumes that training responses are sampled from the current policy. In practice, an inference engine samples the responses and a separate trainer computes the gradients, and the training-inference mismatch between the two makes the training data off-policy. The mismatch has two sources, the numerics of the engine and the stale weights of asynchronous sampling, and a correction that stabilizes training under one source can fail under the other. We ask which property of a mismatch source decides the correction it needs. Evaluating the t",
+    "engagement": {
+      "upvotes": 8
+    },
+    "id": "9d39a70532241632",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "CaPtain: A Pipeline for Post-Training Code-as-Policy Robot Agents",
+    "url": "https://huggingface.co/papers/2610.40799",
+    "published": "2026-10-28T20:00:00.000Z",
+    "summary": "Across coding, web, and tool-use tasks, language-model agents are now routinely trained with the same recipe: supervised fine-tuning (SFT) to learn the interface, then multi-turn reinforcement learning (RL) to master it. Code-as-policy (CaP) casts robot manipulation in the same form, as the policy writes code against robot APIs and reads back the results, so the same recipe should apply. Yet existing CaP agents sidestep training: they either prompt closed frontier models or delegate manipulation to pre-trained vision-language-action models (VLAs) and high-level skills, while small open vision-",
+    "engagement": {
+      "upvotes": 18
+    },
+    "id": "97605e4207d463d1",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "RoboArchitect: Automating the Design of Robotic Agents with Persistent Memory",
+    "url": "https://huggingface.co/papers/2610.42141",
+    "published": "2026-10-29T20:00:00.000Z",
+    "summary": "Recent work shows that a frozen robot policy performs far better inside an agent harness, where control code decides when to query the policy, consult vision tools, or command the arm directly. Yet today these harnesses are built by hand and redesigned for each new robot or benchmark. We show that harness design can be automated, offering a strong alternative to finetuning on a novel setup. In RoboArchitect, a coding model observes a robot's rollouts, diagnoses failures, and iteratively revises the harness around the frozen policy. The harness evolves on a set of episodes for its optimization ",
+    "engagement": {
+      "upvotes": 5
+    },
+    "id": "6a41f69c8ae7dde5",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "CausalWAM: Learning the Causes of Actions in World Action Models",
+    "url": "https://huggingface.co/papers/2610.42096",
+    "published": "2026-10-29T20:00:00.000Z",
+    "summary": "World action models (WAMs) learn latent variables from observations and use these to both predict the evolution of the scene and to generate actions. The prediction has to be of the whole scene, whereas only a portion of the scene causes actions. WAMs fitted to demonstrations do not, in general, guarantee that they will generate actions solely from the latent causes of the demonstrated actions (the action-relevant latent variables), as the model could just as well learn to imitate in this way whilst entangling the action-relevant latent variables with the nuisance variables. We therefore separ",
+    "engagement": {
+      "upvotes": 3
+    },
+    "id": "4856767ee933b55f",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "WeFair: Fidelity-Aware Alignment from Human Feedback for Personalized Query Rewriting in Short-Video Search",
+    "url": "https://huggingface.co/papers/2610.16927",
+    "published": "2026-10-29T20:00:00.000Z",
+    "summary": "Short-video search needs compact query rewriters that recover users' personalized intent from ambiguous queries under strict latency constraints. Existing LLM-based methods have improved rewriting by using synthetic reasoning and subsequent consumption-behavioral feedback. However, overemphasizing subsequent consumption can favor engaging content over the user's immediate need, causing intent drift even when rewritten queries are grounded in behavioral history. We propose WeFair, Fidelity-Aware Alignment from Human Feedback for Personalized Query Rewriting in WeChat short-video search. WeFair ",
+    "engagement": {
+      "upvotes": 26
+    },
+    "id": "b6f2a6fc6b2e5f64",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "FrameForge: Harnessing Priors of Video Foundation Models for Unified Image Generation",
+    "url": "https://huggingface.co/papers/2610.36545",
+    "published": "2026-10-26T20:00:00.000Z",
+    "summary": "Unified conditional image generation requires a single model to preserve different aspects of a visual input while producing a target image that follows textual guidance. Pretrained video models provide a promising foundation by encoding visual transformations across time, yet existing approaches typically assign the condition and target to fixed temporal positions. We observe that condition-target relationships vary substantially across generation tasks, while video models naturally encode visual transformations at different temporal scales. This motivates us to model conditional generation t",
+    "engagement": {
+      "upvotes": 111
+    },
+    "id": "d001b346efa78784",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "CEPO: A General Framework for Improving Prompt Optimization in Multi-Agent Systems",
+    "url": "https://huggingface.co/papers/2610.34722",
+    "published": "2026-10-25T20:00:00.000Z",
+    "summary": "Multi-agent systems (MAS) require both effective coordination and specialized task execution. Existing prompt optimization approaches typically couple these functions within agent-specific prompts. We introduce Coordinator-Executor Prompt Optimization (CEPO), a general framework for improving prompt optimization in MAS. CEPO separates system-level coordination from agent-level execution through a shared coordinator prompt and agent-specific executor prompts, and guides their updates according to their respective roles. This structure allows shared coordination rules to be refined consistently ",
+    "engagement": {
+      "upvotes": 19
+    },
+    "id": "71cc759a119ba532",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Wizard: Manipulate Any World in Real Time via Agentic Control",
+    "url": "https://huggingface.co/papers/2610.40339",
+    "published": "2026-10-28T20:00:00.000Z",
+    "summary": "Recent advances in video world models have enabled the generation of increasingly realistic and interactive virtual environments, opening new possibilities for player-customizable gameplay. Agentic frameworks further advance this direction by decoupling explicit game logic and controllable world representations from visual generation. However, existing approaches support only simple game settings and predefined motion patterns, generalize poorly to unseen environments and characters, and offer limited real-time interactivity. In this paper, we introduce Wizard, an agentic game world model that",
+    "engagement": {
+      "upvotes": 24
+    },
+    "id": "b923aca5a357d492",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Does Scaling Toward AGI Depend on What System-1 Lets System-2 Execute?",
+    "url": "https://huggingface.co/papers/2610.39497",
+    "published": "2026-10-28T20:00:00.000Z",
+    "summary": "Progress toward artificial general intelligence (AGI) has largely relied on scaling a resource-intensive executive, System-2, through larger models, more data and compute, longer reasoning, and more agents. We ask whether the next stage may come instead from co-designing it with System-1, a lightweight, semantically aware predictor that evaluates candidate interactions before execution, so that System-2 acts only on those worth their cost. Our answer is a qualified yes. We study conditional interaction, a predict--gate--execute--update loop: System-1 estimates each candidate's utility, System-",
+    "engagement": {
+      "upvotes": 58
+    },
+    "id": "60aa245493dd6bad",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "R^2Orch: Recursive Self-Improvement for Agent Orchestration via Self-Play within a Skill-Internalization Loop",
+    "url": "https://huggingface.co/papers/2610.22740",
+    "published": "2026-10-21T20:00:00.000Z",
+    "summary": "In recent years, agentic orchestration has been widely applied to solve complex human tasks. However, existing orchestration learning still faces key challenges, including hand-designed curricula, advantage collapse when a task's rollouts all reach the same outcome, and unreliable evaluation signals that judge each skill by one noisy score. To address these challenges, we propose R^2Orch, a new paradigm of Recursive Self-Play Orchestration: an inner loop of self-play that improves the orchestrator on self-chosen tasks, and an outer loop that improves how the inner loop improves. To support thi",
+    "engagement": {
+      "upvotes": 86
+    },
+    "id": "ef9ae19bc7bcd2e5",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "WorldBridge: Bridging Video and Action for Task Generalization in World Action Models",
+    "url": "https://huggingface.co/papers/2610.40748",
+    "published": "2026-10-28T20:00:00.000Z",
+    "summary": "Achieving the broad task generalization of embodied models in physical environments remains a central challenge in robot learning. We study this challenge in World Action Models (WAMs) through two complementary capabilities: video generalization, which predicts the visual evolution of new tasks, and action generalization, which translates these predictions into executable behavior through a video-to-action bridge. By varying video and action supervision for tasks outside an initial training set, we examine their respective contributions to task transfer. On RoboTwin 2.0, using only in-distribu",
+    "engagement": {
+      "upvotes": 12
+    },
+    "id": "fa05f3824343aeab",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "HiFOR: Hierarchical Foresight with Action-Guided World Grounding for Vision-Language-Action Model",
+    "url": "https://huggingface.co/papers/2610.40373",
+    "published": "2026-10-28T20:00:00.000Z",
+    "summary": "Vision-Language-Action (VLA) models have demonstrated promising capabilities in robotic manipulation by integrating visual perception, language understanding, and action generation. Recent advances have further incorporated future prediction to enhance the understanding of environmental dynamics and task progression. However, existing methods often model short-term dynamics and long-term task objectives separately, while directly incorporating predicted futures into action policies without sufficiently considering their relevance to current action requirements. To address these limitations, we",
+    "engagement": {
+      "upvotes": 24
+    },
+    "id": "9f546bf7f00d519c",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "The U.S. Census Bureau and “Super Intelligence”",
+    "url": "https://simonwillison.net/2026/Nov/2/census-bureau-super-intelligence/",
+    "published": "2026-11-02T13:31:26+00:00",
+    "summary": "I was reminded today of AI Adoption Rate Trending Down for Large Companies , a chart produced by Apollo Global Management in September 2025, which appeared to show a slowdown in U.S. corporate AI adoption based on numbers collected by the U.S. Census Bureau. At the time I used that chart to demonstrate GPT-5 data analysis , and then to experiment with Claude's new Code Interpreter . I decided to try running those numbers again to see what had changed over the past year, and in doing so learned that the Bureau has fallen foul of Executive Order 14434 , aka the asinine Super Intelligence one. Fi",
+    "id": "6bf0704cb5e2b6fd",
+    "source": "simonw",
+    "sourceName": "Simon Willison",
+    "category": "newsletter",
+    "weight": 0.5,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "If in doubt, delete the uv.lock file",
+    "url": "https://simonwillison.net/2026/Nov/1/delete-uv-lock-first/",
+    "published": "2026-11-01T23:24:22+00:00",
+    "summary": "I've been getting the occasional confusing Python dependency error since switching over to Python 3.15 and the rule I'm having to remember is: If in doubt, delete the uv.lock file Most of my projects are libraries which don't include a uv.lock file, since it's rude for a library dependency to lock versions for anything else that uses it. Running uv run pytest etc tends to leave uv.lock files lying around, which are listed in .gitignore and so do not get committed to my repositories. But... sometimes that uv.lock pins a version of a dependency that doesn't yet have a Python 3.15 wheel. An examp",
+    "id": "ffb30fef9594cc91",
+    "source": "simonw",
+    "sourceName": "Simon Willison",
+    "category": "newsletter",
+    "weight": 0.5,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Saving for the Machines -- by Jesús Fernández-Villaverde",
+    "url": "https://www.nber.org/papers/w35964#fromrss",
+    "published": "",
+    "summary": "When machines can perform a growing share of tasks, growth depends on two margins: how the task structure affects the returns to accumulating machines, and how strongly capital accumulation responds to those returns. I argue that, in a standard task model, capital supply governs the size of the growth boom associated with automation, while the task structure sets the duration of this growth boom and the evolution of wages. I document how the same technology path that generates 11.7% annual growth when households choose their saving rate optimally delivers only 2.2% when the saving rate is fixe",
+    "id": "fdd5bdcdef1a2313",
+    "source": "nber",
+    "sourceName": "NBER Working Papers",
+    "category": "economy",
+    "weight": 0.75,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Public R&D and the Automation of Manufacturing: Evidence from the Space Race -- by Apoorva Babbar, Shawn Kantor, Alexander Whalley, Jingyuan Zeng",
+    "url": "https://www.nber.org/papers/w35966#fromrss",
+    "published": "",
+    "summary": "This paper examines how public research and development shaped the direction of technological change during the Cold War–era Space Race and its consequences for US manufacturing. While prior research has documented the effects of public R&D on innovation and economic growth, less is known about whether mission-oriented public investment directed innovation toward automation and how this affected labor markets. We exploit variation in exposure to NASA's Space Race investments across industries and locations to estimate the effects of public R&D on innovation and manufacturing outcomes from 1947",
+    "id": "8aa2ec613d606768",
+    "source": "nber",
+    "sourceName": "NBER Working Papers",
+    "category": "economy",
+    "weight": 0.75,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Aggregate-Surplus Maximizing Monetary Policy -- by David Baqaee, Ariel Burstein, Joao Guerreiro",
+    "url": "https://www.nber.org/papers/w35967#fromrss",
+    "published": "",
+    "summary": "We study optimal monetary policy in a general heterogeneous-agent New Keynesian (HANK) economy. Instead of maximizing a social welfare function, the policymaker maximizes the joint surplus of all households, without taking a stance on how that surplus should be distributed. This is the policy that maximizes resources left over if winners from reform were to compensate losers. We derive the approximate optimal policy using linear-quadratic methods. The quadratic objective function nests the standard New Keynesian loss function and adds losses from incomplete markets and heterogeneous labor wedg",
+    "id": "d9c50b84faabb32b",
+    "source": "nber",
+    "sourceName": "NBER Working Papers",
+    "category": "economy",
+    "weight": 0.75,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Pollution Monitoring and the Pricing of Environmental Risk in Firms -- by Namrata Kala, Jalal Sani, Nemit Shroff, Pengdong Zhang",
+    "url": "https://www.nber.org/papers/w35969#fromrss",
+    "published": "",
+    "summary": "Pricing firms’ environmental risk is central to ensuring that capital is efficiently allocated. We examine whether an increase in the salience of pollution information affects the beliefs and perceived valuations of financially sophisticated agents—financial analysts—regarding the environmental risks faced by the firms they cover. Exploiting the staggered rollout of China's ambient air quality monitoring program, we show that when monitoring is introduced in a city, analysts based there become substantially more likely to discuss air pollution. These changes in attention are reflected in stock",
+    "id": "c8879bc9ab068b52",
+    "source": "nber",
+    "sourceName": "NBER Working Papers",
+    "category": "economy",
+    "weight": 0.75,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "A Beckerian Theory of Taxation -- by Margaret Chen, Mikhail Golosov, Ilia Krasikov",
+    "url": "https://www.nber.org/papers/w35970#fromrss",
+    "published": "",
+    "summary": "We study taxation in matching environments in which both equilibrium sorting and the sharing of match surplus are endogenous. Tax reforms lead to complex adjustments in sorting and surplus sharing patterns across the whole economy. We develop a general approach for characterizing these equilibrium adjustments using matching elasticities, which are primitive objects that describe how agents' matching choices are affected by pecuniary payoffs in partial equilibrium. Applying this approach to a workhorse model of family formation, we first show that the sorting and surplus sharing responses are c",
+    "id": "90b5b6059c08bff2",
+    "source": "nber",
+    "sourceName": "NBER Working Papers",
+    "category": "economy",
+    "weight": 0.75,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "How Different are Different Differences-in-Differences? A Large-Scale Meta-Analysis -- by Peter Hull",
+    "url": "https://www.nber.org/papers/w35974#fromrss",
+    "published": "",
+    "summary": "I use AI-assisted replication to assess the empirical importance of negative weights in two-way fixed effects (TWFE) estimation, drawing on 1,346 staggered-adoption specifications from 108 economics papers. TWFE estimates are highly correlated with estimates from modern difference-in-differences methods, with observed sign reversals in 10.8–14.5% of comparisons and greater precision for TWFE. Hierarchical models that account for estimation noise imply a 91–98% correlation between estimands and a 0.6–2.1% probability of obtaining a statistically significant TWFE estimate with the opposite sign ",
+    "id": "9395bee28d2f875d",
+    "source": "nber",
+    "sourceName": "NBER Working Papers",
+    "category": "economy",
+    "weight": 0.75,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Green Tastes, Beliefs, and Portfolios: Evidence from Synthetic Investors -- by Xindi He, Lubos Pastor",
+    "url": "https://www.nber.org/papers/w35982#fromrss",
+    "published": "",
+    "summary": "We use LLMs as synthetic survey respondents to elicit green tastes, return beliefs, portfolio allocations, and investment motives from 480 retail and 60 institutional investor identities. Compared with retail, institutions report weaker tastes yet greener portfolio tilts, citing outside pressure. A greener tilt therefore need not indicate a stronger taste for greenness. Retail tastes depend mostly on political affiliation, institutional tastes on type and geography. Beliefs differ across the three ESG dimensions, with high-governance portfolios expected to outperform. We reconstruct survey res",
+    "id": "f195e22c5428b88c",
+    "source": "nber",
+    "sourceName": "NBER Working Papers",
+    "category": "economy",
+    "weight": 0.75,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Raising the quality of insights in agentic analytics",
+    "url": "https://www.technologyreview.com/2026/11/02/1147660/raising-the-quality-of-insights-in-agentic-analytics/",
+    "published": "Mon, 02 Nov 2026 17:00:00 +0000",
+    "summary": "In just a few years, generative AI has changed the face of enterprise analytics, notably by making analytics accessible to users across the organization. Agentic AI promises to do even more, by automating entire workflows and taking actions based on agent insights. But there is a problem: The quality of insights that agents currently generate&#8230;",
+    "id": "0ad9e89a8ab0a418",
+    "source": "techreview",
+    "sourceName": "MIT Technology Review",
+    "category": "media",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Stop counting tokens, start counting what ships",
+    "url": "https://www.technologyreview.com/2026/11/02/1147702/stop-counting-tokens-start-counting-what-ships/",
+    "published": "Mon, 02 Nov 2026 13:10:32 +0000",
+    "summary": "When a developer gives an AI agent a coding task, the agent does more than answer once. It plans, generates code, runs tests, and repeats the process to correct errors. A single task can use 10 to 50 times more tokens than a basic chat prompt. The more useful the agent becomes, the more calls&#8230;",
+    "id": "728c21b3deeb61e6",
+    "source": "techreview",
+    "sourceName": "MIT Technology Review",
+    "category": "media",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "The agentic web is here",
+    "url": "https://www.technologyreview.com/2026/11/02/1147846/the-agentic-web-is-here/",
+    "published": "Mon, 02 Nov 2026 09:35:19 +0000",
+    "summary": "In 2001, a decade after he invented the World Wide Web, Tim Berners-Lee articulated a new vision. Together with two colleagues, he published an article in the magazine Scientific American in which he outlined what he called the “Semantic Web”: an internet designed to be navigated by autonomous software agents that could address our every&#8230;",
+    "id": "e49f46b109f68045",
+    "source": "techreview",
+    "sourceName": "MIT Technology Review",
+    "category": "media",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Anthropic clamps down on Claude’s AI video game clones",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1024632/anthropic-claude-ai-video-game-clones",
+    "published": "2026-11-02T13:56:02-05:00",
+    "summary": "Anthropic has updated Claude Code's system prompt to prevent the AI tool from being used to recreate existing video games, as reported by Tom's Hardware. Retro gaming is currently being overrun with AI-made decompilations, recompilations, and ports, but while Anthropic will still let people use Claude Code to make games, it doesn't want people to [&#8230;]",
+    "id": "e3f3f6c0c50f4c4d",
+    "source": "verge-ai",
+    "sourceName": "The Verge",
+    "category": "media",
+    "weight": 0.45,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "OpenAI pitches data center power plants as a way to protect nearby areas",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1024604/openai-data-center-grid-protection-program",
+    "published": "2026-11-02T13:01:30-05:00",
+    "summary": "In an announcement on Monday, OpenAI says it will pilot its \"Grid Protectors Program\" at an upcoming data center in Effingham County, Georgia, where the company promises to free up to 1,000 megawatts of power during extreme weather or emergencies, enough to power air conditioners in around 700,000 homes. The announcement comes as opposition to [&#8230;]",
+    "id": "16194c055af9d0c4",
+    "source": "verge-ai",
+    "sourceName": "The Verge",
+    "category": "media",
+    "weight": 0.45,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "The New York Times sues Brave web browser for AI scraping and bypassing paywalls",
+    "url": "https://www.theverge.com/tech/1024588/brave-lawsuit-ai-scraping-new-york-times",
+    "published": "2026-11-02T12:51:19-05:00",
+    "summary": "The New York Times and a group of other publications have filed lawsuits against the company that makes the Brave web browser over alleged unlawful scraping to train AI and also letting users bypass their paywalls, as reported by Reuters. According to a complaint filed by the New York Daily News, the Chicago Tribune, and [&#8230;]",
+    "id": "dc6c7ef2ed74ce88",
+    "source": "verge-ai",
+    "sourceName": "The Verge",
+    "category": "media",
+    "weight": 0.45,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "When You Should—and Shouldn’t—Use AI to Search the Web",
+    "url": "https://www.wired.com/story/when-you-should-and-shouldnt-use-ai-to-search-the-web/",
+    "thumbnail": {
+      "url": "https://media.wired.com/photos/6ae34e2b3b99c3ad51af9ec6/master/pass/102926-AI%20Web_.jpg",
+      "sourceUrl": "https://www.wired.com/story/when-you-should-and-shouldnt-use-ai-to-search-the-web/",
+      "credit": "David Nield",
+      "alt": "",
+      "provenance": "feed"
+    },
+    "published": "Mon, 02 Nov 2026 12:00:00 +0000",
+    "summary": "Chatbots are often quite good at retrieving the information you want from the web. But sometimes you’ll get better results by typing your query into a good old search engine.",
+    "id": "b38643a409296385",
+    "source": "wired-ai",
+    "sourceName": "WIRED",
+    "category": "media",
+    "weight": 0.45,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Hundreds of Mundane AI Apps Are Hiding Sexually Abusive Deepfake Features",
+    "url": "https://www.wired.com/story/hundreds-of-mundane-ai-apps-are-hiding-abusive-deepfake-features/",
+    "thumbnail": {
+      "url": "https://media.wired.com/photos/6adfc11328ba980ed3d0219a/master/pass/Security_ChinaAppsBehindDeepFakes_v1.jpg",
+      "sourceUrl": "https://www.wired.com/story/hundreds-of-mundane-ai-apps-are-hiding-abusive-deepfake-features/",
+      "credit": "Matt Burgess",
+      "alt": "",
+      "provenance": "feed"
+    },
+    "published": "Mon, 02 Nov 2026 10:00:00 +0000",
+    "summary": "WIRED uncovered some 400 apps and websites linked to Chinese-language developers that look like regular AI tools but had secret features that let users create violent AI-generated images and video.",
+    "id": "865143ca1ce886a1",
+    "source": "wired-ai",
+    "sourceName": "WIRED",
+    "category": "media",
+    "weight": 0.45,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Anthropic's internal AI use, at retail prices, now exceeds its employee pay",
+    "url": "https://www.businessinsider.com/anthropic-claude-internal-ai-use-exceeds-employee-pay-tokens-2026-11",
+    "discussion": "https://news.ycombinator.com/item?id=50339494",
+    "published": "2026-11-02T16:40:29Z",
+    "summary": "",
+    "engagement": {
+      "points": 221,
+      "comments": 172
+    },
+    "id": "b997047b855185ef",
+    "source": "hn",
+    "sourceName": "Hacker News",
+    "category": "community",
+    "weight": 0.35,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Launch HN: Momentic (YC W24) – Agents that catch bugs by using your app",
+    "url": "https://momentic.ai/",
+    "discussion": "https://news.ycombinator.com/item?id=50339913",
+    "published": "2026-11-02T17:05:25Z",
+    "summary": "",
+    "engagement": {
+      "points": 83,
+      "comments": 55
+    },
+    "id": "92e88048ec861081",
+    "source": "hn",
+    "sourceName": "Hacker News",
+    "category": "community",
+    "weight": 0.35,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Oracle files to sell $20B in new stock, bonds to finance AI buildout",
+    "url": "https://www.cnbc.com/2026/11/02/oracle-files-to-sell-20-billion-in-new-stock-bonds-to-finance-ai-buildout.html",
+    "discussion": "https://news.ycombinator.com/item?id=50342284",
+    "published": "2026-11-02T19:27:37Z",
+    "summary": "",
+    "engagement": {
+      "points": 48,
+      "comments": 21
+    },
+    "id": "885b04d7832e283d",
+    "source": "hn",
+    "sourceName": "Hacker News",
+    "category": "community",
+    "weight": 0.35,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Egoless Mathematics in the AI Era",
+    "url": "https://terrytao.wordpress.com/2026/11/02/egoless-mathematics-in-the-ai-era/",
+    "discussion": "https://news.ycombinator.com/item?id=50341736",
+    "published": "2026-11-02T18:54:44Z",
+    "summary": "",
+    "engagement": {
+      "points": 47,
+      "comments": 43
+    },
+    "id": "66c70c1adf2ee3b4",
+    "source": "hn",
+    "sourceName": "Hacker News",
+    "category": "community",
+    "weight": 0.35,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Anthropic reveals $900B AI spending commitments ahead of IPO",
+    "url": "https://www.ft.com/content/4d91dbab-6fe4-45ab-beee-d77e091cb37f",
+    "discussion": "https://news.ycombinator.com/item?id=50342424",
+    "published": "2026-11-02T19:36:37Z",
+    "summary": "",
+    "engagement": {
+      "points": 36,
+      "comments": 14
+    },
+    "id": "d878af2a6728e898",
+    "source": "hn",
+    "sourceName": "Hacker News",
+    "category": "community",
+    "weight": 0.35,
+    "format": "article",
+    "trendOnly": false
+  }
+]

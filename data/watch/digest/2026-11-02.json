@@ -1,0 +1,493 @@
+[
+  {
+    "id": "19244c7aa2063fd3",
+    "title": "Introducing the Grid Protectors Program",
+    "url": "https://openai.com/index/grid-protectors-program",
+    "score": 0.62,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI"
+    ]
+  },
+  {
+    "id": "ed4b58253682640f",
+    "title": "LifeVal",
+    "url": "https://openai.com/index/lifeval",
+    "score": 0.62,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI"
+    ]
+  },
+  {
+    "id": "09ae9ccd31717e22",
+    "title": "TurnTurk-GPT: Text-Based Turn-Taking Prediction for Turkish",
+    "url": "https://huggingface.co/papers/2610.42010",
+    "score": 0.443,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "6bf0704cb5e2b6fd",
+    "title": "The U.S. Census Bureau and “Super Intelligence”",
+    "url": "https://simonwillison.net/2026/Nov/2/census-bureau-super-intelligence/",
+    "score": 0.425,
+    "parts": {
+      "authority": 0.5,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0
+    },
+    "categories": [
+      "newsletter"
+    ],
+    "format": "article",
+    "sources": [
+      "Simon Willison"
+    ]
+  },
+  {
+    "id": "bc9463905bbd6e7a",
+    "title": "datasette-llm 0.1a9",
+    "url": "https://simonwillison.net/2026/Oct/31/datasette-llm/",
+    "score": 0.425,
+    "parts": {
+      "authority": 0.5,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0
+    },
+    "categories": [
+      "newsletter"
+    ],
+    "format": "article",
+    "sources": [
+      "Simon Willison"
+    ]
+  },
+  {
+    "id": "ef9ae19bc7bcd2e5",
+    "title": "R^2Orch: Recursive Self-Improvement for Agent Orchestration via Self-Play within a Skill-Internalization Loop",
+    "url": "https://huggingface.co/papers/2610.22740",
+    "score": 0.417,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 1
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "b810030289ed799f",
+    "title": "The latest AI news we announced in October 2026",
+    "url": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-october-2026/",
+    "score": 0.405,
+    "parts": {
+      "authority": 0.8,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "thumbnail": {
+      "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Oct_AI_Recap_social.max-600x600.format-webp.webp",
+      "sourceUrl": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-october-2026/",
+      "credit": "Blog Team",
+      "alt": "",
+      "provenance": "feed"
+    },
+    "sources": [
+      "Google AI"
+    ]
+  },
+  {
+    "id": "60aa245493dd6bad",
+    "title": "Does Scaling Toward AGI Depend on What System-1 Lets System-2 Execute?",
+    "url": "https://huggingface.co/papers/2610.39497",
+    "score": 0.39,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.72
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "598c6194c0d34c23",
+    "title": "Qodo builds context into AI code review with Codex",
+    "url": "https://openai.com/index/qodo-codex-plugin",
+    "score": 0.387,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 0.15,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI"
+    ]
+  },
+  {
+    "id": "8aa2ec613d606768",
+    "title": "Public R&D and the Automation of Manufacturing: Evidence from the Space Race -- by Apoorva Babbar, Shawn Kantor, Alexander Whalley, Jingyuan Zeng",
+    "url": "https://www.nber.org/papers/w35966#fromrss",
+    "score": 0.387,
+    "parts": {
+      "authority": 0.75,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "economy"
+    ],
+    "format": "article",
+    "sources": [
+      "NBER Working Papers"
+    ]
+  },
+  {
+    "id": "d9c50b84faabb32b",
+    "title": "Aggregate-Surplus Maximizing Monetary Policy -- by David Baqaee, Ariel Burstein, Joao Guerreiro",
+    "url": "https://www.nber.org/papers/w35967#fromrss",
+    "score": 0.387,
+    "parts": {
+      "authority": 0.75,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "economy"
+    ],
+    "format": "article",
+    "sources": [
+      "NBER Working Papers"
+    ]
+  },
+  {
+    "id": "c8879bc9ab068b52",
+    "title": "Pollution Monitoring and the Pricing of Environmental Risk in Firms -- by Namrata Kala, Jalal Sani, Nemit Shroff, Pengdong Zhang",
+    "url": "https://www.nber.org/papers/w35969#fromrss",
+    "score": 0.387,
+    "parts": {
+      "authority": 0.75,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "economy"
+    ],
+    "format": "article",
+    "sources": [
+      "NBER Working Papers"
+    ]
+  },
+  {
+    "id": "90b5b6059c08bff2",
+    "title": "A Beckerian Theory of Taxation -- by Margaret Chen, Mikhail Golosov, Ilia Krasikov",
+    "url": "https://www.nber.org/papers/w35970#fromrss",
+    "score": 0.387,
+    "parts": {
+      "authority": 0.75,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "economy"
+    ],
+    "format": "article",
+    "sources": [
+      "NBER Working Papers"
+    ]
+  },
+  {
+    "id": "9395bee28d2f875d",
+    "title": "How Different are Different Differences-in-Differences? A Large-Scale Meta-Analysis -- by Peter Hull",
+    "url": "https://www.nber.org/papers/w35974#fromrss",
+    "score": 0.387,
+    "parts": {
+      "authority": 0.75,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "economy"
+    ],
+    "format": "article",
+    "sources": [
+      "NBER Working Papers"
+    ]
+  },
+  {
+    "id": "f195e22c5428b88c",
+    "title": "Green Tastes, Beliefs, and Portfolios: Evidence from Synthetic Investors -- by Xindi He, Lubos Pastor",
+    "url": "https://www.nber.org/papers/w35982#fromrss",
+    "score": 0.387,
+    "parts": {
+      "authority": 0.75,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "economy"
+    ],
+    "format": "article",
+    "sources": [
+      "NBER Working Papers"
+    ]
+  },
+  {
+    "id": "25cc4c9bb2e3e7e5",
+    "title": "Making it easier for websites to express AI training preferences",
+    "url": "https://openai.com/index/helping-websites-express-ai-training-preferences",
+    "score": 0.387,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 0.15,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI"
+    ]
+  },
+  {
+    "id": "d2282bcce1625c64",
+    "title": "Fair use benefits everyone",
+    "url": "https://openai.com/index/fair-use-benefits-everyone",
+    "score": 0.387,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 0.15,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI"
+    ]
+  },
+  {
+    "id": "7d6ca3e8110725cf",
+    "title": "REA: A Routed Embodied Agent Runtime for Asynchronous Brain-Cerebellum Control",
+    "url": "https://huggingface.co/papers/2610.42053",
+    "score": 0.371,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.54
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "094c331a98fae894",
+    "title": "Speeding up planning decisions with AI",
+    "url": "https://deepmind.google/blog/speeding-up-planning-decisions-with-ai/",
+    "score": 0.37,
+    "parts": {
+      "authority": 0.95,
+      "corroboration": 0,
+      "impact": 0.15,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/AnSfPLyNIwSu1XsT_WUP3aYfQrc9jo8lwlotms7NmryT7RhWXnwdF4_zzYBMlJOcNT1U_ZbDMCM7AzpnFDPeYKJDardybJGlm447xeEXo1eQqgjCEg=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/speeding-up-planning-decisions-with-ai/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    },
+    "sources": [
+      "Google DeepMind"
+    ]
+  },
+  {
+    "id": "0def4a2fca6b3a20",
+    "title": "How We Took Over ChatGPT Accounts",
+    "url": "https://simonwillison.net/2026/Oct/31/how-we-took-over-chatgpt-accounts/",
+    "score": 0.362,
+    "parts": {
+      "authority": 0.5,
+      "corroboration": 0.4,
+      "impact": 0.15,
+      "engagement": 0.29
+    },
+    "categories": [
+      "newsletter",
+      "community"
+    ],
+    "format": "article",
+    "sources": [
+      "Simon Willison",
+      "Hacker News"
+    ]
+  },
+  {
+    "id": "eb44481387680a8d",
+    "title": "Apriel Voice 27B Preview: An Open Model for Speech, Reasoning, and Tool Use",
+    "url": "https://huggingface.co/papers/2610.40738",
+    "score": 0.359,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.41
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "b6f2a6fc6b2e5f64",
+    "title": "WeFair: Fidelity-Aware Alignment from Human Feedback for Personalized Query Rewriting in Short-Video Search",
+    "url": "https://huggingface.co/papers/2610.16927",
+    "score": 0.35,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.33
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "bb09e058628988a6",
+    "title": "Latent Reasoning in Continuous Space for Unified Multimodal Models",
+    "url": "https://huggingface.co/papers/2610.42149",
+    "score": 0.348,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.3
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "b923aca5a357d492",
+    "title": "Wizard: Manipulate Any World in Real Time via Agentic Control",
+    "url": "https://huggingface.co/papers/2610.40339",
+    "score": 0.348,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.3
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "eb44dd639d4f5ddd",
+    "title": "OSWAM: An Effective World Action Model with One-Step Action Generation",
+    "url": "https://huggingface.co/papers/2610.35850",
+    "score": 0.346,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.29
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  }
+]

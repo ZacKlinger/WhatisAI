@@ -145,5 +145,33 @@
     "Model releases": 1,
     "__items": 8,
     "__observed": true
+  },
+  "2026-11-02": {
+    "Data centers and energy": 3,
+    "Model releases": 20,
+    "Evaluations": 108,
+    "Multimodal and video": 49,
+    "Agents": 142,
+    "Copyright and data": 18,
+    "Robotics": 24,
+    "Coding assistants": 10,
+    "Chips and compute": 8,
+    "AI for science": 41,
+    "Reasoning models": 18,
+    "Alignment": 19,
+    "Security and jailbreaks": 18,
+    "Open-weight models": 12,
+    "Hallucination": 5,
+    "US AI policy": 18,
+    "Interpretability": 24,
+    "International governance": 2,
+    "Scaling": 2,
+    "Jobs and labor": 5,
+    "Dangerous capabilities": 1,
+    "Productivity": 1,
+    "China and AI": 2,
+    "State AI laws": 1,
+    "__items": 630,
+    "__observed": true
   }
 }

@@ -1,31 +1,56 @@
 {
-  "date": "2026-11-01",
+  "date": "2026-11-02",
   "threshold": 0.58,
   "candidates": [
     {
-      "id": "ef8985fb234bd54c",
-      "title": "Accreditation, Innovation, and Modernization: The Secretary's Recognition of Accrediting Agencies; Institutional Eligibility Under the Higher Education Act of 1965, as Amended; Student Assistance General Provisions",
-      "url": "https://www.federalregister.gov/documents/2026/10/30/2026-22174/accreditation-innovation-and-modernization-the-secretarys-recognition-of-accrediting-agencies",
+      "id": "19244c7aa2063fd3",
+      "title": "Introducing the Grid Protectors Program",
+      "url": "https://openai.com/index/grid-protectors-program",
       "score": 0.62,
       "parts": {
-        "authority": 0.9,
+        "authority": 1,
         "corroboration": 0,
         "impact": 1,
         "engagement": 0
       },
       "categories": [
-        "policy"
+        "lab"
       ],
       "format": "article",
       "items": [
         {
-          "title": "Accreditation, Innovation, and Modernization: The Secretary's Recognition of Accrediting Agencies; Institutional Eligibility Under the Higher Education Act of 1965, as Amended; Student Assistance General Provisions",
-          "url": "https://www.federalregister.gov/documents/2026/10/30/2026-22174/accreditation-innovation-and-modernization-the-secretarys-recognition-of-accrediting-agencies",
-          "source": "US Federal Register",
-          "category": "policy",
-          "published": "2026-10-30",
-          "summary": "The Department revises the existing accrediting agency recognition regulations to implement the directives set forth in Executive Order 14279, Reforming Accreditation to Strengthen Higher Education, and other Administration priorities, align the regulations more closely with statute, and reduce regulatory burden.",
-          "docType": "Rule"
+          "title": "Introducing the Grid Protectors Program",
+          "url": "https://openai.com/index/grid-protectors-program",
+          "source": "OpenAI",
+          "category": "lab",
+          "published": "Mon, 02 Nov 2026 15:00:00 GMT",
+          "summary": "OpenAI’s Grid Protectors Program will work with utilities to help future compute campuses support grid reliability and protect consumer electricity costs."
+        }
+      ]
+    },
+    {
+      "id": "ed4b58253682640f",
+      "title": "LifeVal",
+      "url": "https://openai.com/index/lifeval",
+      "score": 0.62,
+      "parts": {
+        "authority": 1,
+        "corroboration": 0,
+        "impact": 1,
+        "engagement": 0
+      },
+      "categories": [
+        "lab"
+      ],
+      "format": "article",
+      "items": [
+        {
+          "title": "LifeVal",
+          "url": "https://openai.com/index/lifeval",
+          "source": "OpenAI",
+          "category": "lab",
+          "published": "Mon, 02 Nov 2026 09:00:00 GMT",
+          "summary": "Introducing LifeVal, a benchmark measuring how well AI helps people complete everyday tasks, from finding childcare to managing finances and government paperwork."
         }
       ]
     }
