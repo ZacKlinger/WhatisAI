@@ -1,12 +1,12 @@
 {
-  "updated": "2026-11-02",
+  "updated": "2026-11-03",
   "windowDays": 7,
   "baselineDays": 28,
-  "daysOfHistory": 8,
+  "daysOfHistory": 9,
   "recentObservedDays": 7,
-  "baselineObservedDays": 1,
+  "baselineObservedDays": 2,
   "comparisonReady": false,
-  "itemsLastWeek": 3201,
+  "itemsLastWeek": 4381,
   "rising": [],
   "volume": [
     {
@@ -14,12 +14,11 @@
       "modules": [
         "agents-and-tools"
       ],
-      "recent": 673,
-      "base": 20,
-      "share": 0.21024679787566386,
+      "recent": 884,
+      "base": 130,
+      "share": 0.20178041543026706,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -46,7 +45,8 @@
         224,
         6,
         2,
-        142
+        142,
+        321
       ]
     },
     {
@@ -55,12 +55,11 @@
         "benchmarks",
         "evaluation-science"
       ],
-      "recent": 572,
-      "base": 14,
-      "share": 0.17869415807560138,
+      "recent": 740,
+      "base": 131,
+      "share": 0.16891120748687513,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -87,7 +86,8 @@
         204,
         1,
         0,
-        108
+        108,
+        285
       ]
     },
     {
@@ -95,12 +95,11 @@
       "modules": [
         "multimodality"
       ],
-      "recent": 315,
-      "base": 6,
-      "share": 0.09840674789128398,
+      "recent": 429,
+      "base": 58,
+      "share": 0.09792284866468842,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -127,7 +126,8 @@
         113,
         0,
         0,
-        49
+        49,
+        166
       ]
     },
     {
@@ -135,12 +135,11 @@
       "modules": [
         "measuring-progress"
       ],
-      "recent": 137,
-      "base": 2,
-      "share": 0.04279912527335208,
+      "recent": 186,
+      "base": 19,
+      "share": 0.04245606026021456,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -167,7 +166,8 @@
         49,
         0,
         0,
-        41
+        41,
+        66
       ]
     },
     {
@@ -175,12 +175,11 @@
       "modules": [
         "multimodality"
       ],
-      "recent": 125,
-      "base": 8,
-      "share": 0.03905029678225554,
+      "recent": 169,
+      "base": 13,
+      "share": 0.03857566765578635,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -207,7 +206,8 @@
         46,
         1,
         0,
-        24
+        24,
+        49
       ]
     },
     {
@@ -216,12 +216,11 @@
         "alignment-problem",
         "deception-and-scheming"
       ],
-      "recent": 122,
-      "base": 2,
-      "share": 0.03811308965948141,
+      "recent": 157,
+      "base": 31,
+      "share": 0.03583656699383703,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -248,47 +247,8 @@
         47,
         0,
         0,
-        19
-      ]
-    },
-    {
-      "term": "Open-weight models",
-      "modules": [
-        "ai-supply-chain"
-      ],
-      "recent": 99,
-      "base": 1,
-      "share": 0.030927835051546393,
-      "lift": null,
-      "series": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        29,
-        28,
-        3,
-        26,
-        1,
-        0,
-        12
+        19,
+        64
       ]
     },
     {
@@ -297,12 +257,11 @@
         "interpretability-foundations",
         "sparse-autoencoders"
       ],
-      "recent": 93,
-      "base": 1,
-      "share": 0.029053420805998126,
+      "recent": 135,
+      "base": 9,
+      "share": 0.030814882446929925,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -329,47 +288,8 @@
         36,
         0,
         0,
-        24
-      ]
-    },
-    {
-      "term": "Model releases",
-      "modules": [
-        "system-cards"
-      ],
-      "recent": 91,
-      "base": 2,
-      "share": 0.028428616057482037,
-      "lift": null,
-      "series": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        2,
-        25,
-        17,
-        6,
-        21,
-        1,
-        1,
-        20
+        24,
+        50
       ]
     },
     {
@@ -377,12 +297,11 @@
       "modules": [
         "us-ai-policy"
       ],
-      "recent": 89,
-      "base": 0,
-      "share": 0.027803811308965948,
+      "recent": 124,
+      "base": 11,
+      "share": 0.028304040173476375,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -409,7 +328,48 @@
         36,
         0,
         0,
-        18
+        18,
+        46
+      ]
+    },
+    {
+      "term": "Open-weight models",
+      "modules": [
+        "ai-supply-chain"
+      ],
+      "recent": 121,
+      "base": 30,
+      "share": 0.027619265007989044,
+      "lift": null,
+      "series": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        29,
+        28,
+        3,
+        26,
+        1,
+        0,
+        12,
+        51
       ]
     },
     {
@@ -417,12 +377,11 @@
       "modules": [
         "dangerous-capabilities"
       ],
-      "recent": 81,
-      "base": 1,
-      "share": 0.02530459231490159,
+      "recent": 117,
+      "base": 8,
+      "share": 0.026706231454005934,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -449,48 +408,8 @@
         35,
         0,
         0,
-        18
-      ]
-    },
-    {
-      "term": "Copyright and data",
-      "modules": [
-        "data",
-        "governance-landscape"
-      ],
-      "recent": 80,
-      "base": 1,
-      "share": 0.02499218994064355,
-      "lift": null,
-      "series": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        6,
-        27,
-        1,
-        27,
-        1,
-        0,
-        18
+        18,
+        43
       ]
     },
     {
@@ -499,12 +418,11 @@
         "agents-and-tools",
         "evidence-on-work"
       ],
-      "recent": 73,
-      "base": 1,
-      "share": 0.02280537332083724,
+      "recent": 112,
+      "base": 9,
+      "share": 0.025564939511527048,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -531,17 +449,19 @@
         27,
         0,
         0,
-        10
+        10,
+        47
       ]
     },
     {
-      "term": "Reasoning models",
+      "term": "Copyright and data",
       "modules": [
-        "reasoning-models"
+        "data",
+        "governance-landscape"
       ],
-      "recent": 63,
-      "base": 1,
-      "share": 0.019681349578256794,
+      "recent": 109,
+      "base": 7,
+      "share": 0.024880164346039717,
       "lift": null,
       "series": [
         0,
@@ -563,15 +483,96 @@
         0,
         0,
         0,
-        0,
         1,
+        6,
+        27,
+        1,
+        27,
+        1,
+        0,
+        18,
+        35
+      ]
+    },
+    {
+      "term": "Model releases",
+      "modules": [
+        "system-cards"
+      ],
+      "recent": 105,
+      "base": 27,
+      "share": 0.023967130792056607,
+      "lift": null,
+      "series": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        25,
         17,
-        10,
+        6,
+        21,
         1,
-        16,
         1,
+        20,
+        39
+      ]
+    },
+    {
+      "term": "Chips and compute",
+      "modules": [
+        "compute",
+        "ai-supply-chain"
+      ],
+      "recent": 91,
+      "base": 6,
+      "share": 0.020771513353115726,
+      "lift": null,
+      "series": [
         0,
-        18
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        4,
+        15,
+        2,
+        24,
+        2,
+        0,
+        8,
+        40
       ]
     }
   ],
@@ -592,7 +593,7 @@
       "id": "openai",
       "name": "OpenAI",
       "ok": true,
-      "count": 1344
+      "count": 1349
     },
     {
       "id": "deepmind",
@@ -616,7 +617,7 @@
       "id": "hf-blog",
       "name": "Hugging Face",
       "ok": true,
-      "count": 894
+      "count": 896
     },
     {
       "id": "hf-papers",
@@ -628,19 +629,19 @@
       "id": "arxiv-cl",
       "name": "arXiv cs.CL",
       "ok": true,
-      "count": 138
+      "count": 381
     },
     {
       "id": "arxiv-lg",
       "name": "arXiv cs.LG",
       "ok": true,
-      "count": 337
+      "count": 872
     },
     {
       "id": "arxiv-ai",
       "name": "arXiv cs.AI",
       "ok": true,
-      "count": 297
+      "count": 816
     },
     {
       "id": "metr",
@@ -742,7 +743,7 @@
       "id": "hn",
       "name": "Hacker News",
       "ok": true,
-      "count": 5
+      "count": 6
     }
   ]
 }

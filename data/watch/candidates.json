@@ -1,7 +1,60 @@
 {
-  "date": "2026-11-02",
+  "date": "2026-11-03",
   "threshold": 0.58,
   "candidates": [
+    {
+      "id": "6fd6ad7938fa5bc5",
+      "title": "Rewarding defenders with bigger bug bounties",
+      "url": "https://openai.com/index/rewarding-defenders-with-bigger-bug-bounties",
+      "score": 0.62,
+      "parts": {
+        "authority": 1,
+        "corroboration": 0,
+        "impact": 1,
+        "engagement": 0
+      },
+      "categories": [
+        "lab"
+      ],
+      "format": "article",
+      "items": [
+        {
+          "title": "Rewarding defenders with bigger bug bounties",
+          "url": "https://openai.com/index/rewarding-defenders-with-bigger-bug-bounties",
+          "source": "OpenAI",
+          "category": "lab",
+          "published": "Mon, 02 Nov 2026 18:00:00 GMT",
+          "summary": "OpenAI is raising Security Bug Bounty rewards and introducing report quality, loyalty, and priority campaign bonuses for independent security researchers."
+        }
+      ]
+    },
+    {
+      "id": "aa7bce3b12f5eb3d",
+      "title": "Streamlining Contested Adjudications in Licensing Proceedings",
+      "url": "https://www.federalregister.gov/documents/2026/11/03/2026-22443/streamlining-contested-adjudications-in-licensing-proceedings",
+      "score": 0.62,
+      "parts": {
+        "authority": 0.9,
+        "corroboration": 0,
+        "impact": 1,
+        "engagement": 0
+      },
+      "categories": [
+        "policy"
+      ],
+      "format": "article",
+      "items": [
+        {
+          "title": "Streamlining Contested Adjudications in Licensing Proceedings",
+          "url": "https://www.federalregister.gov/documents/2026/11/03/2026-22443/streamlining-contested-adjudications-in-licensing-proceedings",
+          "source": "US Federal Register",
+          "category": "policy",
+          "published": "2026-11-03",
+          "summary": "The U.S. Nuclear Regulatory Commission (NRC, agency, or Commission) is revising the agency's rules of practice and procedure to streamline contested adjudications in NRC licensing proceedings in response to the Accelerating Deployment of Versatile, Advanced Nuclear for Clean Energy Act of 2024 (ADVANCE Act) and Executive Order 14300, Ordering the Reform of the Nuclear Regulatory Commission.",
+          "docType": "Rule"
+        }
+      ]
+    },
     {
       "id": "19244c7aa2063fd3",
       "title": "Introducing the Grid Protectors Program",
