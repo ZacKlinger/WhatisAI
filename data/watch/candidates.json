@@ -1,7 +1,33 @@
 {
-  "date": "2026-11-03",
+  "date": "2026-11-04",
   "threshold": 0.58,
   "candidates": [
+    {
+      "id": "75679f5aa60bfcf8",
+      "title": "Daybreak Red is now available in AWS GovCloud (US-East)",
+      "url": "https://openai.com/index/daybreak-red-aws-govcloud",
+      "score": 0.62,
+      "parts": {
+        "authority": 1,
+        "corroboration": 0,
+        "impact": 1,
+        "engagement": 0
+      },
+      "categories": [
+        "lab"
+      ],
+      "format": "article",
+      "items": [
+        {
+          "title": "Daybreak Red is now available in AWS GovCloud (US-East)",
+          "url": "https://openai.com/index/daybreak-red-aws-govcloud",
+          "source": "OpenAI",
+          "category": "lab",
+          "published": "Wed, 04 Nov 2026 07:00:00 GMT",
+          "summary": "Daybreak Red brings GPT-5.6 Cyber to approved customers in AWS GovCloud (US-East) through Amazon Bedrock for authorized cybersecurity work."
+        }
+      ]
+    },
     {
       "id": "6fd6ad7938fa5bc5",
       "title": "Rewarding defenders with bigger bug bounties",
