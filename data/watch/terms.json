@@ -232,5 +232,32 @@
     "EU AI Act": 2,
     "__items": 801,
     "__observed": true
+  },
+  "2026-11-05": {
+    "AI for science": 11,
+    "Jobs and labor": 11,
+    "Multimodal and video": 63,
+    "Model releases": 14,
+    "Agents": 133,
+    "Evaluations": 97,
+    "Open-weight models": 25,
+    "Data centers and energy": 8,
+    "Chips and compute": 8,
+    "Coding assistants": 16,
+    "Alignment": 22,
+    "Reasoning models": 5,
+    "Security and jailbreaks": 12,
+    "Robotics": 21,
+    "Copyright and data": 9,
+    "Scaling": 1,
+    "China and AI": 4,
+    "Interpretability": 15,
+    "US AI policy": 18,
+    "Hallucination": 3,
+    "Productivity": 1,
+    "International governance": 1,
+    "Dangerous capabilities": 3,
+    "__items": 511,
+    "__observed": true
   }
 }
