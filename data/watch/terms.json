@@ -259,5 +259,31 @@
     "Dangerous capabilities": 3,
     "__items": 511,
     "__observed": true
+  },
+  "2026-11-06": {
+    "Agents": 121,
+    "Dangerous capabilities": 2,
+    "Model releases": 17,
+    "Evaluations": 91,
+    "Robotics": 36,
+    "Chips and compute": 12,
+    "AI for science": 35,
+    "Interpretability": 32,
+    "Multimodal and video": 62,
+    "Alignment": 26,
+    "Scaling": 5,
+    "Copyright and data": 17,
+    "Security and jailbreaks": 22,
+    "Reasoning models": 11,
+    "US AI policy": 34,
+    "International governance": 1,
+    "Coding assistants": 10,
+    "Open-weight models": 13,
+    "AI safety": 3,
+    "Hallucination": 7,
+    "Jobs and labor": 6,
+    "Data centers and energy": 5,
+    "__items": 668,
+    "__observed": true
   }
 }
