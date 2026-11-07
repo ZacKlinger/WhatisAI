@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-06",
+  "date": "2026-11-07",
   "sources": {
     "anthropic-news": {
       "ok": true,
@@ -11,7 +11,7 @@
     },
     "openai": {
       "ok": true,
-      "count": 1366
+      "count": 1368
     },
     "deepmind": {
       "ok": true,
@@ -35,15 +35,15 @@
     },
     "arxiv-cl": {
       "ok": true,
-      "count": 159
+      "count": 0
     },
     "arxiv-lg": {
       "ok": true,
-      "count": 417
+      "count": 0
     },
     "arxiv-ai": {
       "ok": true,
-      "count": 361
+      "count": 0
     },
     "metr": {
       "ok": true,
@@ -111,7 +111,7 @@
     },
     "hn": {
       "ok": true,
-      "count": 7
+      "count": 1
     }
   }
 }

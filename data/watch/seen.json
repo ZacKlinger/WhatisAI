@@ -40202,5 +40202,81 @@
   "a29884804e746f98": {
     "first": "2026-11-06",
     "source": "hn"
+  },
+  "e214d358f05d6fdb": {
+    "first": "2026-11-07",
+    "source": "anthropic-research"
+  },
+  "594105e3c51985ed": {
+    "first": "2026-11-07",
+    "source": "anthropic-research"
+  },
+  "bc8f9eac19663ff6": {
+    "first": "2026-11-07",
+    "source": "openai"
+  },
+  "cfd4354afa14004f": {
+    "first": "2026-11-07",
+    "source": "openai"
+  },
+  "df6c520de2e5d719": {
+    "first": "2026-11-07",
+    "source": "hf-papers"
+  },
+  "f58ad39bd6048350": {
+    "first": "2026-11-07",
+    "source": "hf-papers"
+  },
+  "1b4fd614e67b3e77": {
+    "first": "2026-11-07",
+    "source": "hf-papers"
+  },
+  "ba9e58c71961dcd3": {
+    "first": "2026-11-07",
+    "source": "hf-papers"
+  },
+  "fa06ff8fdc83e259": {
+    "first": "2026-11-07",
+    "source": "verge-ai"
+  },
+  "73be1ddc7ff24f89": {
+    "first": "2026-11-07",
+    "source": "verge-ai"
+  },
+  "055e03fe8fc4b1cc": {
+    "first": "2026-11-07",
+    "source": "verge-ai"
+  },
+  "8879475e62b3793a": {
+    "first": "2026-11-07",
+    "source": "verge-ai"
+  },
+  "6813d62fd92533cd": {
+    "first": "2026-11-07",
+    "source": "verge-ai"
+  },
+  "1bc7ba2a28c4372d": {
+    "first": "2026-11-07",
+    "source": "verge-ai"
+  },
+  "c0641eb0de56205a": {
+    "first": "2026-11-07",
+    "source": "verge-ai"
+  },
+  "52e0623fab799a21": {
+    "first": "2026-11-07",
+    "source": "verge-ai"
+  },
+  "f5ca85f34e518f16": {
+    "first": "2026-11-07",
+    "source": "wired-ai"
+  },
+  "938e42643530113e": {
+    "first": "2026-11-07",
+    "source": "wired-ai"
+  },
+  "d8b2a306eae7a955": {
+    "first": "2026-11-07",
+    "source": "latent-space"
   }
 }

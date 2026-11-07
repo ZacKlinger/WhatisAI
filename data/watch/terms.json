@@ -285,5 +285,22 @@
     "Data centers and energy": 5,
     "__items": 668,
     "__observed": true
+  },
+  "2026-11-07": {
+    "Agents": 4,
+    "Evaluations": 1,
+    "Multimodal and video": 1,
+    "Reasoning models": 1,
+    "AI for science": 1,
+    "Chips and compute": 2,
+    "State AI laws": 2,
+    "China and AI": 3,
+    "Dangerous capabilities": 1,
+    "AI safety": 1,
+    "US AI policy": 1,
+    "Data centers and energy": 1,
+    "Open-weight models": 1,
+    "__items": 19,
+    "__observed": true
   }
 }
