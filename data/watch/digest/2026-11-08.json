@@ -1,0 +1,477 @@
+[
+  {
+    "id": "b3ee04c2353aa99b",
+    "title": "Medicare and Medicaid Programs; CY 2027 Payment Policies Under the Physician Fee Schedule and Other Changes to Part B Payment and Coverage Policies; Medicare Shared Savings Program Requirements; and Medicare Prescription Drug Inflation Rebate Program",
+    "url": "https://www.federalregister.gov/documents/2026/11/09/2026-22743/medicare-and-medicaid-programs-cy-2027-payment-policies-under-the-physician-fee-schedule-and-other",
+    "score": 0.62,
+    "parts": {
+      "authority": 0.9,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0
+    },
+    "categories": [
+      "policy"
+    ],
+    "format": "article",
+    "sources": [
+      "US Federal Register"
+    ]
+  },
+  {
+    "id": "53c56afbaf05f856",
+    "title": "GPT‑6 Cyber: Advancing the frontier of aligned cybersecurity agents",
+    "url": "https://openai.com/index/introducing-gpt-6-cyber",
+    "score": 0.62,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI"
+    ]
+  },
+  {
+    "id": "300d91101f21ec1d",
+    "title": "Merge builds product and business tools with OpenAI technology",
+    "url": "https://openai.com/index/merge-builds-with-openai",
+    "score": 0.62,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI"
+    ]
+  },
+  {
+    "id": "ff5fba5e339ab7c2",
+    "title": "Medicare Program: Hospital Outpatient Prospective Payment and Ambulatory Surgical Center Payment Systems; and Quality Reporting Programs; including the Hospital Outpatient Quality Reporting Program and Ambulatory Surgical Center Quality Program; Request for Information on Strengthening the Standardization and Comparability of Hospital Price Transparency (HPT) Data; Prior Authorization; Accrediting Organization (AO) Deeming for Emergency Medical Treatment and Labor Act (EMTALA); and Notices of Closure of Teaching Hospitals and Opportunities To Apply for Available Slots",
+    "url": "https://www.federalregister.gov/documents/2026/11/06/2026-22739/medicare-program-hospital-outpatient-prospective-payment-and-ambulatory-surgical-center-payment",
+    "score": 0.62,
+    "parts": {
+      "authority": 0.9,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0
+    },
+    "categories": [
+      "policy"
+    ],
+    "format": "article",
+    "sources": [
+      "US Federal Register"
+    ]
+  },
+  {
+    "id": "ab8aa91e4be40967",
+    "title": "Prohibiting Illegal Discrimination in Registered Apprenticeship Programs",
+    "url": "https://www.federalregister.gov/documents/2026/11/06/2026-22680/prohibiting-illegal-discrimination-in-registered-apprenticeship-programs",
+    "score": 0.62,
+    "parts": {
+      "authority": 0.9,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0
+    },
+    "categories": [
+      "policy"
+    ],
+    "format": "article",
+    "sources": [
+      "US Federal Register"
+    ]
+  },
+  {
+    "id": "594105e3c51985ed",
+    "title": "The components of agent memory",
+    "url": "https://www.anthropic.com/research/components-of-agent-memory",
+    "score": 0.475,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "Anthropic Research"
+    ]
+  },
+  {
+    "id": "cfd4354afa14004f",
+    "title": "Measuring how AI agents handle everyday wet-lab science",
+    "url": "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science",
+    "score": 0.475,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI"
+    ]
+  },
+  {
+    "id": "9e8d76be995acae1",
+    "title": "Reducing Representational Interference in Retrieval Embeddings with Trainable Prefix Tokens",
+    "url": "https://huggingface.co/papers/2611.07298",
+    "score": 0.445,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0.03
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "f96dfa7ebf10be27",
+    "title": "Notice of Public Meetings of the Maryland Advisory Committee to the U.S. Commission on Civil Rights",
+    "url": "https://www.federalregister.gov/documents/2026/11/09/2026-22799/notice-of-public-meetings-of-the-maryland-advisory-committee-to-the-us-commission-on-civil-rights",
+    "score": 0.44,
+    "parts": {
+      "authority": 0.9,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "policy"
+    ],
+    "format": "article",
+    "sources": [
+      "US Federal Register"
+    ]
+  },
+  {
+    "id": "2f0e9ff8493ffaf4",
+    "title": "Decoupled Predictive Decision Making: A Shared Conditional Predictor for Agents",
+    "url": "https://huggingface.co/papers/2611.02075",
+    "score": 0.417,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 1
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "e214d358f05d6fdb",
+    "title": "Teaching AI to build scientific models",
+    "url": "https://www.anthropic.com/research/teaching-ai-to-build-scientific-models",
+    "score": 0.387,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 0.15,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "Anthropic Research"
+    ]
+  },
+  {
+    "id": "bc8f9eac19663ff6",
+    "title": "Partnering with Hacktron to find vulnerabilities in OpenAI’s systems",
+    "url": "https://openai.com/index/partnering-with-hacktron",
+    "score": 0.387,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 0.15,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI"
+    ]
+  },
+  {
+    "id": "b58fee4edbbb5f7a",
+    "title": "Australian universities are creating AI-native graduates",
+    "url": "https://openai.com/index/australian-universities-ai-native-graduates",
+    "score": 0.387,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 0.15,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI"
+    ]
+  },
+  {
+    "id": "c88b52d0b21039c7",
+    "title": "Cult.fit builds operational muscle with Codex",
+    "url": "https://openai.com/index/cultfit-builds-with-codex",
+    "score": 0.387,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 0.15,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI"
+    ]
+  },
+  {
+    "id": "1f9981de57006417",
+    "title": "Flipsnack grows product signups with conversion optimization",
+    "url": "https://openai.com/ads/customers/flipsnack",
+    "score": 0.387,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 0.15,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI"
+    ]
+  },
+  {
+    "id": "c0d7b0808284d182",
+    "title": "Franklin Templeton uses OpenAI to support investment research",
+    "url": "https://openai.com/index/franklin-templeton",
+    "score": 0.387,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 0.15,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI"
+    ]
+  },
+  {
+    "id": "a5d359ab784659f1",
+    "title": "Harness-S: Learning from Sibling Harnesses for Generalizable Agent Training",
+    "url": "https://huggingface.co/papers/2611.04277",
+    "score": 0.383,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.65
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "538a8924da10ae9d",
+    "title": "Random Is Almost Enough? Stable and Low-Cost Benchmark Compression via BestRand",
+    "url": "https://huggingface.co/papers/2611.00883",
+    "score": 0.38,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.63
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "e7b124c3848d0c94",
+    "title": "SLA: Scaling Spatial-Language-Action Model via Continual Pre-training",
+    "url": "https://huggingface.co/papers/2611.08373",
+    "score": 0.364,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.46
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "0bc660c4267421b7",
+    "title": "TailSteer: Trajectory-Tail Steering for Drift-Resistant Multi-turn Image Editing",
+    "url": "https://huggingface.co/papers/2611.06741",
+    "score": 0.36,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.42
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "433e27d52748d6a2",
+    "title": "EvoMemState: Evolving Memory State for Personal Agents",
+    "url": "https://huggingface.co/papers/2611.03743",
+    "score": 0.343,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.25
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "74ab6ee9c39359c1",
+    "title": "VisSearch-Bench: Evaluating Long Horizon Visual Search in Multimodal Agents",
+    "url": "https://huggingface.co/papers/2611.04894",
+    "score": 0.339,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.21
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "febb014e6488794c",
+    "title": "Towards Foundation Decision Models: Drex",
+    "url": "https://huggingface.co/papers/2611.07854",
+    "score": 0.336,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.19
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "be1ba71e55b7f125",
+    "title": "ToyBlocks: A controlled world for robot learning and evaluation",
+    "url": "https://huggingface.co/blog/allenai/toyblocks",
+    "score": 0.335,
+    "parts": {
+      "authority": 0.6,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face"
+    ]
+  },
+  {
+    "id": "e29b9baa1b7f3346",
+    "title": "Open-HumanScale: An Open Recipe for Scaling Human and Robot Experience for Embodied Foundation Models",
+    "url": "https://huggingface.co/papers/2611.06817",
+    "score": 0.335,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.17
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  }
+]

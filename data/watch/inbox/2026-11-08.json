@@ -1,0 +1,180 @@
+[
+  {
+    "title": "datasette #3046: Don't serve link: rel=next HTTP headers to Firefox for HTML pages",
+    "url": "https://simonwillison.net/2026/Nov/7/link-rel-next/",
+    "published": "2026-11-07T23:57:46+00:00",
+    "summary": "datasette #3046: Don't serve link: rel=next HTTP headers to Firefox for HTML pages I was looking at the Firefox network panel today when I noticed that requests to a Datasette table page were triggering an HTTP prefetch to the next page of rows in that table. This was happening because Datasette pages serve an HTTP link header like this: link: &lt;https://latest.datasette.io/fixtures/compound_three_primary_keys?_next=a%2Cd%2Cv&gt;; rel=\"next\" This is bad. A tiny fraction of the visitors to one of those pages will click the \"next\" link, which means their browser is fetching unnecessary data and",
+    "id": "3880bf849bb943e9",
+    "source": "simonw",
+    "sourceName": "Simon Willison",
+    "category": "newsletter",
+    "weight": 0.5,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Notice of Public Meetings of the Maryland Advisory Committee to the U.S. Commission on Civil Rights",
+    "url": "https://www.federalregister.gov/documents/2026/11/09/2026-22799/notice-of-public-meetings-of-the-maryland-advisory-committee-to-the-us-commission-on-civil-rights",
+    "published": "2026-11-09",
+    "summary": "Notice is hereby given, pursuant to the provisions of the rules and regulations of the U.S. Commission on Civil Rights (Commission) and the Federal Advisory Committee Act, that the Maryland Advisory Committee (Committee) to the Commission will hold public meetings via Zoom. The purpose is for the committee to begin hearing expert testimony and continue briefing planning on the committee's chosen topic of artificial intelligence and its application in voting administration.",
+    "docType": "Notice",
+    "agencies": [
+      "Civil Rights Commission"
+    ],
+    "id": "f96dfa7ebf10be27",
+    "source": "fedreg",
+    "sourceName": "US Federal Register",
+    "category": "policy",
+    "weight": 0.9,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Medicare and Medicaid Programs; CY 2027 Payment Policies Under the Physician Fee Schedule and Other Changes to Part B Payment and Coverage Policies; Medicare Shared Savings Program Requirements; and Medicare Prescription Drug Inflation Rebate Program",
+    "url": "https://www.federalregister.gov/documents/2026/11/09/2026-22743/medicare-and-medicaid-programs-cy-2027-payment-policies-under-the-physician-fee-schedule-and-other",
+    "published": "2026-11-09",
+    "summary": "This final rule addresses: changes to the physician fee schedule (PFS); other changes to Medicare Part B payment policies to ensure that payment systems are updated to reflect changes in medical practice, relative value of services, and changes in the statute; codification of establishment of new policies for: the Medicare Prescription Drug Inflation Rebate Program under the Inflation Reduction Act of 2022; limiting Medicare coverage of certain individuals; the Ambulatory Specialty Model; updates to drugs and biological products paid under Part B; Medicare Shared Savings Program requirements; ",
+    "docType": "Rule",
+    "agencies": [
+      "Health and Human Services Department",
+      "Centers for Medicare & Medicaid Services"
+    ],
+    "id": "b3ee04c2353aa99b",
+    "source": "fedreg",
+    "sourceName": "US Federal Register",
+    "category": "policy",
+    "weight": 0.9,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "I Used NYT Cooking’s New AI-Powered Recipe Modifier, and It’s Actually Pretty Good",
+    "url": "https://www.wired.com/story/nyt-cooking-new-ai-powered-recipe-modifier-is-pretty-good/",
+    "thumbnail": {
+      "url": "https://media.wired.com/photos/6aee77f4ece1c19963602401/master/pass/gear-nyt-cooking-ai-assistant.jpg",
+      "sourceUrl": "https://www.wired.com/story/nyt-cooking-new-ai-powered-recipe-modifier-is-pretty-good/",
+      "credit": "Joe Ray",
+      "alt": "",
+      "provenance": "feed"
+    },
+    "published": "Sun, 08 Nov 2026 12:00:00 +0000",
+    "summary": "The New York Times has added a beta feature to its Cooking app that helps readers swap ingredients or adjust recipes to suit their needs. It mostly hits the mark.",
+    "id": "3b57d3e3ef870823",
+    "source": "wired-ai",
+    "sourceName": "WIRED",
+    "category": "media",
+    "weight": 0.45,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "World Models Will Soon Be Inescapable. Here’s What You Need to Know",
+    "url": "https://www.wired.com/story/world-models-will-soon-be-inescapable-what-you-need-to-know/",
+    "thumbnail": {
+      "url": "https://media.wired.com/photos/6aee7497bf81da8802edc3e6/master/pass/gear-ai-world-models-3d.jpg",
+      "sourceUrl": "https://www.wired.com/story/world-models-will-soon-be-inescapable-what-you-need-to-know/",
+      "credit": "Reece Rogers",
+      "alt": "",
+      "provenance": "feed"
+    },
+    "published": "Sun, 08 Nov 2026 10:00:00 +0000",
+    "summary": "Moving AI from text to 3D space, world models simulate real-world physics to teach robots and autonomous cars how to navigate reality.",
+    "id": "927c104d2440878f",
+    "source": "wired-ai",
+    "sourceName": "WIRED",
+    "category": "media",
+    "weight": 0.45,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Goodbye Claude, hello Pi",
+    "url": "https://caleb.software/posts/claude-to-pi.html",
+    "discussion": "https://news.ycombinator.com/item?id=50410107",
+    "published": "2026-11-08T03:11:48Z",
+    "summary": "",
+    "engagement": {
+      "points": 544,
+      "comments": 346
+    },
+    "id": "e66f4eeac8f3ba07",
+    "source": "hn",
+    "sourceName": "Hacker News",
+    "category": "community",
+    "weight": 0.35,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Claude Code's \"Don't Ask Again\" exposes passwords in 1,122 public GitHub files",
+    "url": "https://apiiro.com/blog/coding-agents-leaking-secrets-github-dont-ask-again",
+    "discussion": "https://news.ycombinator.com/item?id=50407882",
+    "published": "2026-11-07T20:45:32Z",
+    "summary": "",
+    "engagement": {
+      "points": 500,
+      "comments": 358
+    },
+    "id": "5186d80b7eef5626",
+    "source": "hn",
+    "sourceName": "Hacker News",
+    "category": "community",
+    "weight": 0.35,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Agent memory needs its OpenTelemetry moment",
+    "url": "https://www.lorekit.io/blog/open-agent-memory-format",
+    "discussion": "https://news.ycombinator.com/item?id=50411467",
+    "published": "2026-11-08T08:40:23Z",
+    "summary": "",
+    "engagement": {
+      "points": 121,
+      "comments": 88
+    },
+    "id": "76aa428f83cc15ef",
+    "source": "hn",
+    "sourceName": "Hacker News",
+    "category": "community",
+    "weight": 0.35,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "OpenAI raises $11B at a $1.25T valuation",
+    "url": "https://247wallst.com/investing/2026/11/07/openai-just-raised-11-billion-at-a-1-25-trillion-valuation-below-the-1-4-trillion-it-first-sought/",
+    "discussion": "https://news.ycombinator.com/item?id=50413822",
+    "published": "2026-11-08T14:49:23Z",
+    "summary": "",
+    "engagement": {
+      "points": 104,
+      "comments": 89
+    },
+    "id": "ea31161d462c8ec0",
+    "source": "hn",
+    "sourceName": "Hacker News",
+    "category": "community",
+    "weight": 0.35,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Apple CEO Presses Software Chief to Pursue More Ambitious AI Strategy",
+    "url": "https://www.bloomberg.com/news/newsletters/2026-11-08/apple-explores-turning-siri-ai-into-chatgpt-dots-like-agent-ios-28-shake-up",
+    "discussion": "https://news.ycombinator.com/item?id=50414021",
+    "published": "2026-11-08T15:19:51Z",
+    "summary": "",
+    "engagement": {
+      "points": 27,
+      "comments": 39
+    },
+    "id": "34520e7f743e70e4",
+    "source": "hn",
+    "sourceName": "Hacker News",
+    "category": "community",
+    "weight": 0.35,
+    "format": "article",
+    "trendOnly": false
+  }
+]
