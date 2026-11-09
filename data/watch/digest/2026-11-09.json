@@ -1,0 +1,480 @@
+[
+  {
+    "id": "b3ee04c2353aa99b",
+    "title": "Medicare and Medicaid Programs; CY 2027 Payment Policies Under the Physician Fee Schedule and Other Changes to Part B Payment and Coverage Policies; Medicare Shared Savings Program Requirements; and Medicare Prescription Drug Inflation Rebate Program",
+    "url": "https://www.federalregister.gov/documents/2026/11/09/2026-22743/medicare-and-medicaid-programs-cy-2027-payment-policies-under-the-physician-fee-schedule-and-other",
+    "score": 0.62,
+    "parts": {
+      "authority": 0.9,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0
+    },
+    "categories": [
+      "policy"
+    ],
+    "format": "article",
+    "sources": [
+      "US Federal Register"
+    ]
+  },
+  {
+    "id": "f1eea0a2781af6aa",
+    "title": "Anthropic launches new Claude Fable and Mythos 5.2 models",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1030005/anthropic-claude-fable-mythos-5-2",
+    "score": 0.502,
+    "parts": {
+      "authority": 0.45,
+      "corroboration": 0.4,
+      "impact": 0.5,
+      "engagement": 1
+    },
+    "categories": [
+      "media",
+      "community"
+    ],
+    "format": "article",
+    "sources": [
+      "The Verge",
+      "Hacker News"
+    ]
+  },
+  {
+    "id": "621ff925e8eedb58",
+    "title": "The Last Mile to the Real World: Agent-Native Primitives as Reusable Building Blocks for Solving Real-World Tasks",
+    "url": "https://huggingface.co/papers/2611.07461",
+    "score": 0.476,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0.34
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "594105e3c51985ed",
+    "title": "The components of agent memory",
+    "url": "https://www.anthropic.com/research/components-of-agent-memory",
+    "score": 0.475,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "Anthropic Research"
+    ]
+  },
+  {
+    "id": "cfd4354afa14004f",
+    "title": "Measuring how AI agents handle everyday wet-lab science",
+    "url": "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science",
+    "score": 0.475,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI"
+    ]
+  },
+  {
+    "id": "20c37862680f0619",
+    "title": "Fast and Exact Relative-Position Attention via Structure-Aware Kernels",
+    "url": "https://huggingface.co/papers/2611.01182",
+    "score": 0.466,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0.24
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "46563ddec3e801a1",
+    "title": "AgentBaton: Efficient Model Collaboration in Agentic Tasks",
+    "url": "https://huggingface.co/papers/2610.35959",
+    "score": 0.458,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0.15
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "f96dfa7ebf10be27",
+    "title": "Notice of Public Meetings of the Maryland Advisory Committee to the U.S. Commission on Civil Rights",
+    "url": "https://www.federalregister.gov/documents/2026/11/09/2026-22799/notice-of-public-meetings-of-the-maryland-advisory-committee-to-the-us-commission-on-civil-rights",
+    "score": 0.44,
+    "parts": {
+      "authority": 0.9,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "policy"
+    ],
+    "format": "article",
+    "sources": [
+      "US Federal Register"
+    ]
+  },
+  {
+    "id": "3ec2e278915eae81",
+    "title": "The backlash about data centers might really just be about electricity",
+    "url": "https://www.technologyreview.com/2026/11/09/1148194/the-backlash-about-data-centers-might-really-just-be-about-electricity/",
+    "score": 0.438,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0.4,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "media"
+    ],
+    "format": "article",
+    "sources": [
+      "MIT Technology Review",
+      "The Verge"
+    ]
+  },
+  {
+    "id": "ce5ea4c26464151f",
+    "title": "Testing Claude on real-world electronics design",
+    "url": "https://www.anthropic.com/research/claude-electronics-design",
+    "score": 0.387,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 0.15,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "Anthropic Research"
+    ]
+  },
+  {
+    "id": "9c331579e229757a",
+    "title": "ChatGPT Enterprise now available in AWS Marketplace",
+    "url": "https://openai.com/index/chatgpt-enterprise-aws-marketplace",
+    "score": 0.387,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 0.15,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI"
+    ]
+  },
+  {
+    "id": "932fe34bad728f30",
+    "title": "Kuken Industries searches 70 years of drawings in minutes",
+    "url": "https://openai.com/index/kuken",
+    "score": 0.387,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 0.15,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI"
+    ]
+  },
+  {
+    "id": "4a6c094b462ab89d",
+    "title": "Debiasing Law Enforcement Officers: Evidence from an Expressive Arts Intervention in India -- by Sofia Amaral, Girija Borker, Nishith Prakash, María Micaela Sviatschi",
+    "url": "https://www.nber.org/papers/w35986#fromrss",
+    "score": 0.387,
+    "parts": {
+      "authority": 0.75,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "economy"
+    ],
+    "format": "article",
+    "sources": [
+      "NBER Working Papers"
+    ]
+  },
+  {
+    "id": "15d97949f4ab4b94",
+    "title": "TaskNet: Building Occupational Task Inventories from Worker Interviews at Scale -- by Jennifer Wang, Andreas Haupt, Isaac Robinson, Phil Lewis, Erik Brynjolfsson, Diyi Yang",
+    "url": "https://www.nber.org/papers/w35987#fromrss",
+    "score": 0.387,
+    "parts": {
+      "authority": 0.75,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "economy"
+    ],
+    "format": "article",
+    "sources": [
+      "NBER Working Papers"
+    ]
+  },
+  {
+    "id": "7fe9fe310dfca511",
+    "title": "Vigilance, Risk Vulnerability, and the Precautionary Augment -- by Miles S. Kimball, Vincent A. Mastantuno",
+    "url": "https://www.nber.org/papers/w36001#fromrss",
+    "score": 0.387,
+    "parts": {
+      "authority": 0.75,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "economy"
+    ],
+    "format": "article",
+    "sources": [
+      "NBER Working Papers"
+    ]
+  },
+  {
+    "id": "06019537d7f4b1c9",
+    "title": "AI as Shared Business Infrastructure: Firm Growth and the Distribution of Gains -- by Panle Jia Barwick, Lu Fang, Jinhan Liu, Huilan Xu, Zhe Yuan",
+    "url": "https://www.nber.org/papers/w36003#fromrss",
+    "score": 0.387,
+    "parts": {
+      "authority": 0.75,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "economy"
+    ],
+    "format": "article",
+    "sources": [
+      "NBER Working Papers"
+    ]
+  },
+  {
+    "id": "e214d358f05d6fdb",
+    "title": "Teaching AI to build scientific models",
+    "url": "https://www.anthropic.com/research/teaching-ai-to-build-scientific-models",
+    "score": 0.387,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 0.15,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "Anthropic Research"
+    ]
+  },
+  {
+    "id": "bc8f9eac19663ff6",
+    "title": "Partnering with Hacktron to find vulnerabilities in OpenAI’s systems",
+    "url": "https://openai.com/index/partnering-with-hacktron",
+    "score": 0.387,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 0.15,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI"
+    ]
+  },
+  {
+    "id": "c2e12f511df54864",
+    "title": "P^2-MOPD: Accelerating Multi-Teacher On-Policy Distillation via Parameter Priors",
+    "url": "https://huggingface.co/papers/2611.03953",
+    "score": 0.37,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.53
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "f1d3e244dae68212",
+    "title": "LongBanana: An Expert-Verified Benchmark for Long-Context Multi-Reference Image Synthesis",
+    "url": "https://huggingface.co/papers/2611.06856",
+    "score": 0.349,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.31
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "186e511aaf3a910e",
+    "title": "PCBRouteAgent: How Close Are LLM Agents to Becoming PCB Routing Engineers?",
+    "url": "https://huggingface.co/papers/2611.08175",
+    "score": 0.345,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.28
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "24d330b2cb55df3f",
+    "title": "Beneath the Surface: What We Overlook When We Talk About Agent Evolution",
+    "url": "https://huggingface.co/papers/2611.07624",
+    "score": 0.345,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.28
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "30978d0bf99ee6a5",
+    "title": "Confucius4-R2T2: A Stable-Prefix Streaming ASR Model for Real Real-Time Transcription",
+    "url": "https://huggingface.co/papers/2611.06043",
+    "score": 0.344,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.26
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "b56e74146021bd51",
+    "title": "EvoWorld: Towards Out-of-Sight World Evolution in Generative Video Models",
+    "url": "https://huggingface.co/papers/2611.06748",
+    "score": 0.341,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.24
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "454d9c2a2a67c556",
+    "title": "Video-Coder: Reinforcing Agentic Coding for Video Generation",
+    "url": "https://huggingface.co/papers/2611.09894",
+    "score": 0.336,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.19
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  }
+]

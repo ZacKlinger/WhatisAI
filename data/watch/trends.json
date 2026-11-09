@@ -1,12 +1,12 @@
 {
-  "updated": "2026-11-08",
+  "updated": "2026-11-09",
   "windowDays": 7,
   "baselineDays": 28,
-  "daysOfHistory": 14,
+  "daysOfHistory": 15,
   "recentObservedDays": 7,
-  "baselineObservedDays": 7,
+  "baselineObservedDays": 8,
   "comparisonReady": false,
-  "itemsLastWeek": 4277,
+  "itemsLastWeek": 4365,
   "rising": [],
   "volume": [
     {
@@ -14,12 +14,11 @@
       "modules": [
         "agents-and-tools"
       ],
-      "recent": 858,
-      "base": 551,
-      "share": 0.2006079027355623,
+      "recent": 830,
+      "base": 693,
+      "share": 0.19014891179839633,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -46,7 +45,8 @@
         133,
         121,
         4,
-        1
+        1,
+        114
       ]
     },
     {
@@ -55,12 +55,11 @@
         "benchmarks",
         "evaluation-science"
       ],
-      "recent": 703,
-      "base": 478,
-      "share": 0.16436754734627074,
+      "recent": 712,
+      "base": 586,
+      "share": 0.16311569301260023,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -87,7 +86,8 @@
         97,
         91,
         1,
-        0
+        0,
+        117
       ]
     },
     {
@@ -95,12 +95,11 @@
       "modules": [
         "multimodality"
       ],
-      "recent": 431,
-      "base": 272,
-      "share": 0.10077156885667524,
+      "recent": 440,
+      "base": 321,
+      "share": 0.10080183276059565,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -127,7 +126,8 @@
         63,
         62,
         1,
-        0
+        0,
+        58
       ]
     },
     {
@@ -135,12 +135,11 @@
       "modules": [
         "measuring-progress"
       ],
-      "recent": 193,
-      "base": 98,
-      "share": 0.04512508767827917,
+      "recent": 177,
+      "base": 139,
+      "share": 0.04054982817869416,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -167,7 +166,8 @@
         11,
         35,
         1,
-        0
+        0,
+        25
       ]
     },
     {
@@ -175,12 +175,11 @@
       "modules": [
         "multimodality"
       ],
-      "recent": 173,
-      "base": 109,
-      "share": 0.04044891278933832,
+      "recent": 175,
+      "base": 133,
+      "share": 0.04009163802978236,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -207,7 +206,8 @@
         21,
         36,
         0,
-        1
+        1,
+        26
       ]
     },
     {
@@ -216,12 +216,11 @@
         "alignment-problem",
         "deception-and-scheming"
       ],
-      "recent": 162,
-      "base": 105,
-      "share": 0.03787701660042086,
+      "recent": 167,
+      "base": 124,
+      "share": 0.03825887743413517,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -248,48 +247,8 @@
         22,
         26,
         0,
-        0
-      ]
-    },
-    {
-      "term": "Interpretability",
-      "modules": [
-        "interpretability-foundations",
-        "sparse-autoencoders"
-      ],
-      "recent": 144,
-      "base": 70,
-      "share": 0.0336684592003741,
-      "lift": null,
-      "series": [
         0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        8,
-        25,
-        0,
-        36,
-        0,
-        0,
-        24,
-        50,
-        23,
-        15,
-        32,
-        0,
-        0
+        24
       ]
     },
     {
@@ -297,12 +256,11 @@
       "modules": [
         "us-ai-policy"
       ],
-      "recent": 142,
-      "base": 71,
-      "share": 0.03320084171148001,
+      "recent": 152,
+      "base": 89,
+      "share": 0.03482245131729668,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -329,7 +287,49 @@
         18,
         34,
         1,
-        1
+        1,
+        28
+      ]
+    },
+    {
+      "term": "Interpretability",
+      "modules": [
+        "interpretability-foundations",
+        "sparse-autoencoders"
+      ],
+      "recent": 150,
+      "base": 94,
+      "share": 0.03436426116838488,
+      "lift": null,
+      "series": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        8,
+        25,
+        0,
+        36,
+        0,
+        0,
+        24,
+        50,
+        23,
+        15,
+        32,
+        0,
+        0,
+        30
       ]
     },
     {
@@ -337,12 +337,11 @@
       "modules": [
         "ai-supply-chain"
       ],
-      "recent": 135,
-      "base": 88,
-      "share": 0.031564180500350716,
+      "recent": 149,
+      "base": 100,
+      "share": 0.03413516609392898,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -369,47 +368,8 @@
         25,
         13,
         1,
-        0
-      ]
-    },
-    {
-      "term": "Security and jailbreaks",
-      "modules": [
-        "dangerous-capabilities"
-      ],
-      "recent": 113,
-      "base": 64,
-      "share": 0.026420388122515782,
-      "lift": null,
-      "series": [
         0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        7,
-        21,
-        0,
-        35,
-        0,
-        0,
-        18,
-        43,
-        18,
-        12,
-        22,
-        0,
-        0
+        26
       ]
     },
     {
@@ -417,12 +377,11 @@
       "modules": [
         "system-cards"
       ],
-      "recent": 111,
-      "base": 73,
-      "share": 0.025952770633621697,
+      "recent": 117,
+      "base": 93,
+      "share": 0.026804123711340205,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -449,7 +408,48 @@
         14,
         17,
         0,
-        0
+        0,
+        26
+      ]
+    },
+    {
+      "term": "Security and jailbreaks",
+      "modules": [
+        "dangerous-capabilities"
+      ],
+      "recent": 110,
+      "base": 82,
+      "share": 0.025200458190148912,
+      "lift": null,
+      "series": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        7,
+        21,
+        0,
+        35,
+        0,
+        0,
+        18,
+        43,
+        18,
+        12,
+        22,
+        0,
+        0,
+        15
       ]
     },
     {
@@ -458,12 +458,11 @@
         "agents-and-tools",
         "evidence-on-work"
       ],
-      "recent": 96,
-      "base": 64,
-      "share": 0.02244563946691606,
+      "recent": 99,
+      "base": 74,
+      "share": 0.02268041237113402,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -490,48 +489,8 @@
         16,
         10,
         0,
-        0
-      ]
-    },
-    {
-      "term": "Copyright and data",
-      "modules": [
-        "data",
-        "governance-landscape"
-      ],
-      "recent": 94,
-      "base": 63,
-      "share": 0.02197802197802198,
-      "lift": null,
-      "series": [
         0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        6,
-        27,
-        1,
-        27,
-        1,
-        0,
-        18,
-        35,
-        15,
-        9,
-        17,
-        0,
-        0
+        13
       ]
     },
     {
@@ -540,12 +499,11 @@
         "compute",
         "ai-supply-chain"
       ],
-      "recent": 91,
-      "base": 49,
-      "share": 0.02127659574468085,
+      "recent": 97,
+      "base": 57,
+      "share": 0.022222222222222223,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -572,7 +530,49 @@
         8,
         12,
         2,
-        0
+        0,
+        14
+      ]
+    },
+    {
+      "term": "Copyright and data",
+      "modules": [
+        "data",
+        "governance-landscape"
+      ],
+      "recent": 92,
+      "base": 81,
+      "share": 0.021076746849942728,
+      "lift": null,
+      "series": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        6,
+        27,
+        1,
+        27,
+        1,
+        0,
+        18,
+        35,
+        15,
+        9,
+        17,
+        0,
+        0,
+        16
       ]
     }
   ],
@@ -587,13 +587,13 @@
       "id": "anthropic-research",
       "name": "Anthropic Research",
       "ok": true,
-      "count": 24
+      "count": 25
     },
     {
       "id": "openai",
       "name": "OpenAI",
       "ok": true,
-      "count": 1368
+      "count": 1370
     },
     {
       "id": "deepmind",
@@ -617,7 +617,7 @@
       "id": "hf-blog",
       "name": "Hugging Face",
       "ok": true,
-      "count": 899
+      "count": 900
     },
     {
       "id": "hf-papers",
@@ -629,19 +629,19 @@
       "id": "arxiv-cl",
       "name": "arXiv cs.CL",
       "ok": true,
-      "count": 0
+      "count": 146
     },
     {
       "id": "arxiv-lg",
       "name": "arXiv cs.LG",
       "ok": true,
-      "count": 0
+      "count": 417
     },
     {
       "id": "arxiv-ai",
       "name": "arXiv cs.AI",
       "ok": true,
-      "count": 0
+      "count": 397
     },
     {
       "id": "metr",
@@ -695,7 +695,7 @@
       "id": "nber",
       "name": "NBER Working Papers",
       "ok": true,
-      "count": 7
+      "count": 4
     },
     {
       "id": "stanford-del",
@@ -743,7 +743,7 @@
       "id": "hn",
       "name": "Hacker News",
       "ok": true,
-      "count": 5
+      "count": 4
     }
   ]
 }
