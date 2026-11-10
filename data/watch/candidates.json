@@ -1,7 +1,99 @@
 {
-  "date": "2026-11-09",
+  "date": "2026-11-10",
   "threshold": 0.58,
   "candidates": [
+    {
+      "id": "5ca4dc7b6d88cb31",
+      "title": "Introducing Businesses in ChatGPT",
+      "url": "https://openai.com/index/introducing-businesses-chatgpt",
+      "score": 0.62,
+      "parts": {
+        "authority": 1,
+        "corroboration": 0,
+        "impact": 1,
+        "engagement": 0
+      },
+      "categories": [
+        "lab"
+      ],
+      "format": "article",
+      "items": [
+        {
+          "title": "Introducing Businesses in ChatGPT",
+          "url": "https://openai.com/index/introducing-businesses-chatgpt",
+          "source": "OpenAI",
+          "category": "lab",
+          "published": "Tue, 10 Nov 2026 10:00:00 GMT",
+          "summary": "Manage your business information, get insights about how your business shows up, and turn interest into action in ChatGPT."
+        }
+      ]
+    },
+    {
+      "id": "0b2e1c02de474f20",
+      "title": "Gemini 4 Carbon is now available",
+      "url": "https://deepmind.google/blog/gemini-4-carbon-is-now-available/",
+      "score": 0.62,
+      "parts": {
+        "authority": 0.95,
+        "corroboration": 0,
+        "impact": 1,
+        "engagement": 0
+      },
+      "categories": [
+        "lab"
+      ],
+      "format": "article",
+      "items": [
+        {
+          "title": "Gemini 4 Carbon is now available",
+          "url": "https://deepmind.google/blog/gemini-4-carbon-is-now-available/",
+          "source": "Google DeepMind",
+          "category": "lab",
+          "published": "Tue, 10 Nov 2026 16:03:47 +0000",
+          "summary": ""
+        }
+      ]
+    },
+    {
+      "id": "428ac4b42c0b5f39",
+      "title": "Introducing AlphaProof Code: a breakthrough in verifying complex software at depth",
+      "url": "https://deepmind.google/blog/introducing-alphaproof-code/",
+      "score": 0.62,
+      "parts": {
+        "authority": 0.95,
+        "corroboration": 0,
+        "impact": 1,
+        "engagement": 0
+      },
+      "categories": [
+        "lab"
+      ],
+      "format": "article",
+      "thumbnail": {
+        "url": "https://lh3.googleusercontent.com/hn6AiI6lYFo6chi1mL6uJ9nOW9UXfsAKnSyOApiie2urHNU2tmSPUmGn0hNfWyYLRcsWCGjCIrBZSCt1ihZmvW-LDJPfyolsr5w-yvzlknZVzmaH=w528-h297-n-nu-rw-lo",
+        "sourceUrl": "https://deepmind.google/blog/introducing-alphaproof-code/",
+        "credit": "Google DeepMind",
+        "alt": "",
+        "provenance": "feed"
+      },
+      "items": [
+        {
+          "title": "Introducing AlphaProof Code: a breakthrough in verifying complex software at depth",
+          "url": "https://deepmind.google/blog/introducing-alphaproof-code/",
+          "source": "Google DeepMind",
+          "category": "lab",
+          "published": "Tue, 10 Nov 2026 12:02:28 +0000",
+          "summary": "AlphaProof Code agents wrote three million lines of proofs in Lean to verify Signal’s core encryption.",
+          "thumbnail": {
+            "url": "https://lh3.googleusercontent.com/hn6AiI6lYFo6chi1mL6uJ9nOW9UXfsAKnSyOApiie2urHNU2tmSPUmGn0hNfWyYLRcsWCGjCIrBZSCt1ihZmvW-LDJPfyolsr5w-yvzlknZVzmaH=w528-h297-n-nu-rw-lo",
+            "sourceUrl": "https://deepmind.google/blog/introducing-alphaproof-code/",
+            "credit": "Google DeepMind",
+            "alt": "",
+            "provenance": "feed"
+          }
+        }
+      ]
+    },
     {
       "id": "b3ee04c2353aa99b",
       "title": "Medicare and Medicaid Programs; CY 2027 Payment Policies Under the Physician Fee Schedule and Other Changes to Part B Payment and Coverage Policies; Medicare Shared Savings Program Requirements; and Medicare Prescription Drug Inflation Rebate Program",

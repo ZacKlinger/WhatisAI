@@ -1,12 +1,12 @@
 {
-  "updated": "2026-11-09",
+  "updated": "2026-11-10",
   "windowDays": 7,
   "baselineDays": 28,
-  "daysOfHistory": 15,
+  "daysOfHistory": 16,
   "recentObservedDays": 7,
-  "baselineObservedDays": 8,
+  "baselineObservedDays": 9,
   "comparisonReady": false,
-  "itemsLastWeek": 4365,
+  "itemsLastWeek": 4380,
   "rising": [],
   "volume": [
     {
@@ -14,12 +14,11 @@
       "modules": [
         "agents-and-tools"
       ],
-      "recent": 830,
-      "base": 693,
-      "share": 0.19014891179839633,
+      "recent": 802,
+      "base": 1014,
+      "share": 0.18310502283105023,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -46,7 +45,8 @@
         121,
         4,
         1,
-        114
+        114,
+        293
       ]
     },
     {
@@ -55,12 +55,11 @@
         "benchmarks",
         "evaluation-science"
       ],
-      "recent": 712,
-      "base": 586,
-      "share": 0.16311569301260023,
+      "recent": 710,
+      "base": 871,
+      "share": 0.16210045662100456,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -87,7 +86,8 @@
         91,
         1,
         0,
-        117
+        117,
+        283
       ]
     },
     {
@@ -95,12 +95,11 @@
       "modules": [
         "multimodality"
       ],
-      "recent": 440,
-      "base": 321,
-      "share": 0.10080183276059565,
+      "recent": 429,
+      "base": 487,
+      "share": 0.09794520547945205,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -127,87 +126,8 @@
         62,
         1,
         0,
-        58
-      ]
-    },
-    {
-      "term": "AI for science",
-      "modules": [
-        "measuring-progress"
-      ],
-      "recent": 177,
-      "base": 139,
-      "share": 0.04054982817869416,
-      "lift": null,
-      "series": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        2,
-        17,
-        30,
-        0,
-        49,
-        0,
-        0,
-        41,
-        66,
-        39,
-        11,
-        35,
-        1,
-        0,
-        25
-      ]
-    },
-    {
-      "term": "Robotics",
-      "modules": [
-        "multimodality"
-      ],
-      "recent": 175,
-      "base": 133,
-      "share": 0.04009163802978236,
-      "lift": null,
-      "series": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        8,
-        5,
-        46,
-        3,
-        46,
-        1,
-        0,
-        24,
-        49,
-        42,
-        21,
-        36,
-        0,
-        1,
-        26
+        58,
+        155
       ]
     },
     {
@@ -216,12 +136,11 @@
         "alignment-problem",
         "deception-and-scheming"
       ],
-      "recent": 167,
-      "base": 124,
-      "share": 0.03825887743413517,
+      "recent": 199,
+      "base": 188,
+      "share": 0.0454337899543379,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -248,7 +167,88 @@
         26,
         0,
         0,
-        24
+        24,
+        96
+      ]
+    },
+    {
+      "term": "Robotics",
+      "modules": [
+        "multimodality"
+      ],
+      "recent": 189,
+      "base": 182,
+      "share": 0.04315068493150685,
+      "lift": null,
+      "series": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        8,
+        5,
+        46,
+        3,
+        46,
+        1,
+        0,
+        24,
+        49,
+        42,
+        21,
+        36,
+        0,
+        1,
+        26,
+        63
+      ]
+    },
+    {
+      "term": "AI for science",
+      "modules": [
+        "measuring-progress"
+      ],
+      "recent": 184,
+      "base": 205,
+      "share": 0.04200913242009133,
+      "lift": null,
+      "series": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        17,
+        30,
+        0,
+        49,
+        0,
+        0,
+        41,
+        66,
+        39,
+        11,
+        35,
+        1,
+        0,
+        25,
+        73
       ]
     },
     {
@@ -256,12 +256,11 @@
       "modules": [
         "us-ai-policy"
       ],
-      "recent": 152,
-      "base": 89,
-      "share": 0.03482245131729668,
+      "recent": 171,
+      "base": 135,
+      "share": 0.03904109589041096,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -288,7 +287,8 @@
         34,
         1,
         1,
-        28
+        28,
+        65
       ]
     },
     {
@@ -297,12 +297,11 @@
         "interpretability-foundations",
         "sparse-autoencoders"
       ],
-      "recent": 150,
-      "base": 94,
-      "share": 0.03436426116838488,
+      "recent": 146,
+      "base": 144,
+      "share": 0.03333333333333333,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -329,7 +328,8 @@
         32,
         0,
         0,
-        30
+        30,
+        46
       ]
     },
     {
@@ -337,12 +337,11 @@
       "modules": [
         "ai-supply-chain"
       ],
-      "recent": 149,
-      "base": 100,
-      "share": 0.03413516609392898,
+      "recent": 143,
+      "base": 151,
+      "share": 0.03264840182648402,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -369,7 +368,8 @@
         13,
         1,
         0,
-        26
+        26,
+        45
       ]
     },
     {
@@ -377,12 +377,11 @@
       "modules": [
         "system-cards"
       ],
-      "recent": 117,
-      "base": 93,
-      "share": 0.026804123711340205,
+      "recent": 121,
+      "base": 132,
+      "share": 0.027625570776255708,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -409,7 +408,8 @@
         17,
         0,
         0,
-        26
+        26,
+        43
       ]
     },
     {
@@ -417,12 +417,11 @@
       "modules": [
         "dangerous-capabilities"
       ],
-      "recent": 110,
-      "base": 82,
-      "share": 0.025200458190148912,
+      "recent": 113,
+      "base": 125,
+      "share": 0.025799086757990867,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -449,48 +448,8 @@
         22,
         0,
         0,
-        15
-      ]
-    },
-    {
-      "term": "Coding assistants",
-      "modules": [
-        "agents-and-tools",
-        "evidence-on-work"
-      ],
-      "recent": 99,
-      "base": 74,
-      "share": 0.02268041237113402,
-      "lift": null,
-      "series": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        8,
-        26,
-        2,
-        27,
-        0,
-        0,
-        10,
-        47,
-        13,
-        16,
-        10,
-        0,
-        0,
-        13
+        15,
+        46
       ]
     },
     {
@@ -499,12 +458,11 @@
         "compute",
         "ai-supply-chain"
       ],
-      "recent": 97,
-      "base": 57,
-      "share": 0.022222222222222223,
+      "recent": 95,
+      "base": 97,
+      "share": 0.021689497716894976,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -531,7 +489,8 @@
         12,
         2,
         0,
-        14
+        14,
+        38
       ]
     },
     {
@@ -540,12 +499,11 @@
         "data",
         "governance-landscape"
       ],
-      "recent": 92,
-      "base": 81,
-      "share": 0.021076746849942728,
+      "recent": 93,
+      "base": 116,
+      "share": 0.021232876712328767,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -572,7 +530,49 @@
         17,
         0,
         0,
-        16
+        16,
+        36
+      ]
+    },
+    {
+      "term": "Coding assistants",
+      "modules": [
+        "agents-and-tools",
+        "evidence-on-work"
+      ],
+      "recent": 79,
+      "base": 121,
+      "share": 0.018036529680365298,
+      "lift": null,
+      "series": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        8,
+        26,
+        2,
+        27,
+        0,
+        0,
+        10,
+        47,
+        13,
+        16,
+        10,
+        0,
+        0,
+        13,
+        27
       ]
     }
   ],
@@ -593,7 +593,7 @@
       "id": "openai",
       "name": "OpenAI",
       "ok": true,
-      "count": 1370
+      "count": 1376
     },
     {
       "id": "deepmind",
@@ -617,7 +617,7 @@
       "id": "hf-blog",
       "name": "Hugging Face",
       "ok": true,
-      "count": 900
+      "count": 902
     },
     {
       "id": "hf-papers",
@@ -629,19 +629,19 @@
       "id": "arxiv-cl",
       "name": "arXiv cs.CL",
       "ok": true,
-      "count": 146
+      "count": 364
     },
     {
       "id": "arxiv-lg",
       "name": "arXiv cs.LG",
       "ok": true,
-      "count": 417
+      "count": 1026
     },
     {
       "id": "arxiv-ai",
       "name": "arXiv cs.AI",
       "ok": true,
-      "count": 397
+      "count": 887
     },
     {
       "id": "metr",
