@@ -1,12 +1,12 @@
 {
-  "updated": "2026-11-10",
+  "updated": "2026-11-11",
   "windowDays": 7,
   "baselineDays": 28,
-  "daysOfHistory": 16,
+  "daysOfHistory": 17,
   "recentObservedDays": 7,
-  "baselineObservedDays": 9,
+  "baselineObservedDays": 10,
   "comparisonReady": false,
-  "itemsLastWeek": 4380,
+  "itemsLastWeek": 4312,
   "rising": [],
   "volume": [
     {
@@ -14,12 +14,11 @@
       "modules": [
         "agents-and-tools"
       ],
-      "recent": 802,
-      "base": 1014,
-      "share": 0.18310502283105023,
+      "recent": 797,
+      "base": 1150,
+      "share": 0.1848330241187384,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -46,7 +45,8 @@
         4,
         1,
         114,
-        293
+        293,
+        131
       ]
     },
     {
@@ -55,12 +55,11 @@
         "benchmarks",
         "evaluation-science"
       ],
-      "recent": 710,
-      "base": 871,
-      "share": 0.16210045662100456,
+      "recent": 705,
+      "base": 992,
+      "share": 0.16349721706864564,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -87,7 +86,8 @@
         1,
         0,
         117,
-        283
+        283,
+        116
       ]
     },
     {
@@ -95,12 +95,11 @@
       "modules": [
         "multimodality"
       ],
-      "recent": 429,
-      "base": 487,
-      "share": 0.09794520547945205,
+      "recent": 437,
+      "base": 577,
+      "share": 0.10134508348794063,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -127,7 +126,8 @@
         1,
         0,
         58,
-        155
+        155,
+        98
       ]
     },
     {
@@ -137,11 +137,10 @@
         "deception-and-scheming"
       ],
       "recent": 199,
-      "base": 188,
-      "share": 0.0454337899543379,
+      "base": 219,
+      "share": 0.046150278293135436,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -168,47 +167,8 @@
         0,
         0,
         24,
-        96
-      ]
-    },
-    {
-      "term": "Robotics",
-      "modules": [
-        "multimodality"
-      ],
-      "recent": 189,
-      "base": 182,
-      "share": 0.04315068493150685,
-      "lift": null,
-      "series": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        8,
-        5,
-        46,
-        3,
-        46,
-        1,
-        0,
-        24,
-        49,
-        42,
-        21,
-        36,
-        0,
-        1,
-        26,
-        63
+        96,
+        31
       ]
     },
     {
@@ -216,12 +176,11 @@
       "modules": [
         "measuring-progress"
       ],
-      "recent": 184,
-      "base": 205,
-      "share": 0.04200913242009133,
+      "recent": 180,
+      "base": 244,
+      "share": 0.041743970315398886,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -248,7 +207,48 @@
         1,
         0,
         25,
-        73
+        73,
+        35
+      ]
+    },
+    {
+      "term": "Robotics",
+      "modules": [
+        "multimodality"
+      ],
+      "recent": 174,
+      "base": 224,
+      "share": 0.040352504638218926,
+      "lift": null,
+      "series": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        8,
+        5,
+        46,
+        3,
+        46,
+        1,
+        0,
+        24,
+        49,
+        42,
+        21,
+        36,
+        0,
+        1,
+        26,
+        63,
+        27
       ]
     },
     {
@@ -256,12 +256,11 @@
       "modules": [
         "us-ai-policy"
       ],
-      "recent": 171,
-      "base": 135,
-      "share": 0.03904109589041096,
+      "recent": 165,
+      "base": 159,
+      "share": 0.03826530612244898,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -288,7 +287,8 @@
         1,
         1,
         28,
-        65
+        65,
+        18
       ]
     },
     {
@@ -297,12 +297,11 @@
         "interpretability-foundations",
         "sparse-autoencoders"
       ],
-      "recent": 146,
-      "base": 144,
-      "share": 0.03333333333333333,
+      "recent": 151,
+      "base": 167,
+      "share": 0.03501855287569573,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -329,7 +328,8 @@
         0,
         0,
         30,
-        46
+        46,
+        28
       ]
     },
     {
@@ -337,12 +337,11 @@
       "modules": [
         "ai-supply-chain"
       ],
-      "recent": 143,
-      "base": 151,
-      "share": 0.03264840182648402,
+      "recent": 142,
+      "base": 184,
+      "share": 0.03293135435992579,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -369,7 +368,8 @@
         1,
         0,
         26,
-        45
+        45,
+        32
       ]
     },
     {
@@ -377,12 +377,11 @@
       "modules": [
         "system-cards"
       ],
-      "recent": 121,
-      "base": 132,
-      "share": 0.027625570776255708,
+      "recent": 122,
+      "base": 153,
+      "share": 0.02829313543599258,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -409,7 +408,8 @@
         0,
         0,
         26,
-        43
+        43,
+        22
       ]
     },
     {
@@ -417,12 +417,11 @@
       "modules": [
         "dangerous-capabilities"
       ],
-      "recent": 113,
-      "base": 125,
-      "share": 0.025799086757990867,
+      "recent": 105,
+      "base": 143,
+      "share": 0.024350649350649352,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -449,7 +448,8 @@
         0,
         0,
         15,
-        46
+        46,
+        10
       ]
     },
     {
@@ -458,12 +458,11 @@
         "compute",
         "ai-supply-chain"
       ],
-      "recent": 95,
-      "base": 97,
-      "share": 0.021689497716894976,
+      "recent": 89,
+      "base": 118,
+      "share": 0.020640074211502782,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -490,7 +489,8 @@
         2,
         0,
         14,
-        38
+        38,
+        15
       ]
     },
     {
@@ -499,12 +499,11 @@
         "data",
         "governance-landscape"
       ],
-      "recent": 93,
-      "base": 116,
-      "share": 0.021232876712328767,
+      "recent": 83,
+      "base": 131,
+      "share": 0.01924860853432282,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -531,7 +530,8 @@
         0,
         0,
         16,
-        36
+        36,
+        5
       ]
     },
     {
@@ -540,12 +540,11 @@
         "agents-and-tools",
         "evidence-on-work"
       ],
-      "recent": 79,
-      "base": 121,
-      "share": 0.018036529680365298,
+      "recent": 82,
+      "base": 134,
+      "share": 0.019016697588126158,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -572,7 +571,8 @@
         0,
         0,
         13,
-        27
+        27,
+        16
       ]
     }
   ],
@@ -593,7 +593,7 @@
       "id": "openai",
       "name": "OpenAI",
       "ok": true,
-      "count": 1376
+      "count": 1380
     },
     {
       "id": "deepmind",
@@ -617,7 +617,7 @@
       "id": "hf-blog",
       "name": "Hugging Face",
       "ok": true,
-      "count": 902
+      "count": 904
     },
     {
       "id": "hf-papers",
@@ -629,19 +629,19 @@
       "id": "arxiv-cl",
       "name": "arXiv cs.CL",
       "ok": true,
-      "count": 364
+      "count": 178
     },
     {
       "id": "arxiv-lg",
       "name": "arXiv cs.LG",
       "ok": true,
-      "count": 1026
+      "count": 383
     },
     {
       "id": "arxiv-ai",
       "name": "arXiv cs.AI",
       "ok": true,
-      "count": 887
+      "count": 381
     },
     {
       "id": "metr",
@@ -743,7 +743,7 @@
       "id": "hn",
       "name": "Hacker News",
       "ok": true,
-      "count": 4
+      "count": 5
     }
   ]
 }

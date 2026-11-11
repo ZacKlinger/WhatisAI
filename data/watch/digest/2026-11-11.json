@@ -1,0 +1,500 @@
+[
+  {
+    "id": "0ecf91ee2a291d5f",
+    "title": "Using GPT-4 to deliver a new customer service standard",
+    "url": "https://openai.com/business/customer-stories/ada",
+    "score": 0.62,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI"
+    ]
+  },
+  {
+    "id": "da2b1f66c8211b6e",
+    "title": "Fine-tuning GPT-4o webinar",
+    "url": "https://openai.com/business/learn/fine-tuning-gpt-4o-webinar",
+    "score": 0.62,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI"
+    ]
+  },
+  {
+    "id": "5ca4dc7b6d88cb31",
+    "title": "Introducing Businesses in ChatGPT",
+    "url": "https://openai.com/index/introducing-businesses-chatgpt",
+    "score": 0.62,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI"
+    ]
+  },
+  {
+    "id": "0b2e1c02de474f20",
+    "title": "Gemini 4 Carbon is now available",
+    "url": "https://deepmind.google/blog/gemini-4-carbon-is-now-available/",
+    "score": 0.62,
+    "parts": {
+      "authority": 0.95,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "Google DeepMind"
+    ]
+  },
+  {
+    "id": "428ac4b42c0b5f39",
+    "title": "Introducing AlphaProof Code: a breakthrough in verifying complex software at depth",
+    "url": "https://deepmind.google/blog/introducing-alphaproof-code/",
+    "score": 0.62,
+    "parts": {
+      "authority": 0.95,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/hn6AiI6lYFo6chi1mL6uJ9nOW9UXfsAKnSyOApiie2urHNU2tmSPUmGn0hNfWyYLRcsWCGjCIrBZSCt1ihZmvW-LDJPfyolsr5w-yvzlknZVzmaH=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/introducing-alphaproof-code/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    },
+    "sources": [
+      "Google DeepMind"
+    ]
+  },
+  {
+    "id": "b32f33401f9221f2",
+    "title": "Tree-Ising: Repairing Language Models with Bit-Level Ising Edits",
+    "url": "https://huggingface.co/papers/2611.14210",
+    "score": 0.531,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0.89
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "f1eea0a2781af6aa",
+    "title": "Anthropic launches new Claude Fable and Mythos 5.2 models",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1030005/anthropic-claude-fable-mythos-5-2",
+    "score": 0.502,
+    "parts": {
+      "authority": 0.45,
+      "corroboration": 0.4,
+      "impact": 0.5,
+      "engagement": 1
+    },
+    "categories": [
+      "media",
+      "community"
+    ],
+    "format": "article",
+    "sources": [
+      "The Verge",
+      "Hacker News"
+    ]
+  },
+  {
+    "id": "621ff925e8eedb58",
+    "title": "The Last Mile to the Real World: Agent-Native Primitives as Reusable Building Blocks for Solving Real-World Tasks",
+    "url": "https://huggingface.co/papers/2611.07461",
+    "score": 0.476,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0.34
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "1ff74ee2cb106637",
+    "title": "Cogent and OpenAI build cyber defense factories for enterprises",
+    "url": "https://openai.com/index/cogent-security",
+    "score": 0.475,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI"
+    ]
+  },
+  {
+    "id": "f6958f5f3bf6653d",
+    "title": "New in ChatGPT for Business: April 2025",
+    "url": "https://openai.com/business/learn/new-in-chatgpt-for-business-april-updates-2025",
+    "score": 0.475,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI"
+    ]
+  },
+  {
+    "id": "85a32fe1244f6425",
+    "title": "Today Anthropic, PBC launched the roadshow for its proposed initial public offering of its Class A common stock.",
+    "url": "https://www.anthropic.com/news/roadshow-launch",
+    "score": 0.475,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "Anthropic"
+    ]
+  },
+  {
+    "id": "23b94c697622500f",
+    "title": "CodeRabbit scales agentic software development and ships 20x more",
+    "url": "https://openai.com/index/coderabbit-codex-daybreak",
+    "score": 0.475,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI"
+    ]
+  },
+  {
+    "id": "20c37862680f0619",
+    "title": "Fast and Exact Relative-Position Attention via Structure-Aware Kernels",
+    "url": "https://huggingface.co/papers/2611.01182",
+    "score": 0.466,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0.24
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "46563ddec3e801a1",
+    "title": "AgentBaton: Efficient Model Collaboration in Agentic Tasks",
+    "url": "https://huggingface.co/papers/2610.35959",
+    "score": 0.458,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0.15
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "aeed2eb95f955eb6",
+    "title": "SWAM: Scaling World Action Models with Cross-Modal Alignment",
+    "url": "https://huggingface.co/papers/2611.12870",
+    "score": 0.446,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0.04
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "2c043c78fc0b066e",
+    "title": "Auriga Technical Report: A Task-Agnostic Agent Harness for Zero-Shot Embodied Manipulation",
+    "url": "https://huggingface.co/papers/2611.01112",
+    "score": 0.446,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0.04
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "d06a5beb3d89cc35",
+    "title": "All Quiet on the Neural Front: Language Models Do Not Report Injected Pain States",
+    "url": "https://huggingface.co/papers/2611.10123",
+    "score": 0.446,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0.04
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "c1fbfe2e3fcb7bc5",
+    "title": "llm-gemini 0.36",
+    "url": "https://simonwillison.net/2026/Nov/10/llm-gemini/",
+    "score": 0.425,
+    "parts": {
+      "authority": 0.5,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0
+    },
+    "categories": [
+      "newsletter"
+    ],
+    "format": "article",
+    "sources": [
+      "Simon Willison"
+    ]
+  },
+  {
+    "id": "bb789fe00a455455",
+    "title": "[AINews] Mercor $750m Series D at $20B valuation, $3B run rate",
+    "url": "https://latent.space/p/ainews-mercor-750m-series-d-at-20b-valuation-3b-run-rate/",
+    "score": 0.425,
+    "parts": {
+      "authority": 0.5,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0
+    },
+    "categories": [
+      "media"
+    ],
+    "format": "podcast",
+    "sources": [
+      "Latent Space"
+    ]
+  },
+  {
+    "id": "fabe838d73f55c38",
+    "title": "Introducing Our Smallest, Most Efficient Model: Muse Ember",
+    "url": "https://simonwillison.net/2026/Nov/10/muse-ember/",
+    "score": 0.425,
+    "parts": {
+      "authority": 0.5,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0
+    },
+    "categories": [
+      "newsletter"
+    ],
+    "format": "article",
+    "sources": [
+      "Simon Willison"
+    ]
+  },
+  {
+    "id": "a14681e2ddce1255",
+    "title": "Google releases Gemini 4 Carbon with agent ‘swarm’ feature",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1030787/google-gemini-4-carbon-public-rollout",
+    "score": 0.407,
+    "parts": {
+      "authority": 0.45,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0
+    },
+    "categories": [
+      "media"
+    ],
+    "format": "article",
+    "sources": [
+      "The Verge"
+    ]
+  },
+  {
+    "id": "97adab01dbf7344a",
+    "title": "Try Tabletop: Customizable, collaborative spaces for groups to plan, play and do more together.",
+    "url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/tabletop/",
+    "score": 0.405,
+    "parts": {
+      "authority": 0.8,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "thumbnail": {
+      "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/labs_tabletop_blog_image_2784x1.max-600x600.format-webp.webp",
+      "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/google-labs/tabletop/",
+      "credit": "Roman Nurik",
+      "alt": "",
+      "provenance": "feed"
+    },
+    "sources": [
+      "Google AI"
+    ]
+  },
+  {
+    "id": "155d33cae7267931",
+    "title": "Google Cloud launches Gemini for healthcare.",
+    "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/gemini-for-healthcare/",
+    "score": 0.405,
+    "parts": {
+      "authority": 0.8,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "thumbnail": {
+      "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/social_share_NWQpgus.max-600x600.format-webp.webp",
+      "sourceUrl": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/gemini-for-healthcare/",
+      "credit": "Google AI",
+      "alt": "",
+      "provenance": "feed"
+    },
+    "sources": [
+      "Google AI"
+    ]
+  },
+  {
+    "id": "871c4497cbf2358d",
+    "title": "World In-Context Learning for Agentic Robot Manipulation",
+    "url": "https://huggingface.co/papers/2611.12885",
+    "score": 0.395,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.78
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "f28f90d2895a812c",
+    "title": "Gilbert + Tobin rethinks the business of law with AI",
+    "url": "https://openai.com/index/gilbert-tobin-sam-nickless",
+    "score": 0.387,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 0.15,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI"
+    ]
+  }
+]

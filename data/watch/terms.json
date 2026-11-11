@@ -370,5 +370,32 @@
     "State AI laws": 2,
     "__items": 1653,
     "__observed": true
+  },
+  "2026-11-11": {
+    "Productivity": 2,
+    "Agents": 131,
+    "Multimodal and video": 98,
+    "Model releases": 22,
+    "Evaluations": 116,
+    "Robotics": 27,
+    "Coding assistants": 16,
+    "Open-weight models": 32,
+    "Chips and compute": 15,
+    "AI for science": 35,
+    "Interpretability": 28,
+    "Alignment": 31,
+    "Scaling": 7,
+    "Hallucination": 8,
+    "US AI policy": 18,
+    "Reasoning models": 8,
+    "China and AI": 10,
+    "International governance": 2,
+    "Data centers and energy": 3,
+    "Security and jailbreaks": 10,
+    "Copyright and data": 5,
+    "Jobs and labor": 4,
+    "Dangerous capabilities": 1,
+    "__items": 733,
+    "__observed": true
   }
 }

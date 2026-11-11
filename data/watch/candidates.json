@@ -1,7 +1,59 @@
 {
-  "date": "2026-11-10",
+  "date": "2026-11-11",
   "threshold": 0.58,
   "candidates": [
+    {
+      "id": "0ecf91ee2a291d5f",
+      "title": "Using GPT-4 to deliver a new customer service standard",
+      "url": "https://openai.com/business/customer-stories/ada",
+      "score": 0.62,
+      "parts": {
+        "authority": 1,
+        "corroboration": 0,
+        "impact": 1,
+        "engagement": 0
+      },
+      "categories": [
+        "lab"
+      ],
+      "format": "article",
+      "items": [
+        {
+          "title": "Using GPT-4 to deliver a new customer service standard",
+          "url": "https://openai.com/business/customer-stories/ada",
+          "source": "OpenAI",
+          "category": "lab",
+          "published": "Thu, 05 Sep 2024 08:00:00 GMT",
+          "summary": "Ada uses GPT-4 to deliver a new customer service standard"
+        }
+      ]
+    },
+    {
+      "id": "da2b1f66c8211b6e",
+      "title": "Fine-tuning GPT-4o webinar",
+      "url": "https://openai.com/business/learn/fine-tuning-gpt-4o-webinar",
+      "score": 0.62,
+      "parts": {
+        "authority": 1,
+        "corroboration": 0,
+        "impact": 1,
+        "engagement": 0
+      },
+      "categories": [
+        "lab"
+      ],
+      "format": "article",
+      "items": [
+        {
+          "title": "Fine-tuning GPT-4o webinar",
+          "url": "https://openai.com/business/learn/fine-tuning-gpt-4o-webinar",
+          "source": "OpenAI",
+          "category": "lab",
+          "published": "Mon, 26 Aug 2024 00:00:00 GMT",
+          "summary": "Fine-Tuning GPT-4o Webinar"
+        }
+      ]
+    },
     {
       "id": "5ca4dc7b6d88cb31",
       "title": "Introducing Businesses in ChatGPT",
@@ -91,33 +143,6 @@
             "alt": "",
             "provenance": "feed"
           }
-        }
-      ]
-    },
-    {
-      "id": "b3ee04c2353aa99b",
-      "title": "Medicare and Medicaid Programs; CY 2027 Payment Policies Under the Physician Fee Schedule and Other Changes to Part B Payment and Coverage Policies; Medicare Shared Savings Program Requirements; and Medicare Prescription Drug Inflation Rebate Program",
-      "url": "https://www.federalregister.gov/documents/2026/11/09/2026-22743/medicare-and-medicaid-programs-cy-2027-payment-policies-under-the-physician-fee-schedule-and-other",
-      "score": 0.62,
-      "parts": {
-        "authority": 0.9,
-        "corroboration": 0,
-        "impact": 1,
-        "engagement": 0
-      },
-      "categories": [
-        "policy"
-      ],
-      "format": "article",
-      "items": [
-        {
-          "title": "Medicare and Medicaid Programs; CY 2027 Payment Policies Under the Physician Fee Schedule and Other Changes to Part B Payment and Coverage Policies; Medicare Shared Savings Program Requirements; and Medicare Prescription Drug Inflation Rebate Program",
-          "url": "https://www.federalregister.gov/documents/2026/11/09/2026-22743/medicare-and-medicaid-programs-cy-2027-payment-policies-under-the-physician-fee-schedule-and-other",
-          "source": "US Federal Register",
-          "category": "policy",
-          "published": "2026-11-09",
-          "summary": "This final rule addresses: changes to the physician fee schedule (PFS); other changes to Medicare Part B payment policies to ensure that payment systems are updated to reflect changes in medical practice, relative value of services, and changes in the statute; codification of establishment of new policies for: the Medicare Prescription Drug Inflation Rebate Program under the Inflation Reduction Act of 2022; limiting Medicare coverage of certain individuals; the Ambulatory Specialty Model; updates to drugs and biological products paid under Part B; Medicare Shared Savings Program requirements; ",
-          "docType": "Rule"
         }
       ]
     }
