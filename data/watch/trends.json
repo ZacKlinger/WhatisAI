@@ -1,12 +1,12 @@
 {
-  "updated": "2026-11-11",
+  "updated": "2026-11-12",
   "windowDays": 7,
   "baselineDays": 28,
-  "daysOfHistory": 17,
+  "daysOfHistory": 18,
   "recentObservedDays": 7,
-  "baselineObservedDays": 10,
+  "baselineObservedDays": 11,
   "comparisonReady": false,
-  "itemsLastWeek": 4312,
+  "itemsLastWeek": 3855,
   "rising": [],
   "volume": [
     {
@@ -14,12 +14,11 @@
       "modules": [
         "agents-and-tools"
       ],
-      "recent": 797,
-      "base": 1150,
-      "share": 0.1848330241187384,
+      "recent": 671,
+      "base": 1283,
+      "share": 0.17405966277561608,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -46,7 +45,8 @@
         1,
         114,
         293,
-        131
+        131,
+        7
       ]
     },
     {
@@ -55,12 +55,11 @@
         "benchmarks",
         "evaluation-science"
       ],
-      "recent": 705,
-      "base": 992,
-      "share": 0.16349721706864564,
+      "recent": 618,
+      "base": 1089,
+      "share": 0.16031128404669262,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -87,7 +86,8 @@
         0,
         117,
         283,
-        116
+        116,
+        10
       ]
     },
     {
@@ -95,12 +95,11 @@
       "modules": [
         "multimodality"
       ],
-      "recent": 437,
-      "base": 577,
-      "share": 0.10134508348794063,
+      "recent": 374,
+      "base": 640,
+      "share": 0.09701686121919585,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -127,7 +126,8 @@
         0,
         58,
         155,
-        98
+        98,
+        0
       ]
     },
     {
@@ -136,12 +136,11 @@
         "alignment-problem",
         "deception-and-scheming"
       ],
-      "recent": 199,
-      "base": 219,
-      "share": 0.046150278293135436,
+      "recent": 178,
+      "base": 241,
+      "share": 0.046173800259403375,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -168,7 +167,8 @@
         0,
         24,
         96,
-        31
+        31,
+        1
       ]
     },
     {
@@ -176,12 +176,11 @@
       "modules": [
         "measuring-progress"
       ],
-      "recent": 180,
-      "base": 244,
-      "share": 0.041743970315398886,
+      "recent": 171,
+      "base": 255,
+      "share": 0.0443579766536965,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -208,7 +207,8 @@
         0,
         25,
         73,
-        35
+        35,
+        2
       ]
     },
     {
@@ -216,12 +216,11 @@
       "modules": [
         "multimodality"
       ],
-      "recent": 174,
-      "base": 224,
-      "share": 0.040352504638218926,
+      "recent": 156,
+      "base": 245,
+      "share": 0.04046692607003891,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -248,7 +247,8 @@
         1,
         26,
         63,
-        27
+        27,
+        3
       ]
     },
     {
@@ -256,12 +256,11 @@
       "modules": [
         "us-ai-policy"
       ],
-      "recent": 165,
-      "base": 159,
-      "share": 0.03826530612244898,
+      "recent": 147,
+      "base": 177,
+      "share": 0.03813229571984436,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -288,7 +287,8 @@
         1,
         28,
         65,
-        18
+        18,
+        0
       ]
     },
     {
@@ -297,12 +297,11 @@
         "interpretability-foundations",
         "sparse-autoencoders"
       ],
-      "recent": 151,
-      "base": 167,
-      "share": 0.03501855287569573,
+      "recent": 136,
+      "base": 182,
+      "share": 0.03527885862516213,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -329,7 +328,8 @@
         0,
         30,
         46,
-        28
+        28,
+        0
       ]
     },
     {
@@ -337,12 +337,11 @@
       "modules": [
         "ai-supply-chain"
       ],
-      "recent": 142,
-      "base": 184,
-      "share": 0.03293135435992579,
+      "recent": 122,
+      "base": 209,
+      "share": 0.03164721141374838,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -369,7 +368,8 @@
         0,
         26,
         45,
-        32
+        32,
+        5
       ]
     },
     {
@@ -377,12 +377,11 @@
       "modules": [
         "system-cards"
       ],
-      "recent": 122,
-      "base": 153,
-      "share": 0.02829313543599258,
+      "recent": 112,
+      "base": 167,
+      "share": 0.029053177691309988,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -409,7 +408,8 @@
         0,
         26,
         43,
-        22
+        22,
+        4
       ]
     },
     {
@@ -417,12 +417,11 @@
       "modules": [
         "dangerous-capabilities"
       ],
-      "recent": 105,
-      "base": 143,
-      "share": 0.024350649350649352,
+      "recent": 93,
+      "base": 155,
+      "share": 0.024124513618677044,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -449,7 +448,8 @@
         0,
         15,
         46,
-        10
+        10,
+        0
       ]
     },
     {
@@ -458,12 +458,11 @@
         "compute",
         "ai-supply-chain"
       ],
-      "recent": 89,
-      "base": 118,
-      "share": 0.020640074211502782,
+      "recent": 91,
+      "base": 126,
+      "share": 0.023605706874189364,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -490,7 +489,8 @@
         0,
         14,
         38,
-        15
+        15,
+        10
       ]
     },
     {
@@ -499,12 +499,11 @@
         "data",
         "governance-landscape"
       ],
-      "recent": 83,
-      "base": 131,
-      "share": 0.01924860853432282,
+      "recent": 74,
+      "base": 140,
+      "share": 0.0191958495460441,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -531,7 +530,8 @@
         0,
         16,
         36,
-        5
+        5,
+        0
       ]
     },
     {
@@ -540,12 +540,11 @@
         "agents-and-tools",
         "evidence-on-work"
       ],
-      "recent": 82,
-      "base": 134,
-      "share": 0.019016697588126158,
+      "recent": 66,
+      "base": 150,
+      "share": 0.017120622568093387,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -572,7 +571,8 @@
         0,
         13,
         27,
-        16
+        16,
+        0
       ]
     }
   ],
@@ -593,7 +593,7 @@
       "id": "openai",
       "name": "OpenAI",
       "ok": true,
-      "count": 1380
+      "count": 1383
     },
     {
       "id": "deepmind",
@@ -617,7 +617,7 @@
       "id": "hf-blog",
       "name": "Hugging Face",
       "ok": true,
-      "count": 904
+      "count": 905
     },
     {
       "id": "hf-papers",
@@ -629,19 +629,19 @@
       "id": "arxiv-cl",
       "name": "arXiv cs.CL",
       "ok": true,
-      "count": 178
+      "count": 0
     },
     {
       "id": "arxiv-lg",
       "name": "arXiv cs.LG",
       "ok": true,
-      "count": 383
+      "count": 0
     },
     {
       "id": "arxiv-ai",
       "name": "arXiv cs.AI",
       "ok": true,
-      "count": 381
+      "count": 0
     },
     {
       "id": "metr",
@@ -677,7 +677,7 @@
       "id": "eu-digital",
       "name": "European Commission (Digital Strategy)",
       "ok": true,
-      "count": 1
+      "count": 0
     },
     {
       "id": "uk-aisi",

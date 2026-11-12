@@ -52734,5 +52734,221 @@
   "90ffbb778ac76894": {
     "first": "2026-11-11",
     "source": "hn"
+  },
+  "0990939c7d6ea9f7": {
+    "first": "2026-11-12",
+    "source": "openai"
+  },
+  "b06379671ede1f62": {
+    "first": "2026-11-12",
+    "source": "openai"
+  },
+  "8c999d6885d24711": {
+    "first": "2026-11-12",
+    "source": "openai"
+  },
+  "4bad5afe01a19f79": {
+    "first": "2026-11-12",
+    "source": "deepmind"
+  },
+  "459a57b4750adf48": {
+    "first": "2026-11-12",
+    "source": "google-ai"
+  },
+  "56dac742ff29ffe2": {
+    "first": "2026-11-12",
+    "source": "hf-blog"
+  },
+  "3ba8292d6ac0d74e": {
+    "first": "2026-11-12",
+    "source": "hf-papers"
+  },
+  "f117462278f8cc42": {
+    "first": "2026-11-12",
+    "source": "hf-papers"
+  },
+  "21ea6ecaa220dba4": {
+    "first": "2026-11-12",
+    "source": "hf-papers"
+  },
+  "3bc338e256eb7dfd": {
+    "first": "2026-11-12",
+    "source": "hf-papers"
+  },
+  "dfaba42a98d72ad5": {
+    "first": "2026-11-12",
+    "source": "hf-papers"
+  },
+  "1ce295a98dabb07b": {
+    "first": "2026-11-12",
+    "source": "hf-papers"
+  },
+  "8e6d58f621b0c35f": {
+    "first": "2026-11-12",
+    "source": "hf-papers"
+  },
+  "f2fe8a85237ca291": {
+    "first": "2026-11-12",
+    "source": "hf-papers"
+  },
+  "51fa12b3ef7c507b": {
+    "first": "2026-11-12",
+    "source": "hf-papers"
+  },
+  "55c0706707b770f5": {
+    "first": "2026-11-12",
+    "source": "hf-papers"
+  },
+  "35a1924a695bfc50": {
+    "first": "2026-11-12",
+    "source": "hf-papers"
+  },
+  "8960fab2d7e5ab77": {
+    "first": "2026-11-12",
+    "source": "hf-papers"
+  },
+  "ce2f01d6fb8562b6": {
+    "first": "2026-11-12",
+    "source": "hf-papers"
+  },
+  "39090a630dff87f4": {
+    "first": "2026-11-12",
+    "source": "hf-papers"
+  },
+  "754081fbaab5143d": {
+    "first": "2026-11-12",
+    "source": "hf-papers"
+  },
+  "7947fe62aea82781": {
+    "first": "2026-11-12",
+    "source": "hf-papers"
+  },
+  "a81a2ac05a2264e0": {
+    "first": "2026-11-12",
+    "source": "hf-papers"
+  },
+  "abcfb343e50f9703": {
+    "first": "2026-11-12",
+    "source": "hf-papers"
+  },
+  "8b96b3ec19183b0a": {
+    "first": "2026-11-12",
+    "source": "hf-papers"
+  },
+  "9a1210fcd8c7cba6": {
+    "first": "2026-11-12",
+    "source": "hf-papers"
+  },
+  "ac1c45af20ca5cc3": {
+    "first": "2026-11-12",
+    "source": "hf-papers"
+  },
+  "bb485df9f4f59adb": {
+    "first": "2026-11-12",
+    "source": "simonw"
+  },
+  "02f705171aa939fd": {
+    "first": "2026-11-12",
+    "source": "simonw"
+  },
+  "95dd2fdb0483e254": {
+    "first": "2026-11-12",
+    "source": "simonw"
+  },
+  "d545fdc617b9aefd": {
+    "first": "2026-11-12",
+    "source": "verge-ai"
+  },
+  "96892311de09e14b": {
+    "first": "2026-11-12",
+    "source": "verge-ai"
+  },
+  "32933935200c2839": {
+    "first": "2026-11-12",
+    "source": "verge-ai"
+  },
+  "4213b9afeff9a7e6": {
+    "first": "2026-11-12",
+    "source": "verge-ai"
+  },
+  "1d250e9233fe0f75": {
+    "first": "2026-11-12",
+    "source": "verge-ai"
+  },
+  "830958e6e6f7f875": {
+    "first": "2026-11-12",
+    "source": "verge-ai"
+  },
+  "15c28179b2dc3ec9": {
+    "first": "2026-11-12",
+    "source": "verge-ai"
+  },
+  "39f4c129e4341242": {
+    "first": "2026-11-12",
+    "source": "verge-ai"
+  },
+  "426b199762db8714": {
+    "first": "2026-11-12",
+    "source": "verge-ai"
+  },
+  "4a6d92631407ef3c": {
+    "first": "2026-11-12",
+    "source": "verge-ai"
+  },
+  "e1acab05b268c1ab": {
+    "first": "2026-11-12",
+    "source": "wired-ai"
+  },
+  "1ddbc0fb49820b72": {
+    "first": "2026-11-12",
+    "source": "wired-ai"
+  },
+  "e28bd745fc516570": {
+    "first": "2026-11-12",
+    "source": "wired-ai"
+  },
+  "550d6b582c328b03": {
+    "first": "2026-11-12",
+    "source": "wired-ai"
+  },
+  "64107def8a2b33ca": {
+    "first": "2026-11-12",
+    "source": "wired-ai"
+  },
+  "9e1b97f74eba11ab": {
+    "first": "2026-11-12",
+    "source": "wired-ai"
+  },
+  "6876cf9cc9e30cd2": {
+    "first": "2026-11-12",
+    "source": "wired-ai"
+  },
+  "7e4309fab84f774e": {
+    "first": "2026-11-12",
+    "source": "latent-space"
+  },
+  "eb6d3e48fcecd58a": {
+    "first": "2026-11-12",
+    "source": "latent-space"
+  },
+  "56c83c766ce13439": {
+    "first": "2026-11-12",
+    "source": "hn"
+  },
+  "ec9fd4077cce6753": {
+    "first": "2026-11-12",
+    "source": "hn"
+  },
+  "6edaf29caa3e204c": {
+    "first": "2026-11-12",
+    "source": "hn"
+  },
+  "1901635d451e4de9": {
+    "first": "2026-11-12",
+    "source": "hn"
+  },
+  "ca1478ab4f6d6b17": {
+    "first": "2026-11-12",
+    "source": "hn"
   }
 }

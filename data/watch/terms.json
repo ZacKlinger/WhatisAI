@@ -397,5 +397,21 @@
     "Dangerous capabilities": 1,
     "__items": 733,
     "__observed": true
+  },
+  "2026-11-12": {
+    "Evaluations": 10,
+    "Model releases": 4,
+    "Agents": 7,
+    "Open-weight models": 5,
+    "Robotics": 3,
+    "Chips and compute": 10,
+    "Alignment": 1,
+    "AI for science": 2,
+    "Jobs and labor": 2,
+    "China and AI": 6,
+    "State AI laws": 2,
+    "International governance": 1,
+    "__items": 54,
+    "__observed": true
   }
 }

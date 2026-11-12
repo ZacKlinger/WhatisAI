@@ -1,0 +1,855 @@
+[
+  {
+    "title": "Holiday Extras is rethinking what it can build with Codex",
+    "url": "https://openai.com/business/customer-stories/holidays-extras-codex",
+    "published": "Thu, 12 Nov 2026 09:30:00 GMT",
+    "summary": "With Codex, Holiday Extras is turning customer expertise into better apps, higher booking conversion and new possibilities for growth.",
+    "id": "0990939c7d6ea9f7",
+    "source": "openai",
+    "sourceName": "OpenAI",
+    "category": "lab",
+    "weight": 1,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Supporting research on AI and children’s safety",
+    "url": "https://openai.com/index/children-first-declaration",
+    "published": "Thu, 12 Nov 2026 00:00:00 GMT",
+    "summary": "OpenAI commits $2 million to research on AI and children’s safety. The work supports shared tools to measure risks and opportunities for young people.",
+    "id": "b06379671ede1f62",
+    "source": "openai",
+    "sourceName": "OpenAI",
+    "category": "lab",
+    "weight": 1,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "JioStar’s chief architect on AI discovery at 500M-user scale",
+    "url": "https://openai.com/index/jiostar-vijay-seshadri",
+    "published": "Wed, 11 Nov 2026 00:00:00 GMT",
+    "summary": "JioStar’s Vijay Seshadri explains AI discovery at 500M-user scale. Read his lessons on evals, guardrails, and taking AI into production.",
+    "id": "8c999d6885d24711",
+    "source": "openai",
+    "sourceName": "OpenAI",
+    "category": "lab",
+    "weight": 1,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Introducing Gemini 4 Hydrogen",
+    "url": "https://deepmind.google/blog/introducing-gemini-4-hydrogen/",
+    "published": "Thu, 12 Nov 2026 18:00:50 +0000",
+    "summary": "",
+    "id": "4bad5afe01a19f79",
+    "source": "deepmind",
+    "sourceName": "Google DeepMind",
+    "category": "lab",
+    "weight": 0.95,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Google Search gets a major upgrade with Gemini 4 Hydrogen",
+    "url": "https://blog.google/products-and-platforms/products/search/gemini-4-hydrogen-search-upgrade/",
+    "thumbnail": {
+      "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/HydrogenUI_socialshare.max-600x600.format-webp.webp",
+      "sourceUrl": "https://blog.google/products-and-platforms/products/search/gemini-4-hydrogen-search-upgrade/",
+      "credit": "Robby Stein",
+      "alt": "",
+      "provenance": "feed"
+    },
+    "published": "Thu, 12 Nov 2026 18:00:00 +0000",
+    "summary": "We are bringing Gemini 4 Hydrogen to Google Search globally to provide you with more helpful, visual, and intuitive responses.",
+    "id": "459a57b4750adf48",
+    "source": "google-ai",
+    "sourceName": "Google AI",
+    "category": "lab",
+    "weight": 0.8,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "The Definitive Fine-Tuning Guide for 3D Generation Models",
+    "url": "https://huggingface.co/blog/3d-lora-finetuning",
+    "published": "Thu, 12 Nov 2026 00:00:00 GMT",
+    "summary": "",
+    "id": "56dac742ff29ffe2",
+    "source": "hf-blog",
+    "sourceName": "Hugging Face",
+    "category": "lab",
+    "weight": 0.6,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "ScrapeBench: Evaluating Legal Compliance of AI Agents in Website Scraping",
+    "url": "https://huggingface.co/papers/2611.11306",
+    "published": "2026-11-09T19:00:00.000Z",
+    "summary": "AI agents deployed on the open web are becoming more capable of performing actions that may breach contractual provisions and violate computer security laws. In this paper, we introduce ScrapeBench, the first agentic benchmark for empirically evaluating the legal compliance of AI agents with website scraping policies, namely terms of service (ToS) and robots.txt directives. Across widely used closed-weight and open-weight AI agents, we find that most agents exhibit low compliance rates (< 5%) when instructed to scrape websites in our sample of 1,626 popular websites that explicitly prohibit sc",
+    "engagement": {
+      "upvotes": 1
+    },
+    "id": "3ba8292d6ac0d74e",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "FAME-QP: A GPU-Accelerated Quadratic-Programming Solver for Real-Time Model Predictive Control",
+    "url": "https://huggingface.co/papers/2611.13766",
+    "published": "2026-11-09T19:00:00.000Z",
+    "summary": "We present FAME-QP, a GPU-accelerated solver for dense quadratic programs arising in linear model predictive control. FAME-QP combines constraint-dependent operator representations with fused single- and two-kernel iterations replayed through CUDA graphs, automatically selecting the execution configuration through device calibration and problem-specific timing. It probes a cached operator bank to select the initial penalty and updates operators lazily when problem matrices change. Numerical benchmarks and simulated humanoid and quadrotor control experiments demonstrate reduced latency relative",
+    "engagement": {
+      "upvotes": 2
+    },
+    "id": "f117462278f8cc42",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Evolving Infra: Agent-Adaptive LLM Serving at Scale",
+    "url": "https://huggingface.co/papers/2611.12304",
+    "published": "2026-11-08T19:00:00.000Z",
+    "summary": "Agentic workloads are a major source of LLM inference demand. Existing prefill--decode (PD) disaggregated serving systems offer limited flexibility for runtime adaptation of compute allocation and KV cache management, and rely on coarse signals that only partly capture the diverse and dynamic agent workload. These limitations lead to load imbalance between prefill and decode nodes and eviction of KV caches that agents will reuse. We present Evolving Infra, an agent-adaptive serving framework that adapts compute allocation to agent workloads and KV cache management to agent context management a",
+    "engagement": {
+      "upvotes": 11
+    },
+    "id": "21ea6ecaa220dba4",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "CARTBench: Rubric-Based Evaluation of Shopping Advice for Complex and Ambiguous Requests with Timelines",
+    "url": "https://huggingface.co/papers/2611.05862",
+    "published": "2026-11-03T19:00:00.000Z",
+    "summary": "Large language model (LLM) shopping assistants now recommend products in multi-turn conversations. However, reliable evaluation faces Data scarcity and Difficulty Standardizing Criteria. To address these obstacles, we introduce CARTBench for CART (Complex and Ambiguous Requests with Timelines). For Data scarcity, we curate cases from real commercial shopping needs across 17 retail domains, pairing timestamped dialogue with 1,603 product records. For Difficulty Standardizing Criteria, we develop case-specific rubrics guided by Ideal Response Principles, distilled from excellent replies manually",
+    "engagement": {
+      "upvotes": 2
+    },
+    "id": "3bc338e256eb7dfd",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Where Does Alignment Emerge and What Does It Mean? A Closer Look at the Platonic Representation Hypothesis",
+    "url": "https://huggingface.co/papers/2611.12869",
+    "published": "2026-11-09T13:53:57.000Z",
+    "summary": "The Platonic Representation Hypothesis (PRH) suggests that neural networks are converging toward similar representation spaces. As language models become more capable, their representations are aligning with those of vision models. However, recent work has questioned whether this trend continues to hold for newer language models. Moreover, it has been shown that representation similarity metrics can be confounded by model depth and width, requiring appropriate baselines for interpretation. In this work, we first investigate where alignment emerges between unimodal models across model layers an",
+    "engagement": {
+      "upvotes": 5
+    },
+    "id": "dfaba42a98d72ad5",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Precision on Demand: Escalating Weight Bits at Uncertain Decoding Steps in a Small Local Model",
+    "url": "https://huggingface.co/papers/2611.14418",
+    "published": "2026-11-09T19:00:00.000Z",
+    "summary": "Local decoding usually fixes one weight precision for the whole generation. We study a different allocation: store 8-bit weights, decode with their top 4 bits, and redo a step at 8 bits only when the low-precision output distribution looks uncertain (entropy above a threshold or a small top-two margin). Quantization is simulated, the model is Qwen3-0.6B, and the benchmark is GSM8K. Cost is counted in weight bytes read per token. On 36724 replayed steps the entropy of the low pass ranks argmax flips with AUC 0.93. At a 15% escalation budget it catches 78% of flips and the margin gate 94%, again",
+    "engagement": {
+      "upvotes": 4
+    },
+    "id": "1ce295a98dabb07b",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Bits or permutations? Spending a fixed inference budget on weight precision or on option-order averaging in small local language models",
+    "url": "https://huggingface.co/papers/2611.14413",
+    "published": "2026-11-09T19:00:00.000Z",
+    "summary": "Local language models can save memory by storing weights in fewer bits, and they can reduce sensitivity to the order of answer options by averaging a few reorderings. We ask whether the first makes the second worse, and which is the cheaper way to spend a fixed budget. On Qwen3-0.6B and Qwen3-1.7B with simulated round-to-nearest weight quantization (8, 6, 4 and 3 bits, fp16 reference), read from the logits of the letters A to D on ARC-Easy, ARC-Challenge, MMLU and HellaSwag (300 items each), 6 bits lose no accuracy against fp16 (they score +1.8 (+1.0 to +2.5) and +0.9 (+0.3 to +1.5) points hig",
+    "engagement": {
+      "upvotes": 2
+    },
+    "id": "8e6d58f621b0c35f",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "PolyRoute: A Twelve-Language and Code-Mixed Benchmark for Typed-Decision Routing, with Baselines and a Leaderboard",
+    "url": "https://huggingface.co/papers/2611.13843",
+    "published": "2026-11-09T19:00:00.000Z",
+    "summary": "Typed-decision encoders answer a question about a text in one forward pass, but their behaviour outside English is rarely measured on a fixed yardstick. We release PolyRoute: 322 native-language support messages in 12 languages and 9 writing systems, 156 code-mixed or romanised messages (Hinglish, Spanglish, Arabizi), 967 optional native training rows, and a protocol for a three-way department-routing decision. Labels come from Qwen3.8-27B with a blind second pass (91% of candidates kept); an independent model, gemma4-31b, agrees on 97.2% of test items, and the largest character 5-gram similar",
+    "engagement": {
+      "upvotes": 2
+    },
+    "id": "f2fe8a85237ca291",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "SteerDistill: Quantizing LLM Agents via Closed-Loop Teacher Steering",
+    "url": "https://huggingface.co/papers/2611.13410",
+    "published": "2026-11-09T19:00:00.000Z",
+    "summary": "Low-bit quantization reduces the inference cost of LLM agents but can compromise task success. Examining failed rollouts, we find that quantized agents overlook task requirements or environmental conditions, producing environment transitions that diverge from successful full-precision references. Correcting these behavioral divergences remains difficult: offline data may miss the student's failure contexts, while its own rollouts may provide few correct responses in those contexts. We introduce SteerDistill, a quantization-aware distillation method in which a full-precision teacher guides the ",
+    "engagement": {
+      "upvotes": 30
+    },
+    "id": "51fa12b3ef7c507b",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Mixed Signals: Weight-Space Programming for EEG and ECG",
+    "url": "https://huggingface.co/papers/2611.13758",
+    "published": "2026-11-09T19:00:00.000Z",
+    "summary": "Weight-space programming allows language models to read a trained neural network's weights and edit them. This opens the door to ``training'' by reasoning rather than through gradient descent. Prior work has demonstrated its functionality and promise for game-playing networks and fixing specific failures in language models, even extending to diffusion models. In this work, we present its applicability to models trained on biosignal data, specifically EEG and ECG data. We show that frontier models are not only able to debug specific faults planted in biosignal-based models without being told wh",
+    "engagement": {
+      "upvotes": 3
+    },
+    "id": "55c0706707b770f5",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Module-Aware Optimization for Graph Neural Networks",
+    "url": "https://huggingface.co/papers/2611.08379",
+    "published": "2026-11-04T19:00:00.000Z",
+    "summary": "Different optimizers impose different geometries on parameter updates. Adaptive methods such as Adam and AdamW use coordinate-wise updates, while matrix-aware optimizers such as Muon utilize weight-matrix structure through orthogonalized updates. For Graph Neural Networks (GNNs), however, the effective geometry of its weight matrices is shaped not only by its learned channel-mixing weights, but also by the graph-propagated representations it acts on. Thus, even if an update is well normalized as a matrix, its effect on the layer output can be amplified when applied to graph-propagated features",
+    "engagement": {
+      "upvotes": 3
+    },
+    "id": "35a1924a695bfc50",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Read Less, Solve More: Token-Efficient Sparse Reading of External Content for AI Agents",
+    "url": "https://huggingface.co/papers/2608.22237",
+    "published": "2026-11-06T19:00:00.000Z",
+    "summary": "Web-facing AI agents repeatedly access webpages, documents, repositories, and tool responses, yet reading interfaces often expose entire objects when only sparse evidence is needed. This over-reading increases token and latency costs and can dilute relevant evidence. We present SparseRead, a reusable reading control layer that governs content admission without modifying the agent model. Its Read Intent Protocol tracks evolving needs and source coverage; Adaptive Reader Backends select how evidence is located and exposed; and the Budgeted Read Gate bounds cumulative raw exposure per episode wit",
+    "engagement": {
+      "upvotes": 15
+    },
+    "id": "8960fab2d7e5ab77",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Interactive Visual Gym: Evaluating Visual Interaction Models with Simulated Users in Interactive Worlds",
+    "url": "https://huggingface.co/papers/2611.08286",
+    "published": "2026-11-04T19:00:00.000Z",
+    "summary": "Visual interaction models that support users during ongoing physical tasks require evaluation in closed loop, where assistant responses can change subsequent user behavior and task outcomes. Existing benchmarks largely rely on offline replay and therefore cannot capture these effects. We introduce Interactive Visual Gym, a framework for closed-loop evaluation and training of visual interaction models through joint simulation of executable task environments and human users. We contribute three simulators that recreate everyday tasks and human-aligned action spaces across cooking, household mani",
+    "engagement": {
+      "upvotes": 4
+    },
+    "id": "ce2f01d6fb8562b6",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Scaling Mathematical Proof Supervision from Structured Textbooks",
+    "url": "https://huggingface.co/papers/2610.40394",
+    "published": "2026-10-28T20:00:00.000Z",
+    "summary": "Mathematical supervision for language models is typically flattened into isolated problem-solution pairs, discarding the curricular organization and evidential structure of the original sources. We introduce TOME-Math (Textbook-Oriented Mathematical Evidence), a large-scale corpus that converts 2,118 textbooks spanning the core areas of university-level mathematics subjects into approximately 380K structured proof-supervision records while preserving chapter order, proposition-proof links, dependency references, and source provenance. Leveraging these structural signals, we explore curriculum ",
+    "engagement": {
+      "upvotes": 37
+    },
+    "id": "39090a630dff87f4",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "CogBattery: Human-Referenced Evaluation of Cognitive Task Behavior and Structure in Language Models",
+    "url": "https://huggingface.co/papers/2607.24999",
+    "published": "2026-10-29T20:00:00.000Z",
+    "summary": "Human cognitive tasks let us compare language models with humans under controlled conditions. Yet a model can reproduce the direction of a human effect while making different errors. CogBattery evaluates 54 open-weight language models on text adaptations of 13 cognitive paradigms, comparing each with human data from its source study. Like humans, models respond more to n-back lures than to controls, yet they make far more false alarms on ordinary non-targets. Most models' reported confidence separates correct from incorrect answers less well than humans' does, and most always choose the same w",
+    "engagement": {
+      "upvotes": 3
+    },
+    "id": "754081fbaab5143d",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "WMIP: A Working-Memory-Inspired Programmable Probe of Cumulative State Tracking in Large Language Models",
+    "url": "https://huggingface.co/papers/2603.27343",
+    "published": "2026-10-29T20:00:00.000Z",
+    "summary": "Human working memory lets people maintain and update information. Large language models (LLMs) face a related demand when tracking updates within a single prompt without writing out intermediate states, yet existing tests differ in their constraints on written steps. We introduce a working-memory-inspired probe of cumulative state tracking with program-computed answers, 3 to 100 updates, and final-state, intermediate-state, or multi-target queries. It compares protocols on identical items. Across 18 LLMs, accuracy is 84.9% on single-step arithmetic but 31.7% on core items requiring one number ",
+    "engagement": {
+      "upvotes": 3
+    },
+    "id": "7947fe62aea82781",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Ensemble Routing for Prompt-Adaptive Cost-Aware LLM Inference",
+    "url": "https://huggingface.co/papers/2611.10193",
+    "published": "2026-11-05T19:00:00.000Z",
+    "summary": "Large language models (LLMs) increasingly support Web-based services that must balance response quality and inference cost across heterogeneous requests. Conventional routing selects one model per prompt, while fixed ensembles cannot adapt their composition and cost to individual requests. We introduce PISA, a prompt-adaptive, cost-aware single-model router, and PISA-E, its extension to ensemble routing. At the core of both methods, PISA combines soft cluster memberships with model-specific predictors to estimate individual model capabilities. Building on these estimates, PISA-E jointly select",
+    "engagement": {
+      "upvotes": 14
+    },
+    "id": "a81a2ac05a2264e0",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Incentivizing Self-Learning in Large Language Models via Reinforcement Learning",
+    "url": "https://huggingface.co/papers/2610.39671",
+    "published": "2026-10-28T20:00:00.000Z",
+    "summary": "Large language models (LLMs) draw on parametric knowledge and retrieval-augmented generation (RAG) to solve knowledge-intensive tasks. Yet problem solving in unfamiliar domains calls for tightly coupled knowledge acquisition and reasoning, beyond factual retrieval and aggregation or learning solely from a preassembled context. We study self-learning -- autonomously retrieving, studying, and applying knowledge from long-form reference materials on the fly. To investigate this capability, we formulate a textbook-based mathematical problem-solving task. LLMs must navigate textbook exposition, lea",
+    "engagement": {
+      "upvotes": 26
+    },
+    "id": "abcfb343e50f9703",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "GTAGym: Real AAA Game Tasks Environment for Evaluation and Reinforcement Learning",
+    "url": "https://huggingface.co/papers/2611.13028",
+    "published": "2026-11-08T19:00:00.000Z",
+    "summary": "AAA games offer a rich testbed for evaluating agent perception, reasoning, and control. However, evaluating whether agents can complete tasks in AAA games is challenging and often human-annotated because task outcomes are often difficult to verify automatically, let alone applying it for Reinforcement Learning (RL). We introduce GTAGym, an environment and framework for evaluation and RL on GTA V tasks. Its evaluation benchmark, GTAVBench, derived from GTA V main-story missions, contains 103 online tasks reconstructed across nine task families, alongside 47 image-based shooting and sniping task",
+    "engagement": {
+      "upvotes": 13
+    },
+    "id": "8b96b3ec19183b0a",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "LO-World: Unified BEV Latent Modeling for Joint 4D Occupancy and LiDAR Forecasting",
+    "url": "https://huggingface.co/papers/2611.11912",
+    "published": "2026-11-08T19:00:00.000Z",
+    "summary": "LiDAR point clouds and 3D semantic occupancy represent two distinct modalities capturing fine-grained metric geometry and dense volumetric semantics, respectively, holding natural potential for mutual complementarity. However, existing world models typically forecast these modalities independently or cascade them heuristically, missing the opportunity for reciprocal cross-modal regularization. To address this, we propose LO-World, a unified 4D world model that forecasts both modalities within a shared BEV latent space. This single-stream formulation enables dense semantics and metric geometry ",
+    "engagement": {
+      "upvotes": 1
+    },
+    "id": "9a1210fcd8c7cba6",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "One Table, Many Queries: Benchmarking Generalist Tabular Models Across Generation, Imputation, and Prediction",
+    "url": "https://huggingface.co/papers/2611.13001",
+    "published": "2026-11-07T19:00:00.000Z",
+    "summary": "Generation, imputation, and prediction query different aspects of the same tabular distribution, but are usually evaluated separately. This leaves unclear which capabilities they share, how their training objectives interact, and whether one model can perform all three well. We introduce the One Table Benchmark (), spanning 56 datasets, 46 registered methods, and 20 capability axes under aligned data splits and explicit task contracts. We compare task ranks on aligned support, train five backbones under all seven non-empty objective combinations on five datasets with three seeds, and contrast ",
+    "engagement": {
+      "upvotes": 40
+    },
+    "id": "ac1c45af20ca5cc3",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Gemini Decisions API",
+    "url": "https://simonwillison.net/2026/Nov/11/gemini-decisions-api/",
+    "published": "2026-11-11T22:03:25+00:00",
+    "summary": "Gemini Decisions API Google join Jev and OpenAI in the decision model category with \"Gemini Decision 1\". This new model API is almost identical to Jev: it supports the same three types of questions (yes/no, choice, and rubric-scoring) and even reuses Jev's term \"Noul\" for a yes/no question. It's priced the same as the GPT-6 Luna decision model: 10 cents per million input tokens, and output is free. Jev remains the cheapest of the three, at 4.2 cents per million. Jev is text (and JSON) only. OpenAI can handle text and images. Gemini Decision 1 is fully multi-model: it covers text, images, audio",
+    "id": "bb485df9f4f59adb",
+    "source": "simonw",
+    "sourceName": "Simon Willison",
+    "category": "newsletter",
+    "weight": 0.5,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "aws-emulator",
+    "url": "https://simonwillison.net/2026/Nov/11/aws-emulator/",
+    "published": "2026-11-11T21:18:30+00:00",
+    "summary": "aws-emulator Finally, an official emulator from AWS to run tests against a local clone of their many different services without having to provision a paid API key to do so. It's written in Rust by a huge swarm of agents - 29,684 commits in the first three weeks of the project. Swaminathan (Swami) Sivasubramanian wrote about how it came to be in a guest post on Werner Vogels' blog. It currently requires Docker to run on macOS or Windows. I'm hoping they fix that in the future - it would be great if you could download a single binary and use that as part of a standard test suite in other languag",
+    "id": "02f705171aa939fd",
+    "source": "simonw",
+    "sourceName": "Simon Willison",
+    "category": "newsletter",
+    "weight": 0.5,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Browse tools.simonwillison.net by tag",
+    "url": "https://simonwillison.net/2026/Nov/11/tools-tags/",
+    "published": "2026-11-11T18:42:50+00:00",
+    "summary": "Browse tools.simonwillison.net by tag I've been wanting a better way to browse my collection of vibe-coded tools (244 and counting) for a while. I had a few Fable 5.2 credits left over before my weekly reset so I set it to work using tree-sitter to analyze the code for JavaScript APIs, libraries, and web API hosts used by each tool. The homepage now features tag clouds for browsing by each of those categories of tag: Tags: javascript , tools , ai , generative-ai , llms , claude , vibe-coding",
+    "id": "95dd2fdb0483e254",
+    "source": "simonw",
+    "sourceName": "Simon Willison",
+    "category": "newsletter",
+    "weight": 0.5,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Oh, Palantir is ‘progressive’ now, is it?",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1032126/alex-baby-you-were-recorded-on-video",
+    "published": "2026-11-12T13:06:54-05:00",
+    "summary": "I had other things to do today, but Alex Karp's pathetic attempt to pivot back to the left gave me no choice but to put them on hold. Last week's elections were a bloodbath for the right, a problem for all the wannabe fash founders who had tied their political fortunes to a \"vibe shift\" [&#8230;]",
+    "id": "d545fdc617b9aefd",
+    "source": "verge-ai",
+    "sourceName": "The Verge",
+    "category": "media",
+    "weight": 0.45,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "The Jensen Huang scandal is hardly over",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1032069/jensen-huang-resignation-affair-chips-smuggling",
+    "published": "2026-11-12T12:44:33-05:00",
+    "summary": "I was certain, until the story of Jensen Huang's second affair hit, that Huang was bulletproof. After all, why wouldn't he be? He's placed himself indispensably at the center of the AI industry and famously had no succession plan at Nvidia. In fact, he's the only CEO Nvidia has ever had. L'&#233;tat c'est moi. Then [&#8230;]",
+    "id": "96892311de09e14b",
+    "source": "verge-ai",
+    "sourceName": "The Verge",
+    "category": "media",
+    "weight": 0.45,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "AI chatbots are recommending fake retail websites, study finds",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1032020/gemini-chatgpt-perplexity-shopping-test-risky-fake-websites-citations",
+    "published": "2026-11-12T12:00:00-05:00",
+    "summary": "Shoppers using AI chatbots to research products or find places to buy items could be directed to imposters and other risky websites, a new study found. The study conducted by IP protection firm Podqi and shared exclusively with The Verge prompted ChatGPT, Gemini, and Perplexity with a handful of shopping-related questions involving a selection of [&#8230;]",
+    "id": "32933935200c2839",
+    "source": "verge-ai",
+    "sourceName": "The Verge",
+    "category": "media",
+    "weight": 0.45,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "More game developers are starting to use generative AI",
+    "url": "https://www.theverge.com/games/1032085/gdc-festival-of-gaming-annual-survey-ai-layoffs",
+    "published": "2026-11-12T12:00:00-05:00",
+    "summary": "More video game developers are using generative AI tools in their jobs compared to last year, according to the GDC Festival of Gaming's latest annual industry survey. Forty percent of developers surveyed say they use it \"as part of their job,\" an increase from 36 percent in 2025. Usage was higher with game developers that [&#8230;]",
+    "id": "4213b9afeff9a7e6",
+    "source": "verge-ai",
+    "sourceName": "The Verge",
+    "category": "media",
+    "weight": 0.45,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Jensen Huang is out. What did China want from him?",
+    "url": "https://www.theverge.com/podcast/1031260/nvidia-jensen-huang-resign-china-spy-scandal-ai-chips-trump",
+    "published": "2026-11-12T11:30:00-05:00",
+    "summary": "Today, we’re talking about the Jensen Huang scandal at Nvidia, which is developing so quickly that we had to do an emergency update of this intro minutes before publishing this episode. Huang just resigned from his position as CEO of Nvidia as news of his affairs, including with an alleged Chinese spy, threatened to engulf [&#8230;]",
+    "id": "1d250e9233fe0f75",
+    "source": "verge-ai",
+    "sourceName": "The Verge",
+    "category": "media",
+    "weight": 0.45,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Read Nvidia’s internal emails about the ‘extraordinarily difficult period’ amid CEO shakeup",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1032028/read-nvidias-internal-emails-jensen-huang",
+    "published": "2026-11-12T10:48:12-05:00",
+    "summary": "Jensen Huang resigned as CEO of Nvidia this morning, a company he co-founded in 1993. The decision came following the company's board opening an investigation into multiple extramarital affairs Huang had with a direct report and an alleged Chinese spy. The new, and first, Chair of the Board, Harvey Jones, shared news of Huang's resignation [&#8230;]",
+    "id": "830958e6e6f7f875",
+    "source": "verge-ai",
+    "sourceName": "The Verge",
+    "category": "media",
+    "weight": 0.45,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Nvidia CEO Jensen Huang has resigned. What happens next?",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1030422/nvidia-jensen-huang-ai-china-alice-huang",
+    "published": "2026-11-12T10:01:31-05:00",
+    "summary": "After the leather-jacketed CEO, president, and co-founder of Nvidia, Jensen Huang, acknowledged an affair with Megaspeed exec Alice Huang, his company initially announced an investigation. However, The New York Times reported on Wednesday that there was evidence of another affair, this time with an Nvidia executive who reported directly to him. A board meeting that [&#8230;]",
+    "id": "15c28179b2dc3ec9",
+    "source": "verge-ai",
+    "sourceName": "The Verge",
+    "category": "media",
+    "weight": 0.45,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "I reviewed the Apple HomeView, ask me anything",
+    "url": "https://www.theverge.com/tech/1031868/i-reviewed-the-apple-homeview-ask-me-anything",
+    "published": "2026-11-12T09:10:00-05:00",
+    "summary": "Hi! I'm Jen Tuohy, The Verge's senior smart home reviewer. I've tested every smart display Amazon and Google have ever made, and for the past week I've been testing Apple's first: The $299 HomeView. I put the tabletop and wall-mounted versions through their paces, on my kitchen counter, bedside table, in my office, and on [&#8230;]",
+    "id": "39f4c129e4341242",
+    "source": "verge-ai",
+    "sourceName": "The Verge",
+    "category": "media",
+    "weight": 0.45,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Nvidia CEO Jensen Huang resigns amid spy, affair scandals",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1031689/jensen-huang-nvidia-ceo-resigns",
+    "published": "2026-11-12T08:53:16-05:00",
+    "summary": "Nvidia's board announced that Jensen Huang - its longtime co-founder, president, and CEO - has resigned after reports of two extramarital affairs, one with an alleged Chinese spy and one with an Nvidia executive who reported to Huang. Following a late Wednesday night meeting, the board accepted Huang's letter of resignation as CEO, president, and [&#8230;]",
+    "id": "426b199762db8714",
+    "source": "verge-ai",
+    "sourceName": "The Verge",
+    "category": "media",
+    "weight": 0.45,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Nvidia is reportedly preparing to fire Jensen Huang",
+    "url": "https://www.theverge.com/tech/1031652/jensen-huang-rumor",
+    "published": "2026-11-11T17:44:36-05:00",
+    "summary": "Nvidia's board is preparing to dismiss CEO Jensen Huang following a report from The New York Times about a second alleged extramarital affair, just days after he admitted to a separate affair with a woman alleged to be a Chinese spy, The Wall Street Journal reports. The second alleged affair was with an executive who [&#8230;]",
+    "id": "4a6d92631407ef3c",
+    "source": "verge-ai",
+    "sourceName": "The Verge",
+    "category": "media",
+    "weight": 0.45,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Google DeepMind Staff Tap the UK Government to Escalate Their Unionization Fight",
+    "url": "https://www.wired.com/story/google-deepmind-staff-escalate-their-union-fight/",
+    "thumbnail": {
+      "url": "https://media.wired.com/photos/6af50d1a5e386b9efd1b63f5/master/pass/Google-DeepMind-Staffers-Escalate-Unionization-Efforts-Business-2151467843.jpg",
+      "sourceUrl": "https://www.wired.com/story/google-deepmind-staff-escalate-their-union-fight/",
+      "credit": "Joel Khalili",
+      "alt": "",
+      "provenance": "feed"
+    },
+    "published": "Thu, 12 Nov 2026 18:05:41 +0000",
+    "summary": "After initial talks stalled, workers at Google DeepMind are trying to bypass company management in their bid to unionize.",
+    "id": "e1acab05b268c1ab",
+    "source": "wired-ai",
+    "sourceName": "WIRED",
+    "category": "media",
+    "weight": 0.45,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Jensen Huang Basically Lit More Than $1 Trillion on Fire in Less Than a Month",
+    "url": "https://www.wired.com/story/jensen-huang-tanked-a-trillion-dollars-in-less-than-a-month/",
+    "thumbnail": {
+      "url": "https://media.wired.com/photos/6af5f0e82e74be76ab295bc3/master/pass/111226-nvidia-jensen-huang-dollar-destroyed.jpg",
+      "sourceUrl": "https://www.wired.com/story/jensen-huang-tanked-a-trillion-dollars-in-less-than-a-month/",
+      "credit": "Kate Taylor",
+      "alt": "",
+      "provenance": "feed"
+    },
+    "published": "Thu, 12 Nov 2026 17:59:15 +0000",
+    "summary": "Since the scandal involving an alleged Chinese spy began, Nvidia has lost an eye-watering sum from its market value.",
+    "id": "1ddbc0fb49820b72",
+    "source": "wired-ai",
+    "sourceName": "WIRED",
+    "category": "media",
+    "weight": 0.45,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Meet Colette Kress, Nvidia’s New Interim CEO",
+    "url": "https://www.wired.com/story/who-is-colette-kress-the-woman-who-could-succeed-jensen-huang/",
+    "thumbnail": {
+      "url": "https://media.wired.com/photos/6af5c3ffec0d511a4648accf/master/pass/111226-Colette%20Nvidia.jpg",
+      "sourceUrl": "https://www.wired.com/story/who-is-colette-kress-the-woman-who-could-succeed-jensen-huang/",
+      "credit": "Lauren Goode, Louise Matsakis",
+      "alt": "",
+      "provenance": "feed"
+    },
+    "published": "Thu, 12 Nov 2026 14:14:33 +0000",
+    "summary": "Nvidia’s longtime chief financial officer helped transform the company into an AI powerhouse. Now she’s taking the reins following Jensen Huang’s resignation on Thursday.",
+    "id": "e28bd745fc516570",
+    "source": "wired-ai",
+    "sourceName": "WIRED",
+    "category": "media",
+    "weight": 0.45,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Jensen Huang Resigns as Nvidia CEO",
+    "url": "https://www.wired.com/story/nvidia-ceo-jensen-huang-steps-down/",
+    "thumbnail": {
+      "url": "https://media.wired.com/photos/65d7b086f26d21f1968601c6/master/pass/JensenHuang_BigInterview_Photo_RyanYoun_Inline.jpg",
+      "sourceUrl": "https://www.wired.com/story/nvidia-ceo-jensen-huang-steps-down/",
+      "credit": "Caroline Haskins, Lauren Goode",
+      "alt": "",
+      "provenance": "feed"
+    },
+    "published": "Thu, 12 Nov 2026 13:58:06 +0000",
+    "summary": "Nvidia’s cofounder and chief executive resigned on Thursday after the company opened an investigation into his affair with an alleged Chinese intelligence asset.",
+    "id": "550d6b582c328b03",
+    "source": "wired-ai",
+    "sourceName": "WIRED",
+    "category": "media",
+    "weight": 0.45,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Alex Karp Said He’s a ‘Progressive.’ OK! Here’s Some Other Stuff He’s Said Recently",
+    "url": "https://www.wired.com/story/alex-karp-said-hes-a-progressive-ok-heres-some-other-stuff-hes-said-recently/",
+    "thumbnail": {
+      "url": "https://media.wired.com/photos/6af4c862c4fc953ed4f6f19b/master/pass/Palantir-Progressive-Company-Business-2297745126.jpg",
+      "sourceUrl": "https://www.wired.com/story/alex-karp-said-hes-a-progressive-ok-heres-some-other-stuff-hes-said-recently/",
+      "credit": "Caroline Haskins",
+      "alt": "",
+      "provenance": "feed"
+    },
+    "published": "Thu, 12 Nov 2026 10:30:00 +0000",
+    "summary": "The Palantir CEO touted his “progressive” worldview in a recent interview. Let’s see how that lines up with his comments during the company’s earnings call two weeks ago.",
+    "id": "64107def8a2b33ca",
+    "source": "wired-ai",
+    "sourceName": "WIRED",
+    "category": "media",
+    "weight": 0.45,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Google Wanted Spirit Airlines Data. Flight Attendants Found a Way to Opt Out",
+    "url": "https://www.wired.com/story/google-wanted-spirit-airlines-data-flight-attendants-found-a-way-to-opt-out/",
+    "thumbnail": {
+      "url": "https://media.wired.com/photos/6af4b673c0570edc6c14ee5b/master/pass/GettyImages-1392875153.jpg",
+      "sourceUrl": "https://www.wired.com/story/google-wanted-spirit-airlines-data-flight-attendants-found-a-way-to-opt-out/",
+      "credit": "Aarian Marshall",
+      "alt": "",
+      "provenance": "feed"
+    },
+    "published": "Thu, 12 Nov 2026 10:15:00 +0000",
+    "summary": "The union representing flight attendants for the defunct airline struck a deal with Google to scrub sensitive employee records from a $10 million data sale.",
+    "id": "9e1b97f74eba11ab",
+    "source": "wired-ai",
+    "sourceName": "WIRED",
+    "category": "media",
+    "weight": 0.45,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "I Saw the Future of Robotics in a Virtual Duck That Chases My Cat",
+    "url": "https://www.wired.com/story/i-trained-a-microduck-to-be-my-cats-butler/",
+    "thumbnail": {
+      "url": "https://media.wired.com/photos/6af37240c46e83fb6f2598a7/master/pass/AI-Lab-I-Trained-Simulated-Microduck-to-Dance-and-Do-Other-Fun-Things-Business.jpg",
+      "sourceUrl": "https://www.wired.com/story/i-trained-a-microduck-to-be-my-cats-butler/",
+      "credit": "Will Knight",
+      "alt": "",
+      "provenance": "feed"
+    },
+    "published": "Wed, 11 Nov 2026 19:55:54 +0000",
+    "summary": "An OpenAI model helped me teach the Microduck to waddle and moonlight as a tiny cat butler.",
+    "id": "6876cf9cc9e30cd2",
+    "source": "wired-ai",
+    "sourceName": "WIRED",
+    "category": "media",
+    "weight": 0.45,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "[AINews] D-Day (Decision Models Day)",
+    "url": "https://latent.space/p/ainews-d-day-decision-models-day/",
+    "published": "Thu, 12 Nov 2026 05:26:54 GMT",
+    "summary": "November 11, 2026 — Google enters the decision model market. At AI Engineer, Cloudflare showed which parts of a build failure a classifier could handle. TypeSafe AI showed off their production customers.",
+    "id": "7e4309fab84f774e",
+    "source": "latent-space",
+    "sourceName": "Latent Space",
+    "category": "media",
+    "weight": 0.5,
+    "format": "podcast",
+    "trendOnly": false
+  },
+  {
+    "title": "The Jev Revolution: What Engineers Are Already Building with System One Models",
+    "url": "https://latent.space/p/jev-revolution/",
+    "thumbnail": {
+      "url": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/b4181d5a-0460-4828-b350-07feca728023/jevalution-feature.jpg?t=1794458692",
+      "sourceUrl": "https://latent.space/p/jev-revolution/",
+      "credit": "Richard MacManus",
+      "alt": "",
+      "provenance": "feed"
+    },
+    "published": "Thu, 12 Nov 2026 05:08:20 GMT",
+    "summary": "At AI Engineer Code Summit, lead Jev creator Diogo Almeida called on developers to automate everything. Also, Glean and others showed how they’re using Jev.",
+    "id": "eb6d3e48fcecd58a",
+    "source": "latent-space",
+    "sourceName": "Latent Space",
+    "category": "media",
+    "weight": 0.5,
+    "format": "podcast",
+    "trendOnly": false
+  },
+  {
+    "title": "Anthropic IPO",
+    "url": "https://ipo.anthropic.com/us/",
+    "discussion": "https://news.ycombinator.com/item?id=50465829",
+    "published": "2026-11-12T11:46:41Z",
+    "summary": "",
+    "engagement": {
+      "points": 660,
+      "comments": 670
+    },
+    "id": "56c83c766ce13439",
+    "source": "hn",
+    "sourceName": "Hacker News",
+    "category": "community",
+    "weight": 0.35,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Gemini 4 Hydrogen",
+    "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
+    "discussion": "https://news.ycombinator.com/item?id=50471431",
+    "published": "2026-11-12T18:01:48Z",
+    "summary": "",
+    "engagement": {
+      "points": 181,
+      "comments": 108
+    },
+    "id": "ec9fd4077cce6753",
+    "source": "hn",
+    "sourceName": "Hacker News",
+    "category": "community",
+    "weight": 0.35,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "I'm making LLMs work on small and old devices",
+    "url": "https://github.com/hyperionaidev/smolmaxxing/",
+    "discussion": "https://news.ycombinator.com/item?id=50468888",
+    "published": "2026-11-12T15:23:10Z",
+    "summary": "",
+    "engagement": {
+      "points": 136,
+      "comments": 52
+    },
+    "id": "6edaf29caa3e204c",
+    "source": "hn",
+    "sourceName": "Hacker News",
+    "category": "community",
+    "weight": 0.35,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Show HN: AI Red Lines – write down what would make you act on AI",
+    "url": "https://yourairedlines.com",
+    "discussion": "https://news.ycombinator.com/item?id=50467880",
+    "published": "2026-11-12T14:31:21Z",
+    "summary": "",
+    "engagement": {
+      "points": 27,
+      "comments": 15
+    },
+    "id": "1901635d451e4de9",
+    "source": "hn",
+    "sourceName": "Hacker News",
+    "category": "community",
+    "weight": 0.35,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Show HN: AgentRun – open-source, Self-improving Managed Agents",
+    "url": "https://github.com/Parcha-ai/agentrun/blob/main/README.md",
+    "discussion": "https://news.ycombinator.com/item?id=50471650",
+    "published": "2026-11-12T18:15:48Z",
+    "summary": "",
+    "engagement": {
+      "points": 12,
+      "comments": 0
+    },
+    "id": "ca1478ab4f6d6b17",
+    "source": "hn",
+    "sourceName": "Hacker News",
+    "category": "community",
+    "weight": 0.35,
+    "format": "article",
+    "trendOnly": false
+  }
+]
