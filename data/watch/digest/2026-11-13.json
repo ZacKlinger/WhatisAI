@@ -1,0 +1,499 @@
+[
+  {
+    "id": "4bad5afe01a19f79",
+    "title": "Introducing Gemini 4 Hydrogen",
+    "url": "https://deepmind.google/blog/introducing-gemini-4-hydrogen/",
+    "score": 0.783,
+    "parts": {
+      "authority": 0.95,
+      "corroboration": 0.4,
+      "impact": 1,
+      "engagement": 0.81
+    },
+    "categories": [
+      "community",
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "Hacker News",
+      "Google DeepMind"
+    ]
+  },
+  {
+    "id": "8e4104a923ec61a4",
+    "title": "Gemini Decisions API: Fast, calibrated multimodal decisions",
+    "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/",
+    "score": 0.65,
+    "parts": {
+      "authority": 0.8,
+      "corroboration": 0.4,
+      "impact": 1,
+      "engagement": 0
+    },
+    "categories": [
+      "newsletter",
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "Simon Willison",
+      "Google AI"
+    ]
+  },
+  {
+    "id": "5bf4951adbe9698d",
+    "title": "Introducing ChatGPT Wallet",
+    "url": "https://openai.com/index/introducing-chatgpt-wallet",
+    "score": 0.62,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI"
+    ]
+  },
+  {
+    "id": "0ecf91ee2a291d5f",
+    "title": "Using GPT-4 to deliver a new customer service standard",
+    "url": "https://openai.com/business/customer-stories/ada",
+    "score": 0.62,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI"
+    ]
+  },
+  {
+    "id": "da2b1f66c8211b6e",
+    "title": "Fine-tuning GPT-4o webinar",
+    "url": "https://openai.com/business/learn/fine-tuning-gpt-4o-webinar",
+    "score": 0.62,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI"
+    ]
+  },
+  {
+    "id": "b32f33401f9221f2",
+    "title": "Tree-Ising: Repairing Language Models with Bit-Level Ising Edits",
+    "url": "https://huggingface.co/papers/2611.14210",
+    "score": 0.531,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0.89
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "459a57b4750adf48",
+    "title": "Google Search gets a major upgrade with Gemini 4 Hydrogen",
+    "url": "https://blog.google/products-and-platforms/products/search/gemini-4-hydrogen-search-upgrade/",
+    "score": 0.53,
+    "parts": {
+      "authority": 0.8,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "thumbnail": {
+      "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/HydrogenUI_socialshare.max-600x600.format-webp.webp",
+      "sourceUrl": "https://blog.google/products-and-platforms/products/search/gemini-4-hydrogen-search-upgrade/",
+      "credit": "Robby Stein",
+      "alt": "",
+      "provenance": "feed"
+    },
+    "sources": [
+      "Google AI"
+    ]
+  },
+  {
+    "id": "a19ce5d70afc97e2",
+    "title": "Anthropic's IPO roadshow video",
+    "url": "https://simonwillison.net/2026/Nov/11/anthropic-ipo-roadshow/",
+    "score": 0.52,
+    "parts": {
+      "authority": 0.5,
+      "corroboration": 0.4,
+      "impact": 0.5,
+      "engagement": 1
+    },
+    "categories": [
+      "community",
+      "newsletter"
+    ],
+    "format": "article",
+    "sources": [
+      "Hacker News",
+      "Simon Willison"
+    ]
+  },
+  {
+    "id": "39f1058231770252",
+    "title": "[AINews] Jensen Huang resigns after 33 years leading NVIDIA",
+    "url": "https://latent.space/p/ainews-jensen-huang-resigns-after-33-years-leading-nvidia/",
+    "score": 0.51,
+    "parts": {
+      "authority": 0.5,
+      "corroboration": 0.7,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "media"
+    ],
+    "format": "podcast",
+    "sources": [
+      "WIRED",
+      "Latent Space",
+      "The Verge"
+    ]
+  },
+  {
+    "id": "3ded89e2e5f95acf",
+    "title": "Microsoft Research Focus – Edition #98",
+    "url": "https://www.microsoft.com/en-us/research/podcast/microsoft-research-focus-edition-98/",
+    "score": 0.495,
+    "parts": {
+      "authority": 0.7,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "Microsoft Research"
+    ]
+  },
+  {
+    "id": "26498fde06103fe5",
+    "title": "Building strong safety evaluations",
+    "url": "https://www.anthropic.com/research/building-strong-safety-evaluations",
+    "score": 0.475,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "Anthropic Research"
+    ]
+  },
+  {
+    "id": "5b0f73df89a6e310",
+    "title": "How Amplitude ships product improvements in 1–2 days with OpenAI",
+    "url": "https://openai.com/business/customer-stories/amplitude",
+    "score": 0.475,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI"
+    ]
+  },
+  {
+    "id": "1ff74ee2cb106637",
+    "title": "Cogent and OpenAI build cyber defense factories for enterprises",
+    "url": "https://openai.com/index/cogent-security",
+    "score": 0.475,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI"
+    ]
+  },
+  {
+    "id": "f6958f5f3bf6653d",
+    "title": "New in ChatGPT for Business: April 2025",
+    "url": "https://openai.com/business/learn/new-in-chatgpt-for-business-april-updates-2025",
+    "score": 0.475,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI"
+    ]
+  },
+  {
+    "id": "d7b46d3d8c2d7def",
+    "title": "Ropedia Xperience 2: A Gold Standard for Scaling Physical AI Environments and Behaviors",
+    "url": "https://huggingface.co/papers/2611.17060",
+    "score": 0.474,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0.31
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "d8499d0211a776e7",
+    "title": "JustRUA: A Controlled Study of GPT-6 Robot-Use Agents",
+    "url": "https://huggingface.co/papers/2611.16009",
+    "score": 0.446,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0.04
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "754081fbaab5143d",
+    "title": "CogBattery: Human-Referenced Evaluation of Cognitive Task Behavior and Structure in Language Models",
+    "url": "https://huggingface.co/papers/2607.24999",
+    "score": 0.446,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0.04
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "3ba8292d6ac0d74e",
+    "title": "ScrapeBench: Evaluating Legal Compliance of AI Agents in Website Scraping",
+    "url": "https://huggingface.co/papers/2611.11306",
+    "score": 0.444,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0.01
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "1dea782169f60b45",
+    "title": "Request for Information",
+    "url": "https://www.federalregister.gov/documents/2026/11/13/2026-23155/request-for-information",
+    "score": 0.44,
+    "parts": {
+      "authority": 0.9,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "policy"
+    ],
+    "format": "article",
+    "sources": [
+      "US Federal Register"
+    ]
+  },
+  {
+    "id": "8d30336b14bfe5e0",
+    "title": "llm-gemini 0.37",
+    "url": "https://simonwillison.net/2026/Nov/12/llm-gemini/",
+    "score": 0.425,
+    "parts": {
+      "authority": 0.5,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0
+    },
+    "categories": [
+      "newsletter"
+    ],
+    "format": "article",
+    "sources": [
+      "Simon Willison"
+    ]
+  },
+  {
+    "id": "c1fbfe2e3fcb7bc5",
+    "title": "llm-gemini 0.36",
+    "url": "https://simonwillison.net/2026/Nov/10/llm-gemini/",
+    "score": 0.425,
+    "parts": {
+      "authority": 0.5,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0
+    },
+    "categories": [
+      "newsletter"
+    ],
+    "format": "article",
+    "sources": [
+      "Simon Willison"
+    ]
+  },
+  {
+    "id": "bb789fe00a455455",
+    "title": "[AINews] Mercor $750m Series D at $20B valuation, $3B run rate",
+    "url": "https://latent.space/p/ainews-mercor-750m-series-d-at-20b-valuation-3b-run-rate/",
+    "score": 0.425,
+    "parts": {
+      "authority": 0.5,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0
+    },
+    "categories": [
+      "media"
+    ],
+    "format": "podcast",
+    "sources": [
+      "Latent Space"
+    ]
+  },
+  {
+    "id": "3403360ccc1df753",
+    "title": "Google’s new Gemini model is better at understanding complicated questions",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1032505/google-search-ai-mode-gemini-4-hydrogen",
+    "score": 0.407,
+    "parts": {
+      "authority": 0.45,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0
+    },
+    "categories": [
+      "media"
+    ],
+    "format": "article",
+    "sources": [
+      "The Verge"
+    ]
+  },
+  {
+    "id": "7afe22db314e8f37",
+    "title": "SO-Arena: Benchmarking the Capability Spectrum and Reliability of System One Models",
+    "url": "https://huggingface.co/papers/2611.15777",
+    "score": 0.406,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.89
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "97adab01dbf7344a",
+    "title": "Try Tabletop: Customizable, collaborative spaces for groups to plan, play and do more together.",
+    "url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/tabletop/",
+    "score": 0.405,
+    "parts": {
+      "authority": 0.8,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "thumbnail": {
+      "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/labs_tabletop_blog_image_2784x1.max-600x600.format-webp.webp",
+      "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/google-labs/tabletop/",
+      "credit": "Roman Nurik",
+      "alt": "",
+      "provenance": "feed"
+    },
+    "sources": [
+      "Google AI"
+    ]
+  }
+]

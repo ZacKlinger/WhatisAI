@@ -1,24 +1,36 @@
 {
-  "date": "2026-11-12",
+  "date": "2026-11-13",
   "threshold": 0.58,
   "candidates": [
     {
       "id": "4bad5afe01a19f79",
       "title": "Introducing Gemini 4 Hydrogen",
       "url": "https://deepmind.google/blog/introducing-gemini-4-hydrogen/",
-      "score": 0.733,
+      "score": 0.783,
       "parts": {
         "authority": 0.95,
         "corroboration": 0.4,
         "impact": 1,
-        "engagement": 0.3
+        "engagement": 0.81
       },
       "categories": [
-        "lab",
-        "community"
+        "community",
+        "lab"
       ],
       "format": "article",
       "items": [
+        {
+          "title": "Gemini 4 Hydrogen and Orchestrator",
+          "url": "https://antigravity.google/blog/gemini-4-hydrogen-in-google-antigravity/",
+          "source": "Hacker News",
+          "category": "community",
+          "published": "2026-11-12T18:52:01Z",
+          "summary": "",
+          "engagement": {
+            "points": 484,
+            "comments": 159
+          }
+        },
         {
           "title": "Introducing Gemini 4 Hydrogen",
           "url": "https://deepmind.google/blog/introducing-gemini-4-hydrogen/",
@@ -77,6 +89,32 @@
       ]
     },
     {
+      "id": "5bf4951adbe9698d",
+      "title": "Introducing ChatGPT Wallet",
+      "url": "https://openai.com/index/introducing-chatgpt-wallet",
+      "score": 0.62,
+      "parts": {
+        "authority": 1,
+        "corroboration": 0,
+        "impact": 1,
+        "engagement": 0
+      },
+      "categories": [
+        "lab"
+      ],
+      "format": "article",
+      "items": [
+        {
+          "title": "Introducing ChatGPT Wallet",
+          "url": "https://openai.com/index/introducing-chatgpt-wallet",
+          "source": "OpenAI",
+          "category": "lab",
+          "published": "Fri, 13 Nov 2026 15:00:00 GMT",
+          "summary": "Introducing ChatGPT Wallet, a secure way for agents in ChatGPT Work, Codex, and dots to complete purchases with user approval and existing card protections."
+        }
+      ]
+    },
+    {
       "id": "0ecf91ee2a291d5f",
       "title": "Using GPT-4 to deliver a new customer service standard",
       "url": "https://openai.com/business/customer-stories/ada",
@@ -125,58 +163,6 @@
           "category": "lab",
           "published": "Mon, 26 Aug 2024 00:00:00 GMT",
           "summary": "Fine-Tuning GPT-4o Webinar"
-        }
-      ]
-    },
-    {
-      "id": "5ca4dc7b6d88cb31",
-      "title": "Introducing Businesses in ChatGPT",
-      "url": "https://openai.com/index/introducing-businesses-chatgpt",
-      "score": 0.62,
-      "parts": {
-        "authority": 1,
-        "corroboration": 0,
-        "impact": 1,
-        "engagement": 0
-      },
-      "categories": [
-        "lab"
-      ],
-      "format": "article",
-      "items": [
-        {
-          "title": "Introducing Businesses in ChatGPT",
-          "url": "https://openai.com/index/introducing-businesses-chatgpt",
-          "source": "OpenAI",
-          "category": "lab",
-          "published": "Tue, 10 Nov 2026 10:00:00 GMT",
-          "summary": "Manage your business information, get insights about how your business shows up, and turn interest into action in ChatGPT."
-        }
-      ]
-    },
-    {
-      "id": "0b2e1c02de474f20",
-      "title": "Gemini 4 Carbon is now available",
-      "url": "https://deepmind.google/blog/gemini-4-carbon-is-now-available/",
-      "score": 0.62,
-      "parts": {
-        "authority": 0.95,
-        "corroboration": 0,
-        "impact": 1,
-        "engagement": 0
-      },
-      "categories": [
-        "lab"
-      ],
-      "format": "article",
-      "items": [
-        {
-          "title": "Gemini 4 Carbon is now available",
-          "url": "https://deepmind.google/blog/gemini-4-carbon-is-now-available/",
-          "source": "Google DeepMind",
-          "category": "lab",
-          "published": "Tue, 10 Nov 2026 16:03:47 +0000",
-          "summary": ""
         }
       ]
     }
