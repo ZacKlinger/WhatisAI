@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-13",
+  "date": "2026-11-14",
   "threshold": 0.58,
   "candidates": [
     {
@@ -54,41 +54,6 @@
       ]
     },
     {
-      "id": "8e4104a923ec61a4",
-      "title": "Gemini Decisions API: Fast, calibrated multimodal decisions",
-      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/",
-      "score": 0.65,
-      "parts": {
-        "authority": 0.8,
-        "corroboration": 0.4,
-        "impact": 1,
-        "engagement": 0
-      },
-      "categories": [
-        "newsletter",
-        "lab"
-      ],
-      "format": "article",
-      "items": [
-        {
-          "title": "Gemini Decisions API",
-          "url": "https://simonwillison.net/2026/Nov/11/gemini-decisions-api/",
-          "source": "Simon Willison",
-          "category": "newsletter",
-          "published": "2026-11-11T22:03:25+00:00",
-          "summary": "Gemini Decisions API Google join Jev and OpenAI in the decision model category with \"Gemini Decision 1\". This new model API is almost identical to Jev: it supports the same three types of questions (yes/no, choice, and rubric-scoring) and even reuses Jev's term \"Noul\" for a yes/no question. It's priced the same as the GPT-6 Luna decision model: 10 cents per million input tokens, and output is free. Jev remains the cheapest of the three, at 4.2 cents per million. Jev is text (and JSON) only. OpenAI can handle text and images. Gemini Decision 1 is fully multi-model: it covers text, images, audio"
-        },
-        {
-          "title": "Gemini Decisions API: Fast, calibrated multimodal decisions",
-          "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/",
-          "source": "Google AI",
-          "category": "lab",
-          "published": "Wed, 11 Nov 2026 18:00:00 +0000",
-          "summary": "Meet the Gemini Decisions API, powered by our state-of-the-art model Gemini Decision for fast, calibrated multimodal decisions."
-        }
-      ]
-    },
-    {
       "id": "5bf4951adbe9698d",
       "title": "Introducing ChatGPT Wallet",
       "url": "https://openai.com/index/introducing-chatgpt-wallet",
@@ -111,58 +76,6 @@
           "category": "lab",
           "published": "Fri, 13 Nov 2026 15:00:00 GMT",
           "summary": "Introducing ChatGPT Wallet, a secure way for agents in ChatGPT Work, Codex, and dots to complete purchases with user approval and existing card protections."
-        }
-      ]
-    },
-    {
-      "id": "0ecf91ee2a291d5f",
-      "title": "Using GPT-4 to deliver a new customer service standard",
-      "url": "https://openai.com/business/customer-stories/ada",
-      "score": 0.62,
-      "parts": {
-        "authority": 1,
-        "corroboration": 0,
-        "impact": 1,
-        "engagement": 0
-      },
-      "categories": [
-        "lab"
-      ],
-      "format": "article",
-      "items": [
-        {
-          "title": "Using GPT-4 to deliver a new customer service standard",
-          "url": "https://openai.com/business/customer-stories/ada",
-          "source": "OpenAI",
-          "category": "lab",
-          "published": "Thu, 05 Sep 2024 08:00:00 GMT",
-          "summary": "Ada uses GPT-4 to deliver a new customer service standard"
-        }
-      ]
-    },
-    {
-      "id": "da2b1f66c8211b6e",
-      "title": "Fine-tuning GPT-4o webinar",
-      "url": "https://openai.com/business/learn/fine-tuning-gpt-4o-webinar",
-      "score": 0.62,
-      "parts": {
-        "authority": 1,
-        "corroboration": 0,
-        "impact": 1,
-        "engagement": 0
-      },
-      "categories": [
-        "lab"
-      ],
-      "format": "article",
-      "items": [
-        {
-          "title": "Fine-tuning GPT-4o webinar",
-          "url": "https://openai.com/business/learn/fine-tuning-gpt-4o-webinar",
-          "source": "OpenAI",
-          "category": "lab",
-          "published": "Mon, 26 Aug 2024 00:00:00 GMT",
-          "summary": "Fine-Tuning GPT-4o Webinar"
         }
       ]
     }

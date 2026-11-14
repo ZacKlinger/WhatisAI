@@ -442,5 +442,18 @@
     "State AI laws": 1,
     "__items": 1014,
     "__observed": true
+  },
+  "2026-11-14": {
+    "Agents": 5,
+    "Robotics": 1,
+    "Multimodal and video": 1,
+    "Evaluations": 2,
+    "State AI laws": 1,
+    "AI safety": 1,
+    "Chips and compute": 3,
+    "Model releases": 1,
+    "Dangerous capabilities": 1,
+    "__items": 22,
+    "__observed": true
   }
 }

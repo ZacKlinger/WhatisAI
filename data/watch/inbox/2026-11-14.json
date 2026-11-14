@@ -1,0 +1,363 @@
+[
+  {
+    "title": "Shield helps technicians hand off legacy portal work with OpenAI",
+    "url": "https://openai.com/business/customer-stories/shield",
+    "published": "Fri, 13 Nov 2026 08:00:00 GMT",
+    "summary": "Shield uses OpenAI to help IT technicians hand off work in legacy portals. Its Forge agents navigate systems so technicians can focus on issues needing their judgment.",
+    "id": "d1318183fe172893",
+    "source": "openai",
+    "sourceName": "OpenAI",
+    "category": "lab",
+    "weight": 1,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Who Remembers What? Multi-Granularity Memory Extraction for Multi-User, Multi-Agent Interaction",
+    "url": "https://huggingface.co/papers/2611.10439",
+    "published": "2026-11-06T19:00:00.000Z",
+    "summary": "Self-evolving agents improve their own skills, memory, and harness code from experience without retraining the base LLM, and group-evolving agents go further by sharing these lessons across agents. Yet most such systems overlook that sharing across users and heterogeneous agents requires deciding who can benefit from each lesson and what information must remain private. We present MixUA, a memory system that distills independent user-agent trajectories into lessons and assigns each lesson to a user-agent pair, user, agent, or global scope according to whom it benefits and what it may disclose.",
+    "engagement": {
+      "upvotes": 7
+    },
+    "id": "254acb1cf38ba08b",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "EgoX: Egocentric Cross-Embodiment Manipulation with Embodiment Dreaming",
+    "url": "https://huggingface.co/papers/2611.16728",
+    "published": "2026-11-11T19:00:00.000Z",
+    "summary": "Generalist manipulation policies can benefit from the complementary experience of humans, real robots, and simulated agents. However, differences in morphology, sensing, and control interfaces make it difficult to learn effectively from their combined demonstrations. We introduce EgoX, an egocentric cross-embodiment learning framework that organizes heterogeneous demonstrations through semantically corresponding observation and action modalities. EgoX pretrains a Modularized Cross-Embodiment Transformer with Embodiment Dreaming (MXT+) on this mixture and fine-tunes it on target-embodiment demo",
+    "engagement": {
+      "upvotes": 1
+    },
+    "id": "63e770c56cc1e04e",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Back to Pixels: Lifting Latent Video Diffusion into Pixel Space",
+    "url": "https://huggingface.co/papers/2611.17336",
+    "published": "2026-11-11T19:00:00.000Z",
+    "summary": "Frontier video generation models work in a VAE latent space that compresses video in both space and time. This compression made training tractable, but now limits high-resolution, controllable, and interactive generation -- doubling resolution quadruples token count, conditions apply to groups of frames rather than individual ones, and each response must wait for the rest of its multi-frame block. We present PixVid, a simple yet effective method that lifts a pretrained latent video model to directly generate every frame in pixel space. PixVid keeps the diffusion transformer and replaces the VA",
+    "engagement": {
+      "upvotes": 3
+    },
+    "id": "a683e7acfe154298",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Consensus Capture in Reference-Based UAV Video Stabilization: A Benchmark on Dynamic Urban Scenes",
+    "url": "https://huggingface.co/papers/2611.17190",
+    "published": "2026-11-11T19:00:00.000Z",
+    "summary": "Reference-frame stabilization registers every frame of a hovering-drone video onto one reference frame, keeping object positions comparable. The registration pipelines it relies on are selected on feature-matching benchmarks in which only the camera moves. Over a busy intersection, vehicles moving together supply mutually consistent correspondences that can draw the robust homography estimate toward their motion: consensus capture, which inlier statistics cannot flag. A two-part benchmark measures it and the object masking meant to prevent it. A static protocol scores ten pipelines under exact",
+    "engagement": {
+      "upvotes": 3
+    },
+    "id": "58237c134a3a60ea",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "TurtLES: A Large-Scale Benchmark for Turbulent 3D Neural PDE Surrogates",
+    "url": "https://huggingface.co/papers/2611.09567",
+    "published": "2026-11-05T19:00:00.000Z",
+    "summary": "Machine-learning surrogates are increasingly used to accelerate computational fluid dynamics, yet progress is limited by the lack of benchmarks capturing realistic, time-dependent turbulent flows. We introduce TurtLES, a 14 TB dataset of 3D turbulent cylinder wakes in the shear-layer transition regime, computed via high-fidelity implicit large-eddy simulations. The dataset contains 400 trajectories of 400 time steps each, with 3-11 million points per frame, spanning variations in geometry, Reynolds number, and angle of attack. Unlike existing datasets, TurtLES combines (i) physically realistic",
+    "engagement": {
+      "upvotes": 4
+    },
+    "id": "dcf061d1c31f312e",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "datasette-cluster-map 0.19",
+    "url": "https://simonwillison.net/2026/Nov/13/datasette-cluster-map/",
+    "published": "2026-11-13T23:02:45+00:00",
+    "summary": "Release: datasette-cluster-map 0.19 One of the oldest Datasette plugins, and still one of my favorites. It now works with Datasette 1.0a42, and depends on the new datasette-leaflet to ensure OpenStreetMap tiles are requested with a referrer header. Here's a map of power plants owned by California's PG&E , also demonstrating Datasette's recently redesigned facets : Tags: datasette , geospatial , openstreetmap",
+    "id": "a41cf41c3f013527",
+    "source": "simonw",
+    "sourceName": "Simon Willison",
+    "category": "newsletter",
+    "weight": 0.5,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "datasette-leaflet 0.3",
+    "url": "https://simonwillison.net/2026/Nov/13/datasette-leaflet/",
+    "published": "2026-11-13T22:30:54+00:00",
+    "summary": "Release: datasette-leaflet 0.3 OpenStreetMap have a very reasonable policy that hits to their hosted tile server should send a referrer header . Datasette table pages used the Referrer-Policy: no-referrer HTTP header, causing plugins that loaded tiles from OpenStreetMap to violate that policy. datasette-leaflet is the plugin that loads a bundled Leaflet so other Datasette plugins can depend on it. It now sets the referrer policy on the tile requests themselves to strict-origin-when-cross-origin , passing the host but not the full path to the page. Tags: leaflet , datasette , openstreetmap",
+    "id": "2ff8c47f48f01f5c",
+    "source": "simonw",
+    "sourceName": "Simon Willison",
+    "category": "newsletter",
+    "weight": 0.5,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "The OpenAI board member who fired Sam Altman says we still can&#8217;t trust AI CEOs",
+    "url": "https://www.theverge.com/podcast/1032907/helen-toner-openai-cset-ai-safety-policy-interview",
+    "published": "2026-11-14T10:00:00-05:00",
+    "summary": "Today, I’m talking with Helen Toner, the executive director of the Center for Security and Emerging Technology at Georgetown University. This episode is part two of our series on AI in real life. Helen is a well-known figure in the AI safety and policy community, though she is perhaps best known for having served on [&#8230;]",
+    "id": "d46b516a4c8344dc",
+    "source": "verge-ai",
+    "sourceName": "The Verge",
+    "category": "media",
+    "weight": 0.45,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Jensen Huang and the decline of the visionary showman founder CEO",
+    "url": "https://www.theverge.com/tech/1033781/nvidia-jensen-huang-last-visionary-showman-founder-ceo",
+    "published": "2026-11-14T07:00:00-05:00",
+    "summary": "On January 6th, 2025, Nvidia CEO Jensen Huang got his rockstar moment at last. He strode triumphantly onstage, hand raised in the air, to the claps and cheers of a 14,000-person arena absolutely packed with influencers and fans, their faces awash in blue glow, as he made his entrance in a black leather jacket that [&#8230;]",
+    "id": "567fa298898a17ca",
+    "source": "verge-ai",
+    "sourceName": "The Verge",
+    "category": "media",
+    "weight": 0.45,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Amazon has a plan to index the world’s online shopping data",
+    "url": "https://www.theverge.com/tech/1033697/amazon-world-product-graph-ai-search",
+    "published": "2026-11-13T18:49:11-05:00",
+    "summary": "Amazon has plans to build a vault of data on every product sold anywhere on the internet, even products Amazon doesn't sell, and make the information available through its own site, according to Reuters. The project, called the \"World Product Graph,\" is meant to make it less likely that shoppers leave Amazon to do their [&#8230;]",
+    "id": "04367a7d0b10c58a",
+    "source": "verge-ai",
+    "sourceName": "The Verge",
+    "category": "media",
+    "weight": 0.45,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "ChatGPT Wallet lets OpenAI’s Dots agents make purchases for you",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1033425/openai-chatgpt-wallet",
+    "published": "2026-11-13T15:45:10-05:00",
+    "summary": "After launching its Dots AI agents platform earlier this year, OpenAI is launching a wallet for the agents. ChatGPT Wallet is rolling out starting today for ChatGPT Pro subscribers in the US aged 18 and older using a US billing address and \"eligible US-issued American Express, Chase, Mastercard and Visa cards.\" After adding a card [&#8230;]",
+    "id": "951c84561943a913",
+    "source": "verge-ai",
+    "sourceName": "The Verge",
+    "category": "media",
+    "weight": 0.45,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Beware the New AI-Fueled Ransomware Boom",
+    "url": "https://www.wired.com/story/beware-the-new-ai-fueled-ransomware-boom/",
+    "thumbnail": {
+      "url": "https://media.wired.com/photos/6af88e4339637940f3ecc20a/master/pass/image%20(76).png",
+      "sourceUrl": "https://www.wired.com/story/beware-the-new-ai-fueled-ransomware-boom/",
+      "credit": "Matt Burgess, Lily Hay Newman",
+      "alt": "",
+      "provenance": "feed"
+    },
+    "published": "Sat, 14 Nov 2026 13:00:00 +0000",
+    "summary": "Fully automated ransomware hasn’t arrived—yet. But seemingly unsophisticated attackers are using AI tools to wreak havoc.",
+    "id": "82ab3d6d079489a7",
+    "source": "wired-ai",
+    "sourceName": "WIRED",
+    "category": "media",
+    "weight": 0.45,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "No Pilots. Few Air Traffic Controllers. What Could Go Wrong?",
+    "url": "https://www.wired.com/story/no-pilots-few-air-traffic-controllers-what-could-go-wrong/",
+    "thumbnail": {
+      "url": "https://media.wired.com/photos/6af209f8ab17b1a731ed42b4/master/pass/ai_aviation.gif",
+      "sourceUrl": "https://www.wired.com/story/no-pilots-few-air-traffic-controllers-what-could-go-wrong/",
+      "credit": "Jeff Wise",
+      "alt": "",
+      "provenance": "feed"
+    },
+    "published": "Sat, 14 Nov 2026 11:00:00 +0000",
+    "summary": "Normally, aviation is slow to embrace new technology—but AI has come for the skies.",
+    "id": "b84b4c49c41de92a",
+    "source": "wired-ai",
+    "sourceName": "WIRED",
+    "category": "media",
+    "weight": 0.45,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Microsoft 365 Crawls Back to Life After a 24-Hour Outage",
+    "url": "https://www.wired.com/story/microsoft-365-crawls-back-to-life-after-a-24-hour-outage/",
+    "thumbnail": {
+      "url": "https://media.wired.com/photos/6af75c7bac6958eb8481a5e6/master/pass/Security_MicrosoftBackOnline_v1.jpg",
+      "sourceUrl": "https://www.wired.com/story/microsoft-365-crawls-back-to-life-after-a-24-hour-outage/",
+      "credit": "Andrew Couts",
+      "alt": "",
+      "provenance": "feed"
+    },
+    "published": "Fri, 13 Nov 2026 19:08:57 +0000",
+    "summary": "The company says a bad update—not a cyberattack or AI—caused its servers around the world to crash.",
+    "id": "1876ce8bb4f47670",
+    "source": "wired-ai",
+    "sourceName": "WIRED",
+    "category": "media",
+    "weight": 0.45,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "The avalanche that hit math is coming for AI development",
+    "url": "https://www.dwarkesh.com/p/rsi",
+    "thumbnail": {
+      "url": "https://substack-post-media.s3.amazonaws.com/public/images/7dc29226-8d97-44fb-a2f3-5798522ed0df_1551x812.png",
+      "sourceUrl": "https://www.dwarkesh.com/p/rsi",
+      "credit": "Dwarkesh Patel",
+      "alt": "",
+      "provenance": "feed"
+    },
+    "published": "Fri, 13 Nov 2026 18:37:51 GMT",
+    "summary": "Why I now expect superintelligence by 2030",
+    "id": "80a7173f8db2c112",
+    "source": "dwarkesh",
+    "sourceName": "Dwarkesh Podcast",
+    "category": "media",
+    "weight": 0.55,
+    "format": "podcast",
+    "trendOnly": false
+  },
+  {
+    "title": "[AINews] The No AI Slop Manifesto",
+    "url": "https://latent.space/p/ainews-the-no-ai-slop-manifesto/",
+    "published": "Sat, 14 Nov 2026 08:31:02 GMT",
+    "summary": "November 13, 2026 — AIE speakers unite to lay out how to fight slop.",
+    "id": "a480e3b592ffbe30",
+    "source": "latent-space",
+    "sourceName": "Latent Space",
+    "category": "media",
+    "weight": 0.5,
+    "format": "podcast",
+    "trendOnly": false
+  },
+  {
+    "title": "Nvidia allegedly engineered scarcity by funding AI startups to buy its GPUs",
+    "url": "https://www.techpowerup.com/354814/nvidia-allegedly-engineered-scarcity-by-funding-ai-startups-to-buy-its-gpus",
+    "discussion": "https://news.ycombinator.com/item?id=50493251",
+    "published": "2026-11-14T02:52:59Z",
+    "summary": "",
+    "engagement": {
+      "points": 923,
+      "comments": 556
+    },
+    "id": "c6caa4d4f0b0e545",
+    "source": "hn",
+    "sourceName": "Hacker News",
+    "category": "community",
+    "weight": 0.35,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Jonathan Blow – If AI solved coding, why is my software still the same? [video]",
+    "url": "https://www.youtube.com/watch?v=IRK8h67ol7Q",
+    "discussion": "https://news.ycombinator.com/item?id=50484658",
+    "published": "2026-11-13T15:08:44Z",
+    "summary": "",
+    "engagement": {
+      "points": 431,
+      "comments": 604
+    },
+    "id": "4f5b4ce8cb482577",
+    "source": "hn",
+    "sourceName": "Hacker News",
+    "category": "community",
+    "weight": 0.35,
+    "format": "article",
+    "thumbnail": {
+      "url": "https://i.ytimg.com/vi/IRK8h67ol7Q/hqdefault.jpg",
+      "sourceUrl": "https://www.youtube.com/watch?v=IRK8h67ol7Q",
+      "credit": "Hacker News",
+      "alt": "",
+      "provenance": "youtube"
+    },
+    "trendOnly": false
+  },
+  {
+    "title": "Generative AI uses more energy on non-English text",
+    "url": "https://news.umich.edu/generative-ai-uses-more-energy-on-non-english-text/",
+    "discussion": "https://news.ycombinator.com/item?id=50441444",
+    "published": "2026-11-10T15:07:28Z",
+    "summary": "",
+    "engagement": {
+      "points": 87,
+      "comments": 57
+    },
+    "id": "e138748675601722",
+    "source": "hn",
+    "sourceName": "Hacker News",
+    "category": "community",
+    "weight": 0.35,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Serving GLM-5.3 at 607.8 tok/s across two Nvidia DGX stations with vLLM",
+    "url": "https://developer.nvidia.com/blog/when-one-gpu-isnt-enough-serving-glm-5-3-across-two-nvidia-dgx-stations-with-vllm/",
+    "discussion": "https://news.ycombinator.com/item?id=50497155",
+    "published": "2026-11-14T14:09:25Z",
+    "summary": "",
+    "engagement": {
+      "points": 71,
+      "comments": 34
+    },
+    "id": "dbb6a7059ae0b9fb",
+    "source": "hn",
+    "sourceName": "Hacker News",
+    "category": "community",
+    "weight": 0.35,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Show HN: Agweb – a browser for agents that stays out of your way",
+    "url": "https://github.com/paul-nameless/agweb",
+    "discussion": "https://news.ycombinator.com/item?id=50497147",
+    "published": "2026-11-14T14:08:12Z",
+    "summary": "",
+    "engagement": {
+      "points": 40,
+      "comments": 9
+    },
+    "id": "3f060b226b666014",
+    "source": "hn",
+    "sourceName": "Hacker News",
+    "category": "community",
+    "weight": 0.35,
+    "format": "article",
+    "trendOnly": false
+  }
+]
