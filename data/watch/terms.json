@@ -455,5 +455,12 @@
     "Dangerous capabilities": 1,
     "__items": 22,
     "__observed": true
+  },
+  "2026-11-15": {
+    "Agents": 2,
+    "Open-weight models": 1,
+    "Chips and compute": 1,
+    "__items": 10,
+    "__observed": true
   }
 }

@@ -1,58 +1,7 @@
 {
-  "date": "2026-11-14",
+  "date": "2026-11-15",
   "threshold": 0.58,
   "candidates": [
-    {
-      "id": "4bad5afe01a19f79",
-      "title": "Introducing Gemini 4 Hydrogen",
-      "url": "https://deepmind.google/blog/introducing-gemini-4-hydrogen/",
-      "score": 0.783,
-      "parts": {
-        "authority": 0.95,
-        "corroboration": 0.4,
-        "impact": 1,
-        "engagement": 0.81
-      },
-      "categories": [
-        "community",
-        "lab"
-      ],
-      "format": "article",
-      "items": [
-        {
-          "title": "Gemini 4 Hydrogen and Orchestrator",
-          "url": "https://antigravity.google/blog/gemini-4-hydrogen-in-google-antigravity/",
-          "source": "Hacker News",
-          "category": "community",
-          "published": "2026-11-12T18:52:01Z",
-          "summary": "",
-          "engagement": {
-            "points": 484,
-            "comments": 159
-          }
-        },
-        {
-          "title": "Introducing Gemini 4 Hydrogen",
-          "url": "https://deepmind.google/blog/introducing-gemini-4-hydrogen/",
-          "source": "Google DeepMind",
-          "category": "lab",
-          "published": "Thu, 12 Nov 2026 18:00:50 +0000",
-          "summary": ""
-        },
-        {
-          "title": "Gemini 4 Hydrogen",
-          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
-          "source": "Hacker News",
-          "category": "community",
-          "published": "2026-11-12T18:01:48Z",
-          "summary": "",
-          "engagement": {
-            "points": 181,
-            "comments": 108
-          }
-        }
-      ]
-    },
     {
       "id": "5bf4951adbe9698d",
       "title": "Introducing ChatGPT Wallet",
