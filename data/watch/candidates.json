@@ -1,11 +1,11 @@
 {
-  "date": "2026-11-15",
+  "date": "2026-11-16",
   "threshold": 0.58,
   "candidates": [
     {
-      "id": "5bf4951adbe9698d",
-      "title": "Introducing ChatGPT Wallet",
-      "url": "https://openai.com/index/introducing-chatgpt-wallet",
+      "id": "cfcc7acb02e9ca79",
+      "title": "More ways to move care forward with ChatGPT for Healthcare",
+      "url": "https://openai.com/index/more-ways-to-move-care-forward-with-chatgpt-for-healthcare",
       "score": 0.62,
       "parts": {
         "authority": 1,
@@ -19,12 +19,103 @@
       "format": "article",
       "items": [
         {
-          "title": "Introducing ChatGPT Wallet",
-          "url": "https://openai.com/index/introducing-chatgpt-wallet",
+          "title": "More ways to move care forward with ChatGPT for Healthcare",
+          "url": "https://openai.com/index/more-ways-to-move-care-forward-with-chatgpt-for-healthcare",
           "source": "OpenAI",
           "category": "lab",
-          "published": "Fri, 13 Nov 2026 15:00:00 GMT",
-          "summary": "Introducing ChatGPT Wallet, a secure way for agents in ChatGPT Work, Codex, and dots to complete purchases with user approval and existing card protections."
+          "published": "Mon, 16 Nov 2026 06:00:00 GMT",
+          "summary": "Introducing computer-use agents, improved clinical answers, and new healthcare plugins that work across healthcare software to get real work done."
+        }
+      ]
+    },
+    {
+      "id": "87d7014c15ee68a3",
+      "title": "A step toward defining the Standard Model on a lattice",
+      "url": "https://openai.com/index/step-toward-defining-the-standard-model",
+      "score": 0.62,
+      "parts": {
+        "authority": 1,
+        "corroboration": 0,
+        "impact": 1,
+        "engagement": 0
+      },
+      "categories": [
+        "lab"
+      ],
+      "format": "article",
+      "items": [
+        {
+          "title": "A step toward defining the Standard Model on a lattice",
+          "url": "https://openai.com/index/step-toward-defining-the-standard-model",
+          "source": "OpenAI",
+          "category": "lab",
+          "published": "Sun, 15 Nov 2026 22:00:01 GMT",
+          "summary": "Explore a candidate nonperturbative lattice definition of the Standard Model and how GPT-6 Astra helped turn the idea into a detailed proof."
+        }
+      ]
+    },
+    {
+      "id": "047226550e09b451",
+      "title": "Commission seeks feedback on draft template for the fundamental rights impact assessment under the AI Act",
+      "url": "https://digital-strategy.ec.europa.eu/en/news/commission-seeks-feedback-draft-template-fundamental-rights-impact-assessment-under-ai-act",
+      "score": 0.62,
+      "parts": {
+        "authority": 0.9,
+        "corroboration": 0,
+        "impact": 1,
+        "engagement": 0
+      },
+      "categories": [
+        "policy"
+      ],
+      "format": "article",
+      "items": [
+        {
+          "title": "Commission seeks feedback on draft template for the fundamental rights impact assessment under the AI Act",
+          "url": "https://digital-strategy.ec.europa.eu/en/news/commission-seeks-feedback-draft-template-fundamental-rights-impact-assessment-under-ai-act",
+          "source": "European Commission (Digital Strategy)",
+          "category": "policy",
+          "published": "",
+          "summary": ""
+        }
+      ]
+    },
+    {
+      "id": "ebd9eb94963902d2",
+      "title": "Our first phase of embedded assessments",
+      "url": "https://openai.com/index/our-first-phase-of-embedded-assessments",
+      "score": 0.599,
+      "parts": {
+        "authority": 1,
+        "corroboration": 0.4,
+        "impact": 0.5,
+        "engagement": 0.04
+      },
+      "categories": [
+        "lab",
+        "community"
+      ],
+      "format": "article",
+      "items": [
+        {
+          "title": "Our first phase of embedded assessments",
+          "url": "https://openai.com/index/our-first-phase-of-embedded-assessments",
+          "source": "OpenAI",
+          "category": "lab",
+          "published": "Mon, 16 Nov 2026 08:00:00 GMT",
+          "summary": "OpenAI begins embedded assessments with Apollo Research, METR, and Transluce, and Goodfire to independently evaluate model alignment, safeguards, and monitoring systems."
+        },
+        {
+          "title": "First phase of embedded assessments at OpenAI",
+          "url": "https://openai.com/index/our-first-phase-of-embedded-assessments/",
+          "source": "Hacker News",
+          "category": "community",
+          "published": "2026-11-16T16:07:20Z",
+          "summary": "",
+          "engagement": {
+            "points": 23,
+            "comments": 7
+          }
         }
       ]
     }

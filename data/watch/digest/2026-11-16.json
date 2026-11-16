@@ -1,0 +1,481 @@
+[
+  {
+    "id": "cfcc7acb02e9ca79",
+    "title": "More ways to move care forward with ChatGPT for Healthcare",
+    "url": "https://openai.com/index/more-ways-to-move-care-forward-with-chatgpt-for-healthcare",
+    "score": 0.62,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI"
+    ]
+  },
+  {
+    "id": "87d7014c15ee68a3",
+    "title": "A step toward defining the Standard Model on a lattice",
+    "url": "https://openai.com/index/step-toward-defining-the-standard-model",
+    "score": 0.62,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI"
+    ]
+  },
+  {
+    "id": "047226550e09b451",
+    "title": "Commission seeks feedback on draft template for the fundamental rights impact assessment under the AI Act",
+    "url": "https://digital-strategy.ec.europa.eu/en/news/commission-seeks-feedback-draft-template-fundamental-rights-impact-assessment-under-ai-act",
+    "score": 0.62,
+    "parts": {
+      "authority": 0.9,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0
+    },
+    "categories": [
+      "policy"
+    ],
+    "format": "article",
+    "sources": [
+      "European Commission (Digital Strategy)"
+    ]
+  },
+  {
+    "id": "ebd9eb94963902d2",
+    "title": "Our first phase of embedded assessments",
+    "url": "https://openai.com/index/our-first-phase-of-embedded-assessments",
+    "score": 0.599,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0.4,
+      "impact": 0.5,
+      "engagement": 0.04
+    },
+    "categories": [
+      "lab",
+      "community"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI",
+      "Hacker News"
+    ]
+  },
+  {
+    "id": "1e29d1d9344de543",
+    "title": "Envisioning Agentic Robotics: A New Era of Robotic Systems",
+    "url": "https://huggingface.co/papers/2611.18359",
+    "score": 0.542,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 1
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "b1c71d07875ac772",
+    "title": "Strengthening the fight against online child sexual abuse with new tools and support",
+    "url": "https://openai.com/index/strengthening-online-child-safety",
+    "score": 0.517,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0.4,
+      "impact": 0.15,
+      "engagement": 0.09
+    },
+    "categories": [
+      "lab",
+      "community"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI",
+      "Hacker News"
+    ]
+  },
+  {
+    "id": "0c2bca83aac92188",
+    "title": "Updating our coordinated vulnerability disclosure policy timelines",
+    "url": "https://www.anthropic.com/research/coordinated-vulnerability-disclosure-timelines",
+    "score": 0.475,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "Anthropic Research"
+    ]
+  },
+  {
+    "id": "f891bd93f3d21469",
+    "title": "Science at the Frontier: How scientists use ChatGPT",
+    "url": "https://openai.com/index/science-at-the-frontier",
+    "score": 0.475,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI"
+    ]
+  },
+  {
+    "id": "91e58e2ea930c2fa",
+    "title": "LVMH’s Media Division announces strategic partnership with OpenAI",
+    "url": "https://openai.com/index/lvmh-media-division-partnership",
+    "score": 0.475,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI"
+    ]
+  },
+  {
+    "id": "b0ded74e06b06613",
+    "title": "Advancing computer-use agents for healthcare teams",
+    "url": "https://openai.com/index/advancing-computer-use-for-healthcare-teams",
+    "score": 0.475,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI"
+    ]
+  },
+  {
+    "id": "e3915f7e4cf071c4",
+    "title": "The King’s Trust and OpenAI launch £1m partnership",
+    "url": "https://openai.com/index/the-kings-trust-and-openai",
+    "score": 0.475,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI"
+    ]
+  },
+  {
+    "id": "d1318183fe172893",
+    "title": "Shield helps technicians hand off legacy portal work with OpenAI",
+    "url": "https://openai.com/business/customer-stories/shield",
+    "score": 0.475,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI"
+    ]
+  },
+  {
+    "id": "853b24ff0d6ecd3f",
+    "title": "Hugging Face and OpenRouter join forces to make open-weight models easy to run",
+    "url": "https://huggingface.co/blog/openrouter",
+    "score": 0.46,
+    "parts": {
+      "authority": 0.6,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face"
+    ]
+  },
+  {
+    "id": "4222a880b859317a",
+    "title": "EvenVLM: A Text and Multimodal Dataset for the Even Language with Vision-Language Fine-Tuning",
+    "url": "https://huggingface.co/papers/2611.16500",
+    "score": 0.444,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0.01
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "9fa1e59308087ce3",
+    "title": "Commission hosts Apply AI Summit to boost Europe’s AI innovation and uptake",
+    "url": "https://digital-strategy.ec.europa.eu/en/news/commission-hosts-apply-ai-summit-boost-europes-ai-innovation-and-uptake",
+    "score": 0.44,
+    "parts": {
+      "authority": 0.9,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "policy"
+    ],
+    "format": "article",
+    "sources": [
+      "European Commission (Digital Strategy)"
+    ]
+  },
+  {
+    "id": "19becf065be41ef0",
+    "title": "VibePrevisBench: Evaluating Agentic Coding for 4D Scene Generation in Blender",
+    "url": "https://huggingface.co/papers/2611.15789",
+    "score": 0.417,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 1
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "1711dfbcefcd2e40",
+    "title": "Gamer: A Generalist Vision-Language-Action Foundation Model for Long-Horizon Real-Time Game Agent",
+    "url": "https://huggingface.co/papers/2611.18397",
+    "score": 0.417,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 1
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "29a19e1aacc64ded",
+    "title": "Audible is trying to make it easier to find audiobooks you’ll actually like",
+    "url": "https://www.theverge.com/tech/1034083/audible-audio-discovery-ai-feature-availability",
+    "score": 0.407,
+    "parts": {
+      "authority": 0.45,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0
+    },
+    "categories": [
+      "media"
+    ],
+    "format": "article",
+    "sources": [
+      "The Verge"
+    ]
+  },
+  {
+    "id": "f26f2a4dfd6b9b95",
+    "title": "Broadening access to AI for scientists",
+    "url": "https://openai.com/index/expanding-chatgpt-for-academic-researchers",
+    "score": 0.387,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 0.15,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI"
+    ]
+  },
+  {
+    "id": "4b0fc5b701ffd77d",
+    "title": "Our new blog for science",
+    "url": "https://openai.com/index/our-new-blog-for-science",
+    "score": 0.387,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 0.15,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI"
+    ]
+  },
+  {
+    "id": "8e24f860b22b6082",
+    "title": "Impacts of AI in Higher Education: A Panel Survey of Undergraduates -- by Bruce Sacerdote, Mason Parris-Bacon",
+    "url": "https://www.nber.org/papers/w36021#fromrss",
+    "score": 0.387,
+    "parts": {
+      "authority": 0.75,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "economy"
+    ],
+    "format": "article",
+    "sources": [
+      "NBER Working Papers"
+    ]
+  },
+  {
+    "id": "51c63d58005b4b02",
+    "title": "Will AI Growth Reach the Developing World? -- by Daniel Björkegren, David Lagakos, Mitchell VanVuren",
+    "url": "https://www.nber.org/papers/w36035#fromrss",
+    "score": 0.387,
+    "parts": {
+      "authority": 0.75,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "economy"
+    ],
+    "format": "article",
+    "sources": [
+      "NBER Working Papers"
+    ]
+  },
+  {
+    "id": "979c445d2a85e8c9",
+    "title": "MIRIX-2.0: Multi-Agent Memory System",
+    "url": "https://huggingface.co/papers/2611.12068",
+    "score": 0.372,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.55
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "8451eda18f3aa606",
+    "title": "TokenEconomizer: Learning from Experience to Make AI Coding Agents More Efficient",
+    "url": "https://www.microsoft.com/en-us/research/blog/tokeneconomizer-learning-from-experience-to-make-ai-coding-agents-more-efficient/",
+    "score": 0.37,
+    "parts": {
+      "authority": 0.7,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "Microsoft Research"
+    ]
+  },
+  {
+    "id": "ef27ea1143179f3c",
+    "title": "MMFlash: Faster Speculative Decoding for Vision-Language Models",
+    "url": "https://huggingface.co/papers/2611.18482",
+    "score": 0.361,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.44
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  }
+]
