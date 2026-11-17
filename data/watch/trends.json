@@ -1,12 +1,12 @@
 {
-  "updated": "2026-11-16",
+  "updated": "2026-11-17",
   "windowDays": 7,
   "baselineDays": 28,
-  "daysOfHistory": 22,
+  "daysOfHistory": 23,
   "recentObservedDays": 7,
-  "baselineObservedDays": 15,
+  "baselineObservedDays": 16,
   "comparisonReady": false,
-  "itemsLastWeek": 4024,
+  "itemsLastWeek": 3713,
   "rising": [],
   "volume": [
     {
@@ -14,12 +14,11 @@
       "modules": [
         "agents-and-tools"
       ],
-      "recent": 730,
-      "base": 1523,
-      "share": 0.18141153081510936,
+      "recent": 674,
+      "base": 1816,
+      "share": 0.18152437382170752,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -46,7 +45,8 @@
         177,
         5,
         2,
-        115
+        115,
+        237
       ]
     },
     {
@@ -55,12 +55,11 @@
         "benchmarks",
         "evaluation-science"
       ],
-      "recent": 680,
-      "base": 1298,
-      "share": 0.16898608349900596,
+      "recent": 643,
+      "base": 1581,
+      "share": 0.17317532992189605,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -87,7 +86,8 @@
         173,
         2,
         0,
-        96
+        96,
+        246
       ]
     },
     {
@@ -95,12 +95,11 @@
       "modules": [
         "multimodality"
       ],
-      "recent": 397,
-      "base": 761,
-      "share": 0.09865805168986083,
+      "recent": 386,
+      "base": 916,
+      "share": 0.10395906275249124,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -127,7 +126,8 @@
         93,
         1,
         0,
-        50
+        50,
+        144
       ]
     },
     {
@@ -136,12 +136,11 @@
         "alignment-problem",
         "deception-and-scheming"
       ],
-      "recent": 180,
-      "base": 291,
-      "share": 0.04473161033797217,
+      "recent": 149,
+      "base": 387,
+      "share": 0.04012927551844869,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -168,87 +167,8 @@
         30,
         0,
         0,
-        22
-      ]
-    },
-    {
-      "term": "AI for science",
-      "modules": [
-        "measuring-progress"
-      ],
-      "recent": 171,
-      "base": 316,
-      "share": 0.04249502982107356,
-      "lift": null,
-      "series": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        2,
-        17,
-        30,
-        0,
-        49,
-        0,
-        0,
-        41,
-        66,
-        39,
-        11,
-        35,
-        1,
-        0,
-        25,
-        73,
-        35,
-        2,
-        42,
-        0,
-        0,
-        19
-      ]
-    },
-    {
-      "term": "Robotics",
-      "modules": [
-        "multimodality"
-      ],
-      "recent": 148,
-      "base": 308,
-      "share": 0.036779324055666,
-      "lift": null,
-      "series": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        8,
-        5,
-        46,
-        3,
-        46,
-        1,
-        0,
-        24,
-        49,
-        42,
-        21,
-        36,
-        0,
-        1,
-        26,
-        63,
-        27,
-        3,
-        32,
-        1,
-        0,
-        22
+        22,
+        65
       ]
     },
     {
@@ -256,12 +176,11 @@
       "modules": [
         "ai-supply-chain"
       ],
-      "recent": 139,
-      "base": 249,
-      "share": 0.03454274353876739,
+      "recent": 147,
+      "base": 294,
+      "share": 0.03959062752491247,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -288,7 +207,88 @@
         38,
         0,
         1,
-        18
+        18,
+        53
+      ]
+    },
+    {
+      "term": "AI for science",
+      "modules": [
+        "measuring-progress"
+      ],
+      "recent": 141,
+      "base": 389,
+      "share": 0.0379746835443038,
+      "lift": null,
+      "series": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        17,
+        30,
+        0,
+        49,
+        0,
+        0,
+        41,
+        66,
+        39,
+        11,
+        35,
+        1,
+        0,
+        25,
+        73,
+        35,
+        2,
+        42,
+        0,
+        0,
+        19,
+        43
+      ]
+    },
+    {
+      "term": "Robotics",
+      "modules": [
+        "multimodality"
+      ],
+      "recent": 124,
+      "base": 371,
+      "share": 0.033396175599245896,
+      "lift": null,
+      "series": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        8,
+        5,
+        46,
+        3,
+        46,
+        1,
+        0,
+        24,
+        49,
+        42,
+        21,
+        36,
+        0,
+        1,
+        26,
+        63,
+        27,
+        3,
+        32,
+        1,
+        0,
+        22,
+        39
       ]
     },
     {
@@ -297,12 +297,11 @@
         "interpretability-foundations",
         "sparse-autoencoders"
       ],
-      "recent": 127,
-      "base": 244,
-      "share": 0.031560636182902585,
+      "recent": 121,
+      "base": 290,
+      "share": 0.03258820360894156,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -329,47 +328,8 @@
         35,
         0,
         0,
-        18
-      ]
-    },
-    {
-      "term": "US AI policy",
-      "modules": [
-        "us-ai-policy"
-      ],
-      "recent": 127,
-      "base": 241,
-      "share": 0.031560636182902585,
-      "lift": null,
-      "series": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        11,
-        23,
-        1,
-        36,
-        0,
-        0,
         18,
-        46,
-        24,
-        18,
-        34,
-        1,
-        1,
-        28,
-        65,
-        18,
-        0,
-        26,
-        0,
-        0,
-        18
+        40
       ]
     },
     {
@@ -378,12 +338,11 @@
         "compute",
         "ai-supply-chain"
       ],
-      "recent": 124,
-      "base": 154,
-      "share": 0.030815109343936383,
+      "recent": 118,
+      "base": 192,
+      "share": 0.031780231618637224,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -410,7 +369,8 @@
         33,
         3,
         1,
-        24
+        24,
+        32
       ]
     },
     {
@@ -418,12 +378,11 @@
       "modules": [
         "system-cards"
       ],
-      "recent": 112,
-      "base": 210,
-      "share": 0.027833001988071572,
+      "recent": 108,
+      "base": 253,
+      "share": 0.0290869916509561,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -450,17 +409,18 @@
         21,
         1,
         0,
-        21
+        21,
+        39
       ]
     },
     {
-      "term": "Security and jailbreaks",
+      "term": "US AI policy",
       "modules": [
-        "dangerous-capabilities"
+        "us-ai-policy"
       ],
-      "recent": 96,
-      "base": 192,
-      "share": 0.02385685884691849,
+      "recent": 100,
+      "base": 306,
+      "share": 0.026932399676811204,
       "lift": null,
       "series": [
         0,
@@ -469,28 +429,28 @@
         0,
         0,
         0,
+        11,
+        23,
         1,
-        7,
-        21,
-        0,
-        35,
+        36,
         0,
         0,
         18,
-        43,
-        18,
-        12,
-        22,
-        0,
-        0,
-        15,
         46,
-        10,
+        24,
+        18,
+        34,
+        1,
+        1,
+        28,
+        65,
+        18,
         0,
-        27,
+        26,
         0,
         0,
-        13
+        18,
+        38
       ]
     },
     {
@@ -499,12 +459,11 @@
         "agents-and-tools",
         "evidence-on-work"
       ],
-      "recent": 82,
-      "base": 173,
-      "share": 0.020377733598409543,
+      "recent": 90,
+      "base": 200,
+      "share": 0.024239159709130084,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -531,7 +490,48 @@
         23,
         0,
         0,
-        16
+        16,
+        35
+      ]
+    },
+    {
+      "term": "Security and jailbreaks",
+      "modules": [
+        "dangerous-capabilities"
+      ],
+      "recent": 78,
+      "base": 238,
+      "share": 0.02100727174791274,
+      "lift": null,
+      "series": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        7,
+        21,
+        0,
+        35,
+        0,
+        0,
+        18,
+        43,
+        18,
+        12,
+        22,
+        0,
+        0,
+        15,
+        46,
+        10,
+        0,
+        27,
+        0,
+        0,
+        13,
+        28
       ]
     },
     {
@@ -540,12 +540,11 @@
         "data",
         "governance-landscape"
       ],
-      "recent": 79,
-      "base": 173,
-      "share": 0.01963220675944334,
+      "recent": 74,
+      "base": 209,
+      "share": 0.01992997576084029,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         0,
@@ -572,7 +571,8 @@
         29,
         0,
         0,
-        9
+        9,
+        31
       ]
     }
   ],
@@ -593,7 +593,7 @@
       "id": "openai",
       "name": "OpenAI",
       "ok": true,
-      "count": 1397
+      "count": 1405
     },
     {
       "id": "deepmind",
@@ -611,7 +611,7 @@
       "id": "msr",
       "name": "Microsoft Research",
       "ok": true,
-      "count": 8
+      "count": 9
     },
     {
       "id": "hf-blog",
@@ -629,19 +629,19 @@
       "id": "arxiv-cl",
       "name": "arXiv cs.CL",
       "ok": true,
-      "count": 117
+      "count": 353
     },
     {
       "id": "arxiv-lg",
       "name": "arXiv cs.LG",
       "ok": true,
-      "count": 291
+      "count": 774
     },
     {
       "id": "arxiv-ai",
       "name": "arXiv cs.AI",
       "ok": true,
-      "count": 276
+      "count": 717
     },
     {
       "id": "metr",
@@ -677,7 +677,7 @@
       "id": "eu-digital",
       "name": "European Commission (Digital Strategy)",
       "ok": true,
-      "count": 2
+      "count": 3
     },
     {
       "id": "uk-aisi",
@@ -743,7 +743,7 @@
       "id": "hn",
       "name": "Hacker News",
       "ok": true,
-      "count": 4
+      "count": 5
     }
   ]
 }

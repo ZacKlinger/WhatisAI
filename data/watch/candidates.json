@@ -1,7 +1,59 @@
 {
-  "date": "2026-11-16",
+  "date": "2026-11-17",
   "threshold": 0.58,
   "candidates": [
+    {
+      "id": "549a77347d5e1e5f",
+      "title": "Introducing GPT-6.2 Astra and Sol",
+      "url": "https://openai.com/index/introducing-gpt-6-2-astra-sol",
+      "score": 0.62,
+      "parts": {
+        "authority": 1,
+        "corroboration": 0,
+        "impact": 1,
+        "engagement": 0
+      },
+      "categories": [
+        "lab"
+      ],
+      "format": "article",
+      "items": [
+        {
+          "title": "Introducing GPT-6.2 Astra and Sol",
+          "url": "https://openai.com/index/introducing-gpt-6-2-astra-sol",
+          "source": "OpenAI",
+          "category": "lab",
+          "published": "Tue, 17 Nov 2026 17:45:00 GMT",
+          "summary": "Introducing GPT‑6.2 Astra and Sol, with better professional outputs, coding, computer use, and efficiency at lower cost across ChatGPT Work, Codex, and the API."
+        }
+      ]
+    },
+    {
+      "id": "58da9c66b1456ac9",
+      "title": "Introducing OpenAI for Chile",
+      "url": "https://openai.com/index/introducing-openai-for-chile",
+      "score": 0.62,
+      "parts": {
+        "authority": 1,
+        "corroboration": 0,
+        "impact": 1,
+        "engagement": 0
+      },
+      "categories": [
+        "lab"
+      ],
+      "format": "article",
+      "items": [
+        {
+          "title": "Introducing OpenAI for Chile",
+          "url": "https://openai.com/index/introducing-openai-for-chile",
+          "source": "OpenAI",
+          "category": "lab",
+          "published": "Tue, 17 Nov 2026 00:00:00 GMT",
+          "summary": "OpenAI and the Government of Chile are partnering to support responsible AI adoption, build public-sector skills and help local startups develop AI applications."
+        }
+      ]
+    },
     {
       "id": "cfcc7acb02e9ca79",
       "title": "More ways to move care forward with ChatGPT for Healthcare",
