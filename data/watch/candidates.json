@@ -1,7 +1,33 @@
 {
-  "date": "2026-11-17",
+  "date": "2026-11-18",
   "threshold": 0.58,
   "candidates": [
+    {
+      "id": "c6c361c53bc4ce2d",
+      "title": "Introducing ChatGPT for Sales",
+      "url": "https://openai.com/index/introducing-chatgpt-for-sales",
+      "score": 0.62,
+      "parts": {
+        "authority": 1,
+        "corroboration": 0,
+        "impact": 1,
+        "engagement": 0
+      },
+      "categories": [
+        "lab"
+      ],
+      "format": "article",
+      "items": [
+        {
+          "title": "Introducing ChatGPT for Sales",
+          "url": "https://openai.com/index/introducing-chatgpt-for-sales",
+          "source": "OpenAI",
+          "category": "lab",
+          "published": "Tue, 17 Nov 2026 08:00:00 GMT",
+          "summary": "Explore the new Sales plugin and 30+ new and expanded partner plugins in ChatGPT to research prospects, prepare pitches, update your CRM, and move deals forward."
+        }
+      ]
+    },
     {
       "id": "549a77347d5e1e5f",
       "title": "Introducing GPT-6.2 Astra and Sol",
@@ -129,45 +155,6 @@
           "category": "policy",
           "published": "",
           "summary": ""
-        }
-      ]
-    },
-    {
-      "id": "ebd9eb94963902d2",
-      "title": "Our first phase of embedded assessments",
-      "url": "https://openai.com/index/our-first-phase-of-embedded-assessments",
-      "score": 0.599,
-      "parts": {
-        "authority": 1,
-        "corroboration": 0.4,
-        "impact": 0.5,
-        "engagement": 0.04
-      },
-      "categories": [
-        "lab",
-        "community"
-      ],
-      "format": "article",
-      "items": [
-        {
-          "title": "Our first phase of embedded assessments",
-          "url": "https://openai.com/index/our-first-phase-of-embedded-assessments",
-          "source": "OpenAI",
-          "category": "lab",
-          "published": "Mon, 16 Nov 2026 08:00:00 GMT",
-          "summary": "OpenAI begins embedded assessments with Apollo Research, METR, and Transluce, and Goodfire to independently evaluate model alignment, safeguards, and monitoring systems."
-        },
-        {
-          "title": "First phase of embedded assessments at OpenAI",
-          "url": "https://openai.com/index/our-first-phase-of-embedded-assessments/",
-          "source": "Hacker News",
-          "category": "community",
-          "published": "2026-11-16T16:07:20Z",
-          "summary": "",
-          "engagement": {
-            "points": 23,
-            "comments": 7
-          }
         }
       ]
     }
