@@ -1,185 +1,143 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import DiscoveryChallenge from '@/components/app/DiscoveryChallenge';
 import ContinuePanel from '@/components/app/ContinuePanel';
-import MediaPreview from '@/components/app/MediaPreview';
-import { previewFor } from '@/lib/mediaCatalog';
+import StoryQuestion from '@/components/app/StoryQuestion';
 import { getModules, getSignals } from '@/lib/curriculum';
-import { tracks } from '@/data/tracks';
-import { corpus } from '@/data/corpus';
 import { journeys } from '@/data/journeys';
-import { url } from '@/lib/url';
+import { homeFeature as feature } from '@/data/homeFeature';
+import { moduleUrl, url } from '@/lib/url';
 
 const modules = await getModules();
-const signals = (await getSignals()).slice(0, 3);
+const signals = await getSignals();
+const story = signals.find((signal) => signal.id === feature.signal);
+const lesson = modules.find((module) => module.id === feature.lesson);
+if (!story || !lesson) throw new Error('The homepage feature must link to an existing Signal and lesson.');
+const { affected, total } = feature.visual;
+if (!Number.isInteger(affected) || !Number.isInteger(total) || affected < 0 || affected > total || total < 1) throw new Error('Invalid homepage feature counts.');
+if (!feature.question.choices.some((choice) => choice.id === feature.question.answer)) throw new Error('The homepage question must have a valid answer.');
+const others = signals.filter((signal) => signal.id !== feature.signal).slice(0, 3);
+const planLessons = modules.map(({ id, data }) => ({ id, title: data.title, track: data.track, minutes: data.minutes }));
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const totalMinutes = modules.reduce((s, m) => s + m.data.minutes, 0);
-const perTrack = (id: string) => modules.filter((m) => m.data.track === id);
-const featured = ['scaling-mono', 'alignment-faking', 'eu-ai-act', 'canaries'].map((id) => corpus.find((c) => c.id === id)!).filter(Boolean);
-const kindLabel: Record<string, string> = { research: 'Research', model: 'Model', policy: 'Policy', economy: 'Economy', safety: 'Safety', media: 'Media', trend: 'Trend' };
+const formatDate = (date: Date) => date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
+const kindLabel: Record<string, string> = { research: 'Research', model: 'Models', policy: 'Policy', economy: 'Work & society', safety: 'AI safety', media: 'In the conversation', trend: 'Trends' };
 ---
 
-<BaseLayout description="Explore how AI learns, try a three-minute discovery challenge, and find your way into research, practical use, and the changes ahead.">
-  <section class="hero">
-    <div class="container hero-inner">
-      <div class="hero-copy">
-        <div class="eyebrow">For anyone who’s AI curious</div>
-        <h1 class="display">Understand AI.<br /><span class="hero-emphasis">One discovery<br />at a time.</span></h1>
-        <p class="lead" style="margin-top:22px;max-width:35ch">
-          Explore how it works, put it to use, and make sense of the claims shaping your world.
-        </p>
-        <div class="row" style="margin-top:28px">
-          <a href="#discovery" class="btn btn-primary btn-lg">Try the 3-minute challenge</a>
-          <a href="#choose-path" class="link small">Find your way in</a>
-        </div>
-        <p class="hero-invitation small">Free to explore. No account needed. Save your progress when you’re ready.</p>
-        <div class="hero-proof"><span>Learn by experimenting</span><span>Follow the evidence</span><span>Build your own view</span></div>
-      </div>
-      <div id="discovery" class="hero-lab">
-        <DiscoveryChallenge client:load base={base} />
-        <noscript><p class="small">The interactive challenge needs JavaScript. You can still <a class="link" href={url('/learn/generalization/')}>read the explanation of learning versus memorizing</a> or explore the routes below.</p></noscript>
-      </div>
-    </div>
-  </section>
+<BaseLayout quiet title="Your learning plan" description="Start your first AI lesson or pick up your learning plan where you left off.">
+  <div class="home">
+    <section class="home-intro" aria-labelledby="plan-title">
+      <h1 id="plan-title">Your learning plan</h1>
+      <ContinuePanel client:load landing base={base} modules={planLessons} />
+    </section>
 
-  <section class="container continue-section">
-    <ContinuePanel client:load returningOnly base={base} modules={modules.map((m) => ({ id: m.id, title: m.data.title, track: m.data.track, minutes: m.data.minutes }))} />
-  </section>
+    <article class="feature" id="latest" aria-labelledby="feature-title">
+      <div class="feature-meta"><span>What’s happening in AI</span><time datetime={story.data.date.toISOString().slice(0, 10)}>{formatDate(story.data.date)}</time></div>
+      <h2 id="feature-title">{feature.headline}</h2>
+      <p class="feature-summary">{feature.summary}</p>
+      <div class="feature-actions"><a class="arrow-link" href="#discovery">Try the question</a><a class="link small" href={url(`/signals/${story.id}/`)}>Read the story</a></div>
+      <details class="feature-details">
+        <summary>The test in numbers</summary>
+        <figure aria-labelledby="visual-title" aria-describedby="visual-caption">
+          <p id="visual-title"><strong>{affected} of {total}</strong> {feature.visual.label}</p>
+          <div class="run-grid" aria-hidden="true">{Array.from({ length: total }, (_, index) => <span class:list={['run', { 'run-affected': index < affected }]}>{index < affected ? '•' : ''}</span>)}</div>
+          <figcaption id="visual-caption">{feature.visual.caption}</figcaption>
+        </figure>
+        <p>{feature.context}</p>
+      </details>
+      <a class="feature-source" href={story.data.sources[0].url} target="_blank" rel="noopener noreferrer">Source: {story.data.sources[0].publisher} ↗</a>
+    </article>
 
-  <section class="container section-tight intent-section" id="choose-path" aria-labelledby="intent-title">
-    <div class="section-head"><div><div class="eyebrow">Follow your curiosity</div><h2 id="intent-title" style="margin-top:8px">What brought you here?</h2></div><p class="small muted" style="max-width:36ch">Pick the question on your mind. You can change direction whenever you like.</p></div>
-    <div class="intent-grid">
-      {journeys.map((j, i) => <a href={url(`/explore/#${j.id}`)} class="intent-link">
-        <span class="intent-index mono">0{i + 1}</span>
-        <div><span class="eyebrow">{j.title}</span><h3>{j.question}</h3><p class="small muted">{j.promise}</p></div>
-        <span class="intent-arrow" aria-hidden="true">→</span>
-      </a>)}
+    <div class="learning-thread">
+      <section class="question-section" id="discovery" aria-labelledby="story-question-title">
+        <h2 class="section-label" id="story-question-title" tabindex="-1">Try a question</h2>
+        <StoryQuestion client:load question={feature.question} />
+        <noscript><div class="static-takeaway"><p>The interactive question needs JavaScript. Here’s the idea to take with you.</p><h3>{feature.question.takeaway}</h3><p>{feature.question.explanation}</p><a class="arrow-link" href="#dive-deeper">Explore the idea</a></div></noscript>
+      </section>
+      <section class="deeper-section" id="dive-deeper" aria-labelledby="deeper-title">
+        <span class="section-label">Go deeper</span>
+        <h2 id="deeper-title">{feature.lessonHeading}</h2>
+        <p>{feature.lessonSummary}</p>
+        <div class="deeper-actions"><a class="arrow-link" href={`${moduleUrl(feature.lesson)}#${feature.lessonAnchor}`}>Explore how agents work</a><span>{lesson.data.minutes} min</span></div>
+      </section>
     </div>
-    <div class="intent-foot small"><span class="muted">Prefer a complete course?</span><a class="link" href={url('/path/')}>Browse the full learning path</a><a class="link" href={url('/placement/')}>Optional placement check</a></div>
-  </section>
 
-  <section class="container section-tight">
-    <div class="section-head" style="margin-bottom:28px">
-      <div><div class="eyebrow">Connect the ideas to the world</div><h2 style="margin-top:8px">What matters now</h2></div>
-      <a class="arrow-link" href={url('/signals/')}>All signals</a>
-    </div>
-    <div class="grid grid-3">
-      {signals.map((s, i) => (
-        <a href={url(`/signals/${s.id}/`)} class={`card hoverable signal-card reveal`} style={`transition-delay:${i * 60}ms`}>
-          <MediaPreview client:load thumbnail={previewFor(s.data.thumbnail, s.data.sources[0].url)} publisher={s.data.sources[0].publisher} format={s.data.kind} />
-          <div class="row xsmall muted" style="gap:8px;margin-top:16px">
-            <span class="pill">{kindLabel[s.data.kind]}</span>
-            <span>{s.data.date.toISOString().slice(0, 10)}</span>
-          </div>
-          <h3 style="margin-top:10px">{s.data.title}</h3>
-          <p class="small muted clamp-3" style="margin:8px 8px 8px">{s.data.summary}</p>
-        </a>
-      ))}
-    </div>
-  </section>
+    <section class="pathways" id="choose-path" aria-labelledby="pathways-title">
+      <div class="section-heading"><h2 id="pathways-title">Follow your curiosity</h2><a class="link small" href={url('/discover/')}>Try an experiment</a></div>
+      <div class="intent-grid">{journeys.map((journey) => <a href={url(`/explore/#${journey.id}`)} class="intent-link"><h3>{journey.title}</h3><p>{journey.question}</p></a>)}</div>
+    </section>
 
-  <section class="container section" id="tracks">
-    <div class="section-head">
-      <div>
-        <div class="eyebrow">{tracks.length} tracks · {modules.length} modules · {Math.round(totalMinutes / 60)} hours</div>
-        <h2 style="margin-top:8px">From first principles to the frontier</h2>
-      </div>
-      <a class="arrow-link" href={url('/path/')}>Full map</a>
-    </div>
-    <div class="grid grid-track" style="margin-top:32px">
-      {tracks.map((t, i) => (
-        <a href={url(`/path/#${t.id}`)} class={`tile track-tile aura ${t.aura} reveal`} style={`transition-delay:${(i % 4) * 50}ms`}>
-          <div class="track-num">{t.numeral}</div>
-          <div class="track-body">
-            <div class="h3">{t.title}</div>
-            <div class="xsmall" style="opacity:.7;margin-top:8px">{perTrack(t.id).length} modules · {perTrack(t.id).reduce((s, m) => s + m.data.minutes, 0)} min</div>
-          </div>
-        </a>
-      ))}
-    </div>
-  </section>
-
-  <section class="container section-tight">
-    <div class="split">
-      <div>
-        <h2>Read the documents that move the field</h2>
-        <p class="muted" style="margin-top:14px;max-width:40ch">Each one lists the modules that make it readable.</p>
-        <a class="btn btn-ghost" style="margin-top:22px" href={url('/library/')}>Open the library</a>
-      </div>
-      <div class="stack" style="--stack:10px">
-        {featured.map((d) => (
-          <a href={d.url} target="_blank" rel="noopener" class="card hoverable doc-row">
-            <div class="xsmall faint">{d.org} · {d.year} · {d.kind}</div>
-            <div style="font-weight:550;margin-top:3px">{d.title}</div>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="container section">
-    <div class="evidence aura aura-t7">
-      <div class="evidence-inner">
-        <h2 style="max-width:22ch">The scarce skill is judging AI, not using it</h2>
-        <div class="grid grid-3" style="margin-top:32px">
-          <div class="stat">
-            <div class="stat-n">19%</div>
-            <div class="small">Employment shortfall for 22 to 25 year olds in the most AI-exposed jobs.</div>
-            <div class="xsmall" style="opacity:.65;margin-top:6px">Stanford Digital Economy Lab, Aug 2026</div>
-          </div>
-          <div class="stat">
-            <div class="stat-n">57 / 43</div>
-            <div class="small">Augmenting versus automating, across a million Claude conversations.</div>
-            <div class="xsmall" style="opacity:.65;margin-top:6px">Anthropic Economic Index, Feb 2025</div>
-          </div>
-          <div class="stat">
-            <div class="stat-n">19%</div>
-            <div class="small">Longer completion time for experienced developers using AI in METR's trial. They believed they were 20% faster.</div>
-            <div class="xsmall" style="opacity:.65;margin-top:6px">METR, Jul 2025</div>
-          </div>
-        </div>
-        <a class="btn btn-primary" style="margin-top:32px" href={url('/method/')}>The method</a>
-      </div>
-    </div>
-  </section>
+    <section class="more-stories" aria-labelledby="more-title">
+      <div class="section-heading"><h2 id="more-title">More from AI</h2><a class="link small" href={url('/signals/')}>All stories</a></div>
+      <div class="stories-list">{others.map((signal) => <a class="story-teaser" href={url(`/signals/${signal.id}/`)}><div><span>{kindLabel[signal.data.kind]}</span><h3>{signal.data.title}</h3></div><time datetime={signal.data.date.toISOString().slice(0, 10)}>{formatDate(signal.data.date)}</time></a>)}</div>
+    </section>
+  </div>
 </BaseLayout>
 
 <style>
-  .hero { border-bottom: 1px solid var(--line); background: radial-gradient(ellipse at 86% 26%, color-mix(in srgb, var(--c1) 9%, transparent), transparent 60%), var(--bg); }
-  .hero-inner { display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); gap: clamp(28px, 4vw, 60px); align-items: start; padding-block: clamp(44px, 6vw, 84px); }
-  .continue-section:has(.card) { padding-block: 32px; }
-  .hero-copy { padding-top: 26px; }
-  .hero-copy h1 { font-size: clamp(2.7rem, 5.1vw, 4.7rem); margin-top: 18px; }
-  .hero-emphasis { font-family: var(--font-serif); font-weight: 400; }
-  .hero-invitation { margin-top: 22px; color: var(--fg-2); }
-  .hero-proof { display: flex; gap: 9px 18px; flex-wrap: wrap; margin-top: 36px; font-size: .76rem; color: var(--fg-2); }
-  .hero-proof span { border-top: 1px solid var(--line-2); padding-top: 10px; }
-  .hero-lab, .intent-section { scroll-margin-top: calc(var(--nav-h) + 24px); min-width: 0; }
-  .intent-grid { display: grid; grid-template-columns: 1fr 1fr; column-gap: 48px; margin-top: 24px; }
-  .intent-link { display: grid; grid-template-columns: 28px 1fr 22px; gap: 16px; padding: 26px 4px; border-bottom: 1px solid var(--line-2); }
-  .intent-link:hover h3 { text-decoration: underline; text-underline-offset: 5px; }
-  .intent-index { color: var(--fg-3); font-size: .8rem; padding-top: 3px; }
-  .intent-link h3 { margin-top: 9px; font-size: 1.4rem; }
-  .intent-link p { margin: 10px 0 0; }
-  .intent-arrow { align-self: center; font-size: 1.4rem; }
-  .intent-foot { display: flex; flex-wrap: wrap; gap: 12px 22px; margin-top: 24px; }
-  @media (max-width: 900px) { .hero-inner { grid-template-columns: 1fr; } .hero-copy { padding-top: 0; } .hero-copy h1 { max-width: 14ch; } .hero-proof { margin-top: 22px; } }
-  @media (max-width: 680px) { .intent-grid { grid-template-columns: 1fr; } .intent-link { gap: 12px; } .hero-proof { display: none; } }
-  .section-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; flex-wrap: wrap; }
-  .signal-card { display: flex; flex-direction: column; padding: 14px; }
-  .signal-card h3, .signal-card .row { padding-inline: 8px; }
-  .clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-  .grid-track { grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); }
-  @media (min-width: 1100px) { .grid-track { grid-template-columns: repeat(5, 1fr); } }
-  .track-tile { min-height: 220px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; color: #0d0d0d; transition: transform .4s var(--ease), box-shadow .4s var(--ease); }
-  .track-tile:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
-  :global(:root[data-theme='dark']) .track-tile { color: #f2f2f4; }
-  @media (prefers-color-scheme: dark) { :global(:root:not([data-theme='light'])) .track-tile { color: #f2f2f4; } }
-  .track-num { font-size: 2.6rem; font-weight: 400; letter-spacing: -0.04em; opacity: .85; font-family: var(--font-serif); }
-  .split { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(28px, 5vw, 72px); align-items: start; }
-  @media (max-width: 860px) { .split { grid-template-columns: 1fr; } }
-  .doc-row { padding: 16px 20px; }
-  .evidence { border-radius: var(--radius-lg); }
-  .evidence-inner { padding: clamp(28px, 6vw, 72px); }
-  .stat-n { font-size: clamp(2.4rem, 5vw, 3.6rem); letter-spacing: -0.045em; font-weight: 500; line-height: 1; margin-bottom: 10px; }
+  .home { width: min(100% - 2 * var(--gutter), 880px); margin-inline: auto; padding-bottom: 20px; }
+  .home-intro { padding-block: clamp(36px, 6vw, 72px); }
+  .home-intro h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); letter-spacing: -.05em; margin: 0 0 28px; }
+  .home-intro :global(.plan-card) { overflow: hidden; display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); border: 1px solid var(--line-2); border-radius: var(--radius-lg); }
+  .home-intro :global(.plan-lesson), .home-intro :global(.plan-outline) { padding: clamp(22px, 4vw, 36px); }
+  .home-intro :global(.plan-lesson) { background: var(--bg-soft); }
+  .home-intro :global(.plan-lesson h2) { font-family: var(--font-serif); font-size: clamp(1.75rem, 3.6vw, 2.5rem); margin-block: 12px 22px; }
+  .home-intro :global(.plan-outline) { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 12px; }
+  .home-intro :global(.plan-outline progress) { width: 100%; height: 6px; accent-color: var(--fg); }
+  .home-intro :global(.plan-outline nav) { display: flex; flex-wrap: wrap; gap: 8px 18px; }
+  .feature { background: var(--bg-soft); border-radius: 12px; padding: clamp(24px, 5vw, 48px); }
+  .feature-meta { display: flex; gap: 16px; flex-wrap: wrap; font-size: .73rem; color: var(--fg-2); }
+  .feature h2 { font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.22; font-weight: 500; margin-top: 24px; }
+  .feature-summary { font-size: .96rem; line-height: 1.7; color: var(--fg-2); max-width: 65ch; margin: 18px 0 26px; }
+  .feature-actions { display: flex; gap: 22px; align-items: center; flex-wrap: wrap; }
+  .feature-actions .btn { font-size: .85rem; }
+  .feature-actions > .link { font-size: .8rem; }
+  .feature-details { margin-top: 26px; font-size: .76rem; color: var(--fg-2); max-width: 60ch; }
+  .feature-details summary { cursor: pointer; padding-block: 6px; width: fit-content; }
+  .feature-details figure { margin: 16px 0; }
+  .feature-details figure > p { font-size: .9rem; line-height: 1.5; color: var(--fg); }
+  .feature-details strong { font-weight: 550; }
+  .run-grid { display: grid; grid-template-columns: repeat(15, minmax(0, 1fr)); gap: 5px; margin-block: 14px; max-width: 420px; }
+  .run { aspect-ratio: 1; background: var(--bg-muted); border: 1px solid var(--line-3); border-radius: 2px; }
+  .run-affected { display: grid; place-items: center; background: var(--fg); color: var(--bg); line-height: 1; }
+  .feature-details figcaption, .feature-details > p { font-size: .73rem; line-height: 1.65; }
+  .feature-source { display: inline-block; color: var(--fg-2); font-size: .7rem; margin-top: 12px; }
+  .feature-source:hover { text-decoration: underline; text-underline-offset: 3px; }
+  .learning-thread { max-width: 688px; margin-inline: auto; }
+  .question-section { padding-block: 48px 36px; }
+  .section-label { display: block; font-size: .78rem; color: var(--fg-2); font-weight: 400; letter-spacing: 0; line-height: 1.5; margin-bottom: 20px; }
+  #latest, #discovery, #dive-deeper, #choose-path { scroll-margin-top: calc(var(--nav-h) + 24px); }
+  .deeper-section { border-top: 1px solid var(--line-2); padding-block: 32px 44px; }
+  .deeper-section .section-label { margin-bottom: 12px; }
+  .deeper-section h2 { font-size: 1.45rem; font-weight: 500; }
+  .deeper-section > p { font-size: .9rem; color: var(--fg-2); line-height: 1.7; max-width: 60ch; margin-block: 14px 20px; }
+  .deeper-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 18px; }
+  .deeper-actions > a { font-size: .85rem; font-weight: 500; }
+  .deeper-actions > span { font-size: .75rem; color: var(--fg-2); }
+  .pathways, .more-stories { border-top: 1px solid var(--line-2); padding-block: 36px; }
+  .section-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; margin-bottom: 26px; }
+  .section-heading h2 { font-size: 1.25rem; font-weight: 500; }
+  .section-heading > a { font-size: .75rem; flex-shrink: 0; }
+  .intent-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 40px; }
+  .intent-link { display: block; }
+  .intent-link h3 { font-size: .9rem; font-weight: 500; }
+  .intent-link p { font-size: .8rem; color: var(--fg-2); line-height: 1.6; margin: 7px 0 0; }
+  .intent-link:hover h3 { text-decoration: underline; text-underline-offset: 3px; }
+  .stories-list { display: grid; gap: 26px; }
+  .story-teaser { display: flex; align-items: baseline; justify-content: space-between; gap: 32px; }
+  .story-teaser span, .story-teaser time { color: var(--fg-2); font-size: .7rem; }
+  .story-teaser time { flex-shrink: 0; }
+  .story-teaser h3 { font-size: .9rem; font-weight: 400; line-height: 1.6; margin-top: 6px; max-width: 65ch; }
+  .story-teaser:hover h3 { text-decoration: underline; text-underline-offset: 3px; }
+  @media (max-width: 680px) {
+    .home-intro :global(.plan-card) { grid-template-columns: 1fr; }
+    .feature { padding: 24px; }
+    .feature-meta { font-size: .68rem; gap: 8px 16px; }
+    .feature-summary { font-size: .88rem; }
+    .feature h2 { margin-top: 20px; }
+    .learning-thread { padding-inline: 8px; }
+    .question-section { padding-top: 36px; }
+    .intent-grid { gap: 24px; }
+    .story-teaser { flex-direction: column; gap: 8px; }
+    .run-grid { grid-template-columns: repeat(11, minmax(0, 1fr)); }
+  }
+  @media (max-width: 360px) { .feature { padding: 20px; } .intent-grid { grid-template-columns: 1fr; } .section-heading { gap: 14px; } .section-heading h2 { font-size: 1.15rem; } }
 </style>

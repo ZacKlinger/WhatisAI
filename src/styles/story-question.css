@@ -1,0 +1,21 @@
+.story-question fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
+.story-question legend { font-size: 1.15rem; line-height: 1.6; letter-spacing: -.015em; padding: 0; margin-bottom: 22px; }
+.story-choices { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; }
+.story-choice { display: grid; grid-template-columns: 18px minmax(0, 1fr); align-items: baseline; gap: 12px; padding: 16px; border: 1px solid var(--line-2); border-radius: 8px; cursor: pointer; line-height: 1.5; font-size: .88rem; transition: background .2s, border-color .2s; }
+.story-choice:hover { background: var(--bg-soft); }
+.story-choice.is-selected { border-color: var(--fg-2); background: var(--bg-soft); }
+.story-choice input { width: 16px; height: 16px; margin: 0; accent-color: var(--fg); align-self: center; }
+.story-choice:focus-within { outline: 2px solid var(--focus); outline-offset: 3px; }
+.story-submit { margin-top: 20px; }
+.story-submit .btn { font-size: .85rem; }
+.story-question fieldset:disabled .story-choice { cursor: default; }
+.story-choice.is-answer { border-color: var(--fg); }
+.story-answer-label { grid-column: 2; font-size: .72rem; font-weight: 500; color: var(--fg); }
+.story-result { border-top: 1px solid var(--line-2); padding-top: 24px; margin-top: 24px; }
+.story-result .story-feedback { color: var(--fg-2); margin: 0 0 14px; font-size: .85rem; }
+.story-result h3 { font-size: 1.15rem; font-weight: 500; line-height: 1.4; }
+.story-result > p { line-height: 1.7; font-size: .9rem; }
+.story-result .row { gap: 14px 22px; margin-top: 18px; }
+.story-result .row > a, .story-result .row > button { font-size: .8rem; }
+.no-js .story-question { display: none; }
+@media (max-width: 390px) { .story-question legend { font-size: 1.05rem; } .story-choice { padding: 14px; gap: 10px; } }

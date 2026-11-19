@@ -97,8 +97,52 @@ try {
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.evaluate(() => localStorage.removeItem('whatisai:progress:v1'));
   console.log('PASS guest account state, private-page noindex, share privacy/fallback, social image, sitemap and responsive account navigation');
-  // A first-time visitor can predict, experiment, find a useful next step, and replay.
+  // The primary action follows a learner from the first visit into their next lesson.
   await visit('');
+  const plan = page.getByRole('region', { name: 'Your learning plan' });
+  const first = plan.getByRole('link', { name: 'Start first lesson' });
+  assert.equal(await first.getAttribute('href'), '/WhatisAI/learn/welcome/');
+  await first.click();
+  await page.getByRole('button', { name: 'Mark as read' }).waitFor();
+  await visit('');
+  await plan.getByRole('link', { name: 'Resume lesson' }).click();
+  await page.getByRole('button', { name: 'Mark as read' }).click();
+  await visit('');
+  const nextLesson = plan.getByRole('link', { name: 'Start next lesson' });
+  assert.notEqual(await nextLesson.getAttribute('href'), '/WhatisAI/learn/welcome/');
+  assert.equal(await plan.getByRole('progressbar').getAttribute('value'), '1');
+  console.log('PASS homepage starts, resumes, and advances the learning plan');
+  await page.evaluate(() => localStorage.removeItem('whatisai:progress:v1'));
+  // A story, its question, and its deeper lesson stay connected without grading progress.
+  await visit('');
+  await page.locator('.story-question').waitFor();
+  const beforeStory = await page.evaluate(() => localStorage.getItem('whatisai:progress:v1'));
+  const explanation = page.getByRole('button', { name: 'See the explanation' });
+  assert(await explanation.isDisabled());
+  assert.equal(await page.locator('.run').count(), 43);
+  assert.equal(await page.locator('.run-affected').count(), 9);
+  for (const choice of ['instructions', 'access', 'score']) {
+    await page.locator(`.story-question input[value="${choice}"]`).focus();
+    await page.keyboard.press('Space');
+    await explanation.focus(); await page.keyboard.press('Enter');
+    await page.getByRole('heading', { name: 'Tools come with permissions.' }).waitFor();
+    assert.equal(await page.locator(':focus').textContent(), 'Tools come with permissions.');
+    assert.equal(await page.locator('.story-answer-label').textContent(), 'Best answer');
+    assert(await page.locator('.story-question input[value="access"]').isDisabled());
+    await page.getByRole('button', { name: 'Try a different answer' }).click();
+    assert(await explanation.isDisabled());
+    assert.equal(await page.locator(':focus').getAttribute('id'), 'story-question-title');
+  }
+  assert.equal(await page.evaluate(() => localStorage.getItem('whatisai:progress:v1')), beforeStory);
+  await page.getByRole('link', { name: 'Explore how agents work' }).click();
+  assert.equal(new URL(page.url()).hash, '#the-agent-loop');
+  await page.locator('#the-agent-loop').waitFor({ state: 'visible' });
+  await visit('');
+  await page.getByRole('link', { name: 'Read the story', exact: true }).click();
+  assert(new URL(page.url()).pathname.includes('2026-10-23-aisi-cyber-test-alignment-assessment'));
+  console.log('PASS story visual, keyboard answers, feedback, reset, unchanged progress, and connected lesson/source routes');
+  // The original experiment remains available on its dedicated page.
+  await visit('discover/');
   const challenge = page.getByRole('region', { name: 'Three-minute discovery challenge' });
   const progressBefore = await page.evaluate(() => localStorage.getItem('whatisai:progress:v1'));
   const reveal = challenge.getByRole('button', { name: 'Reveal 40 new examples' });
@@ -134,6 +178,7 @@ try {
     await challenge.getByRole('button', { name: 'What does this mean for me?' }).click();
   }
   assert.equal(await page.evaluate(() => localStorage.getItem('whatisai:progress:v1')), progressBefore);
+  await visit('');
   const directions = await page.locator('.intent-link').evaluateAll((links) => links.map((a) => a.getAttribute('href')));
   assert.equal(directions.length, 4);
   for (const direction of directions) {
@@ -151,6 +196,7 @@ try {
   await shot('trend-history');
   console.log('PASS insufficient-baseline UI');
 
+  await page.evaluate(() => localStorage.removeItem('whatisai:progress:v1'));
   // Goals work before a first lesson, survive reloads/backups, and remain editable.
   await page.setViewportSize({ width: 320, height: 844 });
   await visit('path/');
@@ -171,7 +217,7 @@ try {
   await goalsPanel.getByRole('heading', { name: 'Conversational in AI', exact: true }).waitFor();
   await shot('goals-desktop');
   await visit('');
-  await page.getByRole('link', { name: /Your learning goal/ }).click();
+  await page.getByRole('link', { name: 'View your goal' }).click();
   await goalsPanel.getByRole('button', { name: 'Edit Conversational in AI goal' }).click();
   await goalsPanel.getByLabel('I want to…').selectOption('mastery');
   await goalsPanel.getByLabel('Target date', { exact: true }).fill('2099-02-01');
@@ -289,6 +335,7 @@ try {
       await shot(`explore-${width}`);
       await visit('');
     }
+    await visit('discover/');
     await challenge.screenshot({ path: join(artifacts, `challenge-start-${width}.png`) });
     await challenge.locator('input[value="a"]').check(); await reveal.click();
     assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `challenge result overflow at ${width}`);
@@ -298,7 +345,7 @@ try {
     await challenge.screenshot({ path: join(artifacts, `challenge-takeaway-${width}.png`) });
   }
   await page.emulateMedia({ colorScheme: 'dark' });
-  await visit(''); await challenge.scrollIntoViewIfNeeded(); await shot('discovery-dark-mobile');
+  await visit('discover/'); await challenge.scrollIntoViewIfNeeded(); await shot('discovery-dark-mobile');
   // The existing lesson still uses the same shared simulation.
   await visit('learn/generalization/');
   const lessonSlider = page.getByRole('slider', { name: 'Model complexity (degree)' });
@@ -311,9 +358,10 @@ try {
   const staticPage = await noJS.newPage();
   await staticPage.goto(`${base}/WhatisAI/`);
   // Playwright's text engine excludes noscript; check its rendered paragraph directly.
-  const fallback = staticPage.locator('noscript p');
+  const fallback = staticPage.locator('noscript p').first();
+  assert.equal(await staticPage.getByRole('link', { name: 'Start first lesson' }).getAttribute('href'), '/WhatisAI/learn/welcome/');
   assert(await fallback.isVisible());
-  assert.match(await fallback.innerText(), /The interactive challenge needs JavaScript/);
+  assert.match(await fallback.innerText(), /The interactive question needs JavaScript/);
   await staticPage.locator('.intent-link').first().click();
   assert.equal(await staticPage.locator('.journey-steps a').count(), 12);
   await noJS.close();

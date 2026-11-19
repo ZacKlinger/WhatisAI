@@ -1,0 +1,15 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import DiscoveryChallenge from '@/components/app/DiscoveryChallenge';
+import { url } from '@/lib/url';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+<BaseLayout title="Learning or memorizing?" description="Predict, experiment, and discover why a perfect fit can miss the pattern. A three-minute interactive introduction to generalization.">
+  <div class="container-read section-tight">
+    <a class="link small" href={url('/')}>← Your learning plan</a>
+    <h1 style="margin:24px 0 16px">Learning or memorizing?</h1>
+    <p class="lead" style="margin-bottom:32px">Make a prediction. Try an experiment. Take a better question into the world.</p>
+    <DiscoveryChallenge client:load base={base} />
+    <noscript><p>The interactive challenge needs JavaScript. You can still <a class="link" href={url('/learn/generalization/')}>read about learning versus memorizing</a>.</p></noscript>
+  </div>
+</BaseLayout>

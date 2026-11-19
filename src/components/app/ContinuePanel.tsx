@@ -4,10 +4,10 @@ import { goalPlan } from '@/lib/goals.mjs';
 
 interface M { id: string; title: string; track: string; minutes: number }
 
-export default function ContinuePanel({ modules, base, returningOnly = false }: { modules: M[]; base: string; returningOnly?: boolean }) {
+export default function ContinuePanel({ modules, base, returningOnly = false, landing = false }: { modules: M[]; base: string; returningOnly?: boolean; landing?: boolean }) {
   const p = useProgress();
   const hydrated = useHydrated();
-  if (!hydrated) return returningOnly ? null : <div style={{ minHeight: 180 }} />;
+  if (!landing && !hydrated) return returningOnly ? null : <div style={{ minHeight: 180 }} />;
 
   const done = modules.filter((m) => isDone(p.modules[m.id]?.status));
   const mastered = modules.filter((m) => p.modules[m.id]?.status === 'mastered');
@@ -19,6 +19,32 @@ export default function ContinuePanel({ modules, base, returningOnly = false }: 
   const b = brier(p.calibration);
   const plans = [...(p.goals ?? [])].sort((a, b) => a.targetDate.localeCompare(b.targetDate)).map((g) => ({ goal: g, plan: goalPlan(g, modules, p.modules) }));
   const currentGoal = plans.find(({ plan }) => !plan.achieved) ?? plans[0];
+  if (landing) {
+    const plan = currentGoal?.plan;
+    const lesson = plan ? plan.next : next;
+    const completed = plan?.done ?? done.length;
+    const total = plan?.required.length ?? modules.length;
+    const resume = lesson && p.modules[lesson.id]?.status === 'started';
+    const action = resume ? 'Resume lesson' : fresh && completed === 0 ? 'Start first lesson' : 'Start next lesson';
+    return <div className="plan-card">
+      <div className="plan-lesson">
+        <span className="small muted">{lesson ? `${resume ? 'In progress' : 'Up next'} · ${lesson.minutes} min` : 'Complete'}</span>
+        <h2>{lesson?.title ?? (plan ? 'You reached your goal' : 'You finished the learning path')}</h2>
+        {lesson
+          ? <a className="btn btn-primary" href={`${base}/learn/${lesson.id}/`}>{action}</a>
+          : <a className="btn btn-primary" href={`${base}/review/`}>Review what you learned</a>}
+      </div>
+      <div className="plan-outline">
+        <strong>{plan?.type.title ?? 'Full learning path'}</strong>
+        <progress aria-label="Learning plan progress" value={completed} max={total} />
+        <a className="link small muted" href={`${base}/progress/`} aria-label={`Your progress, ${completed} of ${total} lessons ${plan ? 'verified' : 'complete'}`}>{completed} of {total} lessons {plan ? 'verified' : 'complete'}</a>
+        <nav className="small" aria-label="Learning plan options">
+          <a className="link" href={`${base}/path/`}>View full path</a>
+          <a className="link" href={`${base}/progress/#goals`}>{plan ? 'View your goal' : 'Set a goal'}</a>
+        </nav>
+      </div>
+    </div>;
+  }
   const goalSummary = currentGoal ? <a className="card card-soft hoverable" style={{ display: 'block', marginBottom: 20 }} href={`${base}/progress/#goals`}>
     <div className="xsmall faint">Your learning goal · {currentGoal.plan.achieved ? 'Goal met' : currentGoal.plan.daysLeft < 0 ? 'Choose a new target date' : currentGoal.plan.daysLeft === 0 ? 'Due today' : `${currentGoal.plan.daysLeft} days left`}</div>
     <div style={{ fontWeight: 550 }}>{currentGoal.plan.type.title}</div>

@@ -14,6 +14,8 @@ interface Props {
   /** Hide the footer for focused experiences like the placement exam. */
   bare?: boolean;
   noindex?: boolean;
+  /** A reduced navigation and footer for the homepage. */
+  quiet?: boolean;
 }
 
 const {
@@ -22,6 +24,7 @@ const {
   active,
   bare = false,
   noindex = false,
+  quiet = false,
 } = Astro.props;
 
 const fullTitle = title ? `${title} · WhatisAI` : 'WhatisAI · A path to mastery of AI';
@@ -36,6 +39,7 @@ const nav = [
   { href: '/method/', label: 'Method', key: 'method' },
 ];
 const canonical = new URL(Astro.url.pathname, Astro.site);
+const displayNav = quiet ? nav.filter((item) => ['explore', 'signals', 'library'].includes(item.key)) : nav;
 const privatePage = noindex || ['/account', '/progress', '/review', '/placement'].some((path) => Astro.url.pathname.replace(/\/$/, '') === url(path));
 const shareUrl = privatePage ? new URL(url('/'), Astro.site).href : canonical.href;
 const socialImage = new URL(url('/social-card.png'), Astro.site).href;
@@ -78,17 +82,17 @@ const socialImage = new URL(url('/social-card.png'), Astro.site).href;
       })();
     </script>
   </head>
-  <body>
+  <body class:list={{ 'quiet-home': quiet }}>
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-nav" id="site-nav">
       <div class="container inner">
         <a href={url('/')} class="wordmark nav-bubble" aria-label="WhatisAI home">
-          <Logo />
+          {!quiet && <Logo />}
           <span>WhatisAI</span>
         </a>
         <nav class="nav-links nav-bubble" aria-label="Primary">
           {
-            nav.map((n) => (
+            displayNav.map((n) => (
               <a href={url(n.href)} aria-current={active === n.key ? 'page' : undefined}>
                 {n.label}
               </a>
@@ -102,7 +106,7 @@ const socialImage = new URL(url('/social-card.png'), Astro.site).href;
             <svg class="ico-light" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"></path></svg>
             <svg class="ico-dark" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"></path></svg>
           </button>
-          <a href={url('/explore/')} class="btn btn-primary btn-sm nav-cta" id="nav-cta">Start</a>
+          {!quiet && <a href={url('/explore/')} class="btn btn-primary btn-sm nav-cta" id="nav-cta">Start</a>}
           <button class="icon-btn nav-menu-btn" id="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 8h16M4 16h16"></path></svg>
           </button>
@@ -121,7 +125,12 @@ const socialImage = new URL(url('/social-card.png'), Astro.site).href;
     </main>
 
     {
-      !bare && (
+      !bare && (quiet ? (
+        <footer class="quiet-footer container">
+          <a href={url('/')} class="wordmark">WhatisAI</a>
+          <div><a href={url('/method/')}>About</a><a href={url('/privacy/')}>Privacy</a><Share client:load href={shareUrl} title={fullTitle} /></div>
+        </footer>
+      ) : (
         <footer class="site-footer">
           <div class="container"><Share client:load href={shareUrl} title={privatePage ? 'WhatisAI · Learn by discovering' : fullTitle} /></div>
           <div class="container cols">
@@ -163,7 +172,7 @@ const socialImage = new URL(url('/social-card.png'), Astro.site).href;
             </div>
           </div>
         </footer>
-      )
+      ))
     }
 
     <Analytics />
@@ -234,3 +243,16 @@ const socialImage = new URL(url('/social-card.png'), Astro.site).href;
     </script>
   </body>
 </html>
+
+<style is:global>
+  .quiet-home .site-nav { background: var(--bg); }
+  .quiet-home .site-nav .nav-bubble,
+  .quiet-home .site-nav.scrolled .nav-bubble { border: 0; background: transparent; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; border-radius: 0; }
+  .quiet-home .wordmark.nav-bubble { padding-left: 0; }
+  .quiet-home .nav-links a { font-size: .85rem; }
+  .quiet-footer { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-block: 32px 48px; margin-top: 24px; border-top: 1px solid var(--line); }
+  .quiet-footer > div { display: flex; align-items: center; gap: 24px; font-size: .75rem; color: var(--fg-2); }
+  .quiet-footer > .wordmark { font-size: .95rem; font-weight: 500; }
+  .quiet-footer .share-control { margin: 0; }
+  @media (max-width: 480px) { .quiet-footer { align-items: flex-start; flex-direction: column; gap: 18px; } .quiet-footer > div { gap: 20px; flex-wrap: wrap; } }
+</style>

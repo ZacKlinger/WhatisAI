@@ -90,13 +90,10 @@ try {
   assert.equal(a.events.filter(e=>e.event==='interactive_used').length,1,'widget activity deduplicated');
   await a.visit('?email=never-send#private');
   await until(()=>a.events.filter(e=>e.event==='$pageview').length >= 2,'second pageview delivered');
-  if (await a.page.locator('.discovery').count()) {
-  await a.page.locator('.discovery input[value="b"]').check();
-  await a.page.getByRole('button',{name:'Reveal 40 new examples'}).click();
-  await a.page.getByRole('button',{name:'What does this mean for me?'}).click();
-  await until(()=>a.events.some(e=>e.event==='discovery_completed'),'discovery funnel delivered');
-  assert(a.events.some(e=>e.event==='discovery_started'));
-  }
+  await a.page.locator('.story-question input[value="access"]').check();
+  await a.page.getByRole('button',{name:'See the explanation'}).click();
+  await until(()=>a.events.some(e=>e.event==='discovery_completed' && e.properties.widget==='story-question'),'story funnel delivered');
+  assert(a.events.some(e=>e.event==='discovery_started' && e.properties.widget==='story-question'));
   const payload = JSON.stringify(a.events);
   for(const secret of ['never-send','?email=','#private','"$set"','"$elements"','"score"','"answer"']) assert(!payload.includes(secret),`no sensitive property ${secret}`);
   assert(a.requests.every(url=>new URL(url).hostname === 'us.i.posthog.com' && /^\/(i\/.*|e\/)$/.test(new URL(url).pathname)),'no flags, replay, surveys or remote scripts');
