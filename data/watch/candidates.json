@@ -1,7 +1,60 @@
 {
-  "date": "2026-11-18",
+  "date": "2026-11-19",
   "threshold": 0.58,
   "candidates": [
+    {
+      "id": "0c3c8b23c6caec3f",
+      "title": "Introducing Gemini 4 Neon",
+      "url": "https://deepmind.google/blog/introducing-gemini-4-neon/",
+      "score": 0.62,
+      "parts": {
+        "authority": 0.95,
+        "corroboration": 0,
+        "impact": 1,
+        "engagement": 0
+      },
+      "categories": [
+        "lab"
+      ],
+      "format": "article",
+      "items": [
+        {
+          "title": "Introducing Gemini 4 Neon",
+          "url": "https://deepmind.google/blog/introducing-gemini-4-neon/",
+          "source": "Google DeepMind",
+          "category": "lab",
+          "published": "Wed, 18 Nov 2026 21:35:43 +0000",
+          "summary": ""
+        }
+      ]
+    },
+    {
+      "id": "8f9897b45e340dea",
+      "title": "Addressing Remote Access to Advanced Semiconductors",
+      "url": "https://www.federalregister.gov/documents/2026/11/19/2026-23529/addressing-remote-access-to-advanced-semiconductors",
+      "score": 0.62,
+      "parts": {
+        "authority": 0.9,
+        "corroboration": 0,
+        "impact": 1,
+        "engagement": 0
+      },
+      "categories": [
+        "policy"
+      ],
+      "format": "article",
+      "items": [
+        {
+          "title": "Addressing Remote Access to Advanced Semiconductors",
+          "url": "https://www.federalregister.gov/documents/2026/11/19/2026-23529/addressing-remote-access-to-advanced-semiconductors",
+          "source": "US Federal Register",
+          "category": "policy",
+          "published": "2026-11-19",
+          "summary": "In this interim final rule (IFR), the Department of Commerce is establishing new rules to prevent certain foreign actors from leveraging advanced computing power based on U.S. technology to threaten U.S. national security and foreign policy interests. First, this rule establishes new restrictions which will apply for exports, reexports, or transfers (in-country) to overseas data centers that remotely supply significant volumes of compute to companies headquartered in Country Group D:5 or Macau. These restrictions will undermine the ability of companies headquartered in countries of concern fro",
+          "docType": "Rule"
+        }
+      ]
+    },
     {
       "id": "c6c361c53bc4ce2d",
       "title": "Introducing ChatGPT for Sales",
@@ -81,80 +134,41 @@
       ]
     },
     {
-      "id": "cfcc7acb02e9ca79",
-      "title": "More ways to move care forward with ChatGPT for Healthcare",
-      "url": "https://openai.com/index/more-ways-to-move-care-forward-with-chatgpt-for-healthcare",
-      "score": 0.62,
+      "id": "c7d3ecb006439a13",
+      "title": "Advancing chip design with OpenAI models",
+      "url": "https://openai.com/index/advancing-chip-design-with-our-models",
+      "score": 0.601,
       "parts": {
         "authority": 1,
-        "corroboration": 0,
-        "impact": 1,
-        "engagement": 0
+        "corroboration": 0.4,
+        "impact": 0.5,
+        "engagement": 0.06
       },
       "categories": [
-        "lab"
+        "lab",
+        "community"
       ],
       "format": "article",
       "items": [
         {
-          "title": "More ways to move care forward with ChatGPT for Healthcare",
-          "url": "https://openai.com/index/more-ways-to-move-care-forward-with-chatgpt-for-healthcare",
+          "title": "Advancing chip design with OpenAI models",
+          "url": "https://openai.com/index/advancing-chip-design-with-our-models",
           "source": "OpenAI",
           "category": "lab",
-          "published": "Mon, 16 Nov 2026 06:00:00 GMT",
-          "summary": "Introducing computer-use agents, improved clinical answers, and new healthcare plugins that work across healthcare software to get real work done."
-        }
-      ]
-    },
-    {
-      "id": "87d7014c15ee68a3",
-      "title": "A step toward defining the Standard Model on a lattice",
-      "url": "https://openai.com/index/step-toward-defining-the-standard-model",
-      "score": 0.62,
-      "parts": {
-        "authority": 1,
-        "corroboration": 0,
-        "impact": 1,
-        "engagement": 0
-      },
-      "categories": [
-        "lab"
-      ],
-      "format": "article",
-      "items": [
+          "published": "Wed, 18 Nov 2026 00:00:00 GMT",
+          "summary": "OpenAI models optimized circuits used in Jalapeño silicon and improved RISC‑V core designs, showing progress in AI-assisted chip design with GPT‑6 Astra."
+        },
         {
-          "title": "A step toward defining the Standard Model on a lattice",
-          "url": "https://openai.com/index/step-toward-defining-the-standard-model",
-          "source": "OpenAI",
-          "category": "lab",
-          "published": "Sun, 15 Nov 2026 22:00:01 GMT",
-          "summary": "Explore a candidate nonperturbative lattice definition of the Standard Model and how GPT-6 Astra helped turn the idea into a detailed proof."
-        }
-      ]
-    },
-    {
-      "id": "047226550e09b451",
-      "title": "Commission seeks feedback on draft template for the fundamental rights impact assessment under the AI Act",
-      "url": "https://digital-strategy.ec.europa.eu/en/news/commission-seeks-feedback-draft-template-fundamental-rights-impact-assessment-under-ai-act",
-      "score": 0.62,
-      "parts": {
-        "authority": 0.9,
-        "corroboration": 0,
-        "impact": 1,
-        "engagement": 0
-      },
-      "categories": [
-        "policy"
-      ],
-      "format": "article",
-      "items": [
-        {
-          "title": "Commission seeks feedback on draft template for the fundamental rights impact assessment under the AI Act",
-          "url": "https://digital-strategy.ec.europa.eu/en/news/commission-seeks-feedback-draft-template-fundamental-rights-impact-assessment-under-ai-act",
-          "source": "European Commission (Digital Strategy)",
-          "category": "policy",
-          "published": "",
-          "summary": ""
+          "title": "Advancing chip design with OpenAI models",
+          "url": "https://openai.com/index/advancing-chip-design-with-our-models/",
+          "source": "Hacker News",
+          "category": "community",
+          "published": "2026-11-18T17:45:47Z",
+          "summary": "",
+          "engagement": {
+            "points": 34,
+            "comments": 11
+          }
         }
       ]
     }
