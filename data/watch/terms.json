@@ -580,5 +580,32 @@
     "China and AI": 2,
     "__items": 670,
     "__observed": true
+  },
+  "2026-11-20": {
+    "Model releases": 13,
+    "Agents": 141,
+    "Coding assistants": 12,
+    "US AI policy": 21,
+    "Hallucination": 8,
+    "Multimodal and video": 93,
+    "Evaluations": 129,
+    "Robotics": 32,
+    "Security and jailbreaks": 13,
+    "Copyright and data": 13,
+    "China and AI": 4,
+    "Chips and compute": 15,
+    "Reasoning models": 11,
+    "Scaling": 3,
+    "Jobs and labor": 9,
+    "Open-weight models": 18,
+    "Alignment": 19,
+    "Productivity": 1,
+    "AI for science": 21,
+    "Interpretability": 18,
+    "Data centers and energy": 3,
+    "Dangerous capabilities": 2,
+    "EU AI Act": 3,
+    "__items": 732,
+    "__observed": true
   }
 }
