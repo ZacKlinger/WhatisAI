@@ -607,5 +607,21 @@
     "EU AI Act": 3,
     "__items": 732,
     "__observed": true
+  },
+  "2026-11-21": {
+    "Security and jailbreaks": 1,
+    "Evaluations": 2,
+    "Model releases": 2,
+    "AI for science": 2,
+    "Multimodal and video": 1,
+    "Robotics": 1,
+    "Alignment": 1,
+    "Jobs and labor": 1,
+    "Chips and compute": 1,
+    "China and AI": 1,
+    "Agents": 1,
+    "Coding assistants": 1,
+    "__items": 22,
+    "__observed": true
   }
 }

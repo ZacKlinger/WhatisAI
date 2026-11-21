@@ -1,0 +1,355 @@
+[
+  {
+    "title": "Combatting adversarial distillation",
+    "url": "https://openai.com/index/combatting-adversarial-distillation",
+    "published": "Fri, 20 Nov 2026 10:00:00 GMT",
+    "summary": "OpenAI’s layered approach to adversarial distillation combines model training, safeguards, detection, and enforcement to protect against capability extraction.",
+    "id": "3ea993db7e3c60d1",
+    "source": "openai",
+    "sourceName": "OpenAI",
+    "category": "lab",
+    "weight": 1,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Hebbia sees improvements in financial research with GPT-6 Astra",
+    "url": "https://openai.com/business/customer-stories/hebbia",
+    "published": "Fri, 20 Nov 2026 00:00:00 GMT",
+    "summary": "Hebbia tested GPT-6 Astra for financial research. Its prerelease evaluations found gains in source coverage, citation relevance, and presentation quality.",
+    "id": "d15c45643214b444",
+    "source": "openai",
+    "sourceName": "OpenAI",
+    "category": "lab",
+    "weight": 1,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Can AI help scientists identify promising drug candidates?",
+    "url": "https://openai.com/index/introducing-medchembench",
+    "published": "Fri, 20 Nov 2026 00:00:00 GMT",
+    "summary": "MedChemBench evaluates how well AI models interpret molecular structures, reason from experimental evidence, and select compounds in early drug discovery.",
+    "id": "f4784c30400364a2",
+    "source": "openai",
+    "sourceName": "OpenAI",
+    "category": "lab",
+    "weight": 1,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Welcome Inkling 2 Mini, Cutting-edge Performance for your Local Setup",
+    "url": "https://huggingface.co/blog/inkling2mini",
+    "published": "Fri, 20 Nov 2026 00:00:00 GMT",
+    "summary": "",
+    "id": "80d31a6dee298bbd",
+    "source": "hf-blog",
+    "sourceName": "Hugging Face",
+    "category": "lab",
+    "weight": 0.6,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Time Series Structure Learning with Local Causal Parent Discovery",
+    "url": "https://huggingface.co/papers/2611.26232",
+    "published": "2026-11-18T19:00:00.000Z",
+    "summary": "Learning and inference on time series can pose significant statistical challenges, including autocorrelated observations, distribution shift over time, and the curse of dimensionality. These challenges complicate the practical application of causal discovery algorithms, which already suffer from high computational and sample complexity in the general case. To mitigate these issues, this work introduces Iterative Temporal Parent Discovery (ITPD): a sound and complete constraint-based procedure for causal structure learning on multivariate time series with causal nonstationarity. ITPD takes a lo",
+    "engagement": {
+      "upvotes": 1
+    },
+    "id": "25d10c482852f3e4",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Teaching Vision-Language-Action Models to Stop Safely",
+    "url": "https://huggingface.co/papers/2611.26239",
+    "published": "2026-11-18T19:00:00.000Z",
+    "summary": "Vision-language-action (VLA) models enable robots to perform diverse tasks from visual observations and language instructions. While prior work has explored task suppression and refusal, stopping prohibited behavior once execution is underway and controlling the resulting physical response remain challenging. Our evaluation reveals that policies which suppress a task from its initial state can still complete it when taking over partway through execution. Even when the task remains unfinished, the robot may drop a held object, making non-completion an incomplete measure of safety. To address th",
+    "engagement": {
+      "upvotes": 5
+    },
+    "id": "4fad1f8cacf14579",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "PAD: Policy-Aware Data Valuation for Autonomous Driving",
+    "url": "https://huggingface.co/papers/2611.25604",
+    "published": "2026-11-18T19:00:00.000Z",
+    "summary": "End-to-end autonomous driving increasingly depends on scaling training demonstrations, yet data growth does not guarantee proportional gains. However, additional data do not guarantee better policies: a demonstration that benefits one planner may be redundant or harmful to another. Existing curation methods typically infer data value from intrinsic sample properties or training-dependent proxies that do not measure downstream policy utility. To address this, we introduce Policy-Aware Data Valuation (PAD), a framework that assigns each candidate demonstration a utility specific to the target dr",
+    "engagement": {
+      "upvotes": 4
+    },
+    "id": "21c9f2348ecf8d36",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Lang-SVG: Hierarchical Image Vectorization with Language Priors",
+    "url": "https://huggingface.co/papers/2611.15941",
+    "published": "2026-11-10T19:00:00.000Z",
+    "summary": "Image vectorization reconstructs raster images as compact scalable vector graph- ics (SVG), providing a structured and editable code representation of images. However, most existing vectorization methods optimize for pixel-level render- ing fidelity, often producing SVGs that lack alignment with human-perceived object-part hierarchies, making them difficult to manipulate. To address this, we propose Lang-SVG, which introduces an explicit tree structure to organize SVG primitives with semantic labels and parent-child relationships. Lang-SVG incorporates granularity-controllable and open-vocabul",
+    "engagement": {
+      "upvotes": 1
+    },
+    "id": "41560a4199f13364",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Squoosh Bench: Evaluating UX-1 on 318 Historical Website A/B Tests",
+    "url": "https://huggingface.co/papers/2611.25200",
+    "published": "2026-11-17T19:00:00.000Z",
+    "summary": "Experimentation teams must decide which proposed website changes to test with live traffic. We evaluated whether forecasts from simulated shoppers could inform that choice. We screened 412 historical website A/B tests and evaluated four systems on the 318 that ran longer than 21 days. Each system predicted an original win, a variant win, or an inconclusive result. Page roles were masked and recorded outcomes were withheld during inference. Squoosh UX-1, a model fine-tuned on human browsing data, simulated 1,000 shoppers per arm and correctly classified 267 of 318 outcomes (84.0%, 95% Wilson in",
+    "engagement": {
+      "upvotes": 3
+    },
+    "id": "bf5d9ebd92833919",
+    "source": "hf-papers",
+    "sourceName": "Hugging Face Daily Papers",
+    "category": "research",
+    "weight": 0.55,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Quoting Ravi Vakil",
+    "url": "https://simonwillison.net/2026/Nov/20/ravi-vakil/",
+    "published": "2026-11-20T19:21:49+00:00",
+    "summary": "Alessandro Masullo has a proposed proof of [Generalized Riemann Hypothesis], and Brian Conrad has been looking closely at it for months and gave extensive feedback which is being incorporated, and it is so far looking good. It is all human, with no AI. The hope was to bring Alessandro to Stanford for a year to polish the writing and then announce it after running it by enough people. Now it seems best to put out the current draft. - Ravi Vakil , Hurried Announcement: Alessandro Masullo GRH Tags: mathematics",
+    "id": "6a73fdd651f90d83",
+    "source": "simonw",
+    "sourceName": "Simon Willison",
+    "category": "newsletter",
+    "weight": 0.5,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Employee or Independent Contractor Status Under the Fair Labor Standards Act, Family and Medical Leave Act, and Migrant and Seasonal Agricultural Worker Protection Act",
+    "url": "https://www.federalregister.gov/documents/2026/11/23/2026-23777/employee-or-independent-contractor-status-under-the-fair-labor-standards-act-family-and-medical",
+    "published": "2026-11-23",
+    "summary": "This final rule rescinds the analysis for determining employee or independent contractor status under the Fair Labor Standards Act (FLSA or Act) set forth in the Department of Labor's (Department) regulations and replaces it with an analysis similar to what it published in a final rule promulgated in 2021, with several modifications and enhancements. In addition, this final rule amends provisions in the Department's regulations implementing the Family and Medical Leave Act (FMLA) and Migrant and Seasonal Agricultural Worker Protection Act (MSPA) to provide that employee or independent contract",
+    "docType": "Rule",
+    "agencies": [
+      "Labor Department",
+      "Wage and Hour Division"
+    ],
+    "id": "51bc41deb0964a10",
+    "source": "fedreg",
+    "sourceName": "US Federal Register",
+    "category": "policy",
+    "weight": 0.9,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Self-Regulatory Organizations; 24X National Exchange LLC; Notice of Filing of a Proposed Rule Change To Adopt Rules To Govern the Trading of Options on the Exchange",
+    "url": "https://www.federalregister.gov/documents/2026/11/23/2026-23748/self-regulatory-organizations-24x-national-exchange-llc-notice-of-filing-of-a-proposed-rule-change",
+    "published": "2026-11-23",
+    "summary": "",
+    "docType": "Notice",
+    "agencies": [
+      "Securities and Exchange Commission"
+    ],
+    "id": "e45a113524a301a4",
+    "source": "fedreg",
+    "sourceName": "US Federal Register",
+    "category": "policy",
+    "weight": 0.9,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Can Anthropic afford to put safety first?",
+    "url": "https://www.theverge.com/podcast/1038701/anthropic-ipo-ai-safety-openai-nvidia-structure",
+    "published": "2026-11-21T10:00:00-05:00",
+    "summary": "Today, I’m talking with Hayden Field, The Verge’s senior AI reporter, about the Anthropic IPO for the third and final episode in our series about AI in real life. The AI lab behind Claude went public on the Nasdaq last Thursday. The numbers are gigantic, but not really that important for this conversation, except to [&#8230;]",
+    "id": "a9f34b76fcc6d54c",
+    "source": "verge-ai",
+    "sourceName": "The Verge",
+    "category": "media",
+    "weight": 0.45,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Chess.com’s next move is a new hub for classic games, from mahjong to sudoku",
+    "url": "https://www.theverge.com/games/1038099/chess-classic-games-expansion-ai",
+    "published": "2026-11-21T09:00:00-05:00",
+    "summary": "Chess.com is ready to go a lot bigger than chess. After launching Gambit, a gambling-free poker site, earlier this year, the company is now adding 10 more games: backgammon, checkers, go, hearts, mahjong, shogi, sudoku, solitaire, xiangqi, and a Scrabble alternative called word. They're all part of Chess's new Classic Games platform, which is launching [&#8230;]",
+    "id": "e74727ec8af70116",
+    "source": "verge-ai",
+    "sourceName": "The Verge",
+    "category": "media",
+    "weight": 0.45,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "The Outages Are Just Getting Started",
+    "url": "https://www.wired.com/story/brace-yourself-for-years-of-outage-chaos/",
+    "thumbnail": {
+      "url": "https://media.wired.com/photos/6b00ba06fb286bb31d23be2b/master/pass/Kernel-Panic-Brace-for-More-Outages-Security.jpg",
+      "sourceUrl": "https://www.wired.com/story/brace-yourself-for-years-of-outage-chaos/",
+      "credit": "Lily Hay Newman, Matt Burgess",
+      "alt": "",
+      "provenance": "feed"
+    },
+    "published": "Sat, 21 Nov 2026 13:00:00 +0000",
+    "summary": "AI is forcing companies to patch their systems faster as attackers race to exploit newly discovered vulnerabilities. Welcome to internet outage hell.",
+    "id": "9dd04be51f1df2a0",
+    "source": "wired-ai",
+    "sourceName": "WIRED",
+    "category": "media",
+    "weight": 0.45,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Cops Are Pushing Extremely Corny ‘Grand Theft Auto 6’ Slop",
+    "url": "https://www.wired.com/story/cops-are-being-extremely-corny-about-gta-vi/",
+    "thumbnail": {
+      "url": "https://media.wired.com/photos/6b008734209518b1b255d3f5/master/pass/Law-Enforcement-GTA-Recruitment-Culture-Lucia_Caminos_05.jpg",
+      "sourceUrl": "https://www.wired.com/story/cops-are-being-extremely-corny-about-gta-vi/",
+      "credit": "Miles Klee",
+      "alt": "",
+      "provenance": "feed"
+    },
+    "published": "Fri, 20 Nov 2026 23:24:02 +0000",
+    "summary": "The blockbuster game makes no secret of its contempt for law enforcement. Real police departments using it to recruit new members and scold the public apparently didn’t get the memo.",
+    "id": "a7d20c80270e4a7f",
+    "source": "wired-ai",
+    "sourceName": "WIRED",
+    "category": "media",
+    "weight": 0.45,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Jensen Huang’s ‘Lying’ Alarmed Nvidia Board Ahead of His Resignation",
+    "url": "https://www.wired.com/story/jensen-huangs-lying-alarmed-nvidia-board-ahead-of-his-resignation/",
+    "thumbnail": {
+      "url": "https://media.wired.com/photos/6b007b4f6873ef9746910ee1/master/pass/GettyImages-2298479100.jpg",
+      "sourceUrl": "https://www.wired.com/story/jensen-huangs-lying-alarmed-nvidia-board-ahead-of-his-resignation/",
+      "credit": "Lauren Goode, Paresh Dave",
+      "alt": "",
+      "provenance": "feed"
+    },
+    "published": "Fri, 20 Nov 2026 19:52:21 +0000",
+    "summary": "Amid allegations of multiple affairs, including with a direct report and an alleged Chinese intelligence asset, sources tell WIRED the Nvidia board’s main issue was the former CEO’s “lack of candor.”",
+    "id": "cd728ceea7675eb1",
+    "source": "wired-ai",
+    "sourceName": "WIRED",
+    "category": "media",
+    "weight": 0.45,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "[AINews] Riemann Hypothesis proved...twice independently",
+    "url": "https://latent.space/p/ainews-riemann-hypothesis-proved-twice-independently/",
+    "published": "Sat, 21 Nov 2026 05:02:13 GMT",
+    "summary": "November 20 2026 —",
+    "id": "45149ab56aed8c28",
+    "source": "latent-space",
+    "sourceName": "Latent Space",
+    "category": "media",
+    "weight": 0.5,
+    "format": "podcast",
+    "trendOnly": false
+  },
+  {
+    "title": "The War Against Slop and an Emerging Weapon to Fight it: Formal Verification",
+    "url": "https://latent.space/p/formal-verification/",
+    "thumbnail": {
+      "url": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/b6f560cd-a37a-4d62-8d6b-da5b59cf4790/formal-verification-feature.png?t=1795207886",
+      "sourceUrl": "https://latent.space/p/formal-verification/",
+      "credit": "Richard MacManus",
+      "alt": "",
+      "provenance": "feed"
+    },
+    "published": "Fri, 20 Nov 2026 21:18:41 GMT",
+    "summary": "Proving software correct with math has traditionally required specialist work. Now AI and Lean are helping automate the process.",
+    "id": "790fce6927eb43ee",
+    "source": "latent-space",
+    "sourceName": "Latent Space",
+    "category": "media",
+    "weight": 0.5,
+    "format": "podcast",
+    "trendOnly": false
+  },
+  {
+    "title": "Nasdaq erases all 2026 gains as AI sell-off dampens Anthropic’s second day",
+    "url": "https://www.theguardian.com/business/2026/nov/20/global-stock-markets-slump-anthropic-ipo-ai-sell-off",
+    "discussion": "https://news.ycombinator.com/item?id=50574383",
+    "published": "2026-11-20T13:29:59Z",
+    "summary": "",
+    "engagement": {
+      "points": 445,
+      "comments": 787
+    },
+    "id": "fd2811614640e90d",
+    "source": "hn",
+    "sourceName": "Hacker News",
+    "category": "community",
+    "weight": 0.35,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "ClawDOS – An AI coding agent for DOS",
+    "url": "http://ricapar.net/ClawDOS/",
+    "discussion": "https://news.ycombinator.com/item?id=50586292",
+    "published": "2026-11-21T05:38:01Z",
+    "summary": "",
+    "engagement": {
+      "points": 133,
+      "comments": 42
+    },
+    "id": "d5eeee1878b570ec",
+    "source": "hn",
+    "sourceName": "Hacker News",
+    "category": "community",
+    "weight": 0.35,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "LLMs can read and write executables byte by byte from a hex dump",
+    "url": "https://sgiannopoulos.github.io/blog/machine-code-programming/",
+    "discussion": "https://news.ycombinator.com/item?id=50546587",
+    "published": "2026-11-18T14:15:58Z",
+    "summary": "",
+    "engagement": {
+      "points": 100,
+      "comments": 73
+    },
+    "id": "bf623f2575d90ce5",
+    "source": "hn",
+    "sourceName": "Hacker News",
+    "category": "community",
+    "weight": 0.35,
+    "format": "article",
+    "trendOnly": false
+  }
+]

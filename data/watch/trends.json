@@ -1,10 +1,10 @@
 {
-  "updated": "2026-11-20",
+  "updated": "2026-11-21",
   "windowDays": 7,
   "baselineDays": 28,
-  "daysOfHistory": 26,
+  "daysOfHistory": 27,
   "recentObservedDays": 7,
-  "baselineObservedDays": 19,
+  "baselineObservedDays": 20,
   "comparisonReady": false,
   "itemsLastWeek": 4023,
   "rising": [],
@@ -14,12 +14,11 @@
       "modules": [
         "agents-and-tools"
       ],
-      "recent": 795,
-      "base": 2131,
-      "share": 0.197613721103654,
+      "recent": 791,
+      "base": 2136,
+      "share": 0.1966194382301765,
       "lift": null,
       "series": [
-        0,
         0,
         20,
         110,
@@ -46,7 +45,8 @@
         237,
         159,
         136,
-        141
+        141,
+        1
       ]
     },
     {
@@ -56,11 +56,10 @@
         "evaluation-science"
       ],
       "recent": 716,
-      "base": 1880,
+      "base": 1882,
       "share": 0.17797663435247327,
       "lift": null,
       "series": [
-        0,
         0,
         14,
         117,
@@ -87,7 +86,8 @@
         246,
         140,
         103,
-        129
+        129,
+        2
       ]
     },
     {
@@ -96,11 +96,10 @@
         "multimodality"
       ],
       "recent": 447,
-      "base": 1107,
+      "base": 1108,
       "share": 0.1111111111111111,
       "lift": null,
       "series": [
-        0,
         0,
         6,
         52,
@@ -127,7 +126,8 @@
         144,
         84,
         75,
-        93
+        93,
+        1
       ]
     },
     {
@@ -136,12 +136,11 @@
         "alignment-problem",
         "deception-and-scheming"
       ],
-      "recent": 166,
+      "recent": 167,
       "base": 449,
-      "share": 0.04126273924931643,
+      "share": 0.04151130996768581,
       "lift": null,
       "series": [
-        0,
         0,
         2,
         29,
@@ -168,7 +167,8 @@
         65,
         38,
         22,
-        19
+        19,
+        1
       ]
     },
     {
@@ -177,11 +177,10 @@
         "multimodality"
       ],
       "recent": 150,
-      "base": 433,
+      "base": 434,
       "share": 0.037285607755406416,
       "lift": null,
       "series": [
-        0,
         0,
         8,
         5,
@@ -208,7 +207,8 @@
         39,
         35,
         21,
-        32
+        32,
+        1
       ]
     },
     {
@@ -216,12 +216,11 @@
       "modules": [
         "measuring-progress"
       ],
-      "recent": 145,
+      "recent": 147,
       "base": 468,
-      "share": 0.03604275416355953,
+      "share": 0.036539895600298286,
       "lift": null,
       "series": [
-        0,
         0,
         2,
         17,
@@ -248,7 +247,8 @@
         43,
         34,
         28,
-        21
+        21,
+        2
       ]
     },
     {
@@ -261,7 +261,6 @@
       "share": 0.03131991051454139,
       "lift": null,
       "series": [
-        0,
         0,
         1,
         29,
@@ -288,7 +287,8 @@
         53,
         21,
         15,
-        18
+        18,
+        0
       ]
     },
     {
@@ -297,12 +297,11 @@
         "compute",
         "ai-supply-chain"
       ],
-      "recent": 126,
-      "base": 250,
-      "share": 0.03131991051454139,
+      "recent": 124,
+      "base": 253,
+      "share": 0.030822769077802636,
       "lift": null,
       "series": [
-        0,
         0,
         2,
         4,
@@ -329,7 +328,8 @@
         32,
         32,
         19,
-        15
+        15,
+        1
       ]
     },
     {
@@ -337,12 +337,11 @@
       "modules": [
         "system-cards"
       ],
-      "recent": 112,
-      "base": 300,
-      "share": 0.02783992045737012,
+      "recent": 113,
+      "base": 301,
+      "share": 0.0280884911757395,
       "lift": null,
       "series": [
-        0,
         0,
         2,
         25,
@@ -369,7 +368,8 @@
         39,
         18,
         20,
-        13
+        13,
+        2
       ]
     },
     {
@@ -378,12 +378,11 @@
         "agents-and-tools",
         "evidence-on-work"
       ],
-      "recent": 110,
+      "recent": 111,
       "base": 239,
-      "share": 0.02734277902063137,
+      "share": 0.027591349739000747,
       "lift": null,
       "series": [
-        0,
         0,
         1,
         8,
@@ -410,7 +409,8 @@
         35,
         26,
         21,
-        12
+        12,
+        1
       ]
     },
     {
@@ -423,7 +423,6 @@
       "share": 0.026845637583892617,
       "lift": null,
       "series": [
-        0,
         0,
         0,
         11,
@@ -450,7 +449,8 @@
         38,
         14,
         17,
-        21
+        21,
+        0
       ]
     },
     {
@@ -464,7 +464,6 @@
       "share": 0.026348496147153865,
       "lift": null,
       "series": [
-        0,
         0,
         1,
         8,
@@ -491,7 +490,8 @@
         40,
         15,
         15,
-        18
+        18,
+        0
       ]
     },
     {
@@ -499,12 +499,11 @@
       "modules": [
         "dangerous-capabilities"
       ],
-      "recent": 80,
+      "recent": 81,
       "base": 275,
-      "share": 0.019885657469550087,
+      "share": 0.020134228187919462,
       "lift": null,
       "series": [
-        0,
         0,
         1,
         7,
@@ -531,7 +530,8 @@
         28,
         12,
         14,
-        13
+        13,
+        1
       ]
     },
     {
@@ -545,7 +545,6 @@
       "share": 0.019139945314441957,
       "lift": null,
       "series": [
-        0,
         0,
         1,
         6,
@@ -572,7 +571,8 @@
         31,
         13,
         11,
-        13
+        13,
+        0
       ]
     }
   ],
@@ -593,7 +593,7 @@
       "id": "openai",
       "name": "OpenAI",
       "ok": true,
-      "count": 1418
+      "count": 1421
     },
     {
       "id": "deepmind",
@@ -617,7 +617,7 @@
       "id": "hf-blog",
       "name": "Hugging Face",
       "ok": true,
-      "count": 914
+      "count": 915
     },
     {
       "id": "hf-papers",
@@ -629,7 +629,7 @@
       "id": "arxiv-cl",
       "name": "arXiv cs.CL",
       "ok": true,
-      "count": 161
+      "count": 0
     },
     {
       "id": "arxiv-lg",
@@ -641,7 +641,7 @@
       "id": "arxiv-ai",
       "name": "arXiv cs.AI",
       "ok": true,
-      "count": 400
+      "count": 0
     },
     {
       "id": "metr",
@@ -658,8 +658,8 @@
     {
       "id": "import-ai",
       "name": "Import AI",
-      "ok": false,
-      "count": 0
+      "ok": true,
+      "count": 20
     },
     {
       "id": "simonw",
