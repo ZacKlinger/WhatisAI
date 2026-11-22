@@ -26,16 +26,23 @@ const kindLabel: Record<string, string> = { research: 'Research', model: 'Models
 <BaseLayout quiet title="The Riemann hypothesis" description="Trace the zeros behind an AI-assisted mathematical breakthrough, then continue your learning plan.">
   <article class="observatory" id="latest" aria-labelledby="feature-title">
     <div class="observatory-inner">
-      <div class="observatory-copy">
-        <p class="issue-date">Mathematics <span aria-hidden="true">/</span> <time datetime={story.data.date.toISOString().slice(0, 10)}>{formatDate(story.data.date)}</time></p>
+      <header class="observatory-heading">
+        <div class="observatory-meta">
+          <p class="issue-date">Mathematics <span aria-hidden="true">/</span> <time datetime={story.data.date.toISOString().slice(0, 10)}>{formatDate(story.data.date)}</time></p>
+          <a class="plan-shortcut" href="#your-plan">Your learning plan ↓</a>
+        </div>
         <h1 id="feature-title">{feature.headline}</h1>
-        <p class="observatory-story">{feature.summary}</p>
-        <div class="observatory-links"><a class="story-link" href={url(`/signals/${story.id}/`)}>Read the story</a><a href="#your-plan">Your learning plan</a></div>
-        <a class="verification-link" href={story.data.sources[0].url}>Read the verification by Lean and Mathlib ↗</a>
-      </div>
+      </header>
       <div class="observatory-plot">
         <h2>Tracing the zeros</h2>
         <ZetaTrace client:load />
+      </div>
+      <div class="observatory-details">
+        <p class="observatory-story">{feature.summary}</p>
+        <div class="observatory-links">
+          <a class="story-link" href={url(`/signals/${story.id}/`)}>Read the story</a>
+          <a href={story.data.sources[0].url}>Read the verification by Lean and Mathlib ↗</a>
+        </div>
       </div>
     </div>
   </article>
@@ -74,9 +81,13 @@ const kindLabel: Record<string, string> = { research: 'Research', model: 'Models
 
 <style>
   .observatory { color: #f4f1ff; background: radial-gradient(ellipse at 71% 54%, #25213e 0, #11192e 31%, transparent 62%), radial-gradient(ellipse at 8% 8%, #202a46, transparent 57%), #090f20; }
-  .observatory-inner { width: min(100% - 2 * var(--gutter), 1080px); margin-inline: auto; display: grid; grid-template-columns: minmax(0, .93fr) minmax(0, 1fr); align-items: center; gap: clamp(30px, 6vw, 88px); padding-block: clamp(38px, 5vw, 80px); }
-  .verification-link { display: inline-block; margin-top: 20px; color: #c9c1e1; font-size: .85rem; text-decoration: underline; text-underline-offset: .2em; }
-  .issue-date { color: #d1c4e9; display: flex; align-items: center; gap: 10px; font-size: .875rem; margin: 0 0 20px; }
+  .observatory-inner { width: min(100% - 2 * var(--gutter), 1080px); margin-inline: auto; display: grid; grid-template-columns: minmax(0, .93fr) minmax(0, 1fr); grid-template-areas: "heading plot" "details plot"; align-items: center; column-gap: clamp(30px, 6vw, 88px); padding-block: clamp(38px, 5vw, 80px); }
+  .observatory-heading { grid-area: heading; align-self: end; }
+  .observatory-details { grid-area: details; align-self: start; }
+  .observatory-plot { grid-area: plot; min-width: 0; }
+  .observatory-meta { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 6px 18px; margin-bottom: 20px; }
+  .issue-date { color: #d1c4e9; display: flex; align-items: center; gap: 8px; font-size: .875rem; margin: 0; }
+  .plan-shortcut { color: #dde7fe; font-size: .875rem; text-decoration: underline; text-underline-offset: .2em; }
   .observatory h1 { font: 400 clamp(3.1rem, 7vw, 6rem)/.98 var(--font-serif); letter-spacing: -.065em; margin: 0; color: #f9f5ee; }
   .observatory-story { color: #d3daea; font-size: clamp(1rem, 1.6vw, 1.15rem); line-height: 1.6; max-width: 43ch; margin: 24px 0; }
   .observatory-links { display: flex; align-items: center; flex-wrap: wrap; gap: 20px; }
@@ -86,10 +97,10 @@ const kindLabel: Record<string, string> = { research: 'Research', model: 'Models
   .observatory-plot h2 { color: #f6f0ff; font-size: 1.08rem; font-weight: 500; letter-spacing: -.02em; margin-bottom: 4px; }
   #your-plan { scroll-margin-top: var(--nav-h); }
   @media (max-width: 720px) {
-    .observatory-inner { grid-template-columns: minmax(0, 1fr); gap: 26px; padding-block: 30px; }
+    .observatory-inner { grid-template-columns: minmax(0, 1fr); grid-template-areas: "heading" "plot" "details"; gap: 22px; padding-block: 30px; }
     .observatory h1 { max-width: 15ch; }
-    .issue-date { margin-bottom: 12px; }
-    .observatory-story { margin-block: 14px; }
+    .observatory-meta { margin-bottom: 12px; }
+    .observatory-story { margin-block: 0 18px; }
     .observatory-plot { width: min(100%, 480px); justify-self: center; }
   }
   .home { width: min(100% - 2 * var(--gutter), 880px); margin-inline: auto; padding-bottom: 20px; }

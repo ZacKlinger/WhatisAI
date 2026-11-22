@@ -335,6 +335,10 @@ try {
       assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `overflow at ${width}: ${path}`);
     }
     await visit(''); await shot(`homepage-${width}`);
+    if (width <= 390) {
+      const graph = await page.locator('.zeta-trace svg').boundingBox();
+      assert(graph && graph.y + graph.height <= 600, `mobile graph visible on arrival at ${width}px`);
+    }
     if (width <= 920) {
       await page.getByRole('button', { name: 'Open menu' }).click();
       await page.locator('#mobile-menu').getByRole('link', { name: 'Explore', exact: true }).click();
