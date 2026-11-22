@@ -42,7 +42,6 @@ sources:
 updated: 2026-10-26
 ---
 
-import Attention from '@/components/interactive/Attention';
 import StaticFigure from '@/components/figures/registry';
 import QuickCheck from '@/components/quiz/QuickCheck';
 
@@ -70,9 +69,7 @@ To update a given token, the model compares its query with every token's key usi
 
 That single line is the most famous equation in modern AI. You already know every piece: *QK*<sup>T</sup> computes all the query-key dot products at once (a matrix multiplication), dividing by √*d* keeps the scores in a reasonable range, softmax turns them into weights, and multiplying by *V* blends the values.
 
-Explore it. Click a word to make it the query and see where its attention goes. Switch heads, and switch the final word.
-
-<Attention client:visible />
+In the [attention map](#visual-practice), click a word to make it the query and see where its attention goes. Switch heads, and switch the final word.
 
 <KeyIdea track="t3">Attention is a learned, soft, content-based lookup. Each token asks a question (query), every visible token advertises an answer (key), and the best matches contribute their information (values).</KeyIdea>
 

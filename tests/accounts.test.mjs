@@ -48,3 +48,27 @@ test('switching users cannot reuse previous in-memory or persisted progress', as
   assert.deepEqual(store.getState().modules, {});
   delete globalThis.window; delete globalThis.localStorage;
 });
+
+test('source bookmarks round-trip, count once per assignment and undo on the original day', async () => {
+  const store = await import('../src/lib/progress.ts');
+  store.importProgress(JSON.stringify(valid()));
+  store.setSourceStudied('welcome', 'brief', true);
+  const saved = store.getState();
+  const day = saved.studiedSources['welcome/brief'];
+  store.setSourceStudied('welcome', 'brief', true);
+  assert.equal(store.getState().activity[day], saved.activity[day]);
+  store.setSourceStudied('another-lesson', 'brief', true);
+  assert.equal(store.getState().activity[day], saved.activity[day] + 1);
+  assert.equal(store.getState().modules['another-lesson'], undefined);
+  assert.deepEqual(parseProgress(store.exportProgress()).studiedSources, store.getState().studiedSources);
+  const earlier = { ...valid(), studiedSources: { 'welcome/brief': '2026-10-27' } };
+  store.importProgress(JSON.stringify(earlier));
+  store.setSourceStudied('welcome', 'brief', false);
+  store.setSourceStudied('welcome', 'brief', false);
+  assert.deepEqual(store.getState().activity, { '2026-10-27': 1 });
+  assert.deepEqual(store.getState().studiedSources, {});
+  assert.deepEqual(store.getState().modules, earlier.modules);
+  for (const record of [{ 'broken-key': day }, { 'welcome/brief': '2025-02-31' }]) {
+    assert.throws(() => parseProgress(JSON.stringify({ ...valid(), studiedSources: record })));
+  }
+});

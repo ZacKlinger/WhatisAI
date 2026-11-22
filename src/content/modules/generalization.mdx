@@ -51,7 +51,6 @@ sources:
 updated: 2026-10-26
 ---
 
-import Overfit from '@/components/interactive/Overfit';
 import StaticFigure from '@/components/figures/registry';
 import QuickCheck from '@/components/quiz/QuickCheck';
 
@@ -69,9 +68,7 @@ If information from the test set leaks into training or into design decisions, t
 
 ## Underfitting and overfitting
 
-Fit a curve to noisy data and two failures are possible. Try it below. Slide the model's complexity from a straight line to a wildly flexible curve.
-
-<Overfit client:visible />
+Fit a curve to noisy data and two failures are possible. Open the [training and test curves](#visual-practice). Slide the model's complexity from a straight line to a wildly flexible curve.
 
 With too little flexibility, the model **underfits**: it misses the real pattern, and errors are high everywhere. With too much, it **overfits**: it threads every training point, including the noise, and swings wildly between them, so error on new data rises even as training error falls toward zero. The sweet spot captures the pattern without the noise.
 

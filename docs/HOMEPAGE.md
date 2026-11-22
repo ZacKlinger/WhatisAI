@@ -1,21 +1,9 @@
 # The homepage
 
-The homepage opens with the next lesson and a direct start or resume link. A new learner starts with the first lesson in curriculum order. An unfinished saved goal takes priority when available. The panel shows progress, links to the full path and goal planner, and offers review when the plan is complete. The first lesson is accessible with JavaScript disabled.
+The landing page opens with an interactive plot of the Riemann zeta function evaluated along the critical line. The horizontal and vertical axes are the real and imaginary parts of its output. A slider traces heights from 0 to 40, and the zero button selects each of the first six positive zero heights. The curve renders as part of the HTML. The controls appear after hydration.
 
-Below the plan, a featured Signal connects to a visual, an intuition question, and a lesson.
+The featured Signal links to Alpöge’s account, the Lean and Mathlib verification statement, the Clay problem description and the LMFDB zero data. The companion question leads into the reasoning-models lesson. Its existing consent-controlled analytics record the discovery interaction. Answers stay in the page, and exploring the feature leaves the learner’s course progress intact.
 
-To feature another story:
+The learning plan follows the visualization and has a direct link from the opening panel. A learner can resume at the next unstudied source. The activity strip opens the full calendar. The original curve-fitting experiment is available at `/discover/`.
 
-1. Verify its primary source and add or update the Signal in `src/content/signals/`.
-2. Update `src/data/homeFeature.ts` as one unit: Signal ID, headline, context, visual counts, question and answer explanations, and lesson ID. Keep the explanation suitable for a first-time visitor.
-3. The current visual is a count of affected runs out of a total. If a different story needs a different visual, update the figure in `src/pages/index.astro` too. Do not reuse this chart for unrelated data.
-4. Update `lessonAnchor` (`the-agent-loop` for the current feature) and the agent-loop illustration if the topic changes. The guided-learning time comes from the curriculum; do not replace it with a shorter marketing estimate.
-5. Update the story-specific assertions in `tests/ui.mjs`, then run `npm run check`, `npm run build`, `npm run test:ui`, and `npm run test:analytics`.
-
-The date and source link come from the selected Signal. Other stories are the three most recent remaining Signals. The homepage does not claim a daily refresh or automatically publish new features.
-
-The question uses the existing consent-controlled discovery events with `widget: story-question`. Answers and correctness are not sent or saved, and completing it does not mark a lesson mastered. The lesson and source remain available without answering; JavaScript-disabled visitors receive a static explanation.
-
-The original curve-fitting experiment lives at `/discover/`.
-
-The homepage uses `BaseLayout` with `quiet` navigation and footer. Other pages retain the full navigation. The count graphic and test context are available under “The test in numbers” to keep the initial view focused.
+When changing the feature, update its Signal, visualization, question and lesson link together. Exercise the plot controls, keyboard access, mobile layout, source links, lesson navigation and consent tests.

@@ -12,14 +12,6 @@ export default function ProgressDashboard({ modules, tracks, base }: { modules: 
   const file = useRef<HTMLInputElement>(null);
   if (!hydrated) return <div style={{ minHeight: 300 }} />;
 
-  const days = Array.from({ length: 84 }, (_, i) => {
-    const d = new Date();
-    d.setUTCDate(d.getUTCDate() - (83 - i));
-    const k = d.toISOString().slice(0, 10);
-    return [k, p.activity[k] ?? 0] as const;
-  });
-  const maxAct = Math.max(1, ...days.map(([, v]) => v));
-
   return (
     <div className="stack" style={{ ['--stack' as string]: '20px' }}>
       <div className="grid grid-2">
@@ -41,18 +33,6 @@ export default function ProgressDashboard({ modules, tracks, base }: { modules: 
         <div className="card">
           <div className="h4" style={{ marginBottom: 12 }}>Calibration</div>
           <CalibrationChart points={p.calibration} size={300} />
-        </div>
-      </div>
-      <div className="card">
-        <div className="h4" style={{ marginBottom: 12 }}>Activity, last 12 weeks</div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(12, 1fr)', gap: 4 }}>
-          {Array.from({ length: 12 }, (_, w) => (
-            <div key={w} style={{ display: 'grid', gap: 4 }}>
-              {days.slice(w * 7, w * 7 + 7).map(([k, v]) => (
-                <div key={k} title={`${k}: ${v}`} style={{ aspectRatio: '1', borderRadius: 4, background: v ? `color-mix(in srgb, var(--c3) ${20 + (v / maxAct) * 80}%, var(--bg-muted))` : 'var(--bg-muted)' }} />
-              ))}
-            </div>
-          ))}
         </div>
       </div>
       <div className="card">

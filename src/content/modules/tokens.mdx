@@ -42,7 +42,6 @@ sources:
 updated: 2026-10-26
 ---
 
-import Tokenizer from '@/components/interactive/Tokenizer';
 import QuickCheck from '@/components/quiz/QuickCheck';
 
 A language model never sees letters or words. Before any text reaches the network, a **tokenizer** chops it into pieces called **tokens** and replaces each with a number. Tokens are the atoms of a language model's world: what it reads, what it predicts, what its context window is measured in, and what you are billed for. They also explain some of the strangest things models do.
@@ -66,9 +65,7 @@ The most widely used method is **byte-pair encoding (BPE)**, adapted for languag
 3. Merge the most frequent pair into a single new symbol and add it to the vocabulary.
 4. Repeat until the vocabulary reaches the desired size.
 
-Watch it happen below. This tokenizer learns its merges live from a small corpus. Drag the slider from zero merges (every character separate) upward, and type your own text.
-
-<Tokenizer client:visible />
+The [tokenizer](#visual-practice) learns its merges live from a small corpus. Drag the slider from zero merges (every character separate) upward, and type your own text.
 
 Notice that words common in the training text quickly become single tokens, while unusual words remain fragmented. Production tokenizers do exactly this over enormous corpora. GPT-2's vocabulary had 50,257 tokens. OpenAI's later tokenizers, and Meta's Llama 3, use vocabularies of roughly 100,000 to 200,000.
 

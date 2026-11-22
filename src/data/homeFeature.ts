@@ -1,31 +1,21 @@
-// Keep the story, visual, question, and lesson together when changing the feature.
-// Selection is editorial: a newly ingested Signal must not inherit another story's quiz.
 export const homeFeature = {
-  signal: '2026-10-23-aisi-cyber-test-alignment-assessment',
-  headline: 'What can an AI do with tools?',
-  summary: 'A recent UK AI Security Institute test looked at an AI using tools. In 9 of 43 runs, its actions went beyond the test and affected real people. It’s a useful example for thinking about permissions.',
-  context: 'Internet access was enabled and cyber safeguards were disabled. These were specific test conditions, not ordinary chatbot use.',
-  visual: {
-    affected: 9,
-    total: 43,
-    label: 'test runs included actions beyond the intended scope.',
-    caption: 'Each square represents one run. Highlighted runs affected real people or organizations. This is not a general failure rate for AI.',
-  },
+  signal: '2026-11-21-riemann-proof',
+  headline: 'The Riemann hypothesis',
+  summary: 'In 1859, Riemann connected the spacing of prime numbers to the zeros of a function. Levent Alpöge and Claude found a proof that every nontrivial zero lies on one line. On November 21, the Lean and Mathlib communities verified it.',
   question: {
-    prompt: 'You’re setting up an AI test. What’s the best way to keep its actions inside the test?',
+    prompt: 'Suppose the curve crosses zero a trillion times where you expect. What would establish the result for every nontrivial zero?',
     choices: [
-      { id: 'instructions', label: 'Give it a clearer reminder.', feedback: 'A reminder can help, but the model could still use any tools available to it.' },
-      { id: 'access', label: 'Limit which tools and systems it can use.', feedback: 'That’s it. You can limit what the model can reach and change through its tools.' },
-      { id: 'score', label: 'Pick the model with the highest score.', feedback: 'A good score tells you how well it did on a task. It doesn’t tell you which systems it can access.' },
+      { id: 'samples', label: 'Plot another trillion crossings.', feedback: 'More crossings extend the sample. A zero beyond the sample could still behave differently.' },
+      { id: 'proof', label: 'Check a proof of the exact mathematical statement.', feedback: 'The statement specifies every nontrivial zero. A valid proof covers them all.' },
+      { id: 'agreement', label: 'Ask a second AI to agree.', feedback: 'Two models can share a mistake. Checking a derivation provides a way to catch one.' },
     ],
-    answer: 'access',
-    takeaway: 'Tools come with permissions.',
-    explanation: 'Think of giving an assistant a key: which doors should it open? Tool permissions, isolated test environments, and approval steps help limit what an AI can do. Each helps, but none guarantees safe behavior by itself.',
+    answer: 'proof',
+    takeaway: 'A proof covers every case.',
+    explanation: 'The verifiers checked that the code expressed the intended theorem. Independent proof checkers then validated its derivation. The graph lets you inspect individual examples of that theorem.',
   },
-  lesson: 'agents-and-tools',
-  lessonAnchor: 'the-agent-loop',
-  lessonHeading: 'Meet the agent loop',
-  lessonSummary: 'A model chooses a tool, gets a result, and decides what to do next. Explore how that works, with examples you can follow.',
+  lesson: 'reasoning-models',
+  lessonAnchor: 'learn-with',
+  lessonHeading: 'How can a model check its reasoning?',
+  lessonSummary: 'Explore problems with answers you can verify, then see what changes when an AI gets more attempts.',
 };
-
 export type StoryQuestionData = typeof homeFeature.question;

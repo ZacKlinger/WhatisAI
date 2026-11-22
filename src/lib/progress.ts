@@ -56,6 +56,8 @@ export interface State {
   calibration: CalibrationPoint[];
   placement?: PlacementResult;
   activity: Record<string, number>;
+  /** UTC day each lesson-specific source assignment was completed. */
+  studiedSources?: Record<string, string>;
   lastModule?: string;
   goals?: LearningGoal[];
 }
@@ -200,10 +202,26 @@ export function setModuleStatus(id: string, status: ModuleStatus, score?: number
 export function markStarted(id: string) {
   const prev = getState().modules[id];
   if (prev) {
-    if (getState().lastModule !== id) commit((d) => void (d.lastModule = id));
+    if (getState().lastModule !== id) commit((d) => void (d.lastModule = id), false);
     return;
   }
   setModuleStatus(id, 'started');
+}
+
+export function setSourceStudied(moduleId: string, resource: string, studied: boolean) {
+  const key = `${moduleId}/${resource}`;
+  const day = getState().studiedSources?.[key];
+  if (Boolean(day) === studied) return;
+  commit((draft) => {
+    if (studied) {
+      (draft.studiedSources ??= {})[key] = new Date().toISOString().slice(0, 10);
+    } else if (day && draft.studiedSources) {
+      delete draft.studiedSources[key];
+      const count = draft.activity[day] ?? 0;
+      if (count > 1) draft.activity[day] = count - 1;
+      else delete draft.activity[day];
+    }
+  }, studied);
 }
 
 export function isDone(status?: ModuleStatus) {

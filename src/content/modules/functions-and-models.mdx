@@ -37,7 +37,6 @@ sources:
 updated: 2026-10-26
 ---
 
-import LineFit from '@/components/interactive/LineFit';
 import QuickCheck from '@/components/quiz/QuickCheck';
 
 Before neural networks, before transformers, before anything that sounds like AI, there is a much older idea: the model. A model is a compact description of how one thing depends on another. Physicists use models of motion, economists use models of demand, and every AI system you have ever used is, underneath the interface, a model in exactly this sense. Understanding that is the first step to understanding everything else.
@@ -85,9 +84,7 @@ A common choice for numerical predictions is the **mean squared error**: for eac
 
 <Eq>loss = average of (<i>ŷ</i> − <i>y</i>)<sup>2</sup> over all examples</Eq>
 
-Try it. Adjust the slope and intercept below and watch the loss. The red lines are the errors. Then press "Let it learn" to watch an algorithm find good parameters on its own.
-
-<LineFit client:visible />
+In the [line-fitting simulation](#visual-practice), adjust the slope and intercept and watch the loss. The red lines are the errors. Then press "Let it learn" to watch an algorithm find good parameters on its own.
 
 You just did, by hand, what every AI system does at enormous scale. Training is nothing more than this: **search for the parameters that make the loss small**. You will learn how that search works, by following the slope of the loss downhill, in the optimization module.
 

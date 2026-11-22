@@ -25,7 +25,7 @@ Discovery and sharing events apply when those components are present. The analyt
 | `reading_depth` | 25/50/75/100% scroll thresholds, once each per page visit |
 | `interactive_used` | First control interaction with each lesson simulation per page; static widget name |
 | `discovery_started`, `discovery_completed` | Homepage challenge reveal and final takeaway |
-| `lesson_read` | User chooses Mark as read; module ID |
+| `lesson_read` | User chooses Mark lesson complete; module ID |
 | `mastery_started`, `mastery_completed` | Mastery attempt started/finished; module ID, no score |
 | `placement_started`, `placement_completed` | Placement begun/finished; skipping all questions is not completion |
 | `review_started`, `review_completed` | Review session begun/finished |

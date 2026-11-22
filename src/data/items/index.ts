@@ -1,5 +1,6 @@
 import type { ItemBank } from '@/lib/items';
 import { t0 } from './t0';
+import { fluency } from './fluency';
 import { t1 } from './t1';
 import { t2 } from './t2';
 import { t3 } from './t3';
@@ -10,4 +11,4 @@ import { t7 } from './t7';
 import { t8 } from './t8';
 import { t9 } from './t9';
 
-export const items: ItemBank = { ...t0, ...t1, ...t2, ...t3, ...t4, ...t5, ...t6, ...t7, ...t8, ...t9 };
+export const items: ItemBank = { ...fluency, ...t0, ...t1, ...t2, ...t3, ...t4, ...t5, ...t6, ...t7, ...t8, ...t9 };

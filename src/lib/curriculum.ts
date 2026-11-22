@@ -1,12 +1,16 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { tracks } from '@/data/tracks';
+import { getLearningPlan } from '@/lib/learning-media';
 
 export type ModuleEntry = CollectionEntry<'modules'>;
 
 const trackIndex = Object.fromEntries(tracks.map((t, i) => [t.id, i]));
 
 export async function getModules(): Promise<ModuleEntry[]> {
-  const all = await getCollection('modules');
+  const all = (await getCollection('modules')).map((entry) => ({
+    ...entry,
+    data: { ...entry.data, minutes: getLearningPlan(entry.id).minutes },
+  }));
   return all.sort((a, b) => trackIndex[a.data.track] - trackIndex[b.data.track] || a.data.order - b.data.order);
 }
 

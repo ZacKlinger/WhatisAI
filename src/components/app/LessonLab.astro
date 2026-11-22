@@ -1,0 +1,21 @@
+---
+import Attention from '@/components/interactive/Attention';
+import BenchmarkStats from '@/components/interactive/BenchmarkStats';
+import Decoder from '@/components/interactive/Decoder';
+import Doubling from '@/components/interactive/Doubling';
+import LineFit from '@/components/interactive/LineFit';
+import Overfit from '@/components/interactive/Overfit';
+import ScalingLaws from '@/components/interactive/ScalingLaws';
+import Tokenizer from '@/components/interactive/Tokenizer';
+import Workday from '@/components/interactive/Workday';
+const { moduleId } = Astro.props;
+---
+{moduleId === 'attention' && <Attention client:visible={{ rootMargin: '320px' }} />}
+{moduleId === 'benchmarks' && <BenchmarkStats client:visible={{ rootMargin: '320px' }} />}
+{moduleId === 'welcome' && <Decoder client:visible={{ rootMargin: '320px' }} />}
+{moduleId === 'measuring-progress' && <Doubling client:visible={{ rootMargin: '320px' }} />}
+{moduleId === 'functions-and-models' && <LineFit client:visible={{ rootMargin: '320px' }} />}
+{moduleId === 'generalization' && <Overfit client:visible={{ rootMargin: '320px' }} />}
+{moduleId === 'scaling-laws' && <ScalingLaws client:visible={{ rootMargin: '320px' }} />}
+{moduleId === 'tokens' && <Tokenizer client:visible={{ rootMargin: '320px' }} />}
+{(moduleId === 'measuring-exposure' || moduleId === 'evidence-on-work') && <Workday client:load />}

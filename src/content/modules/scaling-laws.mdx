@@ -57,7 +57,6 @@ sources:
 updated: 2026-10-26
 ---
 
-import ScalingLaws from '@/components/interactive/ScalingLaws';
 import StaticFigure from '@/components/figures/registry';
 import QuickCheck from '@/components/quiz/QuickCheck';
 
@@ -79,9 +78,7 @@ In 2022, a team at DeepMind led by Jordan Hoffmann revisited the question with m
 
 The implication was dramatic: most large models of the day were badly **undertrained**. To prove it, they trained **Chinchilla**, a 70-billion-parameter model on 1.4 trillion tokens, using the same compute as Gopher's 280 billion parameters. Chinchilla outperformed Gopher across a wide range of benchmarks while being four times smaller, and therefore four times cheaper to run.
 
-Explore the trade-off yourself. Each curve holds compute fixed; slide the model size to trade parameters against data.
-
-<ScalingLaws client:visible />
+In the [scaling-law simulation](#visual-practice), each curve holds compute fixed. Slide the model size to trade parameters against data.
 
 The rule of thumb that emerged, roughly **20 tokens per parameter**, became known as the Chinchilla ratio. (A 2024 replication by Epoch AI found errors in one of the paper's three fitting methods; the corrected fit, used in the instrument above, agrees with the 20-to-1 conclusion.)
 

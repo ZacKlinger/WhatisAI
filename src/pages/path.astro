@@ -3,10 +3,28 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import Constellation from '@/components/interactive/Constellation';
 import { getModules, moduleSummary } from '@/lib/curriculum';
 import { tracks } from '@/data/tracks';
+import { getLearningPlan, studyDuration } from '@/lib/learning-media';
 import { moduleUrl, url } from '@/lib/url';
 
 const modules = await getModules();
 const summaries = modules.map(moduleSummary);
+const study = { watch: 0, explore: 0, read: 0, practice: 0 };
+for (const module of modules) {
+  const plan = getLearningPlan(module.id);
+  study.practice += plan.practiceMinutes;
+  for (const step of plan.steps) {
+    if (step.kind.startsWith('video')) study.watch += step.minutes;
+    else if (['interactive', 'data explorer', 'visual essay'].includes(step.kind)) study.explore += step.minutes;
+    else study.read += step.minutes;
+  }
+}
+const total = summaries.reduce((sum, m) => sum + m.minutes, 0);
+const formats = [
+  { label: 'Watch', minutes: study.watch, color: 'var(--c1)' },
+  { label: 'Explore tools & visual essays', minutes: study.explore, color: 'var(--c3)' },
+  { label: 'Read', minutes: study.read, color: 'var(--c4)' },
+  { label: 'Practice & check', minutes: study.practice, color: 'var(--fg-3)' },
+];
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const levelLabel = ['', 'Foundational', 'Introductory', 'Intermediate', 'Advanced', 'Frontier'];
 ---
@@ -14,7 +32,15 @@ const levelLabel = ['', 'Foundational', 'Introductory', 'Intermediate', 'Advance
 <BaseLayout title="The path" description="Every module on the path to mastery of AI, from first principles to the frontier research corpus." active="path">
   <section class="container" style="padding-top:clamp(48px,8vw,96px)">
     <h1 style="max-width:18ch">Ten tracks. One climb.</h1>
-    <p class="lead" style="margin-top:16px;max-width:60ch">Go in order, or place out of what you already know.</p>
+    <p class="lead" style="margin-top:16px;max-width:60ch">Learn through curated videos, visual explanations, interactive tools, and original research. Follow the sequence, then test what you can explain.</p>
+    <section class="course-time" aria-labelledby="course-time-title">
+      <h2 class="h3" id="course-time-title">About {studyDuration(total)} from start to finish</h2>
+      <p>{modules.length} lessons · About {Math.ceil(total / 300)} weeks at 5 hours a week</p>
+      <div class="time-bar" aria-hidden="true">{formats.map(f => <span style={{ flex: f.minutes, background: f.color }} />)}</div>
+      <ul>{formats.map(f => <li><i aria-hidden="true" style={{ background: f.color }} />{f.label} <strong>{studyDuration(f.minutes)}</strong></li>)}</ul>
+      <p class="small muted">Estimates cover the assigned excerpts, exploration, reflection and mastery checks. Optional notes, full-length sources and later review add time.</p>
+    </section>
+    <p class="small muted" style="margin-top:16px">Here to use AI in your own work? <a class="link" href={moduleUrl('ai-fluency')}>Start with the 4Ds: Delegation, Description, Discernment, and Diligence →</a></p>
     <div class="row" style="margin-top:24px;flex-wrap:wrap">
       <a class="btn btn-primary" href={moduleUrl(modules[0].id)}>Start</a>
       <a class="btn btn-ghost" href={url('/placement/')}>Placement exam</a>
@@ -38,6 +64,7 @@ const levelLabel = ['', 'Foundational', 'Introductory', 'Intermediate', 'Advance
               <div class="numeral">{t.numeral}</div>
               <div>
                 <h2>{t.title}</h2>
+                <div class="small" style="margin-top:8px">{mods.length} lessons · {studyDuration(mods.reduce((sum, m) => sum + m.data.minutes, 0))}</div>
                 <p style="margin:10px 0 0;max-width:60ch;opacity:.85">{t.outcome}</p>
               </div>
             </div>
@@ -64,6 +91,12 @@ const levelLabel = ['', 'Foundational', 'Introductory', 'Intermediate', 'Advance
 </BaseLayout>
 
 <style>
+  .course-time { margin-block: 26px; max-width: 780px; padding-block: 20px; border-block: 1px solid var(--line-2); }
+  .course-time p { margin: 8px 0 0; }
+  .time-bar { display: flex; gap: 3px; overflow: hidden; height: 12px; border-radius: 3px; margin-block: 18px 12px; }
+  .course-time ul { display: flex; gap: 8px 18px; flex-wrap: wrap; padding: 0; list-style: none; margin: 0 0 12px; }
+  .course-time li { font-size: .88rem; }
+  .course-time i { display: inline-block; width: .65rem; height: .65rem; margin-right: 5px; border-radius: 2px; }
   .track-section { margin-top: clamp(48px, 7vw, 88px); scroll-margin-top: calc(var(--nav-h) + 16px); }
   .track-banner { border-radius: var(--radius-lg); color: #0d0d0d; }
   :global(:root[data-theme='dark']) .track-banner { color: #f2f2f4; }

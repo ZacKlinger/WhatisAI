@@ -16,7 +16,7 @@ export default function ModuleStatus({ id, prerequisites, titles, base }: { id: 
     <div className="stack" style={{ ['--stack' as string]: '12px' }}>
       <div className="row">
         {s && <span className={`pill ${s === 'mastered' ? 'pill-good' : s === 'placed' ? '' : 'pill-info'}`} style={s === 'placed' ? { color: 'var(--c4)' } : undefined}>{LABEL[s]}</span>}
-        {!isDone(s) && <button type="button" className="btn btn-ghost btn-sm" onClick={() => { setModuleStatus(id, 'completed'); trackAnalytics('lesson_read', { module_id: id }); }}>Mark as read</button>}
+        {!isDone(s) && <button type="button" className="btn btn-ghost btn-sm" onClick={() => { setModuleStatus(id, 'completed'); trackAnalytics('lesson_read', { module_id: id }); }}>Mark lesson complete</button>}
         <a className="btn btn-ghost btn-sm" href="#mastery">Mastery check ↓</a>
       </div>
       {missing.length > 0 && (

@@ -1,8 +1,11 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import ActivityCalendar from '@/components/app/ActivityCalendar';
 import ContinuePanel from '@/components/app/ContinuePanel';
+import ZetaTrace from '@/components/interactive/ZetaTrace';
 import StoryQuestion from '@/components/app/StoryQuestion';
 import { getModules, getSignals } from '@/lib/curriculum';
+import { getLearningPlan } from '@/lib/learning-media';
 import { journeys } from '@/data/journeys';
 import { homeFeature as feature } from '@/data/homeFeature';
 import { moduleUrl, url } from '@/lib/url';
@@ -12,39 +15,36 @@ const signals = await getSignals();
 const story = signals.find((signal) => signal.id === feature.signal);
 const lesson = modules.find((module) => module.id === feature.lesson);
 if (!story || !lesson) throw new Error('The homepage feature must link to an existing Signal and lesson.');
-const { affected, total } = feature.visual;
-if (!Number.isInteger(affected) || !Number.isInteger(total) || affected < 0 || affected > total || total < 1) throw new Error('Invalid homepage feature counts.');
 if (!feature.question.choices.some((choice) => choice.id === feature.question.answer)) throw new Error('The homepage question must have a valid answer.');
 const others = signals.filter((signal) => signal.id !== feature.signal).slice(0, 3);
-const planLessons = modules.map(({ id, data }) => ({ id, title: data.title, track: data.track, minutes: data.minutes }));
+const planLessons = modules.map(({ id, data }) => ({ id, title: data.title, track: data.track, minutes: data.minutes, sources: getLearningPlan(id).steps.map(s => s.resource) }));
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const formatDate = (date: Date) => date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
 const kindLabel: Record<string, string> = { research: 'Research', model: 'Models', policy: 'Policy', economy: 'Work & society', safety: 'AI safety', media: 'In the conversation', trend: 'Trends' };
 ---
 
-<BaseLayout quiet title="Your learning plan" description="Start your first AI lesson or pick up your learning plan where you left off.">
+<BaseLayout quiet title="The Riemann hypothesis" description="Trace the zeros behind an AI-assisted mathematical breakthrough, then continue your learning plan.">
+  <article class="observatory" id="latest" aria-labelledby="feature-title">
+    <div class="observatory-inner">
+      <div class="observatory-copy">
+        <p class="issue-date">Mathematics <span aria-hidden="true">/</span> <time datetime={story.data.date.toISOString().slice(0, 10)}>{formatDate(story.data.date)}</time></p>
+        <h1 id="feature-title">{feature.headline}</h1>
+        <p class="observatory-story">{feature.summary}</p>
+        <div class="observatory-links"><a class="story-link" href={url(`/signals/${story.id}/`)}>Read the story</a><a href="#your-plan">Your learning plan</a></div>
+        <a class="verification-link" href={story.data.sources[0].url}>Read the verification by Lean and Mathlib ↗</a>
+      </div>
+      <div class="observatory-plot">
+        <h2>Tracing the zeros</h2>
+        <ZetaTrace client:load />
+      </div>
+    </div>
+  </article>
   <div class="home">
-    <section class="home-intro" aria-labelledby="plan-title">
-      <h1 id="plan-title">Your learning plan</h1>
+    <section class="home-intro" id="your-plan" aria-labelledby="plan-title">
+      <h2 id="plan-title">Your learning plan</h2>
       <ContinuePanel client:load landing base={base} modules={planLessons} />
+      <ActivityCalendar client:load base={base} />
     </section>
-
-    <article class="feature" id="latest" aria-labelledby="feature-title">
-      <div class="feature-meta"><span>What’s happening in AI</span><time datetime={story.data.date.toISOString().slice(0, 10)}>{formatDate(story.data.date)}</time></div>
-      <h2 id="feature-title">{feature.headline}</h2>
-      <p class="feature-summary">{feature.summary}</p>
-      <div class="feature-actions"><a class="arrow-link" href="#discovery">Try the question</a><a class="link small" href={url(`/signals/${story.id}/`)}>Read the story</a></div>
-      <details class="feature-details">
-        <summary>The test in numbers</summary>
-        <figure aria-labelledby="visual-title" aria-describedby="visual-caption">
-          <p id="visual-title"><strong>{affected} of {total}</strong> {feature.visual.label}</p>
-          <div class="run-grid" aria-hidden="true">{Array.from({ length: total }, (_, index) => <span class:list={['run', { 'run-affected': index < affected }]}>{index < affected ? '•' : ''}</span>)}</div>
-          <figcaption id="visual-caption">{feature.visual.caption}</figcaption>
-        </figure>
-        <p>{feature.context}</p>
-      </details>
-      <a class="feature-source" href={story.data.sources[0].url} target="_blank" rel="noopener noreferrer">Source: {story.data.sources[0].publisher} ↗</a>
-    </article>
 
     <div class="learning-thread">
       <section class="question-section" id="discovery" aria-labelledby="story-question-title">
@@ -56,7 +56,7 @@ const kindLabel: Record<string, string> = { research: 'Research', model: 'Models
         <span class="section-label">Go deeper</span>
         <h2 id="deeper-title">{feature.lessonHeading}</h2>
         <p>{feature.lessonSummary}</p>
-        <div class="deeper-actions"><a class="arrow-link" href={`${moduleUrl(feature.lesson)}#${feature.lessonAnchor}`}>Explore how agents work</a><span>{lesson.data.minutes} min</span></div>
+        <div class="deeper-actions"><a class="arrow-link" href={`${moduleUrl(feature.lesson)}#${feature.lessonAnchor}`}>Explore reasoning models</a><span>{lesson.data.minutes} min</span></div>
       </section>
     </div>
 
@@ -73,9 +73,28 @@ const kindLabel: Record<string, string> = { research: 'Research', model: 'Models
 </BaseLayout>
 
 <style>
+  .observatory { color: #f4f1ff; background: radial-gradient(ellipse at 71% 54%, #25213e 0, #11192e 31%, transparent 62%), radial-gradient(ellipse at 8% 8%, #202a46, transparent 57%), #090f20; }
+  .observatory-inner { width: min(100% - 2 * var(--gutter), 1080px); margin-inline: auto; display: grid; grid-template-columns: minmax(0, .93fr) minmax(0, 1fr); align-items: center; gap: clamp(30px, 6vw, 88px); padding-block: clamp(38px, 5vw, 80px); }
+  .verification-link { display: inline-block; margin-top: 20px; color: #c9c1e1; font-size: .85rem; text-decoration: underline; text-underline-offset: .2em; }
+  .issue-date { color: #d1c4e9; display: flex; align-items: center; gap: 10px; font-size: .875rem; margin: 0 0 20px; }
+  .observatory h1 { font: 400 clamp(3.1rem, 7vw, 6rem)/.98 var(--font-serif); letter-spacing: -.065em; margin: 0; color: #f9f5ee; }
+  .observatory-story { color: #d3daea; font-size: clamp(1rem, 1.6vw, 1.15rem); line-height: 1.6; max-width: 43ch; margin: 24px 0; }
+  .observatory-links { display: flex; align-items: center; flex-wrap: wrap; gap: 20px; }
+  .observatory-links a { color: #dde7fe; text-decoration: underline; text-underline-offset: 4px; font-size: .95rem; }
+  .observatory-links .story-link { color: #12192f; background: #e8defa; text-decoration: none; border-radius: 30px; padding: 10px 19px; font-weight: 550; }
+  .observatory-links a:focus-visible { outline: 2px solid #ffdfa8; outline-offset: 4px; }
+  .observatory-plot h2 { color: #f6f0ff; font-size: 1.08rem; font-weight: 500; letter-spacing: -.02em; margin-bottom: 4px; }
+  #your-plan { scroll-margin-top: var(--nav-h); }
+  @media (max-width: 720px) {
+    .observatory-inner { grid-template-columns: minmax(0, 1fr); gap: 26px; padding-block: 30px; }
+    .observatory h1 { max-width: 15ch; }
+    .issue-date { margin-bottom: 12px; }
+    .observatory-story { margin-block: 14px; }
+    .observatory-plot { width: min(100%, 480px); justify-self: center; }
+  }
   .home { width: min(100% - 2 * var(--gutter), 880px); margin-inline: auto; padding-bottom: 20px; }
   .home-intro { padding-block: clamp(36px, 6vw, 72px); }
-  .home-intro h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); letter-spacing: -.05em; margin: 0 0 28px; }
+  .home-intro > h2 { font-size: clamp(2.2rem, 5vw, 3.6rem); letter-spacing: -.05em; margin: 0 0 28px; }
   .home-intro :global(.plan-card) { overflow: hidden; display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); border: 1px solid var(--line-2); border-radius: var(--radius-lg); }
   .home-intro :global(.plan-lesson), .home-intro :global(.plan-outline) { padding: clamp(22px, 4vw, 36px); }
   .home-intro :global(.plan-lesson) { background: var(--bg-soft); }
@@ -83,24 +102,6 @@ const kindLabel: Record<string, string> = { research: 'Research', model: 'Models
   .home-intro :global(.plan-outline) { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 12px; }
   .home-intro :global(.plan-outline progress) { width: 100%; height: 6px; accent-color: var(--fg); }
   .home-intro :global(.plan-outline nav) { display: flex; flex-wrap: wrap; gap: 8px 18px; }
-  .feature { background: var(--bg-soft); border-radius: 12px; padding: clamp(24px, 5vw, 48px); }
-  .feature-meta { display: flex; gap: 16px; flex-wrap: wrap; font-size: .73rem; color: var(--fg-2); }
-  .feature h2 { font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.22; font-weight: 500; margin-top: 24px; }
-  .feature-summary { font-size: .96rem; line-height: 1.7; color: var(--fg-2); max-width: 65ch; margin: 18px 0 26px; }
-  .feature-actions { display: flex; gap: 22px; align-items: center; flex-wrap: wrap; }
-  .feature-actions .btn { font-size: .85rem; }
-  .feature-actions > .link { font-size: .8rem; }
-  .feature-details { margin-top: 26px; font-size: .76rem; color: var(--fg-2); max-width: 60ch; }
-  .feature-details summary { cursor: pointer; padding-block: 6px; width: fit-content; }
-  .feature-details figure { margin: 16px 0; }
-  .feature-details figure > p { font-size: .9rem; line-height: 1.5; color: var(--fg); }
-  .feature-details strong { font-weight: 550; }
-  .run-grid { display: grid; grid-template-columns: repeat(15, minmax(0, 1fr)); gap: 5px; margin-block: 14px; max-width: 420px; }
-  .run { aspect-ratio: 1; background: var(--bg-muted); border: 1px solid var(--line-3); border-radius: 2px; }
-  .run-affected { display: grid; place-items: center; background: var(--fg); color: var(--bg); line-height: 1; }
-  .feature-details figcaption, .feature-details > p { font-size: .73rem; line-height: 1.65; }
-  .feature-source { display: inline-block; color: var(--fg-2); font-size: .7rem; margin-top: 12px; }
-  .feature-source:hover { text-decoration: underline; text-underline-offset: 3px; }
   .learning-thread { max-width: 688px; margin-inline: auto; }
   .question-section { padding-block: 48px 36px; }
   .section-label { display: block; font-size: .78rem; color: var(--fg-2); font-weight: 400; letter-spacing: 0; line-height: 1.5; margin-bottom: 20px; }
@@ -129,15 +130,10 @@ const kindLabel: Record<string, string> = { research: 'Research', model: 'Models
   .story-teaser:hover h3 { text-decoration: underline; text-underline-offset: 3px; }
   @media (max-width: 680px) {
     .home-intro :global(.plan-card) { grid-template-columns: 1fr; }
-    .feature { padding: 24px; }
-    .feature-meta { font-size: .68rem; gap: 8px 16px; }
-    .feature-summary { font-size: .88rem; }
-    .feature h2 { margin-top: 20px; }
     .learning-thread { padding-inline: 8px; }
     .question-section { padding-top: 36px; }
     .intent-grid { gap: 24px; }
     .story-teaser { flex-direction: column; gap: 8px; }
-    .run-grid { grid-template-columns: repeat(11, minmax(0, 1fr)); }
   }
-  @media (max-width: 360px) { .feature { padding: 20px; } .intent-grid { grid-template-columns: 1fr; } .section-heading { gap: 14px; } .section-heading h2 { font-size: 1.15rem; } }
+  @media (max-width: 360px) { .intent-grid { grid-template-columns: 1fr; } .section-heading { gap: 14px; } .section-heading h2 { font-size: 1.15rem; } }
 </style>

@@ -37,6 +37,10 @@ export function validGoal(g) {
     Number.isFinite(g.updatedAt) && g.updatedAt >= g.createdAt;
 }
 
+export function addDays(date, days) {
+  return new Date(Date.parse(`${date}T00:00:00Z`) + days * DAY).toISOString().slice(0, 10);
+}
+
 /** @template {{id: string, minutes: number}} M
  * @param {{kind: string, targetDate: string}} goal
  * @param {M[]} modules

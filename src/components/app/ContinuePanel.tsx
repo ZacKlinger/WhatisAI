@@ -2,7 +2,7 @@ import { brier, dueReviews, isDone, streakDays } from '@/lib/progress';
 import { useHydrated, useProgress } from '@/lib/useProgress';
 import { goalPlan } from '@/lib/goals.mjs';
 
-interface M { id: string; title: string; track: string; minutes: number }
+interface M { id: string; title: string; track: string; minutes: number; sources?: string[] }
 
 export default function ContinuePanel({ modules, base, returningOnly = false, landing = false }: { modules: M[]; base: string; returningOnly?: boolean; landing?: boolean }) {
   const p = useProgress();
@@ -25,13 +25,17 @@ export default function ContinuePanel({ modules, base, returningOnly = false, la
     const completed = plan?.done ?? done.length;
     const total = plan?.required.length ?? modules.length;
     const resume = lesson && p.modules[lesson.id]?.status === 'started';
+    const sources = modules.find(m => m.id === lesson?.id)?.sources ?? [];
+    const studied = (id: string) => p.studiedSources?.[`${lesson?.id}/${id}`];
+    const nextSource = sources.find(id => !studied(id));
+    const bookmark = resume && sources.some(studied) ? (nextSource ? `#source-${nextSource}` : '#visual-practice') : '';
     const action = resume ? 'Resume lesson' : fresh && completed === 0 ? 'Start first lesson' : 'Start next lesson';
     return <div className="plan-card">
       <div className="plan-lesson">
         <span className="small muted">{lesson ? `${resume ? 'In progress' : 'Up next'} · ${lesson.minutes} min` : 'Complete'}</span>
         <h2>{lesson?.title ?? (plan ? 'You reached your goal' : 'You finished the learning path')}</h2>
         {lesson
-          ? <a className="btn btn-primary" href={`${base}/learn/${lesson.id}/`}>{action}</a>
+          ? <a className="btn btn-primary" href={`${base}/learn/${lesson.id}/${bookmark}`}>{action}</a>
           : <a className="btn btn-primary" href={`${base}/review/`}>Review what you learned</a>}
       </div>
       <div className="plan-outline">

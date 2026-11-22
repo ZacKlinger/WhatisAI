@@ -33,14 +33,15 @@ export const journeys: Journey[] = [
   },
   {
     id: 'use', title: 'Put AI to work', question: 'Where could it actually help me?',
-    promise: 'Choose a task, test a workflow, and check the result.',
-    introduction: 'A useful workflow depends on the task and on what a mistake would cost. These lessons give you tools for trying AI deliberately and measuring whether it helps.',
+    promise: 'Use the 4Ds to choose, direct, evaluate, and take responsibility for AI-assisted work.',
+    introduction: 'Start with the official AI Fluency course by Rick Dakan, Joseph Feller, and Anthropic. Carry Delegation, Description, Discernment, and Diligence into the lessons on agents, evaluation, and workplace evidence.',
     steps: [
+      { module: 'ai-fluency', why: 'Learn the 4Ds from the creators’ videos, transcripts, and exercises, then apply them to one task.' },
       { module: 'agents-and-tools', why: 'Understand what retrieval and tools add, and where verification still matters.' },
       { module: 'evaluation-science', why: 'Design a fair comparison with your current way of working.' },
       { module: 'evidence-on-work', why: 'Compare real studies of where AI helped people and where it slowed them down.' },
     ],
-    activity: 'Choose a small, low-stakes task. Compare your usual workflow with an AI-assisted one on fresh examples. Count checking and correction time as well as quality.',
+    activity: 'Keep a 4D work record: your division of responsibility, your brief, evidence from checking the result, and your decision about whether and how to use it. Revise the brief after checking; include correction time when judging whether AI helped.',
   },
   {
     id: 'anticipate', title: 'Anticipate change', question: 'What could this mean for my field?',

@@ -1,0 +1,14 @@
+.zeta-trace { width: 100%; min-width: 0; margin: 0; color: #eff3ff; }
+.zeta-trace svg { display: block; width: 100%; }
+.zeta-ticks { font: 12px var(--font-mono, monospace); }
+.zeta-trace figcaption { margin: 6px 0 14px; font-size: .9rem; line-height: 1.45; color: #c8d2e4; }
+.zeta-controls { border-top: 1px solid #42506d; padding-top: 12px; }
+.zeta-readout, .zeta-actions { display: flex; align-items: baseline; flex-wrap: wrap; gap: 8px; font-size: .875rem; }
+.zeta-readout output, .zeta-readout span, .zeta-actions span { font-variant-numeric: tabular-nums; }
+.zeta-readout output { color: #ffdfad; }
+.zeta-readout span, .zeta-actions button { margin-left: auto; }
+.zeta-readout span, .zeta-actions span { color: #c8d2e4; }
+.zeta-controls input { width: 100%; margin: 8px 0; accent-color: #d7bfff; cursor: pointer; }
+.zeta-actions button { background: #23304b; color: white; border: 1px solid #667998; border-radius: 100px; padding: 6px 14px; font-size: .875rem; cursor: pointer; }
+.zeta-actions button:hover { background: #354567; }
+.zeta-controls :focus-visible { outline: 2px solid #ffdfa8; outline-offset: 3px; }

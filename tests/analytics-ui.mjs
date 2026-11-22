@@ -82,7 +82,7 @@ try {
   await a.page.getByRole('button',{name:'Allow analytics',exact:true}).click();
   try { await until(()=>a.events.some(e=>e.event==='$pageview'),'pageview delivered after consent'); } catch(e) { console.log({events:a.events,requests:a.requests,errors:a.errors,storage:await a.page.evaluate(()=>({...localStorage})),status:await a.page.locator('#analytics-status').textContent()}); throw e; }
   assert.equal(a.events.filter(e=>e.event==='$pageview').length,1,'single initial pageview');
-  await a.page.getByRole('button',{name:'Mark as read',exact:true}).click();
+  await a.page.getByRole('button',{name:'Mark lesson complete',exact:true}).click();
   const slider = a.page.locator('[data-analytics-widget] input[type="range"]').first();
   await slider.focus(); await a.page.keyboard.press('ArrowRight'); await a.page.keyboard.press('ArrowLeft');
   await a.page.evaluate(()=>scrollTo(0,document.documentElement.scrollHeight));
@@ -90,7 +90,7 @@ try {
   assert.equal(a.events.filter(e=>e.event==='interactive_used').length,1,'widget activity deduplicated');
   await a.visit('?email=never-send#private');
   await until(()=>a.events.filter(e=>e.event==='$pageview').length >= 2,'second pageview delivered');
-  await a.page.locator('.story-question input[value="access"]').check();
+  await a.page.locator('.story-question input[value="proof"]').check();
   await a.page.getByRole('button',{name:'See the explanation'}).click();
   await until(()=>a.events.some(e=>e.event==='discovery_completed' && e.properties.widget==='story-question'),'story funnel delivered');
   assert(a.events.some(e=>e.event==='discovery_started' && e.properties.widget==='story-question'));

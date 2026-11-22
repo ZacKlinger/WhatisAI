@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import ActivityCalendar from '@/components/app/ActivityCalendar';
+import { getLearningPlan } from '@/lib/learning-media';
 import ProgressDashboard from '@/components/app/ProgressDashboard';
 import GoalPlanner from '@/components/app/GoalPlanner';
 import Constellation from '@/components/interactive/Constellation';
@@ -7,6 +9,9 @@ import { getModules, moduleSummary } from '@/lib/curriculum';
 import { tracks } from '@/data/tracks';
 
 const modules = await getModules();
+const sources = Object.fromEntries(modules.flatMap(m =>
+  getLearningPlan(m.id).steps.map(step => [`${m.id}/${step.resource}`, { title: step.title, lesson: m.data.title }])
+));
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
@@ -16,6 +21,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     <p class="lead" style="margin-top:16px">Set your destination. Build toward it, one lesson at a time.</p>
   </section>
   <section class="container section-tight">
+    <div id="activity" style="margin-bottom:20px"><ActivityCalendar client:load base={base} sources={sources} /></div>
     <GoalPlanner client:load modules={modules.map(moduleSummary)} base={base} />
     <noscript><p>Enable JavaScript to set goals and view saved progress. You can still browse every lesson on <a href={`${base}/path/`}>the path</a>.</p></noscript>
     <div class="card" style="padding:clamp(10px,2vw,22px);margin-bottom:20px">

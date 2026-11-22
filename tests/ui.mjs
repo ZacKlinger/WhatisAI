@@ -103,10 +103,10 @@ try {
   const first = plan.getByRole('link', { name: 'Start first lesson' });
   assert.equal(await first.getAttribute('href'), '/WhatisAI/learn/welcome/');
   await first.click();
-  await page.getByRole('button', { name: 'Mark as read' }).waitFor();
+  await page.getByRole('button', { name: 'Mark lesson complete' }).waitFor();
   await visit('');
   await plan.getByRole('link', { name: 'Resume lesson' }).click();
-  await page.getByRole('button', { name: 'Mark as read' }).click();
+  await page.getByRole('button', { name: 'Mark lesson complete' }).click();
   await visit('');
   const nextLesson = plan.getByRole('link', { name: 'Start next lesson' });
   assert.notEqual(await nextLesson.getAttribute('href'), '/WhatisAI/learn/welcome/');
@@ -119,27 +119,31 @@ try {
   const beforeStory = await page.evaluate(() => localStorage.getItem('whatisai:progress:v1'));
   const explanation = page.getByRole('button', { name: 'See the explanation' });
   assert(await explanation.isDisabled());
-  assert.equal(await page.locator('.run').count(), 43);
-  assert.equal(await page.locator('.run-affected').count(), 9);
-  for (const choice of ['instructions', 'access', 'score']) {
+  const height = page.getByRole('slider', { name: 'Height t' });
+  await height.fill('0');
+  await page.getByRole('button', { name: 'Find next zero' }).click();
+  assert.equal(await page.locator('.zeta-readout output').textContent(), '14.135');
+  await page.getByRole('button', { name: 'Find next zero' }).click();
+  assert.equal(await page.locator('.zeta-readout output').textContent(), '21.022');
+  for (const choice of ['samples', 'proof', 'agreement']) {
     await page.locator(`.story-question input[value="${choice}"]`).focus();
     await page.keyboard.press('Space');
     await explanation.focus(); await page.keyboard.press('Enter');
-    await page.getByRole('heading', { name: 'Tools come with permissions.' }).waitFor();
-    assert.equal(await page.locator(':focus').textContent(), 'Tools come with permissions.');
+    await page.getByRole('heading', { name: 'A proof covers every case.' }).waitFor();
+    assert.equal(await page.locator(':focus').textContent(), 'A proof covers every case.');
     assert.equal(await page.locator('.story-answer-label').textContent(), 'Best answer');
-    assert(await page.locator('.story-question input[value="access"]').isDisabled());
+    assert(await page.locator('.story-question input[value="proof"]').isDisabled());
     await page.getByRole('button', { name: 'Try a different answer' }).click();
     assert(await explanation.isDisabled());
     assert.equal(await page.locator(':focus').getAttribute('id'), 'story-question-title');
   }
   assert.equal(await page.evaluate(() => localStorage.getItem('whatisai:progress:v1')), beforeStory);
-  await page.getByRole('link', { name: 'Explore how agents work' }).click();
-  assert.equal(new URL(page.url()).hash, '#the-agent-loop');
-  await page.locator('#the-agent-loop').waitFor({ state: 'visible' });
+  await page.getByRole('link', { name: 'Explore reasoning models' }).click();
+  assert.equal(new URL(page.url()).hash, '#learn-with');
+  await page.locator('#learn-with').waitFor({ state: 'visible' });
   await visit('');
   await page.getByRole('link', { name: 'Read the story', exact: true }).click();
-  assert(new URL(page.url()).pathname.includes('2026-10-23-aisi-cyber-test-alignment-assessment'));
+  assert(new URL(page.url()).pathname.includes('2026-11-21-riemann-proof'));
   console.log('PASS story visual, keyboard answers, feedback, reset, unchanged progress, and connected lesson/source routes');
   // The original experiment remains available on its dedicated page.
   await visit('discover/');
@@ -184,7 +188,7 @@ try {
   for (const direction of directions) {
     await page.goto(base + direction, { waitUntil: 'networkidle' });
     const route = page.locator(new URL(base + direction).hash);
-    assert.equal(await route.locator('.journey-steps a').count(), 3);
+    assert.equal(await route.locator('.journey-steps a').count(), new URL(base + direction).hash === '#use' ? 4 : 3);
     for (const link of await route.locator('.journey-steps a').all()) {
       assert.equal((await context.request.get(base + await link.getAttribute('href'))).status(), 200);
     }
@@ -278,12 +282,14 @@ try {
   await page.getByRole('button', { name: 'Retake', exact: true }).click();
   await rateAllNew(); await page.getByRole('radio', { name: 'Some familiarity', exact: true }).first().click();
   await page.getByRole('button', { name: 'Start', exact: true }).click();
+  // Four prologue modules now start the search at history; step down to welcome.
+  await page.getByRole('button', { name: /I don.t know/ }).click();
   await page.getByRole('button', { name: /Is this impressive/ }).click();
   await page.getByRole('button', { name: '25%', exact: true }).click();
   await page.getByRole('button', { name: 'Continue', exact: true }).click();
   await page.getByText(/0% correct, in about/).waitFor();
   const assessed = (await stored()).placement;
-  assert.deepEqual(assessed.probed, ['welcome']);
+  assert.deepEqual(assessed.probed, ['history-of-ai', 'welcome']);
   assert.equal((await stored()).calibration.at(-1).c, 0.25);
   assert.equal((await stored()).modules.welcome.status, 'mastered');
   await page.getByRole('button', { name: 'Retake', exact: true }).click();
@@ -294,8 +300,9 @@ try {
   await rateAllNew(); await page.getByRole('radio', { name: 'Some familiarity', exact: true }).first().click();
   await page.getByRole('button', { name: 'Start', exact: true }).click();
   await page.getByRole('button', { name: "I don't know", exact: true }).click();
+  await page.getByRole('button', { name: "I don't know", exact: true }).click();
   await page.getByText(/0% correct, in about/).waitFor();
-  assert.deepEqual((await stored()).placement.probed, ['welcome']);
+  assert.deepEqual((await stored()).placement.probed, ['history-of-ai', 'welcome']);
   console.log('PASS empty, assessed-zero, retake, low-confidence, and final-dont-know persistence');
 
   for (const name of fixtures) {
@@ -363,8 +370,67 @@ try {
   assert(await fallback.isVisible());
   assert.match(await fallback.innerText(), /The interactive question needs JavaScript/);
   await staticPage.locator('.intent-link').first().click();
-  assert.equal(await staticPage.locator('.journey-steps a').count(), 12);
+  assert.equal(await staticPage.locator('.journey-steps a').count(), 13);
+  await staticPage.goto(`${base}/WhatisAI/learn/attention/`);
+  assert.equal(await staticPage.locator('.resource-card').count(), 2);
+  assert(await staticPage.getByRole('link', { name: 'Watch at source' }).isVisible());
+  assert.equal(await staticPage.locator('.video-slot iframe').count(), 0);
+  await staticPage.locator('#supporting-notes summary').click();
+  assert(await staticPage.getByRole('heading', { name: 'Attention as a soft lookup' }).isVisible());
   await noJS.close();
+  // Curated instruction is primary; external video connections require a click.
+  await page.emulateMedia({ colorScheme: 'light' });
+  const beforeVideoRequests = requests.length;
+  await visit('learn/attention/');
+  assert.equal(await page.locator('.resource-card').count(), 2);
+  assert.equal(await page.locator('.video-slot iframe').count(), 0);
+  assert(!requests.slice(beforeVideoRequests).some((u) => /youtube|ytimg/.test(u)));
+  assert.equal(await page.locator('#supporting-notes').getAttribute('open'), null);
+  const beforeVideoProgress = await page.evaluate(() => localStorage.getItem('whatisai:progress:v1'));
+  await page.getByRole('button', { name: /Load video here/ }).focus();
+  await page.keyboard.press('Enter');
+  const frame = page.locator('.video-slot iframe');
+  await frame.waitFor();
+  assert.equal(await frame.getAttribute('src'), 'https://www.youtube-nocookie.com/embed/eMlx5fFNoYc');
+  assert.equal(await page.evaluate(() => localStorage.getItem('whatisai:progress:v1')), beforeVideoProgress);
+  assert(await page.getByRole('link', { name: 'Watch at source' }).isVisible());
+  await page.getByRole('button', { name: /^Mark as studied/ }).first().click();
+  await page.getByText('1 of 2 sources studied').waitFor();
+  await visit('');
+  assert.equal(await page.getByRole('link', { name: 'Resume lesson' }).getAttribute('href'), '/WhatisAI/learn/attention/#source-explainer');
+  await page.locator('.activity-strip').click();
+  const journalSource = page.locator('#activity .activity-sources a').first();
+  assert.equal(await journalSource.getAttribute('href'), '/WhatisAI/learn/attention/#source-attention');
+  await journalSource.click();
+  const studiedSource = page.getByRole('button', { name: /^Mark as studied · Attention/ });
+  assert.equal(await studiedSource.getAttribute('aria-pressed'), 'true');
+  await studiedSource.click();
+  await page.getByText('0 of 2 sources studied').waitFor();
+  await visit('learn/measuring-exposure/');
+  const checkingTime = page.getByRole('slider', { name: 'Time spent checking' });
+  await checkingTime.scrollIntoViewIfNeeded();
+  await page.waitForFunction(() => !document.querySelector('#visual-practice astro-island')?.hasAttribute('ssr'));
+  await checkingTime.fill('90');
+  await page.getByText('The workday is 30 minutes longer.').waitFor();
+  await visit('learn/inference/');
+  assert.match(await page.locator('#source-karpathy-deep-dive h3 a').getAttribute('href'), /t=1561s$/);
+  await visit('learn/attention/#attention-as-a-soft-lookup');
+  assert(await page.locator('#supporting-notes').evaluate((d) => d.open));
+  assert(await page.getByRole('heading', { name: 'Attention as a soft lookup' }).isVisible());
+  for (const width of [320, 390, 1280]) {
+    await page.setViewportSize({ width, height: 900 });
+    for (const id of ['attention', 'ai-fluency', 'reading-a-policy-document']) {
+      await visit(`learn/${id}/`);
+      assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), `${id} overflow at ${width}`);
+      await page.locator('#learn-with').scrollIntoViewIfNeeded();
+      if (width !== 320) await shot(`curated-${id}-${width}`);
+    }
+  }
+  await visit('learn/ai-fluency/');
+  assert.equal(await page.locator('.resource-card').count(), 6);
+  assert.equal(await page.locator('.fluency-practice li').count(), 4);
+  assert.equal(await page.locator('.resource-card a').filter({ hasText: 'Source license' }).count(), 6);
+  console.log('PASS external-led lessons, keyboard video opt-in, reading fallbacks, unchanged mastery, 4D sequence, old anchors, and responsive layouts');
   console.log('PASS mobile navigation, dark theme render, existing shared lesson, and no-JavaScript routes');
   assert.deepEqual(errors, []);
   console.log(`PASS desktop/mobile layouts; no page errors. Screenshots: ${artifacts}`);

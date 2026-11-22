@@ -13,7 +13,7 @@ export const tracks: Track[] = [
     numeral: '0',
     title: 'Prologue',
     aura: 'aura-t0',
-    outcome: 'Name the actors, eras, and document types of modern AI, and read any paper in three passes.',
+    outcome: 'Orient yourself in AI, read a paper in three passes, and use the 4Ds to guide practical collaboration.',
   },
   {
     id: 't1',
