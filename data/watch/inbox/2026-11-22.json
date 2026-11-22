@@ -1,0 +1,192 @@
+[
+  {
+    "title": "Perplexity and Intelligence",
+    "url": "https://openai.com/index/perplexity-and-intelligence",
+    "published": "Sun, 22 Nov 2026 00:00:00 GMT",
+    "summary": "How perplexity measures progress in AI models, and why it could help developers establish a shared approach to evaluating emerging capabilities.",
+    "id": "de5cd1a6d51dc917",
+    "source": "openai",
+    "sourceName": "OpenAI",
+    "category": "lab",
+    "weight": 1,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Muru",
+    "url": "https://simonwillison.net/2026/Nov/21/muru/",
+    "published": "2026-11-21T23:56:28+00:00",
+    "summary": "Muru Graham Dumpleton started mod_wsgi 20 years ago, and has been thinking about the ideal way to serve Python web applications in production ever since. Muru is his new, AI-assisted Rust server that aims to provide the best possible tools for running ASGI and WSGI Python apps both in development and production. As he did with wrapture , he's been publishing an extraordinarily detailed account of the project as he works on it - as part of his development process. Here's everything he's published so far, all in the last three weeks: 2026-11-04 — Twenty years of mod_wsgi, and what comes next 202",
+    "id": "0ceef4b235ec12c3",
+    "source": "simonw",
+    "sourceName": "Simon Willison",
+    "category": "newsletter",
+    "weight": 0.5,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "llm-gemini 0.38.1",
+    "url": "https://simonwillison.net/2026/Nov/20/llm-gemini/",
+    "published": "2026-11-20T03:01:57+00:00",
+    "summary": "Release: llm-gemini 0.38.1 Gemini 4 Carbon only supports low , medium and high reasoning levels - but Gemini 4 Hydrogen and Gemini 4 Neon both have an extra xhigh level. I missed that when I added those models to the llm-gemini plugin, which is now fixed in this dot release. The xhigh setting for Hydrogen makes a significant difference. I updated my Gemini 4 comparison grid - note how Hydrogen at high used 5,311 output tokens and cost 3.99 cents, but the same model at xhigh used 31,477 output tokens, cost 23.61 cents, and produced a pelican that's competitive with Gemini 4 Neon: Tags: gemini ,",
+    "id": "d63c6404d469aaa2",
+    "source": "simonw",
+    "sourceName": "Simon Willison",
+    "category": "newsletter",
+    "weight": 0.5,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Binding of Isaac developer removes AI music from Repentance Plus",
+    "url": "https://www.theverge.com/games/1039770/binding-of-isaac-ai-music",
+    "published": "2026-11-22T12:25:20-05:00",
+    "summary": "The Binding of Isaac: Repentance Plus has spent the last few days getting review-bombed on Steam after it was discovered that a particular segment of the game used AI music. Reddit user ShweetsStuff discovered the songs used during a Grand Theft Auto-themed section. They found several audio files with Suno metadata that pointed back to [&#8230;]",
+    "id": "265c68ec3a4cc76b",
+    "source": "verge-ai",
+    "sourceName": "The Verge",
+    "category": "media",
+    "weight": 0.45,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "The vibe-coding revolution is coming to all the gadgets",
+    "url": "https://www.theverge.com/column/1039139/vibe-coding-gadgets-tv-camera",
+    "published": "2026-11-22T08:00:00-05:00",
+    "summary": "This is The Stepback, a weekly newsletter breaking down one essential story from the tech world. For more on the vibe-hacking of everything, follow David Pierce. The Stepback arrives in our subscribers' inboxes on Sunday at 8AM ET. Opt in for The Stepback here. How it started Like so many things with AI, it's not [&#8230;]",
+    "id": "0f50037c76f25ff3",
+    "source": "verge-ai",
+    "sourceName": "The Verge",
+    "category": "media",
+    "weight": 0.45,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "The UN fails to agree on rules regulating ‘killer robots’",
+    "url": "https://www.theverge.com/tech/1039554/un-regulations-killer-robots",
+    "published": "2026-11-21T15:03:37-05:00",
+    "summary": "One of the items on the agenda for UN diplomats meeting in Geneva this week was working towards rules regarding the use of autonomous weapons, or so-called \"killer robots.\" Eventually, representatives left the meetings agreeing to \"start discussing options\" after a largely fruitless week of negotiations. According to NPR: Before the negotiations got underway, the [&#8230;]",
+    "id": "234da3fc18675af9",
+    "source": "verge-ai",
+    "sourceName": "The Verge",
+    "category": "media",
+    "weight": 0.45,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Banks Have Had It Up to Here With Your AI Agent",
+    "url": "https://www.wired.com/story/banks-are-cracking-down-on-ai-agents/",
+    "thumbnail": {
+      "url": "https://media.wired.com/photos/6b0080a25f35c47a5c116087/master/pass/GettyImages-2285133719.jpg",
+      "sourceUrl": "https://www.wired.com/story/banks-are-cracking-down-on-ai-agents/",
+      "credit": "Reece Rogers",
+      "alt": "",
+      "provenance": "feed"
+    },
+    "published": "Sun, 22 Nov 2026 11:00:00 +0000",
+    "summary": "Major US financial institutions are banning third-party bots from logging into your accounts—and warning that any costly bot mistakes are strictly your problem.",
+    "id": "31c3365412387b39",
+    "source": "wired-ai",
+    "sourceName": "WIRED",
+    "category": "media",
+    "weight": 0.45,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Since last year, we asked: “What if AI solved the Riemann Hypothesis?”",
+    "url": "https://www.youtube.com/watch?v=zqzk43bSdDI",
+    "thumbnail": {
+      "url": "https://i3.ytimg.com/vi/zqzk43bSdDI/hqdefault.jpg",
+      "sourceUrl": "https://www.youtube.com/watch?v=zqzk43bSdDI",
+      "credit": "3Blue1Brown",
+      "alt": "",
+      "provenance": "feed"
+    },
+    "published": "2026-11-22T02:02:12+00:00",
+    "summary": "",
+    "id": "21a2ff09d7e798b8",
+    "source": "3b1b",
+    "sourceName": "3Blue1Brown",
+    "category": "media",
+    "weight": 0.5,
+    "format": "video",
+    "trendOnly": false
+  },
+  {
+    "title": "87% of the Anthropic power will come from gas and 11% from coal in 2028",
+    "url": "https://betterdatacenterproject.com/2026/11/16/how-ai-is-powered-a-breakdown-of-byop-and-grid-power/",
+    "discussion": "https://news.ycombinator.com/item?id=50597612",
+    "published": "2026-11-22T08:57:34Z",
+    "summary": "",
+    "engagement": {
+      "points": 577,
+      "comments": 644
+    },
+    "id": "bf1d56f79e0821ae",
+    "source": "hn",
+    "sourceName": "Hacker News",
+    "category": "community",
+    "weight": 0.35,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "Show HN: I built a game where you are an LLM's subagent",
+    "url": "https://github.com/gulivan/worker755",
+    "discussion": "https://news.ycombinator.com/item?id=50599762",
+    "published": "2026-11-22T13:56:58Z",
+    "summary": "",
+    "engagement": {
+      "points": 156,
+      "comments": 39
+    },
+    "id": "3c4f4993adcaa465",
+    "source": "hn",
+    "sourceName": "Hacker News",
+    "category": "community",
+    "weight": 0.35,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "The Mythology of Conscious AI",
+    "url": "https://www.noemamag.com/the-mythology-of-conscious-ai/",
+    "discussion": "https://news.ycombinator.com/item?id=50595537",
+    "published": "2026-11-22T02:10:02Z",
+    "summary": "",
+    "engagement": {
+      "points": 134,
+      "comments": 374
+    },
+    "id": "78ed71768c6fceaa",
+    "source": "hn",
+    "sourceName": "Hacker News",
+    "category": "community",
+    "weight": 0.35,
+    "format": "article",
+    "trendOnly": false
+  },
+  {
+    "title": "The Transvoxel Algorithm",
+    "url": "https://transvoxel.org/",
+    "discussion": "https://news.ycombinator.com/item?id=50559441",
+    "published": "2026-11-19T12:50:25Z",
+    "summary": "",
+    "engagement": {
+      "points": 5,
+      "comments": 0
+    },
+    "id": "a2581ff0d9e48543",
+    "source": "hn",
+    "sourceName": "Hacker News",
+    "category": "community",
+    "weight": 0.35,
+    "format": "article",
+    "trendOnly": false
+  }
+]

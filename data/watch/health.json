@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-21",
+  "date": "2026-11-22",
   "sources": {
     "anthropic-news": {
       "ok": true,
@@ -11,7 +11,7 @@
     },
     "openai": {
       "ok": true,
-      "count": 1421
+      "count": 1422
     },
     "deepmind": {
       "ok": true,
@@ -39,7 +39,7 @@
     },
     "arxiv-lg": {
       "ok": true,
-      "count": 359
+      "count": 0
     },
     "arxiv-ai": {
       "ok": true,
@@ -54,8 +54,8 @@
       "count": 0
     },
     "import-ai": {
-      "ok": true,
-      "count": 20
+      "ok": false,
+      "error": "HTTP 403"
     },
     "simonw": {
       "ok": true,
@@ -107,11 +107,11 @@
     },
     "3b1b": {
       "ok": true,
-      "count": 3
+      "count": 4
     },
     "hn": {
       "ok": true,
-      "count": 3
+      "count": 5
     }
   }
 }

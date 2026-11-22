@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-21",
+  "date": "2026-11-22",
   "threshold": 0.58,
   "candidates": [
     {
@@ -78,59 +78,6 @@
           "category": "policy",
           "published": "",
           "summary": ""
-        }
-      ]
-    },
-    {
-      "id": "0c3c8b23c6caec3f",
-      "title": "Introducing Gemini 4 Neon",
-      "url": "https://deepmind.google/blog/introducing-gemini-4-neon/",
-      "score": 0.62,
-      "parts": {
-        "authority": 0.95,
-        "corroboration": 0,
-        "impact": 1,
-        "engagement": 0
-      },
-      "categories": [
-        "lab"
-      ],
-      "format": "article",
-      "items": [
-        {
-          "title": "Introducing Gemini 4 Neon",
-          "url": "https://deepmind.google/blog/introducing-gemini-4-neon/",
-          "source": "Google DeepMind",
-          "category": "lab",
-          "published": "Wed, 18 Nov 2026 21:35:43 +0000",
-          "summary": ""
-        }
-      ]
-    },
-    {
-      "id": "8f9897b45e340dea",
-      "title": "Addressing Remote Access to Advanced Semiconductors",
-      "url": "https://www.federalregister.gov/documents/2026/11/19/2026-23529/addressing-remote-access-to-advanced-semiconductors",
-      "score": 0.62,
-      "parts": {
-        "authority": 0.9,
-        "corroboration": 0,
-        "impact": 1,
-        "engagement": 0
-      },
-      "categories": [
-        "policy"
-      ],
-      "format": "article",
-      "items": [
-        {
-          "title": "Addressing Remote Access to Advanced Semiconductors",
-          "url": "https://www.federalregister.gov/documents/2026/11/19/2026-23529/addressing-remote-access-to-advanced-semiconductors",
-          "source": "US Federal Register",
-          "category": "policy",
-          "published": "2026-11-19",
-          "summary": "In this interim final rule (IFR), the Department of Commerce is establishing new rules to prevent certain foreign actors from leveraging advanced computing power based on U.S. technology to threaten U.S. national security and foreign policy interests. First, this rule establishes new restrictions which will apply for exports, reexports, or transfers (in-country) to overseas data centers that remotely supply significant volumes of compute to companies headquartered in Country Group D:5 or Macau. These restrictions will undermine the ability of companies headquartered in countries of concern fro",
-          "docType": "Rule"
         }
       ]
     }
