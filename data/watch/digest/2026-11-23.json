@@ -1,0 +1,488 @@
+[
+  {
+    "id": "680b35173b971311",
+    "title": "Richpanel helps companies automate 50% of support in 30 days",
+    "url": "https://openai.com/business/customer-stories/richpanel-ai-customer-support",
+    "score": 0.62,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI"
+    ]
+  },
+  {
+    "id": "d15c45643214b444",
+    "title": "Hebbia sees improvements in financial research with GPT-6 Astra",
+    "url": "https://openai.com/business/customer-stories/hebbia",
+    "score": 0.62,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI"
+    ]
+  },
+  {
+    "id": "51bc41deb0964a10",
+    "title": "Employee or Independent Contractor Status Under the Fair Labor Standards Act, Family and Medical Leave Act, and Migrant and Seasonal Agricultural Worker Protection Act",
+    "url": "https://www.federalregister.gov/documents/2026/11/23/2026-23777/employee-or-independent-contractor-status-under-the-fair-labor-standards-act-family-and-medical",
+    "score": 0.62,
+    "parts": {
+      "authority": 0.9,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0
+    },
+    "categories": [
+      "policy"
+    ],
+    "format": "article",
+    "sources": [
+      "US Federal Register"
+    ]
+  },
+  {
+    "id": "47b1648bdb930a3d",
+    "title": "How Jensen Huang ended up as Nvidia CEO again",
+    "url": "https://www.theverge.com/tech/1040428/nvidia-jensen-huang-ceo-return",
+    "score": 0.593,
+    "parts": {
+      "authority": 0.45,
+      "corroboration": 0.7,
+      "impact": 0.5,
+      "engagement": 1
+    },
+    "categories": [
+      "media",
+      "community"
+    ],
+    "format": "article",
+    "sources": [
+      "The Verge",
+      "WIRED",
+      "Hacker News"
+    ]
+  },
+  {
+    "id": "de5cd1a6d51dc917",
+    "title": "Perplexity and Intelligence",
+    "url": "https://openai.com/index/perplexity-and-intelligence",
+    "score": 0.475,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI"
+    ]
+  },
+  {
+    "id": "f4784c30400364a2",
+    "title": "Can AI help scientists identify promising drug candidates?",
+    "url": "https://openai.com/index/introducing-medchembench",
+    "score": 0.475,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI"
+    ]
+  },
+  {
+    "id": "9dddeb89e408dae0",
+    "title": "Finding faster quantum algorithms with agents and formal verification",
+    "url": "https://deepmind.google/blog/finding-faster-quantum-algorithms-with-agents-and-formal-verification/",
+    "score": 0.457,
+    "parts": {
+      "authority": 0.95,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/jIoM2lo98EDqLMQjIaXBlXPmXgPbUPpM2GgtXcDsGekZBOPUY41IjBsnuZIhLac7MSOuRkklNBsp20a5M25oDz-xTIY0BIqoBxUqmmXvEHwlM3MJJw=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/finding-faster-quantum-algorithms-with-agents-and-formal-verification/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    },
+    "sources": [
+      "Google DeepMind"
+    ]
+  },
+  {
+    "id": "c149ded9d965fedd",
+    "title": "AgentRoboCritic: Understanding the Capability of Frontier Agents on Direct Robot Control",
+    "url": "https://huggingface.co/papers/2611.26613",
+    "score": 0.453,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0.1
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "d63c6404d469aaa2",
+    "title": "llm-gemini 0.38.1",
+    "url": "https://simonwillison.net/2026/Nov/20/llm-gemini/",
+    "score": 0.425,
+    "parts": {
+      "authority": 0.5,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0
+    },
+    "categories": [
+      "newsletter"
+    ],
+    "format": "article",
+    "sources": [
+      "Simon Willison"
+    ]
+  },
+  {
+    "id": "786a4f32021c11f8",
+    "title": "Oregon and Virginia sue SpaceX over Grok’s porn deepfakes",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1040255/x-grok-ai-deepfakes-oregon-virginia-lawsuit",
+    "score": 0.402,
+    "parts": {
+      "authority": 0.45,
+      "corroboration": 0.4,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "media"
+    ],
+    "format": "article",
+    "sources": [
+      "The Verge",
+      "WIRED"
+    ]
+  },
+  {
+    "id": "07b4e95a07685fe2",
+    "title": "Working with AI",
+    "url": "https://www.anthropic.com/research/working-with-ai",
+    "score": 0.387,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 0.15,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "Anthropic Research"
+    ]
+  },
+  {
+    "id": "1d0c151fefed0dea",
+    "title": "OpenAI and Cisco introduce Shirudo",
+    "url": "https://openai.com/index/introducing-shirudo",
+    "score": 0.387,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 0.15,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI"
+    ]
+  },
+  {
+    "id": "f8a4e02f42124693",
+    "title": "Connected intelligence for in-house legal",
+    "url": "https://openai.com/business/learn/connected-intelligence-for-in-house-legal",
+    "score": 0.387,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 0.15,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI"
+    ]
+  },
+  {
+    "id": "f3a44b0faa8a04e8",
+    "title": "How AI Impacts the Quest for Knowledge: Evidence from AlphaFold2 -- by Myra Mohnen, Joshua S. Gans",
+    "url": "https://www.nber.org/papers/w36045#fromrss",
+    "score": 0.387,
+    "parts": {
+      "authority": 0.75,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "economy"
+    ],
+    "format": "article",
+    "sources": [
+      "NBER Working Papers"
+    ]
+  },
+  {
+    "id": "020effe854da0b8e",
+    "title": "Are Revealed Preferences All You Need for AI Alignment? -- by Joshua S. Gans, Richard T. Holden",
+    "url": "https://www.nber.org/papers/w36048#fromrss",
+    "score": 0.387,
+    "parts": {
+      "authority": 0.75,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "economy"
+    ],
+    "format": "article",
+    "sources": [
+      "NBER Working Papers"
+    ]
+  },
+  {
+    "id": "ddd1a96b0e50a746",
+    "title": "Past Automation and Future AI: How Weak Links Tame the Growth Explosion -- by Charles I. Jones, Christopher Tonetti",
+    "url": "https://www.nber.org/papers/w36050#fromrss",
+    "score": 0.387,
+    "parts": {
+      "authority": 0.75,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "economy"
+    ],
+    "format": "article",
+    "sources": [
+      "NBER Working Papers"
+    ]
+  },
+  {
+    "id": "f2c9f636cbc09d3d",
+    "title": "AI in Science Collaboration",
+    "url": "https://digitaleconomy.stanford.edu/news/ai-in-science-collaboration/",
+    "score": 0.387,
+    "parts": {
+      "authority": 0.75,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "economy"
+    ],
+    "format": "article",
+    "sources": [
+      "Stanford Digital Economy Lab"
+    ]
+  },
+  {
+    "id": "3ea993db7e3c60d1",
+    "title": "Combatting adversarial distillation",
+    "url": "https://openai.com/index/combatting-adversarial-distillation",
+    "score": 0.387,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 0.15,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI"
+    ]
+  },
+  {
+    "id": "93e90517ac8ed1c1",
+    "title": "Non-penetrating World Models",
+    "url": "https://huggingface.co/papers/2611.27963",
+    "score": 0.385,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.68
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "d8a3338ebd25d234",
+    "title": "Clover-35B-A3B-Preview Technical Report",
+    "url": "https://huggingface.co/papers/2611.24636",
+    "score": 0.362,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.45
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "e45a113524a301a4",
+    "title": "Self-Regulatory Organizations; 24X National Exchange LLC; Notice of Filing of a Proposed Rule Change To Adopt Rules To Govern the Trading of Options on the Exchange",
+    "url": "https://www.federalregister.gov/documents/2026/11/23/2026-23748/self-regulatory-organizations-24x-national-exchange-llc-notice-of-filing-of-a-proposed-rule-change",
+    "score": 0.352,
+    "parts": {
+      "authority": 0.9,
+      "corroboration": 0,
+      "impact": 0.15,
+      "engagement": 0
+    },
+    "categories": [
+      "policy"
+    ],
+    "format": "article",
+    "sources": [
+      "US Federal Register"
+    ]
+  },
+  {
+    "id": "5153e6ba27113aec",
+    "title": "Reading the Unreadable: Text-Aware Image Super-Resolution Needs Reasoning",
+    "url": "https://huggingface.co/papers/2611.15449",
+    "score": 0.344,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.26
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "cb6d83b7295ce64c",
+    "title": "Duopra: From Full-Duplex Conversation to Full-Duplex Agency",
+    "url": "https://huggingface.co/papers/2611.25773",
+    "score": 0.344,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.26
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "ca152729c5ba6c2f",
+    "title": "Learning Video Foresight Reasoning from Unlabeled Videos via On-Policy Self-Distillation",
+    "url": "https://huggingface.co/papers/2611.26954",
+    "score": 0.341,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.24
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "6fd4c32fe34a4cba",
+    "title": "How to build and maintain an agentic evaluation",
+    "url": "https://huggingface.co/blog/agentic-evals",
+    "score": 0.335,
+    "parts": {
+      "authority": 0.6,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face"
+    ]
+  }
+]
