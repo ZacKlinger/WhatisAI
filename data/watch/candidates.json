@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-23",
+  "date": "2026-11-24",
   "threshold": 0.58,
   "candidates": [
     {
@@ -25,59 +25,6 @@
           "category": "lab",
           "published": "Mon, 23 Nov 2026 08:00:00 GMT",
           "summary": "Richpanel uses GPT-6 Astra and GPT-6.1 Sol to equip its AI support agents with tools and procedures, and GPT-6 Luna for their conversations."
-        }
-      ]
-    },
-    {
-      "id": "d15c45643214b444",
-      "title": "Hebbia sees improvements in financial research with GPT-6 Astra",
-      "url": "https://openai.com/business/customer-stories/hebbia",
-      "score": 0.62,
-      "parts": {
-        "authority": 1,
-        "corroboration": 0,
-        "impact": 1,
-        "engagement": 0
-      },
-      "categories": [
-        "lab"
-      ],
-      "format": "article",
-      "items": [
-        {
-          "title": "Hebbia sees improvements in financial research with GPT-6 Astra",
-          "url": "https://openai.com/business/customer-stories/hebbia",
-          "source": "OpenAI",
-          "category": "lab",
-          "published": "Fri, 20 Nov 2026 00:00:00 GMT",
-          "summary": "Hebbia tested GPT-6 Astra for financial research. Its prerelease evaluations found gains in source coverage, citation relevance, and presentation quality."
-        }
-      ]
-    },
-    {
-      "id": "51bc41deb0964a10",
-      "title": "Employee or Independent Contractor Status Under the Fair Labor Standards Act, Family and Medical Leave Act, and Migrant and Seasonal Agricultural Worker Protection Act",
-      "url": "https://www.federalregister.gov/documents/2026/11/23/2026-23777/employee-or-independent-contractor-status-under-the-fair-labor-standards-act-family-and-medical",
-      "score": 0.62,
-      "parts": {
-        "authority": 0.9,
-        "corroboration": 0,
-        "impact": 1,
-        "engagement": 0
-      },
-      "categories": [
-        "policy"
-      ],
-      "format": "article",
-      "items": [
-        {
-          "title": "Employee or Independent Contractor Status Under the Fair Labor Standards Act, Family and Medical Leave Act, and Migrant and Seasonal Agricultural Worker Protection Act",
-          "url": "https://www.federalregister.gov/documents/2026/11/23/2026-23777/employee-or-independent-contractor-status-under-the-fair-labor-standards-act-family-and-medical",
-          "source": "US Federal Register",
-          "category": "policy",
-          "published": "2026-11-23",
-          "summary": "This final rule rescinds the analysis for determining employee or independent contractor status under the Fair Labor Standards Act (FLSA or Act) set forth in the Department of Labor's (Department) regulations and replaces it with an analysis similar to what it published in a final rule promulgated in 2021, with several modifications and enhancements. In addition, this final rule amends provisions in the Department's regulations implementing the Family and Medical Leave Act (FMLA) and Migrant and Seasonal Agricultural Worker Protection Act (MSPA) to provide that employee or independent contract",
-          "docType": "Rule"
         }
       ]
     },
