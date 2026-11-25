@@ -1,0 +1,497 @@
+[
+  {
+    "id": "3c6728c1bfd19879",
+    "title": "GPT-6 models demonstrate intrinsic protein-design capabilities",
+    "url": "https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities",
+    "score": 0.62,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI"
+    ]
+  },
+  {
+    "id": "99b93f3e10984935",
+    "title": "Clay helps sales teams win with Codex and ChatGPT",
+    "url": "https://openai.com/business/customer-stories/clay-plugins-openai",
+    "score": 0.62,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI"
+    ]
+  },
+  {
+    "id": "de0631b8498787ab",
+    "title": "AI Act scientific panel holds second regular meeting",
+    "url": "https://digital-strategy.ec.europa.eu/en/news/ai-act-scientific-panel-holds-second-regular-meeting",
+    "score": 0.62,
+    "parts": {
+      "authority": 0.9,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0
+    },
+    "categories": [
+      "policy"
+    ],
+    "format": "article",
+    "sources": [
+      "European Commission (Digital Strategy)"
+    ]
+  },
+  {
+    "id": "680b35173b971311",
+    "title": "Richpanel helps companies automate 50% of support in 30 days",
+    "url": "https://openai.com/business/customer-stories/richpanel-ai-customer-support",
+    "score": 0.62,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI"
+    ]
+  },
+  {
+    "id": "c380f1e9589a2306",
+    "title": "Jensen Huang’s Return Shows Nvidia Is Too Big to Police",
+    "url": "https://www.wired.com/story/jensen-huang-nvidia-us-national-security-risks/",
+    "score": 0.593,
+    "parts": {
+      "authority": 0.45,
+      "corroboration": 0.7,
+      "impact": 0.5,
+      "engagement": 1
+    },
+    "categories": [
+      "media",
+      "community"
+    ],
+    "format": "article",
+    "thumbnail": {
+      "url": "https://media.wired.com/photos/6b05a2cb470266bfec0ce9be/master/pass/GettyImages-2306037065.jpg",
+      "sourceUrl": "https://www.wired.com/story/jensen-huang-nvidia-us-national-security-risks/",
+      "credit": "Dell Cameron",
+      "alt": "",
+      "provenance": "feed"
+    },
+    "sources": [
+      "WIRED",
+      "The Verge",
+      "Hacker News"
+    ]
+  },
+  {
+    "id": "7a6462e387eb267a",
+    "title": "How iFood scales coding agents across 15,000 repositories",
+    "url": "https://openai.com/business/customer-stories/ifood",
+    "score": 0.475,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI"
+    ]
+  },
+  {
+    "id": "634347b2b58c8946",
+    "title": "KMed-31B Technical Report",
+    "url": "https://huggingface.co/papers/2611.28719",
+    "score": 0.466,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0.24
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "9dddeb89e408dae0",
+    "title": "Finding faster quantum algorithms with agents and formal verification",
+    "url": "https://deepmind.google/blog/finding-faster-quantum-algorithms-with-agents-and-formal-verification/",
+    "score": 0.457,
+    "parts": {
+      "authority": 0.95,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/jIoM2lo98EDqLMQjIaXBlXPmXgPbUPpM2GgtXcDsGekZBOPUY41IjBsnuZIhLac7MSOuRkklNBsp20a5M25oDz-xTIY0BIqoBxUqmmXvEHwlM3MJJw=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/finding-faster-quantum-algorithms-with-agents-and-formal-verification/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    },
+    "sources": [
+      "Google DeepMind"
+    ]
+  },
+  {
+    "id": "c149ded9d965fedd",
+    "title": "AgentRoboCritic: Understanding the Capability of Frontier Agents on Direct Robot Control",
+    "url": "https://huggingface.co/papers/2611.26613",
+    "score": 0.453,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0.1
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "3a7d802db1ff6d32",
+    "title": "Frontier models need only one text to unmask its human or AI author",
+    "url": "https://huggingface.co/papers/2611.26216",
+    "score": 0.444,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0.01
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "1403bbee1b79cf3b",
+    "title": "Medicare Program; Contract Year 2028 Policy and Technical Changes to the Medicare Advantage Program, Medicare Prescription Drug Benefit Program, and Programs of All-Inclusive Care for the Elderly",
+    "url": "https://www.federalregister.gov/documents/2026/11/25/2026-23960/medicare-program-contract-year-2028-policy-and-technical-changes-to-the-medicare-advantage-program",
+    "score": 0.44,
+    "parts": {
+      "authority": 0.9,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "policy"
+    ],
+    "format": "article",
+    "sources": [
+      "US Federal Register"
+    ]
+  },
+  {
+    "id": "efc98a45d9318282",
+    "title": "GLM-5.4: Toward Generalized Coding with Our First Loop Transformer",
+    "url": "https://simonwillison.net/2026/Nov/23/glm-54/",
+    "score": 0.432,
+    "parts": {
+      "authority": 0.5,
+      "corroboration": 0.4,
+      "impact": 0.15,
+      "engagement": 1
+    },
+    "categories": [
+      "newsletter",
+      "community"
+    ],
+    "format": "article",
+    "sources": [
+      "Simon Willison",
+      "Hacker News"
+    ]
+  },
+  {
+    "id": "054ddac7c8371519",
+    "title": "[AINews] Gemini 4 Neon marks GDM's full return as a Frontier Lab",
+    "url": "https://latent.space/p/ainews-gemini-4-neon-marks-gdm-s-full-return-as-a-frontier-lab/",
+    "score": 0.425,
+    "parts": {
+      "authority": 0.5,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0
+    },
+    "categories": [
+      "media"
+    ],
+    "format": "podcast",
+    "sources": [
+      "Latent Space"
+    ]
+  },
+  {
+    "id": "c808d58c8ec473e8",
+    "title": "GPT 6.2 Astra Solves a Historical Mystery",
+    "url": "https://simonwillison.net/2026/Nov/24/astra-historical-mystery/",
+    "score": 0.425,
+    "parts": {
+      "authority": 0.5,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0
+    },
+    "categories": [
+      "newsletter"
+    ],
+    "format": "article",
+    "sources": [
+      "Simon Willison"
+    ]
+  },
+  {
+    "id": "f717d7d51a9f2328",
+    "title": "Lazy Agents Answer Against Their Own Beliefs: Reinforcement Learning with Verifiable Beliefs Teaches Them to Act on What They Believe",
+    "url": "https://huggingface.co/papers/2611.32884",
+    "score": 0.417,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 1
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "ccb9331ad40681b7",
+    "title": "Don't Sleep, Keep Watch: Proactive Perception for Computer-Use Agents",
+    "url": "https://huggingface.co/papers/2611.28947",
+    "score": 0.417,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 1
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "a9deb156f023a43f",
+    "title": "Antom 3-in-1 Transformer: A Payment Foundation Model",
+    "url": "https://huggingface.co/papers/2611.25403",
+    "score": 0.417,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 1
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "4b17f79747b00f07",
+    "title": "Embo-Harness: Towards Understanding Frontier-Model-as-Policy Harness",
+    "url": "https://huggingface.co/papers/2611.31201",
+    "score": 0.417,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 1
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "5f2128d111ed145a",
+    "title": "Nemotron-Labs-VisualCreation: Pixel as Code for Agentic Visual Creation",
+    "url": "https://huggingface.co/papers/2611.31358",
+    "score": 0.416,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.99
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "786a4f32021c11f8",
+    "title": "Oregon and Virginia sue SpaceX over Grok’s porn deepfakes",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1040255/x-grok-ai-deepfakes-oregon-virginia-lawsuit",
+    "score": 0.402,
+    "parts": {
+      "authority": 0.45,
+      "corroboration": 0.4,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "media"
+    ],
+    "format": "article",
+    "sources": [
+      "The Verge",
+      "WIRED"
+    ]
+  },
+  {
+    "id": "95b9273cc84912f4",
+    "title": "ACAP: Asynchronous Coding Agents for Efficient Robot Control",
+    "url": "https://huggingface.co/papers/2611.31205",
+    "score": 0.394,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.76
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "9e640d54cb607240",
+    "title": "Migrating our Messages API to Rust",
+    "url": "https://www.anthropic.com/research/migrating-api-to-rust",
+    "score": 0.387,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 0.15,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "Anthropic Research"
+    ]
+  },
+  {
+    "id": "f3aa9260f1094b37",
+    "title": "Searching for distant planets with Astra",
+    "url": "https://openai.com/index/searching-for-distant-planets-with-astra",
+    "score": 0.387,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 0.15,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI"
+    ]
+  },
+  {
+    "id": "ec442b764e041cd2",
+    "title": "How Intentful uses dots to make more time for growth",
+    "url": "https://openai.com/business/customer-stories/intentful-dots",
+    "score": 0.387,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 0.15,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI"
+    ]
+  },
+  {
+    "id": "07b4e95a07685fe2",
+    "title": "Working with AI",
+    "url": "https://www.anthropic.com/research/working-with-ai",
+    "score": 0.387,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 0.15,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "Anthropic Research"
+    ]
+  }
+]
