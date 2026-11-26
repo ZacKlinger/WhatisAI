@@ -1,12 +1,12 @@
 {
-  "updated": "2026-11-25",
+  "updated": "2026-11-26",
   "windowDays": 7,
   "baselineDays": 28,
-  "daysOfHistory": 31,
+  "daysOfHistory": 32,
   "recentObservedDays": 7,
-  "baselineObservedDays": 24,
+  "baselineObservedDays": 25,
   "comparisonReady": false,
-  "itemsLastWeek": 4103,
+  "itemsLastWeek": 4164,
   "rising": [],
   "volume": [
     {
@@ -14,12 +14,11 @@
       "modules": [
         "agents-and-tools"
       ],
-      "recent": 789,
-      "base": 2649,
-      "share": 0.19229831830368024,
+      "recent": 807,
+      "base": 2785,
+      "share": 0.19380403458213258,
       "lift": null,
       "series": [
-        15,
         224,
         6,
         2,
@@ -46,7 +45,8 @@
         1,
         100,
         253,
-        157
+        157,
+        154
       ]
     },
     {
@@ -55,12 +55,11 @@
         "benchmarks",
         "evaluation-science"
       ],
-      "recent": 707,
-      "base": 2364,
-      "share": 0.17231294174993908,
+      "recent": 741,
+      "base": 2467,
+      "share": 0.17795389048991356,
       "lift": null,
       "series": [
-        9,
         204,
         1,
         0,
@@ -87,7 +86,8 @@
         0,
         98,
         237,
-        138
+        138,
+        137
       ]
     },
     {
@@ -95,12 +95,11 @@
       "modules": [
         "multimodality"
       ],
-      "recent": 529,
-      "base": 1386,
-      "share": 0.1289300511820619,
+      "recent": 532,
+      "base": 1461,
+      "share": 0.12776176753121998,
       "lift": null,
       "series": [
-        6,
         113,
         0,
         0,
@@ -127,7 +126,8 @@
         0,
         69,
         186,
-        105
+        105,
+        78
       ]
     },
     {
@@ -135,12 +135,11 @@
       "modules": [
         "multimodality"
       ],
-      "recent": 198,
-      "base": 530,
-      "share": 0.04825737265415549,
+      "recent": 214,
+      "base": 551,
+      "share": 0.05139289145052834,
       "lift": null,
       "series": [
-        3,
         46,
         1,
         0,
@@ -167,7 +166,8 @@
         1,
         25,
         75,
-        43
+        43,
+        37
       ]
     },
     {
@@ -176,12 +176,11 @@
         "alignment-problem",
         "deception-and-scheming"
       ],
-      "recent": 143,
-      "base": 574,
-      "share": 0.03485254691689008,
+      "recent": 149,
+      "base": 596,
+      "share": 0.035782901056676274,
       "lift": null,
       "series": [
-        2,
         47,
         0,
         0,
@@ -208,6 +207,7 @@
         0,
         19,
         54,
+        28,
         28
       ]
     },
@@ -216,12 +216,11 @@
       "modules": [
         "measuring-progress"
       ],
-      "recent": 129,
-      "base": 564,
-      "share": 0.03144040945649525,
+      "recent": 133,
+      "base": 592,
+      "share": 0.031940441882804996,
       "lift": null,
       "series": [
-        0,
         49,
         0,
         0,
@@ -248,7 +247,8 @@
         0,
         23,
         35,
-        20
+        20,
+        32
       ]
     },
     {
@@ -256,12 +256,11 @@
       "modules": [
         "ai-supply-chain"
       ],
-      "recent": 126,
-      "base": 462,
-      "share": 0.030709237143553496,
+      "recent": 128,
+      "base": 477,
+      "share": 0.03073967339097022,
       "lift": null,
       "series": [
-        3,
         26,
         1,
         0,
@@ -288,7 +287,8 @@
         0,
         22,
         48,
-        23
+        23,
+        17
       ]
     },
     {
@@ -296,12 +296,11 @@
       "modules": [
         "us-ai-policy"
       ],
-      "recent": 121,
-      "base": 420,
-      "share": 0.029490616621983913,
+      "recent": 124,
+      "base": 437,
+      "share": 0.029779058597502402,
       "lift": null,
       "series": [
-        1,
         36,
         0,
         0,
@@ -328,48 +327,8 @@
         0,
         16,
         40,
-        27
-      ]
-    },
-    {
-      "term": "Coding assistants",
-      "modules": [
-        "agents-and-tools",
-        "evidence-on-work"
-      ],
-      "recent": 102,
-      "base": 316,
-      "share": 0.024859858640019498,
-      "lift": null,
-      "series": [
-        2,
         27,
-        0,
-        0,
-        10,
-        47,
-        13,
-        16,
-        10,
-        0,
-        0,
-        13,
-        27,
-        16,
-        0,
-        23,
-        0,
-        0,
-        16,
-        35,
-        26,
-        21,
-        12,
-        1,
-        0,
-        13,
-        31,
-        24
+        20
       ]
     },
     {
@@ -378,12 +337,11 @@
         "interpretability-foundations",
         "sparse-autoencoders"
       ],
-      "recent": 95,
-      "base": 426,
-      "share": 0.02315378990982208,
+      "recent": 106,
+      "base": 441,
+      "share": 0.025456292026897216,
       "lift": null,
       "series": [
-        0,
         36,
         0,
         0,
@@ -410,7 +368,49 @@
         0,
         14,
         28,
-        20
+        20,
+        26
+      ]
+    },
+    {
+      "term": "Coding assistants",
+      "modules": [
+        "agents-and-tools",
+        "evidence-on-work"
+      ],
+      "recent": 103,
+      "base": 337,
+      "share": 0.02473583093179635,
+      "lift": null,
+      "series": [
+        27,
+        0,
+        0,
+        10,
+        47,
+        13,
+        16,
+        10,
+        0,
+        0,
+        13,
+        27,
+        16,
+        0,
+        23,
+        0,
+        0,
+        16,
+        35,
+        26,
+        21,
+        12,
+        1,
+        0,
+        13,
+        31,
+        24,
+        22
       ]
     },
     {
@@ -419,12 +419,11 @@
         "compute",
         "ai-supply-chain"
       ],
-      "recent": 91,
-      "base": 342,
-      "share": 0.022178893492566416,
+      "recent": 86,
+      "base": 361,
+      "share": 0.020653218059558116,
       "lift": null,
       "series": [
-        2,
         24,
         2,
         0,
@@ -451,47 +450,8 @@
         0,
         18,
         26,
-        12
-      ]
-    },
-    {
-      "term": "Model releases",
-      "modules": [
-        "system-cards"
-      ],
-      "recent": 87,
-      "base": 379,
-      "share": 0.02120399707531075,
-      "lift": null,
-      "series": [
-        6,
-        21,
-        1,
-        1,
-        20,
-        39,
-        21,
-        14,
-        17,
-        0,
-        0,
-        26,
-        43,
-        22,
-        4,
-        21,
-        1,
-        0,
-        21,
-        39,
-        18,
-        20,
-        13,
-        2,
-        1,
         12,
-        22,
-        17
+        14
       ]
     },
     {
@@ -499,12 +459,11 @@
       "modules": [
         "dangerous-capabilities"
       ],
-      "recent": 79,
-      "base": 328,
-      "share": 0.019254204240799416,
+      "recent": 84,
+      "base": 342,
+      "share": 0.020172910662824207,
       "lift": null,
       "series": [
-        0,
         35,
         0,
         0,
@@ -531,7 +490,48 @@
         0,
         10,
         20,
-        21
+        21,
+        19
+      ]
+    },
+    {
+      "term": "Model releases",
+      "modules": [
+        "system-cards"
+      ],
+      "recent": 77,
+      "base": 399,
+      "share": 0.018491834774255523,
+      "lift": null,
+      "series": [
+        21,
+        1,
+        1,
+        20,
+        39,
+        21,
+        14,
+        17,
+        0,
+        0,
+        26,
+        43,
+        22,
+        4,
+        21,
+        1,
+        0,
+        21,
+        39,
+        18,
+        20,
+        13,
+        2,
+        1,
+        12,
+        22,
+        17,
+        10
       ]
     },
     {
@@ -539,12 +539,11 @@
       "modules": [
         "reasoning-models"
       ],
-      "recent": 71,
-      "base": 209,
-      "share": 0.017304411406288082,
+      "recent": 65,
+      "base": 222,
+      "share": 0.015609990393852064,
       "lift": null,
       "series": [
-        1,
         16,
         1,
         0,
@@ -571,7 +570,8 @@
         0,
         12,
         22,
-        13
+        13,
+        7
       ]
     }
   ],
@@ -616,7 +616,7 @@
       "id": "hf-blog",
       "name": "Hugging Face",
       "ok": true,
-      "count": 917
+      "count": 918
     },
     {
       "id": "hf-papers",
@@ -628,19 +628,19 @@
       "id": "arxiv-cl",
       "name": "arXiv cs.CL",
       "ok": true,
-      "count": 193
+      "count": 177
     },
     {
       "id": "arxiv-lg",
       "name": "arXiv cs.LG",
       "ok": true,
-      "count": 391
+      "count": 419
     },
     {
       "id": "arxiv-ai",
       "name": "arXiv cs.AI",
       "ok": true,
-      "count": 447
+      "count": 398
     },
     {
       "id": "metr",
@@ -657,8 +657,8 @@
     {
       "id": "import-ai",
       "name": "Import AI",
-      "ok": true,
-      "count": 20
+      "ok": false,
+      "count": 0
     },
     {
       "id": "simonw",
@@ -676,7 +676,7 @@
       "id": "eu-digital",
       "name": "European Commission (Digital Strategy)",
       "ok": true,
-      "count": 4
+      "count": 3
     },
     {
       "id": "uk-aisi",
@@ -742,7 +742,7 @@
       "id": "hn",
       "name": "Hacker News",
       "ok": true,
-      "count": 3
+      "count": 4
     }
   ]
 }
