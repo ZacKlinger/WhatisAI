@@ -1,0 +1,484 @@
+[
+  {
+    "id": "f1c1a4f0da473d00",
+    "title": "American SI Exports Program; On-Demand Consortia for Specific Foreign Opportunities",
+    "url": "https://www.federalregister.gov/documents/2026/11/27/2026-24107/american-si-exports-program-on-demand-consortia-for-specific-foreign-opportunities",
+    "score": 0.62,
+    "parts": {
+      "authority": 0.9,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0
+    },
+    "categories": [
+      "policy"
+    ],
+    "format": "article",
+    "sources": [
+      "US Federal Register"
+    ]
+  },
+  {
+    "id": "3c6728c1bfd19879",
+    "title": "GPT-6 models demonstrate intrinsic protein-design capabilities",
+    "url": "https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities",
+    "score": 0.62,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI"
+    ]
+  },
+  {
+    "id": "99b93f3e10984935",
+    "title": "Clay helps sales teams win with Codex and ChatGPT",
+    "url": "https://openai.com/business/customer-stories/clay-plugins-openai",
+    "score": 0.62,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "OpenAI"
+    ]
+  },
+  {
+    "id": "de0631b8498787ab",
+    "title": "AI Act scientific panel holds second regular meeting",
+    "url": "https://digital-strategy.ec.europa.eu/en/news/ai-act-scientific-panel-holds-second-regular-meeting",
+    "score": 0.62,
+    "parts": {
+      "authority": 0.9,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0
+    },
+    "categories": [
+      "policy"
+    ],
+    "format": "article",
+    "sources": [
+      "European Commission (Digital Strategy)"
+    ]
+  },
+  {
+    "id": "634347b2b58c8946",
+    "title": "KMed-31B Technical Report",
+    "url": "https://huggingface.co/papers/2611.28719",
+    "score": 0.466,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0.24
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "02a088434703556c",
+    "title": "Introducing the llama.cpp benchmark dashboard for AMD Ryzen and Radeon",
+    "url": "https://huggingface.co/blog/ggml-org/llamacpp-amd-bench",
+    "score": 0.46,
+    "parts": {
+      "authority": 0.6,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face"
+    ]
+  },
+  {
+    "id": "6cfbaf9eebee60c8",
+    "title": "Evaluating Memanto on DolphinBench for AI Agents",
+    "url": "https://huggingface.co/papers/2611.28231",
+    "score": 0.446,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0.04
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "cb53a5e3e59bc994",
+    "title": "Lost in Translation, Not in Confidence: Benchmarking and Calibrating Multilingual Decision Models",
+    "url": "https://huggingface.co/papers/2611.33307",
+    "score": 0.446,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0.04
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "dbfe714c492ff547",
+    "title": "AIChipBench: Benchmarking LLM Agents for Automated AI Accelerator Design",
+    "url": "https://huggingface.co/papers/2611.33093",
+    "score": 0.445,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0.03
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "1403bbee1b79cf3b",
+    "title": "Medicare Program; Contract Year 2028 Policy and Technical Changes to the Medicare Advantage Program, Medicare Prescription Drug Benefit Program, and Programs of All-Inclusive Care for the Elderly",
+    "url": "https://www.federalregister.gov/documents/2026/11/25/2026-23960/medicare-program-contract-year-2028-policy-and-technical-changes-to-the-medicare-advantage-program",
+    "score": 0.44,
+    "parts": {
+      "authority": 0.9,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0
+    },
+    "categories": [
+      "policy"
+    ],
+    "format": "article",
+    "sources": [
+      "US Federal Register"
+    ]
+  },
+  {
+    "id": "054ddac7c8371519",
+    "title": "[AINews] Gemini 4 Neon marks GDM's full return as a Frontier Lab",
+    "url": "https://latent.space/p/ainews-gemini-4-neon-marks-gdm-s-full-return-as-a-frontier-lab/",
+    "score": 0.425,
+    "parts": {
+      "authority": 0.5,
+      "corroboration": 0,
+      "impact": 1,
+      "engagement": 0
+    },
+    "categories": [
+      "media"
+    ],
+    "format": "podcast",
+    "sources": [
+      "Latent Space"
+    ]
+  },
+  {
+    "id": "ea247b47b521fbc6",
+    "title": "OS-Omni: Benchmarking Generalist Computer-Using Agents on Long-Horizon Workflows Across Platforms",
+    "url": "https://huggingface.co/papers/2611.34232",
+    "score": 0.417,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 1
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "de55fe526105de3b",
+    "title": "Real2SimLab: A Unified Platform for Real-to-Simulation Transfer",
+    "url": "https://huggingface.co/papers/2611.34849",
+    "score": 0.417,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 1
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "6717576b9778057c",
+    "title": "Sage-Med: Scaling Medical Multimodal Intelligence",
+    "url": "https://huggingface.co/papers/2611.34575",
+    "score": 0.417,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 1
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "f717d7d51a9f2328",
+    "title": "Lazy Agents Answer Against Their Own Beliefs: Reinforcement Learning with Verifiable Beliefs Teaches Them to Act on What They Believe",
+    "url": "https://huggingface.co/papers/2611.32884",
+    "score": 0.417,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 1
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "ccb9331ad40681b7",
+    "title": "Don't Sleep, Keep Watch: Proactive Perception for Computer-Use Agents",
+    "url": "https://huggingface.co/papers/2611.28947",
+    "score": 0.417,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 1
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "a9deb156f023a43f",
+    "title": "Antom 3-in-1 Transformer: A Payment Foundation Model",
+    "url": "https://huggingface.co/papers/2611.25403",
+    "score": 0.417,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 1
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "5f2128d111ed145a",
+    "title": "Nemotron-Labs-VisualCreation: Pixel as Code for Agentic Visual Creation",
+    "url": "https://huggingface.co/papers/2611.31358",
+    "score": 0.416,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.99
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "95b9273cc84912f4",
+    "title": "ACAP: Asynchronous Coding Agents for Efficient Robot Control",
+    "url": "https://huggingface.co/papers/2611.31205",
+    "score": 0.394,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.76
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "9636993dcbefcb0f",
+    "title": "What a Forecasting Leaderboard Can Establish: Resolution Reporting for Zero-Shot Time-Series Models",
+    "url": "https://huggingface.co/papers/2611.31619",
+    "score": 0.389,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.71
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "9e640d54cb607240",
+    "title": "Migrating our Messages API to Rust",
+    "url": "https://www.anthropic.com/research/migrating-api-to-rust",
+    "score": 0.387,
+    "parts": {
+      "authority": 1,
+      "corroboration": 0,
+      "impact": 0.15,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "sources": [
+      "Anthropic Research"
+    ]
+  },
+  {
+    "id": "e44c65cf42c4c921",
+    "title": "VibeVideoAgent: Closing the Perceptual Loop for Code-Driven Video Generation",
+    "url": "https://huggingface.co/papers/2611.34237",
+    "score": 0.385,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.68
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "07af9c5780f0ec6e",
+    "title": "Solve Vision with Code: Coding Agents Are Stronger Visual Reasoners Than Video Models",
+    "url": "https://huggingface.co/papers/2611.34813",
+    "score": 0.38,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.63
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "84084d872d88964e",
+    "title": "Self-Evolving Evaluation Environments for Computer-Use Agents",
+    "url": "https://huggingface.co/papers/2611.30962",
+    "score": 0.374,
+    "parts": {
+      "authority": 0.55,
+      "corroboration": 0,
+      "impact": 0.5,
+      "engagement": 0.56
+    },
+    "categories": [
+      "research"
+    ],
+    "format": "article",
+    "sources": [
+      "Hugging Face Daily Papers"
+    ]
+  },
+  {
+    "id": "dd94f7af62fb3fa3",
+    "title": "From spectrum to structure: Identifying molecules with Mass Spec Skills for Google Antigravity",
+    "url": "https://deepmind.google/blog/interpreting-mass-spectra-with-google-antigravity/",
+    "score": 0.37,
+    "parts": {
+      "authority": 0.95,
+      "corroboration": 0,
+      "impact": 0.15,
+      "engagement": 0
+    },
+    "categories": [
+      "lab"
+    ],
+    "format": "article",
+    "thumbnail": {
+      "url": "https://lh3.googleusercontent.com/CtAfS_JWygw2R9cuDNty3xd0S4WFRzVew1vtNDiPaN1ZOGa88hCwTiCLxtgCtpSFER2t3jFO-moRkPnQYPjXziNgMvKHVc0wkOkzBTdGRoOYL3Ld=w528-h297-n-nu-rw-lo",
+      "sourceUrl": "https://deepmind.google/blog/interpreting-mass-spectra-with-google-antigravity/",
+      "credit": "Google DeepMind",
+      "alt": "",
+      "provenance": "feed"
+    },
+    "sources": [
+      "Google DeepMind"
+    ]
+  }
+]

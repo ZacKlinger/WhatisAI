@@ -1,12 +1,12 @@
 {
-  "updated": "2026-11-26",
+  "updated": "2026-11-27",
   "windowDays": 7,
   "baselineDays": 28,
-  "daysOfHistory": 32,
+  "daysOfHistory": 33,
   "recentObservedDays": 7,
-  "baselineObservedDays": 25,
+  "baselineObservedDays": 26,
   "comparisonReady": false,
-  "itemsLastWeek": 4164,
+  "itemsLastWeek": 3469,
   "rising": [],
   "volume": [
     {
@@ -14,12 +14,11 @@
       "modules": [
         "agents-and-tools"
       ],
-      "recent": 807,
-      "base": 2785,
-      "share": 0.19380403458213258,
+      "recent": 678,
+      "base": 2926,
+      "share": 0.19544537330642836,
       "lift": null,
       "series": [
-        224,
         6,
         2,
         142,
@@ -46,7 +45,8 @@
         100,
         253,
         157,
-        154
+        154,
+        12
       ]
     },
     {
@@ -55,12 +55,11 @@
         "benchmarks",
         "evaluation-science"
       ],
-      "recent": 741,
-      "base": 2467,
-      "share": 0.17795389048991356,
+      "recent": 620,
+      "base": 2596,
+      "share": 0.17872585759584894,
       "lift": null,
       "series": [
-        204,
         1,
         0,
         108,
@@ -87,7 +86,8 @@
         98,
         237,
         138,
-        137
+        137,
+        8
       ]
     },
     {
@@ -95,12 +95,11 @@
       "modules": [
         "multimodality"
       ],
-      "recent": 532,
-      "base": 1461,
-      "share": 0.12776176753121998,
+      "recent": 446,
+      "base": 1554,
+      "share": 0.12856731046411068,
       "lift": null,
       "series": [
-        113,
         0,
         0,
         49,
@@ -127,7 +126,8 @@
         69,
         186,
         105,
-        78
+        78,
+        7
       ]
     },
     {
@@ -135,12 +135,11 @@
       "modules": [
         "multimodality"
       ],
-      "recent": 214,
-      "base": 551,
-      "share": 0.05139289145052834,
+      "recent": 184,
+      "base": 583,
+      "share": 0.053041222254251945,
       "lift": null,
       "series": [
-        46,
         1,
         0,
         24,
@@ -167,7 +166,8 @@
         25,
         75,
         43,
-        37
+        37,
+        2
       ]
     },
     {
@@ -176,12 +176,11 @@
         "alignment-problem",
         "deception-and-scheming"
       ],
-      "recent": 149,
-      "base": 596,
-      "share": 0.035782901056676274,
+      "recent": 130,
+      "base": 615,
+      "share": 0.037474776592678005,
       "lift": null,
       "series": [
-        47,
         0,
         0,
         19,
@@ -208,7 +207,8 @@
         19,
         54,
         28,
-        28
+        28,
+        0
       ]
     },
     {
@@ -216,12 +216,11 @@
       "modules": [
         "measuring-progress"
       ],
-      "recent": 133,
-      "base": 592,
-      "share": 0.031940441882804996,
+      "recent": 112,
+      "base": 613,
+      "share": 0.03228596137215336,
       "lift": null,
       "series": [
-        49,
         0,
         0,
         41,
@@ -248,7 +247,8 @@
         23,
         35,
         20,
-        32
+        32,
+        0
       ]
     },
     {
@@ -256,12 +256,11 @@
       "modules": [
         "ai-supply-chain"
       ],
-      "recent": 128,
-      "base": 477,
-      "share": 0.03073967339097022,
+      "recent": 111,
+      "base": 495,
+      "share": 0.03199769385990199,
       "lift": null,
       "series": [
-        26,
         1,
         0,
         12,
@@ -288,7 +287,8 @@
         22,
         48,
         23,
-        17
+        17,
+        1
       ]
     },
     {
@@ -296,12 +296,11 @@
       "modules": [
         "us-ai-policy"
       ],
-      "recent": 124,
-      "base": 437,
-      "share": 0.029779058597502402,
+      "recent": 105,
+      "base": 458,
+      "share": 0.030268088786393775,
       "lift": null,
       "series": [
-        36,
         0,
         0,
         18,
@@ -328,48 +327,8 @@
         16,
         40,
         27,
-        20
-      ]
-    },
-    {
-      "term": "Interpretability",
-      "modules": [
-        "interpretability-foundations",
-        "sparse-autoencoders"
-      ],
-      "recent": 106,
-      "base": 441,
-      "share": 0.025456292026897216,
-      "lift": null,
-      "series": [
-        36,
-        0,
-        0,
-        24,
-        50,
-        23,
-        15,
-        32,
-        0,
-        0,
-        30,
-        46,
-        28,
-        0,
-        35,
-        0,
-        0,
-        18,
-        40,
-        15,
-        15,
-        18,
-        0,
-        0,
-        14,
-        28,
         20,
-        26
+        2
       ]
     },
     {
@@ -378,12 +337,11 @@
         "agents-and-tools",
         "evidence-on-work"
       ],
-      "recent": 103,
-      "base": 337,
-      "share": 0.02473583093179635,
+      "recent": 93,
+      "base": 349,
+      "share": 0.02680887863937734,
       "lift": null,
       "series": [
-        27,
         0,
         0,
         10,
@@ -410,7 +368,49 @@
         13,
         31,
         24,
-        22
+        22,
+        2
+      ]
+    },
+    {
+      "term": "Interpretability",
+      "modules": [
+        "interpretability-foundations",
+        "sparse-autoencoders"
+      ],
+      "recent": 88,
+      "base": 459,
+      "share": 0.025367541078120497,
+      "lift": null,
+      "series": [
+        0,
+        0,
+        24,
+        50,
+        23,
+        15,
+        32,
+        0,
+        0,
+        30,
+        46,
+        28,
+        0,
+        35,
+        0,
+        0,
+        18,
+        40,
+        15,
+        15,
+        18,
+        0,
+        0,
+        14,
+        28,
+        20,
+        26,
+        0
       ]
     },
     {
@@ -419,12 +419,11 @@
         "compute",
         "ai-supply-chain"
       ],
-      "recent": 86,
-      "base": 361,
-      "share": 0.020653218059558116,
+      "recent": 72,
+      "base": 376,
+      "share": 0.020755260882098586,
       "lift": null,
       "series": [
-        24,
         2,
         0,
         8,
@@ -451,7 +450,8 @@
         18,
         26,
         12,
-        14
+        14,
+        1
       ]
     },
     {
@@ -459,12 +459,11 @@
       "modules": [
         "dangerous-capabilities"
       ],
-      "recent": 84,
-      "base": 342,
-      "share": 0.020172910662824207,
+      "recent": 71,
+      "base": 355,
+      "share": 0.020466993369847218,
       "lift": null,
       "series": [
-        35,
         0,
         0,
         18,
@@ -491,7 +490,8 @@
         10,
         20,
         21,
-        19
+        19,
+        0
       ]
     },
     {
@@ -499,12 +499,11 @@
       "modules": [
         "system-cards"
       ],
-      "recent": 77,
-      "base": 399,
-      "share": 0.018491834774255523,
+      "recent": 65,
+      "base": 412,
+      "share": 0.018737388296339003,
       "lift": null,
       "series": [
-        21,
         1,
         1,
         20,
@@ -531,7 +530,8 @@
         12,
         22,
         17,
-        10
+        10,
+        1
       ]
     },
     {
@@ -539,12 +539,11 @@
       "modules": [
         "reasoning-models"
       ],
-      "recent": 65,
-      "base": 222,
-      "share": 0.015609990393852064,
+      "recent": 54,
+      "base": 233,
+      "share": 0.015566445661573941,
       "lift": null,
       "series": [
-        16,
         1,
         0,
         18,
@@ -571,7 +570,8 @@
         12,
         22,
         13,
-        7
+        7,
+        0
       ]
     }
   ],
@@ -616,7 +616,7 @@
       "id": "hf-blog",
       "name": "Hugging Face",
       "ok": true,
-      "count": 918
+      "count": 919
     },
     {
       "id": "hf-papers",
@@ -634,7 +634,7 @@
       "id": "arxiv-lg",
       "name": "arXiv cs.LG",
       "ok": true,
-      "count": 419
+      "count": 0
     },
     {
       "id": "arxiv-ai",
@@ -742,7 +742,7 @@
       "id": "hn",
       "name": "Hacker News",
       "ok": true,
-      "count": 4
+      "count": 7
     }
   ]
 }

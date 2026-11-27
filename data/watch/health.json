@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-26",
+  "date": "2026-11-27",
   "sources": {
     "anthropic-news": {
       "ok": true,
@@ -27,7 +27,7 @@
     },
     "hf-blog": {
       "ok": true,
-      "count": 918
+      "count": 919
     },
     "hf-papers": {
       "ok": true,
@@ -39,7 +39,7 @@
     },
     "arxiv-lg": {
       "ok": true,
-      "count": 419
+      "count": 0
     },
     "arxiv-ai": {
       "ok": true,
@@ -111,7 +111,7 @@
     },
     "hn": {
       "ok": true,
-      "count": 4
+      "count": 7
     }
   }
 }

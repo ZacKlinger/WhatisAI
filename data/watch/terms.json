@@ -746,5 +746,18 @@
     "State AI laws": 1,
     "__items": 731,
     "__observed": true
+  },
+  "2026-11-27": {
+    "Multimodal and video": 7,
+    "Agents": 12,
+    "Open-weight models": 1,
+    "Coding assistants": 2,
+    "Evaluations": 8,
+    "Robotics": 2,
+    "US AI policy": 2,
+    "Model releases": 1,
+    "Chips and compute": 1,
+    "__items": 37,
+    "__observed": true
   }
 }
